@@ -146,7 +146,7 @@ if ($usr['id_author'] != $author_session['id_author'])
 $fl = 'date_update = NOW()';
 
 // First name must have at least one character
-if (strlen(utf8_decode($usr['name_first'])) < 1) {
+if (strlen(lcm_utf8_decode($usr['name_first'])) < 1) {
 	$_SESSION['errors']['name_first'] = _T('person_input_name_first') . ' ' . 'Must be at least 1 character';
 	$_SESSION['usr']['name_first'] = $usr['name_first'];
 } else {
@@ -157,7 +157,7 @@ if (strlen(utf8_decode($usr['name_first'])) < 1) {
 $fl .= ", name_middle = '" . clean_input($usr['name_middle']) . "'";
 
 // Last name must have at least one character
-if (strlen(utf8_decode($usr['name_last'])) < 1) {
+if (strlen(lcm_utf8_decode($usr['name_last'])) < 1) {
 	$_SESSION['errors']['name_last'] = _T('person_input_name_last') . ' ' . 'Must be at least 1 character';
 	$_SESSION['usr']['name_last'] = $usr['name_last'];
 } else {
