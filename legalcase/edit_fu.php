@@ -274,7 +274,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 						strtotime($_SESSION['fu_data']['app_end_time']) - strtotime($_SESSION['fu_data']['app_start_time']) : 0);
 			//	echo _T('calendar_info_time') . ' ';
 				echo get_time_interval_inputs('app_delta', $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
-				echo f_err_star('end_time',$_SESSION['errors']);
+				echo f_err_star('app_end_time',$_SESSION['errors']);
 			}
 			echo "</td></tr>\n";
 
@@ -290,7 +290,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 				$interval = ( ($_SESSION['fu_data']['app_end_time']!='0000-00-00 00:00:00') ?
 						strtotime($_SESSION['fu_data']['app_start_time']) - strtotime($_SESSION['fu_data']['app_reminder']) : 0);
 			//	echo _T('calendar_info_time') . ' ';
-				echo get_time_interval_inputs('app_reminder_offset', $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
+				echo get_time_interval_inputs('app_rem_offset', $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
 				echo " before the start time"; // TRAD
 				echo f_err_star('app_reminder',$_SESSION['errors']);
 			}
