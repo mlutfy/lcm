@@ -71,7 +71,6 @@ if (empty($_SESSION['errors'])) {
 
 	} else {
 		// Set default values for the new case
-		$_SESSION['case_data']['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
 		$_SESSION['case_data']['public'] = read_meta('case_default_read');
 		$_SESSION['case_data']['pub_write'] = read_meta('case_default_write');
 		$_SESSION['case_data']['status'] = 'draft';
@@ -107,9 +106,6 @@ if ($_SESSION['case_data']['id_case']) {
 	echo f_err_star('title',$_SESSION['errors']) . "</td></tr>
 		<tr><td>" . _T('case_input_court_archive') . "</td>
 			<td><input name=\"id_court_archive\" value=\"" . clean_output($_SESSION['case_data']['id_court_archive']) . "\" class=\"search_form_txt\"></td></tr>";
-// [AG] Creation date not shown upon ML request
-//		<tr><td>" . _T('case_input_date_creation') . "</td>
-//			<td>" . $_SESSION['case_data']['date_creation'] . "</td></tr>
 // [AG] Assignment date is set only when adding user to the case
 //		<tr><td>" . _T('case_input_date_assignment') . "</td>
 //			<td><input name=\"date_assignment\" value=\"" . clean_output($_SESSION['case_data']['date_assignment']) . "\" class=\"search_form_txt\"></td></tr>
