@@ -356,6 +356,42 @@ function show_edit_contacts_form($type_person, $id_person) {
 	$cpt_new++;
 }
 
+function show_all_contacts($type_person, $id_of_person) {
+	global $author_session;
+	$hide_emails = read_meta('hide_emails');
+
+	$contacts = get_contacts($type_person, $id_of_person);
+
+	$html = '<div class="prefs_column_menu_head">' . _T('generic_subtitle_contacts') . "</div>\n";
+	$html .= '<table border="0" class="tbl_usr_dtl" width="100%">' . "\n";
+
+	$i = 0;
+	foreach($contacts as $c) {
+		// Check if the contact is an e-mail
+		if (strpos($c['name'],'email') === 0) {
+			if (! ($hide_emails == 'yes' && $author_session['status'] != 'admin')) {
+				$html .= "\t<tr>";
+				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
+				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
+				$html .= '<a href="mailto:' . $c['value'] . '">' . $c['value'] . '</a></td>';
+				$html .= "</tr>\n";
+				$i++;
+			}
+		} else {
+			$html .= "\t<tr>";
+			$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
+			$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . $c['value'] . "</td>";
+			$html .= "</tr>\n";
+			$i++;
+		}
+	}
+
+	$html .= "</table><br />\n";
+
+	if ($i > 0)
+		echo $html;
+}
+
 function update_contacts_request($type_person, $id_of_person) {
 
 	//
