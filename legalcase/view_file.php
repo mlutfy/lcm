@@ -26,20 +26,37 @@ include_lcm('inc_acc');
 
 // Get request parameters
 $file_id = intval($_REQUEST['file_id']);
+$type = clean_input($_REQUEST['type']);
 
-//Check the access rights
-$q = "SELECT lcm_case_attachment.*,lcm_case.public
-	FROM lcm_case_attachment,lcm_case
-	WHERE lcm_case_attachment.id_case=lcm_case.id_case
-		AND id_attachment=$file_id";
-$result = lcm_query($q);
+switch ($type) {
+	case 'case' :
+		$q = "SELECT lcm_case_attachment.*,lcm_case.public
+			FROM lcm_case_attachment,lcm_case
+			WHERE lcm_case_attachment.id_case=lcm_case.id_case
+				AND id_attachment=$file_id";
+		$result = lcm_query($q);
+		
+		if (lcm_num_rows($result) == 0) die("There is no such file!");
+		
+		$row = lcm_fetch_array($result);
+		
+		if (!(($GLOBALS['author_session']['status'] == 'admin') || $row['public'] || allowed($row['id_case'],'r'))) {
+			die(_T('error_no_read_permission'));
+		}
+		break;
+	case 'client' :
+		$q = "SELECT *
+			FROM lcm_client_attachment
+			WHERE id_attachment=$file_id";
+		$result = lcm_query($q);
 
-if (lcm_num_rows($result) == 0) die("There is no such file!");
+		if (lcm_num_rows($result) == 0) die("There is no such file!");
 
-$row = lcm_fetch_array($result);
+		$row = lcm_fetch_array($result);
 
-if (!(($GLOBALS['author_session']['status'] == 'admin') || $row['public'] || allowed($row['id_case'],'r'))) {
-	die(_T('error_no_read_permission'));
+		break;
+	default :
+		die("What type of attachment?");
 }
 
 header("Content-Type: " . ($row['type'] ? $row['type'] : "application/octet-stream") );
