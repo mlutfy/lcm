@@ -203,7 +203,7 @@ echo show_all_errors($_SESSION['errors']);
 		<tr>
 			<td colspan="2" align="center" valign="middle" class="heading"><h4><?php echo _T('authoredit_subtitle_connectionidentifiers'); ?></h4></td>
 		</tr>
-		<tr><td align="right" valign="top"><?php echo f_err_star('username', $_SESSION['errors']) . _T('authoredit_input_login'); ?></td>
+		<tr><td align="right" valign="top"><?php echo f_err_star('username', $_SESSION['errors']) . _T('authoredit_input_username'); ?></td>
 			<td align="left" valign="top">
 
 		<?php
