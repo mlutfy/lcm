@@ -44,6 +44,12 @@ if (empty($errors)) {
 	$existing = ($author > 0);
 
 	if ($existing) {
+		// Check if user is permitted to edit this author's data
+		if (($GLOBALS['author_session']['status'] != 'admin') &&
+			($author != $GLOBALS['author_session']['id_author'])) {
+			die("You don't have the right to edit this author's details");
+		}
+		// Get author data
 		$q = "SELECT * FROM lcm_author WHERE id_author=$author";
 		$result = lcm_query($q);
 		if ($row = lcm_fetch_array($result)) {
@@ -55,7 +61,7 @@ if (empty($errors)) {
 		$type_email = get_contact_type_id('email_main');
 		
 		$q = "SELECT value
-				FROM lcm_contact 
+				FROM lcm_contact
 				WHERE id_of_person = $author
 					AND type_person = 'author'
 					AND type_contact = " . $type_email;
