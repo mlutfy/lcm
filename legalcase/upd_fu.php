@@ -89,6 +89,13 @@ if (count($errors)) {
 			case 'conclusion' :
 				$status = 'closed';
 				break;
+			case 'suspension' :
+				$status = 'suspended';
+				break;
+			case 'resumption' :
+			case 'reopening' :
+				$status = 'open';
+				break;
 			default: $status = '';
 		}
 		if ($status) {
