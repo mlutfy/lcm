@@ -567,11 +567,12 @@ if ($case > 0) {
 
 				// Attach new file form
 				if ($add)
-					show_attachments_upload('case', $case);
+					show_attachments_upload('case', $case, $_SESSION['user_file']['name'], $_SESSION['user_file']['description']);
 
 				echo '</fieldset>';
 
 				$_SESSION['errors'] = array();
+				$_SESSION['user_file'] = array();
 
 				break;
 		}
