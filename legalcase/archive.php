@@ -25,22 +25,31 @@ include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
 
+// Check access rights
 if ($GLOBALS['author_session']['status'] != 'admin') 
 	die("You don't have the right to list all cases!");
 
-lcm_page_start("Case archives");
+// Show page start
+lcm_page_start("Archives");
+
+// Show tabs
+$tabs = array(	array('name' => 'All cases','url' => 'archive.php'),
+		array('name' => 'Export DB','url' => 'export_db.php'),
+		array('name' => 'Import DB','url' => 'import_db.php')
+	);
+show_tabs_links($tabs,0);
+
+// This should be shown in other tabs
+/*echo "<p>This will go into tabs: ";
+echo '<a href="export_db.php" class="content_link">' . "Export DB" . "</a>, ";
+echo '<a href="import_db.php" class="content_link">' . "Import DB" . "</a>";
+echo "</p>\n";*/
 
 $q = "SELECT DISTINCT lcm_case.id_case,title,status,public,pub_write
 		FROM lcm_case,lcm_case_author
 		WHERE (lcm_case.id_case=lcm_case_author.id_case";
 
-// This should be shown in other tabs
-echo "<p>This will go into tabs: ";
-echo '<a href="export_db.php" class="content_link">' . "Export DB" . "</a>, ";
-echo '<a href="import_db.php" class="content_link">' . "Import DB" . "</a>";
-echo "</p>\n";
-
-$find_case_strinr = $_REQUEST['find_case_string'];
+$find_case_string = $_REQUEST['find_case_string'];
 
 // Add search criteria if any
 if (strlen($find_case_string) > 1) {
