@@ -179,7 +179,7 @@ if ($client > 0) {
 				// Show recent cases
 				// [AG] Since this info is on separate tab, they could be more, i.e. $prefs['page_rows']
 				//
-				$q = "SELECT clo.id_case, c.title, c.date_creation
+				$q = "SELECT clo.id_case, c.title, c.date_creation, c.id_court_archive, c.status
 						FROM lcm_case_client_org as clo, lcm_case as c
 						WHERE id_client = " . $client . "
 						AND clo.id_case = c.id_case
