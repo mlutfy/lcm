@@ -29,7 +29,7 @@ include_lcm('inc_filters');
 $type = clean_input($_POST['type']);
 $destination = intval($_POST['destination']);
 $case = intval($_POST['id_case']);
-$sumbilled = $_POST['sumbilled'];
+$sumbilled = ($_POST['sumbilled'] ? $_POST['sumbilled'] : 0);
 $ref_edit_fu = clean_input($_POST['ref_edit_fu']);
 
 // Check incoming data
