@@ -116,6 +116,10 @@ if (empty($_SESSION['errors'])) {
 					// Add separator
 					$_SESSION['fu_data']['description'] .= "\n--=+=--\n";
 
+					// Set start and end times of the followup from the appointment
+					$_SESSION['fu_data']['date_start'] = $row['start_time'];
+					$_SESSION['fu_data']['date_end']   = $row['end_time'];
+
 					// Save appointment ID as session variable
 					$_SESSION['fu_data']['id_app'] = $app;
 				} else {
