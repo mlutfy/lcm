@@ -139,7 +139,10 @@ if ($installed_db_version <> $lcm_db_version) {
 
 //
 // Fetch the administration cookie
-$cookie_admin = $HTTP_COOKIE_VARS['lcm_admin'];
+if (isset($HTTP_COOKIE_VARS['lcm_admin']))
+	$cookie_admin = $HTTP_COOKIE_VARS['lcm_admin'];
+else
+	$cookie_admin = "";
 
 
 ?>
