@@ -56,14 +56,17 @@ if ($client>0) {
 		// [ML] TODO: Show as a list with UL + LI without bullets (accessibility)
 
 		// Show client details
-		lcm_page_start("Client: " . $row['name_first'] . ' ' .  $row['name_middle'] . ' ' . $row['name_last']);
-		echo '<fieldset class="info_box"><div class="prefs_column_menu_head">About this client</div><p class="normal_text">';
-		echo 'Client ID: ' . $row['id_client'] . "<br/>\n";
-		echo 'Gender: ' . $gender . "<br/>\n";
-		echo 'Citizen number: ' . $row['citizen_number'] . "<br/>\n";
-		echo 'Address: ' . $row['address'] . "<br/>\n";
-		echo 'Civil status: ' . $row['civil_status'] . "<br/>\n";
-		echo 'Income: ' . $row['income'] . "<br/>\n";
+		lcm_page_start(_T('title_client_view') . ' ' . $row['name_first'] . ' ' .  $row['name_middle'] . ' ' . $row['name_last']);
+		echo '<fieldset class="info_box">';
+		echo '<div class="prefs_column_menu_head">' . _T('client_subtitle_view_general') . "</div>\n";
+
+		echo '<p class="normal_text">';
+		echo _T('client_input_id') . ' ' . $row['id_client'] . "<br/>\n";
+		echo _T('person_input_gender') . ' ' . $gender . "<br/>\n";
+		echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
+		echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
+		echo _T('person_input_address') . ' ' . $row['civil_status'] . "<br/>\n";
+		echo _T('person_input_income') . ' ' . $row['income'] . "<br/>\n";
 		echo 'Creation date: ' . format_date($row['date_creation']) . "<br/>\n";
 		// [ML] echo 'Last update date: ' . $row['date_update'] . "<br/>\n";
 		echo "</p>\n";
@@ -71,17 +74,17 @@ if ($client>0) {
 		if ($edit)
 			echo '<a href="edit_client.php?client=' . $row['id_client'] .  '" class="edit_lnk">Edit client information</a><br />' . "\n";
 		
-		echo "<br /></fieldset>";
+		echo "<br /></fieldset>\n";
 			
-		?>
-		
-		<fieldset class="info_box"><div class="prefs_column_menu_head">Organisation(s) represented by this client</div>
+		echo '<fieldset class="info_box">';
+		echo '<div class="prefs_column_menu_head">' . _T('client_subtitle_associated_org') . "</div>\n";
+
+		echo '
 		<br /><table border="0" class="tbl_usr_dtl">
 		    <tr>
 			<th class="heading">Organisation name</th>
 			<th class="heading">&nbsp;</th>
-		    </tr>
-		<?php
+		    </tr>';
 
 		// Show organisation(s)
 		$q="SELECT lcm_org.id_org,name
