@@ -156,6 +156,7 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 	//
 	
 	echo "<div id='header'>
+		<a href='summary.php' class='balance_link'>&nbsp;</a>
 		<h1 class='lcm_main_head'><a href='summary.php' class='head_ttl_link'>" . $site_name . "</a></h1>
 		<div class='lcm_slogan'><a href='summary.php' class='head_subttl_link'>" . $site_desc . "</a></div>
 	</div>";
