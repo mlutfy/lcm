@@ -102,7 +102,7 @@ if ($case > 0) {
 			foreach ($statuses as $s)
 				echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
 			echo "\t</select>\n";
-			echo "\t<input type='submit' value='Set case status'>\n";
+			echo "\t<button type='submit' name='submit' value='set_status' class='simple_form_btn'>Set case status</button>\n";
 			echo "</form>\n";
 		} else {
 			echo clean_output($row['status']) . "<br>\n";
