@@ -505,7 +505,7 @@ function http_agenda_invisible($id, $annee, $jour, $mois, $script, $ancre)
 
 	// [ML] I had a problem centering the name of month, so I removed the 'width="100%"'
 	// but I know it's still ugly now, so if you have any ideas, feel free to fix :-)
-	$gadget .= "<table cellpadding='0' cellspacing='5' border='0'align='center'>\n";
+	$gadget .= "<table cellpadding='0' cellspacing='5' border='0' align='center'>\n";
 	$gadget .= "<tr>\n<td valign='top' width='33%'>"
 		// previous month
 		. http_calendrier_agenda($mois-1, $annee, $jour, $mois, $annee, $GLOBALS['afficher_bandeau_calendrier_semaine'], $script,$ancre) 
