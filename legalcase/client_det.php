@@ -96,13 +96,13 @@ if ($client>0) {
 				echo '<a href="edit_org.php?org=' . $row['id_org'] . '" class="content_link">Edit</a>';
 			echo "</td></tr>\n";
 		}
+		
+		echo "</table>";
 
 		if ($edit)
-			echo "<tr><td><a href=\"sel_org_cli.php?client=$client\" class=\"content_link\"><strong>Add organisation(s)</strong></a></td><td></td></tr>";
+			echo "<br /><a href=\"sel_org_cli.php?client=$client\" class=\"add_create_new_lnk\">Add organisation(s)</a><br />";
 
-		?>
-		</table><br>
-		<?php
+		
 
 	} else die("There's no such client!");
 } else die("Which client?");
