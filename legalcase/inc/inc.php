@@ -102,6 +102,14 @@ if (isset($_REQUEST['author_ui_modified'])) {
 		}
 	}
 
+	// Set intervals notation
+	if ($_REQUEST['sel_time_intervals_notation'] != $_REQUEST['old_time_intervals_notation']) {
+		if (in_array($_REQUEST['sel_time_intervals_notation'],array("hours_only", "floatdays_hours_minutes", "floatdays_floathours_minutes"))) {
+			$prefs['time_intervals_notation'] = $_REQUEST['sel_time_intervals_notation'];
+			$prefs_mod = true;
+		}
+	}
+
 	// Set rows per page preference
 	if (intval($_REQUEST['page_rows']) > 0) {
 		$prefs['page_rows'] = intval($_REQUEST['page_rows']);
