@@ -1225,6 +1225,7 @@ function show_listcase_start() {
 }
 
 function show_listcase_item($item, $cpt, $custom = '') {
+	include('inc/inc_acc.php');
 	$case_court_archive = read_meta('case_court_archive');
 
 	$ac_read = allowed($item['id_case'],'r');
