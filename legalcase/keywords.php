@@ -57,12 +57,12 @@ function show_all_keywords($type = '') {
 			}
 
 			echo "</ul>\n";
-
-			echo '<p><a class="edit_lnk" href="keywords.php?action=edit_keyword&amp;id_keyword=0&amp;'
-				. 'id_group=' . $kwg['id_group'] . '">'
-				. 'Add a new keyword in this group' . "</a></p>\n";
 		}
-		
+
+		echo '<p><a class="edit_lnk" href="keywords.php?action=edit_keyword&amp;id_keyword=0&amp;'
+			. 'id_group=' . $kwg['id_group'] . '">'
+			. 'Add a new keyword in this group' . "</a></p>\n";
+	
 		echo "</fieldset>\n";
 	}
 
