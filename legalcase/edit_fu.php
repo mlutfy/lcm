@@ -197,14 +197,14 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			<td><select <?php echo $dis; ?> name="type" size="1">
 			<?php
 
-			global $system_kwg;
+			global $system_keyword_groups;
 
 			if ($fu_data['type'])
 				$default_fu = $fu_data['type'];
 			else
-				$default_fu = $system_kwg['followups']['suggest'];
+				$default_fu = $system_keyword_groups['followups']['suggest'];
 
-			foreach($system_kwg['followups']['keywords'] as $kw) {
+			foreach($system_keyword_groups['followups']['keywords'] as $kw) {
 				$sel = ($kw['name'] == $default_fu ? ' selected="selected"' : '');
 				echo "<option value='" . $kw['name'] . "'" . "$sel>" . _T($kw['title']) . "</option>\n";
 			}
