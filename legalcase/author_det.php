@@ -40,7 +40,10 @@ if ($author > 0) {
 		$fullname .= ($author_data['name_middle'] ? ' ' . $author_data['name_middle'] : '');
 		$fullname .= ($author_data['name_last'] ? ' ' . $author_data['name_last'] : '');
 
-		lcm_page_start("Author details: $fullname");
+		lcm_page_start("Author details: $fullname"); // TRAD
+
+		// [ML] for future use? Would not be bad to have a link: "Go back to: <a..>ref_name</a>"
+		// echo "<p>REF = <a href='" . $_REQUEST['ref'] . "'>test</a>\n";
 
 		//
 		// Show author contacts (if any)
@@ -50,7 +53,7 @@ if ($author > 0) {
 
 		$html = '';
 		$html .= '<table border="0" align="center" class="tbl_usr_dtl" width="99%">' . "\n";
-		$html .= '<tr><th class="heading" colspan="2">' . "Contacts:" . '</th></tr>' . "\n";
+		$html .= '<tr><th class="heading" colspan="2">' . "Contacts:" . '</th></tr>' . "\n"; // TRAD
 
 		$i = 0;
 		foreach($contacts as $c) {
@@ -105,7 +108,7 @@ if ($author > 0) {
 		//
 		if (($GLOBALS['author_session']['status'] == 'admin') ||
 			($author == $GLOBALS['author_session']['id_author']))
-				echo '<p class="normal_text"><a href="edit_author.php?author=' . $author . "\" class=\"edit_lnk\">Edit author data</a></p>\n";
+				echo '<p class="normal_text"><a href="edit_author.php?author=' . $author . "\" class=\"edit_lnk\">Edit author data</a></p>\n"; // TRAD
 
 		lcm_page_end();
 	} else {

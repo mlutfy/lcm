@@ -36,8 +36,10 @@ if ($meta_subscription == 'moderated' || $meta_subscription == 'yes')
 	array_push($statuses, 'waiting');
 
 // Set the returning page
-if (isset($ref)) $usr['ref_edit_author'] = $ref;
-else $usr['ref_edit_author'] = $HTTP_REFERER;
+if (isset($_REQUEST['ref']))
+	$usr['ref_edit_author'] = $ref;
+else
+	$usr['ref_edit_author'] = $GLOBALS['HTTP_REFERER'];
 
 // Find out if this is existing or new case
 $existing = ($author > 0);
