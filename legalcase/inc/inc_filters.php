@@ -136,7 +136,7 @@ function clean_output($string) {
 function njoin($parts,$separator=' ') {
 	if (!empty($parts) && is_array($parts)) {
 		foreach ($parts as $key => $value) {
-			if ($value === '') unset($parts[$key]);
+			if (empty($value)) unset($parts[$key]);
 		}
 		return join($separator,$parts);
 	} else return false;
