@@ -179,11 +179,11 @@ if ($case > 0) {
 				echo "</p><br /><br />\n";
 		
 				if ($edit && $modify)
-					echo '&nbsp;<a href="edit_case.php?case=' . $row['id_case'] . '" class="edit_lnk">' . _T('edit_case_information') . '</a>';
+					echo '<p><a href="edit_case.php?case=' . $row['id_case'] . '" class="edit_lnk">' . _T('edit_case_information') . '</a></p>';
 		
-				if ($admin) echo '&nbsp;<a href="sel_auth.php?case=' . $case . '" class="add_lnk">' . _T('add_user_case') . '</a>';
+				if ($admin) echo '<p><a href="sel_auth.php?case=' . $case . '" class="add_lnk">' . _T('add_user_case') . '</a></p>';
 		
-				echo "<br /><br />\n";
+				echo "<br />\n";
 				echo "</fieldset>\n";
 
 				break;
