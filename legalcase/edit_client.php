@@ -238,9 +238,9 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 					echo "<option value=''>" . "- select contact type -" . "</option>\n";
 
 					foreach ($system_kwg['contacts']['keywords'] as $contact) {
-						if ($contact['name'] != 'email_main' && $contact['name'] != 'address_main') {
+					//	if ($contact['name'] != 'email_main' && $contact['name'] != 'address_main') {
 							echo "<option value='" . $contact['name'] . "'>" . _T($contact['title']) . "</option>\n";
-						}
+					//	}
 					}
 					echo "</select>\n";
 
