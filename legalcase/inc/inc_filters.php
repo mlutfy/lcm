@@ -387,8 +387,7 @@ function http_href($href, $clic, $title='', $style='', $class='', $evt='') {
 // Produces an IMG tag with an 'alt' field and optional title + extra attributes
 // Warning: htmlentities and translation must be applied first.
 function http_img_pack($img, $alt = '', $att = '', $title = '') {
-	static $num = 0;
-	return '<img src="images/spip/' . $img . '" '
+	return '<img border="0" align="middle" src="images/spip/' . $img . '" '
 		. 'alt="' . ($alt ? $alt : '') . '" '
 		. ($title ? " title=\"$title\"" : '')
 		. $att . " />";
