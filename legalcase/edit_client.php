@@ -149,8 +149,14 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo '<td>';
 		echo '<select name="civil_status">';
 
-		if (! $client_data['civil_status'])
-			$client_data['civil_status'] = $system_kwg['civilstatus']['suggest'];
+		if (! $client_data['civil_status']) {
+			if ($client_data['id_client']) {
+				$client_data['civil_status'] = $system_kwg['civilstatus']['keywords']['unknown']['name'];
+			} else {
+				$client_data['civil_status'] = $system_kwg['civilstatus']['suggest'];
+			}
+
+		}
 
 		foreach($system_kwg['civilstatus']['keywords'] as $kw) {
 			$sel = ($client_data['civil_status'] == $kw['name'] ? ' selected="selected"' : '');
@@ -166,10 +172,15 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo "<tr>\n";
 		echo '<td>' . _T('person_input_income') . '</td>';
 		echo '<td>';
-		echo '<select name="civil_status">';
+		echo '<select name="income">';
 		
-		if (! $client_data['income'])
-			$client_data['income'] = $system_kwg['income']['suggest'];
+		if (! $client_data['income']) {
+			if ($client_data['id_client']) {
+				$client_data['income'] = $system_kwg['income']['keywords']['unknown']['name'];
+			} else {
+				$client_data['income'] = $system_kwg['income']['suggest'];
+			}
+		}
 
 		foreach($system_kwg['income']['keywords'] as $kw) {
 			$sel = ($client_data['income'] == $kw['name'] ? ' selected="selected"' : '');
