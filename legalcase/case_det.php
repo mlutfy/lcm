@@ -470,9 +470,14 @@ if ($case > 0) {
 				}
 			
 				echo "\t</table>\n";
-			
+
+				echo "<br />\n";
+
 				if ($add)
-					echo "<br /><a href=\"edit_fu.php?case=$case\" class=\"create_new_lnk\">" . _T('new_followup') . "</a><br /><br />\n";
+					echo "<a href=\"edit_fu.php?case=$case\" class=\"create_new_lnk\">" . _T('new_followup') . "</a>&nbsp;\n";
+
+				echo '<a href="case_activity.php?case=' . $case . '" class="create_new_lnk">' . 'Printable list of activities' . "</a>\n";
+				echo "<br /><br />\n";
 			
 				echo "</p></fieldset>";
 				
