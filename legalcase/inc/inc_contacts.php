@@ -275,11 +275,26 @@ function show_new_contact($num_new, $type_kw = "__add__", $type_name = "__add__"
 		echo "</div>\n";
 		echo "<div>\n";
 		echo '<input type="text" size="40" name="new_contact_value[]" id="new_contact_value_' . $num_new . '" ';
+
+		// [ML] clean this.. one day...
+		$value = '';
+		if ($_SESSION['client_data']['new_contact_value'][$num_new])
+			$value = $_SESSION['client_data']['new_contact_value'][$num_new];
+
+		if ($_SESSION['org_data']['new_contact_value'][$num_new])
+			$value = $_SESSION['org_data']['new_contact_value'][$num_new];
+		
+		if ($_SESSION['usr']['new_contact_value'][$num_new])
+			$value = $_SESSION['usr']['new_contact_value'][$num_new];
 					
-		echo ' value="' . $client_data['new_contact_' . $num_new] . '" ';
+		echo ' value="' . $value . '" ';
 						
 		echo 'class="search_form_txt" />' . "\n";
 		echo "</div>\n";
+
+		echo "<!-- \n";
+		print_r($_SESSION);
+		echo "\n -->\n";
 	} else {
 		echo '<input name="new_contact_type_name[]" id="new_contact_type_name_' . $num_new . '" '
 			. 'type="hidden" value="' . $type_name . '" />' . "\n";
