@@ -161,12 +161,23 @@ if ($_SESSION['case_data']['id_case']) {
 			<td><input name=\"alledged_crime\" value=\"" .  clean_output($_SESSION['case_data']['alledged_crime']) . "\" class=\"search_form_txt\"></td></tr>\n";
 
 	// Case status
-	echo"		<tr><td>" . _T('case_input_status') . "</td>
+	echo "		<tr><td>" . _T('case_input_status') . "</td>
 			<td>";
 	echo "<select name='status' class='sel_frm'>\n";
 	$statuses = array('draft','open','suspended','closed','merged');
 	foreach ($statuses as $s)
 		echo "\t\t\t\t<option" .  (($s == $_SESSION['case_data']['status']) ? ' selected' : '') . ">$s</option>\n";
+	echo "\t\t\t</select></td>\n";
+	echo "\t\t</tr>\n";
+
+	// Case stage
+	echo "\t\t<<tr><td>" . _T('case_input_status') . "</td>\n";
+	echo "\t\t\t<td><select name='stage' class='sel_frm'>\n";
+	global $system_kwg;
+	foreach($system_kwg['stage']['keywords'] as $kw) {
+		$sel = ($kw['name'] == $_SESSION['case_data']['stage'] ? ' selected="selected"' : '');
+		echo "\t\t\t\t<option value='" . $kw['name'] . "'" . "$sel>" . _T($kw['title']) . "</option>\n";
+	}
 	echo "\t\t\t</select></td>\n";
 	echo "\t\t</tr>\n";
 
