@@ -29,9 +29,10 @@ if (isset($_GET['followup'])) {
 	$followup=intval($_GET['followup']);
 
 	// Fetch the details on the specified follow-up
-	$q="SELECT *
-		FROM lcm_followup
-		WHERE id_followup=$followup";
+	$q="SELECT lcm_followup.*,lcm_author.name_first,lcm_author.name_middle,lcm_author.name_last
+		FROM lcm_followup, lcm_author
+		WHERE id_followup=$followup
+			AND lcm_followup.id_author=lcm_author.id_author";
 
 	$result = lcm_query($q);
 
@@ -120,6 +121,8 @@ echo "</ul>\n";
 ?>
 
 	<table class="tbl_usr_dtl" width="99%">
+		<tr><td><?php echo 'Author:'; ?></td>
+			<td><?php echo njoin(array($fu_data['name_first'],$fu_data['name_middle'],$fu_data['name_last'])); ?></td></tr>
 		<tr><td><?php echo _T('fu_input_date_start'); ?></td>
 			<td><?php echo format_date($fu_data['date_start']); ?></td></tr>
 		<tr><td><?php echo _T('fu_input_date_end'); ?></td>
