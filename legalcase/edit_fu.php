@@ -232,7 +232,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			}
 		echo "	</table>\n";
 
-		if (isset($followup)) {
+		if ($followup) {
 			echo '	<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
 			if ($prefs['mode'] == 'extended')
 				echo '<button name="reset" type="reset" class="simple_form_btn">' . _T('button_reset') . "</button>\n";
