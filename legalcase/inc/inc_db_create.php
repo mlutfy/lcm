@@ -346,7 +346,7 @@ function create_database() {
 		PRIMARY KEY (id_line),
 		KEY id_report (id_report),
 		KEY id_field (id_field),
-		KEY col_order (col_order))");
+		KEY col_order (col_order))";
 	$result = lcm_query($query);
 
 	$log .= log_if_not_duplicate_table(lcm_sql_errno());
