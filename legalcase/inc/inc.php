@@ -38,8 +38,6 @@ include_lcm('inc_filters');
 if (!@file_exists('data/inc_meta_cache.php'))
 	write_metas();
 
-error_reporting(E_ALL);
-
 //
 // Preferences for presentation
 // Can be done from any screen, but for now most is in config_author.php
