@@ -330,14 +330,16 @@ if ($case > 0) {
 			//
 			case 3 :
 				// Attach new file form
-				echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
-				echo "<input type=\"hidden\" name=\"case\" value=\"$case\" />\n";
-				echo '<input type="hidden" name="MAX_FILE_SIZE" value="300000" />' . "\n";
-				echo 'Filename: <input type="file" name="filename" />' . "\n";
-				// echo "<br />\n";
-				echo ' Description: <input type="text" size="30" name="description" />' . "\n";
-				echo '<input type="submit" name="submit" value="Attach" />' . "\n";
-				echo "</form>\n";
+				if ($add) {
+					echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
+					echo "<input type=\"hidden\" name=\"case\" value=\"$case\" />\n";
+					echo '<input type="hidden" name="MAX_FILE_SIZE" value="300000" />' . "\n";
+					echo 'Filename: <input type="file" name="filename" />' . "\n";
+					// echo "<br />\n";
+					echo ' Description: <input type="text" size="30" name="description" />' . "\n";
+					echo '<input type="submit" name="submit" value="Attach" />' . "\n";
+					echo "</form>\n";
+				}
 
 				// List of attached files
 				$q = "SELECT * FROM lcm_case_attachment WHERE id_case=$case";
@@ -351,7 +353,9 @@ if ($case > 0) {
 						<th class=\"heading\">Description</th></tr>\n";
 					for ($i=0 ; $row = lcm_fetch_array($result) ; $i++) {
 						echo "\t<tr>";
-						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['filename'] . '</td>';
+						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">'
+							. '<a href="view_file.php?file_id=' . $row['id_attachment'] . '">'
+							. $row['filename'] . '</a></td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['type'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['size'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . clean_output($row['description']) . '</td>';
