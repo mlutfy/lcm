@@ -59,11 +59,6 @@ if (empty($errors)) {
 			}
 		} else die("There's no such follow-up!");
 
-		// Check for access rights
-		$edit = allowed($fu_data['id_case'],'e');
-		if (!($admin || $edit))
-			die("You don't have permission to edit this case's information!");
-
 		// Set the case ID, to which this followup belongs
 		$case = $fu_data['id_case'];
 	} else {
@@ -82,6 +77,12 @@ if (empty($errors)) {
 			die("Add followup to which case?");
 		}
 	}
+
+	// Check for access rights
+	$edit = allowed($fu_data['id_case'],'e');
+	if (!($admin || $edit))
+		die("You don't have permission to edit this case's information!");
+
 }
 
 if (isset($followup))
