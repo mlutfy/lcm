@@ -246,26 +246,6 @@ function show_config_form_regional() {
 	echo "</fieldset>\n";
 }
 
-function get_yes_no($name, $value = '') {
-	$ret = '';
-
-	$yes = ($value == 'yes' ? ' selected="selected"' : '');
-	$no = ($value == 'no' ? ' selected="selected"' : '');
-	$other = ($yes || $no ? '' : ' selected="selected"');
-
-	// until we format with tables, better to keep the starting space
-	$ret .= ' <select name="' . $name . '" class="sel_frm">' . "\n";
-	$ret .= '<option value="yes"' . $yes . '>' . _T('info_yes') . '</option>';
-	$ret .= '<option value="no"' . $no . '>' . _T('info_no') . '</option>';
-
-	if ($other)
-		$ret .= '<option value=""' . $other . '> </option>';
-
-	$ret .= '</select>' . "\n";
-
-	return $ret;
-}
-
 function show_config_form_policy() {
 	global $lcm_lang_right;
 
