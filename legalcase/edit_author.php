@@ -138,14 +138,16 @@ echo show_all_errors($_SESSION['errors']);
 		echo '<td align="left" valign="top">';
 	
 		echo '<input name="contact_type[]" id="contact_type_' . $cpt . '" '
-			. 'type="hidden" value="' . $c['name'] . '" />' . "\n";
+			. 'type="hidden" value="' . $c['name'] . '" />' . "";
 
+		// [ML] Removed spaces (nbsp) between elements, or it causes the layout
+		// to show on two lines when using a large font.
 		echo '<input name="contact_value[]" id="contact_value_' . $cpt . '" type="text" '
-			. 'class="search_form_txt" size="35" value="' . clean_output($c['value']) . '"/>&nbsp;';
-		echo f_err('email', $errors) . "\n";
+			. 'class="search_form_txt" size="35" value="' . clean_output($c['value']) . '"/>';
+		echo f_err('email', $errors) . "";
 
 		if ($c['name'] != 'email_main')
-			echo "&nbsp;<img src=\"images/jimmac/stock_trash-16.png\" width=\"16\" height=\"16\" alt=\"Delete?\" title=\"Delete?\" />&nbsp;<input type=\"checkbox\" name=\"del_contact[]\" />";
+			echo "<img src=\"images/jimmac/stock_trash-16.png\" width=\"16\" height=\"16\" alt=\"Delete?\" title=\"Delete?\" />&nbsp;<input type=\"checkbox\" name=\"del_contact[]\" />";
 		else
 			$emailmain_exists = true;
 
