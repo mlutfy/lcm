@@ -585,34 +585,35 @@ function help_page_start($page_title) {
 <meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" />
 <link rel="stylesheet" href="styles/lcm_help.css" type="text/css" />
 <link rel="stylesheet" href="styles/lcm_opt_mediumfonts.css" type="text/css" />
+<script type="text/javascript" language="JavaScript" src="help_menu.js"></script>
 </head>' . "\n";
 
 	echo "<body>\n";
-	echo '<h1 class="hlp_h1">' . _T('help_title_help') . "</h1>\n";
+	echo '<h1>' . _T('help_title_help') . "</h1>\n";
 	echo '<div id="hlp_big_box">
 	<div id="hlp_menu">
-		<ul id="hlp_nav">';
+		<ul id="nav">';
 
 	foreach ($toc as $topic => $subtopics) {
-		echo '<li><a href="lcm_help.php?code=' . $topic .'">' . _T('help_title_' . $topic) . '</a>' . "\n";
-		echo '<ul class="hlp_subnav">';
+		echo "\n\t\t\t". '<li><a href="lcm_help.php?code=' . $topic .'">' . _T('help_title_' . $topic) . '</a>' . "\n";
+		echo "\t\t\t\t". '<ul class="subnav">' ."\n";
 		foreach ($subtopics as $st) {
-			echo '<li><a href="lcm_help.php?code=' . $st .'">' . _T('help_title_' . $st) . '</a></li>' . "\n";
+			echo "\t\t\t\t\t". '<li><a href="lcm_help.php?code=' . $st .'">' . _T('help_title_' . $st) . '</a></li>' . "\n";
 		}
-		echo "</ul></li>\n";
+		echo "\t\t\t\t</ul>\n\t\t\t</li>";
 	}
 	
-	echo '
-		</ul>
+	echo "\n\t\t". '</ul>
 	</div>
 	<div id="hlp_cont">
-		<h2 class="hlp_h2">' . $page_title . "</h2>\n";
+		<h2>' . $page_title . "</h2>\n";
 
 }
 
 function help_page_end() {
 
 	echo "</div>
+	<div id=\"hlp_btm\">&nbsp;</div>
 </div>
 </body>
 </html>";
