@@ -36,6 +36,10 @@ function init_default_config() {
 	// (if no cookie, then set to English)
 	if (!$lang = $GLOBALS['lcm_lang'])
 		$lang = 'en';
+	
+	$meta_name_middle = 'no';
+	if ($lang == 'bg' || $lang == 'pt_br')
+		$meta_name_middle = 'yes';
 
 	// c.f. http://www.lcm.ngo-bg.org/article28.html
 	$list_meta = array(
@@ -69,15 +73,15 @@ function init_default_config() {
 		'case_write_always' => 'no',
 
 		// ** Policy **
-		'client_name_middle' => 'yes',
+		'client_name_middle' => $meta_name_middle,
 		'client_citizen_number' => 'no',
-		'client_civil_status' => 'yes',
-		'client_income' => 'yes',
+		'client_civil_status' => 'no',
+		'client_income' => 'no',
 		'case_court_archive' => 'yes',
 		'case_assignment_date' => 'yes',
 		'case_alledged_crime' => 'yes',
 		'case_allow_modif' => 'yes',
-		'fu_sum_billed' => 'yes',
+		'fu_sum_billed' => 'no',
 		'fu_allow_modif' => 'yes',
 		'hide_emails' => 'no',
 
