@@ -95,7 +95,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 
 ?>
 </table>
-<br /><a href="edit_case.php?case=0" class="add_create_new_lnk">Open new case</a>
+<br /><a href="edit_case.php?case=0" class="create_new_lnk">Open new case</a>
 
 <table border='0' align='center' width='99%'>
 	<tr><td align="left"><?php

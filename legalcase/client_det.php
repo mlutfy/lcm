@@ -100,7 +100,7 @@ if ($client>0) {
 		echo "</table>";
 
 		if ($edit)
-			echo "<br /><a href=\"sel_org_cli.php?client=$client\" class=\"add_create_new_lnk\">Add organisation(s)</a><br />";
+			echo "<br /><a href=\"sel_org_cli.php?client=$client\" class=\"add_lnk\">Add organisation(s)</a><br />";
 
 		
 
