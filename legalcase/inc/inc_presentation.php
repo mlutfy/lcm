@@ -102,7 +102,9 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 
 			return x;
 		}
-
+		
+		// [KM]
+		/*
 		function setvisibility (objet, status) {
 			element = findObj(objet);
 			if (element.style.visibility != status) {
@@ -117,13 +119,40 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 				}
 			}
 		}
-
+		
 		function lcm_show(objet) {
 			setvisibility(objet, 'visible');
 		}
 
 		function lcm_hide(objet) {
 			setvisibility(objet, 'hidden');
+		}
+		*/
+		
+		// [KM] The code above works too
+		// but it uses VISIBILITY property which causes blank space when the for is not visible
+		
+		function setvisibility (objet, status) {
+			element = findObj(objet);
+			if (element.style.display != status) {
+				if (status == 'flip') {
+					if (element.style.display == 'block') {
+						element.style.display = 'none';
+					} else {
+						element.style.display = 'block';
+					}
+				} else {
+					element.style.display = status;
+				}
+			}
+		}
+		
+		function lcm_show(objet) {
+			setvisibility(objet, 'block');
+		}
+
+		function lcm_hide(objet) {
+			setvisibility(objet, 'none');
 		}
 
 		//--></script>\n";
