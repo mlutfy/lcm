@@ -56,7 +56,9 @@ if (count($_SESSION['errors'])) {
 	// Add status to the list of fields
 	$fl .= ",status='" . $_SESSION['case_data']['status'] . "'";
 
-			
+	// Add stage to the list of fields
+	$fl .= ",stage='" . $_SESSION['case_data']['stage'] . "'";
+
 // Put public access rights settings in a separate string
 	$public_access_rights = '';
 	if ($_SESSION['case_data']['public'] || read_meta('case_read_always'))
