@@ -188,7 +188,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		</tr>
 
 		<!-- End time -->
-		<tr><td><?php echo (($prefs['time_intervals'] == 'absolute') ? _T('app_input_end_time') : _T('app_input_time_length')); ?></td>
+		<tr><td><?php echo (($prefs['time_intervals'] == 'absolute') ? _T('app_input_date_end') : _T('app_input_time_length')); ?></td>
 			<td><?php 
 				if ($prefs['time_intervals'] == 'absolute') {
 					$name = (($admin || ($edit && ($_SESSION['app_data']['end_time']=='0000-00-00 00:00:00'))) ? 'end' : '');
