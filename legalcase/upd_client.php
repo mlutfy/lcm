@@ -77,6 +77,20 @@ if ($_SESSION['client']['id_client'] > 0) {
 
 	lcm_query($q);
 	$_SESSION['client']['id_client'] = lcm_insert_id();
+
+	//
+	// Attach client to case (Case -> Add Client -> Create new client)
+	//
+	if (isset($_REQUEST['attach_case'])) {
+		$attach_case = intval($_REQUEST['attach_case']);
+
+		if ($attach_case > 0) {
+			$q = "INSERT INTO lcm_case_client_org (id_case, id_client, id_org)
+					VALUES (" . $attach_case . ", " . $_SESSION['client']['id_client'] . ", 0)";
+
+			lcm_query($q);
+		}
+	}
 }
 
 // Go to the 'view details' page of the author
