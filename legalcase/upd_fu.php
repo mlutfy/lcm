@@ -162,6 +162,14 @@ if (count($_SESSION['errors'])) {
 			lcm_panic("$q<br>\nError ".lcm_errno().": ".lcm_error());
 
 		$id_followup = lcm_insert_id();
+
+		// Set relation to the parent appointment, if any
+		if (! empty($_SESSION['fu_data']['id_app'])) {
+			$q = "INSERT INTO lcm_app_fu SET id_app=" . $_SESSION['fu_data']['id_app']
+				. ", id_followup=$id_followup, relation='parent'";
+			if (!($result = lcm_query($q))) 
+				lcm_panic("$q<br>\nError ".lcm_errno().": ".lcm_error());
+		}
 	}
 
 	// Send user back to add/edit page's referer or (default) to followup detail page
