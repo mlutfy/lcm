@@ -23,6 +23,7 @@
 
 include('inc/inc.php');
 include('inc/inc_acc.php');
+include_lcm('inc_contacts');
 
 $client = intval($_REQUEST['client']);
 
