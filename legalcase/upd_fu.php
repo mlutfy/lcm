@@ -80,8 +80,7 @@ if (count($_SESSION['errors'])) {
 } else {
 	global $author_session;
 
-    $fl="id_author   =  " . $author_session['id_author'] . ",
-		date_start   = '" . clean_input($fu_data['date_start']) . "',
+    $fl="	date_start   = '" . clean_input($fu_data['date_start']) . "',
 		date_end     = '" . clean_input($fu_data['date_end']) . "',
 		type         = '" . clean_input($fu_data['type']) . "',
 		description  = '" . clean_input($fu_data['description']) . "',
@@ -126,7 +125,7 @@ if (count($_SESSION['errors'])) {
 		}
 		
 		// Add the new follow-up
-		$q = "INSERT INTO lcm_followup SET id_followup=0,id_case=$id_case,$fl";
+		$q = "INSERT INTO lcm_followup SET id_followup=0,id_case=$id_case,id_author=" . $author_session['id_author'] . ",$fl";
 
 		if (!($result = lcm_query($q))) 
 			lcm_panic("$q<br>\nError ".lcm_errno().": ".lcm_error());
