@@ -566,7 +566,7 @@ if ($case > 0) {
 				if ($i > 0) {
 					echo "<table border='0' align='center' class='tbl_usr_dtl' width='99%'>\n";
 					// TRAD ++
-					echo "\t<tr><th class=\"heading\">" . _Th('file_input_name') "</th>
+					echo "\t<tr><th class=\"heading\">" . _Th('file_input_name') . "</th>
 						<th class=\"heading\">" . _Th('file_input_type') . "</th>
 						<th class=\"heading\">" . _Th('file_input_size') . "</th>
 						<th class=\"heading\">" . _Th('file_input_description') . "</th></tr>\n";
