@@ -225,9 +225,9 @@ function get_person_initials($item) {
 		return '';
 	}
 
-	$ret  = substr($item['name_first'],0,1);
-	$ret .= substr($item['name_middle'],0,1);
-	$ret .= substr($item['name_last'],0,1);
+	$ret  = substr($item['name_first'],0,floor(ord($item['name_first']) / 128) + 1);
+	$ret .= substr($item['name_middle'],0,floor(ord($item['name_first']) / 128) + 1);
+	$ret .= substr($item['name_last'],0,floor(ord($item['name_first']) / 128) + 1);
 
 	return $ret;
 }
