@@ -129,8 +129,8 @@ class Auth_db {
 			return false;
 
 		// Check for password size
-		if (! $pass || strlen(utf8_decode($pass)) <= 5) {
-			$this->error = _T('pass_title_new_pass');
+		if (strlen(utf8_decode($pass)) <= 5) {
+			$this->error = _T('pass_warning_too_short');
 			return false;
 		}
 
