@@ -185,7 +185,15 @@ function get_person_name($item) {
 		return '';
 	}
 
-	return njoin( array($item['name_first'], $item['name_middle'], $item['name_last']) );
+	// Avoids having two spaces in someone's name when no middle name
+	$ret = $item['name_first'];
+
+	if ($item['name_middle'])
+		$ret .= ' ' . $item['name_middle'];
+	
+	$ret = $item['name_last'];
+
+	return $ret;
 }
 
 // Dirty hack: utf8_decode is mainly used for strlen(),
