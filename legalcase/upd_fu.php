@@ -92,7 +92,7 @@ if ($prefs['time_intervals']=='absolute') {
 
 // Description
 if ( !(strlen($_SESSION['fu_data']['description']) > 0) )
-	$_SESSION['errors']['description'] = 'Description should not be empty!';	// TRAD
+	$_SESSION['errors']['description'] = _Ti('fu_input_description') . _T('warning_field_mandatory');
 
 if (count($_SESSION['errors'])) {
     header("Location: " . $GLOBALS['HTTP_REFERER']);
