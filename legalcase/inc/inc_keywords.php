@@ -66,8 +66,7 @@ function get_kwg_from_id($id_group) {
 }
 
 //
-// get_kw_from_id: Returns the keyword associated
-// with the provided ID.
+// get_kw_from_id: Returns the keyword associated with the provided ID.
 //
 function get_kw_from_id($id_keyword) {
 	$query = "SELECT k.*, kwg.type, kwg.name as kwg_name
@@ -83,10 +82,9 @@ function get_kw_from_id($id_keyword) {
 }
 
 //
-// get_keywords_in_group_name: Returns all keywords inside a given
-// group name.
+// get_keywords_from_group_name: Returns all keywords inside a given group name.
 // 
-function get_keywords_in_group_name($kwg_name) {
+function get_keywords_from_group_name($kwg_name) {
 
 	// 1- Get ID for name (check cache first)
 
@@ -111,6 +109,19 @@ function get_keywords_in_group_id($kwg_id) {
 		$ret[$row['name']] = $row;
 
 	return $ret;
+}
+
+//
+// check_if_kwg_name_unique: Returns true if keyword group name is unique.
+//
+function check_if_kwg_name_unique($name) {
+	$query = "SELECT id_group
+				FROM lcm_keyword_group
+				WHERE name = '" . clean_input($name) . "'";
+	
+	$result = lcm_query($query);
+
+	return (lcm_num_rows($result) == 0);
 }
 
 
