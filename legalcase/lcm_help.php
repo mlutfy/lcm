@@ -21,7 +21,8 @@
 	$Id$
 */
 
-include('inc/inc.php');
+include('inc/inc_version.php');
+include('inc/inc_presentation.php');
 
 $code = $_REQUEST['code'];
 $error_section = false;
