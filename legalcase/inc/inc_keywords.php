@@ -67,9 +67,10 @@ function get_kwg_from_id($id_group) {
 // with the provided ID.
 //
 function get_kw_from_id($id_keyword) {
-	$query = "SELECT *
-				FROM lcm_keyword
-				WHERE id_keyword = " . intval($id_keyword);
+	$query = "SELECT k.*, kwg.type
+				FROM lcm_keyword as k, lcm_keyword_group as kwg
+				WHERE kwg.id_group = k.id_group
+				AND id_keyword = " . intval($id_keyword);
 	$result = lcm_query($query);
 
 	return lcm_fetch_array($result);
