@@ -43,9 +43,6 @@ if (count($_SESSION['errors'])) {
     exit;
 }
 
-	//$cl = '(id_case,title,id_court_archive,date_creation,date_assignment,legal_reason,alledged_crime,status)';
-	//$vl = "($id_case,'$title','$id_court_archive','$date_creation',";
-	//$vl .= "'$date_assignment','$legal_reason','$alledged_crime','$status')";
 	$fl = "title='" . clean_input($_SESSION['case_data']['title']) . "',
 			id_court_archive='" . clean_input($_SESSION['case_data']['id_court_archive']) . "',";
 	$fl .= "
@@ -90,7 +87,8 @@ if (count($_SESSION['errors'])) {
 		// This is modification of existing case
 
 		// Check access rights
-		if (!allowed($id_case,'e')) die("You don't have permission to change this case's information!");
+		if (!allowed($id_case,'e'))
+			lcm_panic("You don't have permission to change this case's information!");
 
 		// If admin access is allowed, set all fields
 		if (allowed($id_case,'a'))
@@ -125,9 +123,13 @@ if (count($_SESSION['errors'])) {
 
 		// Add 'assignment' followup to the case
 		$q = "INSERT INTO lcm_followup
-				SET id_followup=0,id_case=$id_case,id_author=$id_author,type='assignment',description='";
-		$q .= njoin(array($author_data['name_first'], $author_data['name_middle'], $author_data['name_last']));
-		$q .= " created the case and is auto-assigned to it',date_start=NOW()"; // TRAD
+				SET id_followup = 0, id_case = $id_case, id_author = $id_author, type = 'assignment',
+					date_start = NOW(), description='" . $id_author . "'";
+
+		// [ML] For translation system
+		//	$q .= njoin(array($author_data['name_first'], $author_data['name_middle'], $author_data['name_last']));
+		//	$q .= " created the case and is auto-assigned to it',date_start=NOW()"; // TRAD
+
 		$result = lcm_query($q);
 
 		// Set case date_assigned to NOW()
