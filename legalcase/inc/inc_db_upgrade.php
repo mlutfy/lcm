@@ -687,6 +687,17 @@ function upgrade_database($old_db_version) {
 	}
 
 	if ($lcm_db_version_current < 30) {
+		lcm_query("ALTER TABLE lcm_keyword_group
+			CHANGE type type ENUM('system','case','followup','client','org','client_org','author')");
+
+		// in version 29, the id_entry + key was missing
+		lcm_query("ALTER TABLE lcm_keyword_case
+			ADD id_keyword bigint(21) NOT NULL default '0' AFTER id_entry,
+			ADD KEY id_keyword (id_keyword)");
+
+		lcm_query("ALTER TABLE lcm_keyword_client ADD KEY id_keyword (id_keyword)");
+		lcm_query("ALTER TABLE lcm_keyword_org ADD KEY id_keyword (id_keyword)");
+	
 		// [ML] If no one complained, uncomment the following:
 		// lcm_query("ALTER TABLE lcm_client DROP address");
 		// lcm_query("ALTER TABLE lcm_org DROP address");

@@ -257,8 +257,10 @@ function create_database() {
 
 	$query = "CREATE TABLE lcm_keyword_case (
 			id_entry bigint(21) NOT NULL auto_increment,
+			id_keyword bigint(21) NOT NULL default '0',
 			id_case bigint(21) NOT NULL default '0',
 			PRIMARY KEY (id_entry),
+			KEY id_keyword (id_keyword),
 			KEY id_case (id_case))";
 	
 	$result = lcm_query($query);
@@ -269,6 +271,7 @@ function create_database() {
 			id_keyword bigint(21) NOT NULL default '0',
 			id_client bigint(21) NOT NULL default '0',
 			PRIMARY KEY (id_entry),
+			KEY id_keyword (id_keyword),
 			KEY id_client (id_client))";
 	
 	$result = lcm_query($query);
@@ -279,6 +282,7 @@ function create_database() {
 			id_keyword bigint(21) NOT NULL default '0',
 			id_org bigint(21) NOT NULL default '0',
 			PRIMARY KEY (id_entry),
+			KEY id_keyword (id_keyword),
 			KEY id_org (id_org))";
 
 	$result = lcm_query($query);
