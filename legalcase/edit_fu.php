@@ -139,9 +139,9 @@ if (empty($_SESSION['errors'])) {
 }
 
 if (isset($_SESSION['followup']))
-	lcm_page_start("Edit follow-up"); // TRAD
+	lcm_page_start(_T('title_fu_edit'));
 else
-	lcm_page_start("New follow-up"); // TRAD
+	lcm_page_start(_T('title_fu_new'));
 
 // Show a bit of background on the case
 show_context_start();
@@ -159,7 +159,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 <form action="upd_fu.php" method="post">
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td><?php echo _T('fu_input_date_start'); ?></td>
-			<td><?php echo _T('calendar_info_date') . ' ';  
+			<td><?php 
 				$name = (($admin || ($edit && $modify)) ? 'start' : '');
 				echo get_date_inputs($name, $_SESSION['fu_data']['date_start'], false);
 				echo ' ' . _T('calendar_info_time') . ' ';
