@@ -156,10 +156,11 @@ function get_keywords_applied_to($type, $id) {
 	
 	$result = lcm_query($query);
 
-	if (lcm_num_rows($result))
-		return lcm_fetch_array($result);
-	else
-		return array();
+	$ret = array();
+	while ($row = lcm_fetch_array($result))
+		array_push($ret, $row);
+	
+	return $ret;
 }
 
 function update_keywords_request($type_obj, $id_obj) {
