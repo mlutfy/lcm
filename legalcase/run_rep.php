@@ -168,7 +168,7 @@ if ($fl && $tl && $wl) {
 	}
 }
 
-echo '<a href="' . $GLOBALS['HTTP_REFERER'] . '" class="run_lnk">Back</a><br />';
+echo '<a href="' . ($GLOBALS['HTTP_REFERER'] ? $GLOBALS['HTTP_REFERER'] : "rep_det.php?rep=$rep") . '" class="run_lnk">Back</a><br />';
 
 lcm_page_end();
 
