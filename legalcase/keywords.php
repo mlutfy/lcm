@@ -448,28 +448,33 @@ if (isset($_REQUEST['action'])) {
 	}
 }
 
-// Define tabs
-$groups = array('system' => 'System keywords','user' => 'User keywords','maint' => 'Keyword maintenance');
-$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 'system' );
-
-// Start page
-//lcm_page_start(_T('menu_admin_keywords') . _T('typo_column') . " " . $groups[$tab]);
 lcm_page_start(_T('menu_admin_keywords'));
 
-// Show tabs
-//show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
+//
+// Tabs
+//
+$groups = array('system' => _T('keywords_tab_system'),
+				'user'   => _T('keywords_tab_user'),
+				'maint'  => _T('keywords_tab_maintenance'));
+$tab = (isset($_GET['tab']) ? $_GET['tab'] : 'system');
+
 show_tabs($groups, $tab, $_SERVER['SCRIPT_NAME']);
 
-// Show tab contents
 switch ($tab) {
 	case 'system' :
 	case 'user' :
 		show_all_keywords($tab);
 		break;
 	case 'maint' :
-		echo '<form method="post" action="' . $_SERVER['REQUEST_URI'] . "\">\n";
-		echo "\t<button type=\"submit\" name=\"action\" value=\"refresh\" class=\"simple_form_btn\">Refresh default keywords</button>\n";
+		echo '<fieldset class="info_box">' . "\n";
+		echo '<form method="post" action="' . $_SERVER['REQUEST_URI'] . '">' . "\n";
+		echo '<p>' . _T('keywords_info_maintenance') . "</p>\n";
+
+		echo '<button type="submit" name="action" value="refresh" class="simple_form_btn">'
+			. _T('button_validate')
+			. "</button>\n";
 		echo "</form>\n";
+		echo "</fieldset>\n";
 }
 
 lcm_page_end();
