@@ -68,8 +68,7 @@ if ($case > 0) {
 		// Show tabs
 		$groups = array('general','clients','followups','attachments');
 		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 0 );
-		//show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
-		show_tabs($groups,$tab,$_SERVER['SCRIPT_NAME']);
+		show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
 
 		switch ($tab) {
 			//
