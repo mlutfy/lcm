@@ -107,7 +107,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 				</select>
 			</td></tr>
 		<tr><td>Created on:</td>
-			<td><?php echo clean_output(date(_T('date_format_short'),strtotime($client_data['date_creation']))); ?></td></tr>
+			<td><?php echo format_date($client_data['date_creation'], 'short'); ?></td></tr>
 		<tr><td><?php echo _T('person_input_citizen_number'); ?></td>
 			<td><input name="citizen_number" value="<?php echo clean_output($client_data['citizen_number']); ?>" class="search_form_txt"></td></tr>
 		<tr><td><?php echo _T('person_input_address'); ?></td>
