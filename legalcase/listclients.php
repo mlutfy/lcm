@@ -80,8 +80,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 }
 ?>
 </table>
-
-<p><a href="edit_client.php" class="content_link">Add new client</a></p>
+<br /><a href="edit_client.php" class="add_create_new_lnk">Add new client</a>
 <?php
 
 // Show link to previous page

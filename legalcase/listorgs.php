@@ -57,11 +57,8 @@ while ($row = lcm_fetch_array($result)) {
 <?php
 }
 ?>
-	<tr>
-		<td><a href="edit_org.php" class="content_link"><strong>Add new organisation</strong></a></td>
-		<td>&nbsp;</td>
-	</tr>
 </table>
+<br /><a href="edit_org.php" class="add_create_new_lnk">Add new organisation</a>
 <?php
 
 lcm_page_end();

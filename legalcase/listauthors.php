@@ -87,8 +87,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 
 ?>
 </table>
-
-<a href="edit_author.php?author=0" class="content_link">Add author</a>
+<br /><a href="edit_author.php?author=0" class="add_create_new_lnk">Add author</a>
 
 <?php
 
