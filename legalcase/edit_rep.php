@@ -81,6 +81,9 @@ if ($existing)
 else 
 	lcm_page_start(_T('new_report'));
 
+if (isset($_SESSION['errors'])) 
+	echo show_all_errors($_SESSION['errors']);
+
 echo "\n<form action='upd_rep.php' method='post'>
 	<table class='tbl_usr_dtl' width='99%'>\n";
 
@@ -148,6 +151,9 @@ if ($prefs['mode'] == 'extended') {
 
 echo '<input type="hidden" name="ref_edit_rep" value="' . $rep_data['ref_edit_rep'] . '">' . "\n";
 echo '</form>' . "\n";
+
+// Clear errors
+$_SESSION['errors'] = array();
 
 lcm_page_end();
 
