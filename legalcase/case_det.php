@@ -318,11 +318,11 @@ if ($case > 0) {
 							) . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['type'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
-							. '<a href="app_det.php?app=' . $row['id_app'] . '">' . $row['title'] . '</a></td>';
+							. '<a href="app_det.php?app=' . $row['id_app'] . '" class="content_link">' . $row['title'] . '</a></td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
 							. date('d.m.y H:i',strtotime($row['reminder'])) . '</td>'; // FIXME [ML]
 						echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
-							. '<a href="edit_app.php?app=' . $row['id_app'] . '">' . _T('edit') . '</a></td>';
+							. '<a href="edit_app.php?app=' . $row['id_app'] . '" class="content_link">' . _T('edit') . '</a></td>';
 						echo "</tr>\n";
 					}
 					
