@@ -1,0 +1,141 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Legal Case Management | Welcome</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+<link rel="stylesheet" href="styles/lcm_styles.css" type="text/css" />
+</head>
+
+<body>
+<div id="header">Legal Case Management</div>
+	<div id="wrapper">
+		<div id="container">
+			<div id="content">
+			<!-- This is the navigation column, usually used for menus and brief information -->
+				<div id="navigation_menu_column">
+				<!-- Start of "navigation_menu_column" content -->
+					<div id="nav_menu_box">
+						<div class="nav_column_menu_head">Main menu</div>
+						<ul id="nav_menu_list">
+							<li>Add/Edit Client</li>
+							<li>Add/Edit Case</li>
+							<li>Edit <abbr title="User Interface">UI</abbr> preferences</li>
+						</ul>
+					</div>
+					<div id="nav_menu_box">
+						<div class="nav_column_menu_head">Calendar</div>
+						<p class="nav_column_text">
+						Monday, 27th Sept. 2004
+						</p>
+					</div>
+					<div id="nav_menu_box">
+						<div class="nav_column_menu_head">Next 7 meetings</div>
+						<p class="nav_column_text">
+						<strong>Today</strong><br />
+						9:30 - Meeting with Mr. Smith<br /><br />
+						11:00 - At the court
+						</p>
+						<hr class="hair_line" />
+						<p class="nav_column_text">
+						<strong>Tomorrow(28.09.2004)</strong><br />
+						8:30 - Meeting with Mr. Johnson<br /><br />
+						10:00 - At the court
+						</p>
+					</div>
+					<br /><br />
+				<!-- End of "navigation_menu_column" content -->
+				</div>
+<!-- The main content will be here - all the data, html forms, search results etc. -->
+<div id="main_column">
+<!-- Start of "main_column" content -->
+<h3 class="content_head">List of cases</h3>
+<!-- Tables are nescesary when displaying table data, not for page layout anymore -->
+<table width="99%" border="0" align="center" cellpadding="0" cellspacing="0" class="tbl_data">
+  <tr>
+    <td class="tbl_head">Client's name</td>
+    <td class="tbl_head">Case status</td>
+    <td class="tbl_head">Case start date</td>
+    <td class="tbl_head">Case title</td>
+    <td class="tbl_head">Last follow-up</td>
+    <td class="tbl_head">Comment/overview</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_light">Client 1</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_dark">Client 2</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_light">Client 3</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_dark">Client 4</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_light">Client 5</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+    <td class="tbl_cont_light">&nbsp;</td>
+  </tr>
+  <tr> 
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+    <td class="tbl_cont_dark">&nbsp;</td>
+  </tr>
+</table>
+<!-- End of "main_column" content -->
+</div>
+			</div>
+		</div>
+<!-- The initial intention was that here can be placed some UI preferences -->
+<!-- but after revisiting AIMS I think it will be much better to put the search boxes -->
+<!-- The right and the left column can be very long, so, we can put here a lot of additional information, some tiny help hints and so -->
+		<div id="prefs_column">
+<!-- Start of "prefs_column" content -->
+			<div class="prefs_column_menu_head">Profile</div>
+			<p class="prefs_column_text"><strong>Name:</strong> Krasimir Makaveev<br /><br />
+			<a href="#" class="prefs_bold_lnk">[ update profile ]</a>&nbsp;&nbsp;&nbsp;<a href="#" class="prefs_bold_lnk">[ logout ]</a>
+			</p>
+			<div class="prefs_column_menu_head">Search</div>
+			<p class="prefs_column_text">
+			<form name="frm_find_client" class="search_form">
+			Find client<br />
+			<input type="text" name="find_client_string" size="10" class="search_form_txt" />&nbsp;<input type="submit" name="submit" value="Search" class="search_form_btn" />
+			</form>
+			<form name="frm_find_case" class="search_form">
+			Find case<br />
+			<input type="text" name="find_case_string" size="10" class="search_form_txt" />&nbsp;<input type="submit" name="submit" value="Search" class="search_form_btn" />
+			</form>
+			</p>
+<!-- End of "prefs_column" content -->
+		</div>
+		<div class="clearing">&nbsp;</div>
+	</div>
+<div id="footer">2004 &copy; Legal Case Management</div>
+</body>
+</html>
