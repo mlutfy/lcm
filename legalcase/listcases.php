@@ -81,7 +81,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))); $
 	$action = '';
 
 	if (allowed($item['id_case'],'w'))
-		$action = '<a href=""edit_fu.php?case=' . $row['id_case'] . '" class="content_link">'
+		$action = '<a href="edit_fu.php?case=' . $row['id_case'] . '" class="content_link">'
 			. "Add followup"
 			. '</a>';
 
