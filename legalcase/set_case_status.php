@@ -48,7 +48,12 @@ switch ($status) {
 // Close case
 //
 	case 'closed' :
-		// Start page
+		// Check if the case is already closed
+		if ($row['status'] == 'closed') {
+			header('Location: ' . $GLOBALS['HTTP_REFERER']);
+			break;
+		}
+		// Start the page
 		lcm_page_start("New follow-up");
 		// Set defaults
 		$type = 'conclusion';
