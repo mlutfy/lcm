@@ -48,7 +48,7 @@ if ($author > 0) {
 				'followups' => _T('generic_tab_followups'),
 				'times' => _T('generic_tab_reports'),
 				'attachments' => _T('generic_tab_documents'));
-		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 'contacts' );
+		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 'general' );
 		show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
 
 		switch ($tab) {
