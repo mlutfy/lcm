@@ -203,7 +203,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 
 			?>
 			</select></td></tr>
-		<tr><td valign="top"><?php echo _T('fu_input_description'); ?></td>
+		<tr><td valign="top"><?php echo f_err_star('description') . _T('fu_input_description'); ?></td>
 			<td><textarea <?php echo $dis; ?> name="description" rows="15" cols="40" class="frm_tarea"><?php
 			echo clean_output($_SESSION['fu_data']['description']) . "</textarea></td></tr>\n";
 // Sum billed field
