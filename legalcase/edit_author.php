@@ -202,6 +202,18 @@ else lcm_page_start("New author");
 		<?php
 			global $author_session;
 
+			$class_auth = 'Auth_db';
+			include_lcm('inc_auth_db');
+
+			$auth = new $class_auth;
+
+			if (! $auth->init()) {
+				// XXX: make error ?
+				lcm_log("ERROR: failed to initialize auth method");
+			}
+
+			// TODO: check with is_newpass_allowed() ...
+
 			if ($usr['id_author'] && $author_session['status'] != 'admin') {
 				echo '
 		<tr>
