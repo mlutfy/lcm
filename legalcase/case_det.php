@@ -91,17 +91,22 @@ if ($case > 0) {
 		echo _T('legal_reason') . ': ' . clean_output($row['legal_reason']) . "<br>\n";
 		echo _T('alledged_crime') . ': ' . clean_output($row['alledged_crime']) . "<br>\n";
 
-		// Change status form
-		echo "<form action='set_case_status.php' method='GET'>\n";
-		echo "\t<input type='hidden' name='case' value='$case'>\n";
+		// Show case status
 		echo _T('status') . ":&nbsp;\n";
-		echo "\t<select name='status'>\n";
-		$statuses = array('open','closed','merged');
-		foreach ($statuses as $s)
-			echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
-		echo "\t</select>\n";
-		echo "\t<input type='submit' value='Set case status'>\n";
-		echo "</form>\n";
+		if ($edit) {
+			// Change status form
+			echo "<form action='set_case_status.php' method='GET'>\n";
+			echo "\t<input type='hidden' name='case' value='$case'>\n";
+			echo "\t<select name='status'>\n";
+			$statuses = array('open','closed','merged');
+			foreach ($statuses as $s)
+				echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
+			echo "\t</select>\n";
+			echo "\t<input type='submit' value='Set case status'>\n";
+			echo "</form>\n";
+		} else {
+			echo clean_output($row['status']) . "<br>\n";
+		}
 
 		echo _T('public') . ': ' . _T('Read') . '=';
 		if ($row['public']) echo 'Yes';
