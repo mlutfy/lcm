@@ -29,19 +29,24 @@ include_lcm('inc_lang');
 // Clean input variables
 $case = intval($_POST['case']);
 $ref_sel_auth = ($_POST['ref_sel_auth']);
-foreach ($_POST['authors'] as $key => $value)
-	$authors[$key] = $value;
+$authors = array();
 
-if ($case>0) {
+if (isset($_POST['authors']) && is_array($_POST['authors'])) 
+	foreach ($_POST['authors'] as $key => $value)
+		$authors[$key] = $value;
+
+if (! ($case > 0)) {
+	header("Location: $ref_sel_auth");
+	exit;
+}
+
 	if ($authors) {
 		if (allowed($case,'a')) {
 			foreach($authors as $author) {
-				// Prepare query
 				$q="INSERT INTO lcm_case_author
 					SET id_case=$case,id_author=$author";
 
-				// Do the query
-				if (!($result = lcm_query($q))) die("$q<br>\n" . _T('title_error') . " " . lcm_errno() . ": " . lcm_error());
+				$result = lcm_query($q);
 
 				// Get author information
 				$q = "SELECT *
@@ -55,7 +60,7 @@ if ($case>0) {
 						SET id_followup=0,id_case=$case,id_author=" . $GLOBALS['author_session']['id_author']
 						. ",type='assignment',description='";
 				$q .= njoin(array($author_data['name_first'], $author_data['name_middle'], $author_data['name_last']));
-				$q .= " assigned to the case',date_start=NOW()";
+				$q .= " assigned to the case',date_start=NOW()"; // TRAD
 				$result = lcm_query($q);
 
 				// Set case date_assigned to NOW()
@@ -64,9 +69,8 @@ if ($case>0) {
 						WHERE id_case=$case";
 				$result = lcm_query($q);
 			}
-		} else die(_T('error_add_auth_no_rights'));
+		} else die(_T('error_add_auth_no_rights')); // XXX
 	}
-} else die(_T('which_case'));
 
 header("Location: $ref_sel_auth");
 
