@@ -34,10 +34,6 @@ if (empty($_SESSION['errors'])) {
 	if (isset($ref)) $_SESSION['rep_data']['ref_edit_rep'] = $ref;
 	else $_SESSION['rep_data']['ref_edit_rep'] = $GLOBALS['HTTP_REFERER'];
 
-	// Register case type variable for the session
-//	if (!session_is_registered("existing"))
-//		session_register("existing");
-
 	// Read input values
 	$rep = intval($_GET['rep']);
 
@@ -53,10 +49,6 @@ if (empty($_SESSION['errors'])) {
 			WHERE id_report=$rep";
 
 		$result = lcm_query($q);
-
-		// Register report ID as session variable
-//		if (!session_is_registered("rep"))
-//			session_register("rep");
 
 		if ($row = lcm_fetch_array($result)) {
 			foreach ($row as $key => $value) {
