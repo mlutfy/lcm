@@ -54,9 +54,19 @@ if ($author > 0) {
 
 		$i = 0;
 		foreach($contacts as $c) {
-			if (! ($hide_emails == 'yes' && $c['name'] == 'email_main' && $author_session['status'] != 'admin')) {
+			// Check if the contact is an e-mail
+			if (strpos($c['name'],'email') === 0) {
+				if (! ($hide_emails == 'yes' && $author_session['status'] != 'admin')) {
+					$html .= "\t<tr>";
+					$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
+					$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
+					$html .= '<a href="mailto:' . $c['value'] . '">' . $c['value'] . '</a></td>';
+					$html .= "</tr>\n";
+					$i++;
+				}
+			} else {
 				$html .= "\t<tr>";
-				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . "</td>";
+				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
 				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . $c['value'] . "</td>";
 				$html .= "</tr>\n";
 				$i++;
