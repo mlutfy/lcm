@@ -58,8 +58,20 @@ if (isset($_REQUEST['remove'])) {
 	
 		lcm_query($query);
 		$ref_tag = "#line";
-	}
+	} else if ($remove == 'filter') {
+		$id_filter = intval($_REQUEST['id_filter']);
 
+		if (! $id_filter)
+			die ("remove filter: missing valid 'id_filter'");
+
+		// id_report is not mandatory, but it helps avoid errors
+		$query = "DELETE FROM lcm_rep_filter
+					WHERE id_filter = " . $id_filter . "
+					AND id_report = " . $rep;
+
+		lcm_query($query);
+		$ref_tag = "#filter";
+	}
 }
 
 if (isset($_REQUEST['add'])) {
