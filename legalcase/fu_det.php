@@ -125,7 +125,7 @@ echo "</ul>\n";
 		<tr><td><?php echo _T('fu_input_date_end'); ?></td>
 			<td><?php echo format_date($fu_data['date_end']); ?></td></tr>
 		<tr><td><?php echo _T('fu_input_type'); ?></td>
-			<td><?php echo $fu_data['type']; ?></td></tr>
+			<td><?php echo _T('kw_followups_' . $fu_data['type'] . '_title'); ?></td></tr>
 		<tr><td valign="top"><?php echo _T('fu_input_description'); ?></td>
 			<td><?php echo clean_output($fu_data['description']);
 				echo "</td></tr>\n";
