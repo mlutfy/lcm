@@ -27,6 +27,8 @@ include_lcm('inc_contacts');
 
 session_start();
 
+$author = intval($_GET['author']);
+
 if (empty($errors)) {
 
     // Clear form data
@@ -59,7 +61,7 @@ if (empty($errors)) {
 		} else  die(_T('error_no_such_user'));
 
 		$type_email = get_contact_type_id('email_main');
-		
+
 		$q = "SELECT value
 				FROM lcm_contact
 				WHERE id_of_person = $author
