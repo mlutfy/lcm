@@ -48,7 +48,7 @@ if ($existing) {
 	// Check if user is permitted to edit this author's data
 	if (($author_session['status'] != 'admin') &&
 			($author != $author_session['id_author'])) {
-		die("You don't have the right to edit this author's details");
+		die("You don't have the right to edit this author's details");	// TRAD
 	}
 
 	// Get author data
@@ -85,8 +85,8 @@ if (isset($_SESSION['usr']))
 		$usr[$key] = $value;
 
 // Start the page with the proper title
-if ($existing) lcm_page_start("Edit author");
-else lcm_page_start("New author");
+if ($existing) lcm_page_start("Edit author");	// TRAD
+else lcm_page_start("New author");	// TRAD
 
 echo show_all_errors($_SESSION['errors']);
 
@@ -246,7 +246,7 @@ echo show_all_errors($_SESSION['errors']);
 			$auth = new $class_auth;
 
 			if (! $auth->init()) {
-				echo "<p><b>ERROR: failed to initialize auth method: " . $auth->error . "</b></p>\n";
+				echo "<p><b>ERROR: failed to initialize auth method: " . $auth->error . "</b></p>\n";	// TRAD
 				lcm_log("ERROR: failed to initialize auth method: " . $auth->error);
 			}
 
