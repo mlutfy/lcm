@@ -827,6 +827,7 @@ function _Ti($text, $args = '') {
 	if (! preg_match('/:$/', $str))
 		$str .= ':';
 	
+	$str .= '&nbsp;';
 	return $str;
 }
 
