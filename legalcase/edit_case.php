@@ -91,8 +91,6 @@ $attach_client = 0;
 if (!$existing && isset($_REQUEST['attach_client'])) {
 	$attach_client = intval($_REQUEST['attach_client']);
 
-	/* [ML] Better to remove this and show clients in listcase instead
-	   + make 'title' optional.
 	if ($attach_client) {
 		// Fetch name of the client
 		$query = "SELECT name_first, name_middle, name_last
@@ -101,17 +99,11 @@ if (!$existing && isset($_REQUEST['attach_client'])) {
 
 		$result = lcm_query($query);
 		if ($info = lcm_fetch_array($result)) {
-			$_SESSION['case_data']['title'] = $info['name_first'];
-
-			// To avoid showing two spaces if no middle name
-			if ($info['name_middle'])
-				$_SESSION['case_data']['title'] .= ' ' . $info['name_middle'];
-
-			$_SESSION['case_data']['title'] .= ' ' . $info['name_last'];
+			$_SESSION['case_data']['title'] = get_person_name($info);
 		} else {
 			die("No such client #" . $attach_client);
 		}
-	} */
+	}
 }
 
 // Start page and title
