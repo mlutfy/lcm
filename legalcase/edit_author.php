@@ -216,7 +216,7 @@ echo show_all_errors($_SESSION['errors']);
 				<?php
 					global $system_kwg;
 
-					echo '<select name="new_contact_type_name[]" id="new_contact_type_' . $cpt_new . '">' . "\n";
+					echo '<select name="new_contact_type_name[]" id="new_contact_type_' . $cpt_new . '" class="sel_frm">' . "\n";
 					echo "<option value=''>" . "- select contact type -" . "</option>\n";
 
 					foreach ($system_kwg['contacts']['keywords'] as $contact) {
