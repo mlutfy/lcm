@@ -1004,6 +1004,23 @@ function show_tabs_links($tab_list, $selected='', $sel_link=false) {
 	echo "\n\n";
 }
 
+function get_list_pos($result) {
+	$list_pos = 0;
+	
+	if (isset($_REQUEST['list_pos']))
+		$list_pos = $_REQUEST['list_pos'];
+	
+	if ($list_pos >= $number_of_rows)
+		$list_pos = 0;
+	
+	// Position to the page info start
+	if ($list_pos > 0)
+		if (!lcm_data_seek($result, $list_pos))
+			lcm_panic("Error seeking position $list_pos in the result");
+	
+	return $list_pos;
+}
+
 function show_list_start($headers = array()) {
 	echo '<table border="0" align="center" class="tbl_usr_dtl" width="99%">' . "\n";
 	echo "<tr>\n";
