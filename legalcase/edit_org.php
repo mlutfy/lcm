@@ -56,9 +56,9 @@ if (empty($_SESSION['errors'])) {
 }
 
 if ($org) 
-	lcm_page_start("Edit organisation details"); // TRAD
+	lcm_page_start(_T('title_org_edit'));
 else
-	lcm_page_start("New organisation"); // TRAD
+	lcm_page_start(_T('title_org_new'));
 
 // Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);
@@ -132,11 +132,6 @@ echo '</td>';
 echo "</tr>\n";
 
 show_edit_contacts_form('org', $_SESSION['org_data']['id_org']);
-
-/*
-	<strong>Address:</strong><br />
-	<textarea name="address" cols="50" rows="3" class="frm_tarea"><?php echo clean_output($_SESSION['org_data']['address']); ?></textarea><br /><br />
-*/
 
 echo "</table>\n";
 
