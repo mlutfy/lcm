@@ -76,11 +76,18 @@ if ($prefs['time_intervals']=='absolute') {
 			$_SESSION['fu_data']['date_end'] = date('Y-m-d H:i:s',$unix_date_end);
 	}
 } else {
-	$unix_date_end = $unix_date_start
-			+ $_SESSION['fu_data']['delta_days'] * 86400
-			+ $_SESSION['fu_data']['delta_hours'] * 3600
-			+ $_SESSION['fu_data']['delta_minutes'] * 60;
-	$_SESSION['fu_data']['date_end'] = date('Y-m-d H:i:s', $unix_date_end);
+	if ( ! (isset($_SESSION['fu_data']['delta_days']) && (!is_numeric($_SESSION['fu_data']['delta_days']) || $_SESSION['fu_data']['delta_days'] < 0) ||
+		isset($_SESSION['fu_data']['delta_hours']) && (!is_numeric($_SESSION['fu_data']['delta_hours']) || $_SESSION['fu_data']['delta_hours'] < 0) ||
+		isset($_SESSION['fu_data']['delta_minutes']) && (!is_numeric($_SESSION['fu_data']['delta_minutes']) || $_SESSION['fu_data']['delta_minutes'] < 0) ) ) {
+		$unix_date_end = $unix_date_start
+				+ $_SESSION['fu_data']['delta_days'] * 86400
+				+ $_SESSION['fu_data']['delta_hours'] * 3600
+				+ $_SESSION['fu_data']['delta_minutes'] * 60;
+		$_SESSION['fu_data']['date_end'] = date('Y-m-d H:i:s', $unix_date_end);
+	} else {
+		$_SESSION['errors']['date_end'] = 'Invalid time interval!';	// TRAD
+		$_SESSION['fu_data']['date_end'] = $_SESSION['fu_data']['date_start'];
+	}
 }
 
 // Description
