@@ -61,7 +61,7 @@ if ($client > 0) {
 					'organisations' => _T('client_tab_organisations'),
 					'cases' => _T('client_tab_cases'));
 
-		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 0 );
+		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 'general' );
 		show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
 
 		if (isset($_SESSION['client']['attach_case'])) {
