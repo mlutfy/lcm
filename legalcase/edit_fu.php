@@ -162,7 +162,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			<td><?php 
 				$name = (($admin || ($edit && $modify)) ? 'start' : '');
 				echo get_date_inputs($name, $_SESSION['fu_data']['date_start'], false);
-				echo ' ' . _T('calendar_info_time') . ' ';
+				echo ' ' . _T('time_input_time_at') . ' ';
 				echo get_time_inputs($name, $_SESSION['fu_data']['date_start']);
 				echo f_err_star('date_start', $errors); ?>
 			</td>
@@ -171,17 +171,15 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			<td><?php 
 				if ($prefs['time_intervals'] == 'absolute') {
 					$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
-					echo _T('calendar_info_date') . ' '; 
 					echo get_date_inputs($name, $_SESSION['fu_data']['date_end']);
 					echo ' ';
-					echo _T('calendar_info_time') . ' ';
+					echo _T('time_input_time_at') . ' ';
 					echo get_time_inputs($name, $_SESSION['fu_data']['date_end']);
 					echo f_err_star('date_end',$errors);
 				} else {
 					$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'delta' : '');
 					$interval = ( ($_SESSION['fu_data']['date_end']!='0000-00-00 00:00:00') ?
 							strtotime($_SESSION['fu_data']['date_end']) - strtotime($_SESSION['fu_data']['date_start']) : 0);
-					echo _T('calendar_info_time') . ' ';
 					echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
 					echo f_err_star('date_end',$errors);
 				} ?>
