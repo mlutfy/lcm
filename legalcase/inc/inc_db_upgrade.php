@@ -697,12 +697,16 @@ function upgrade_database($old_db_version) {
 
 		lcm_query("ALTER TABLE lcm_keyword_client ADD KEY id_keyword (id_keyword)");
 		lcm_query("ALTER TABLE lcm_keyword_org ADD KEY id_keyword (id_keyword)");
+
+		upgrade_db_version (30); 
+	}
 	
+	if ($lcm_db_version_current < 31) {
 		// [ML] If no one complained, uncomment the following:
 		// lcm_query("ALTER TABLE lcm_client DROP address");
 		// lcm_query("ALTER TABLE lcm_org DROP address");
 
-		// upgrade_db_version (30); 
+		// upgrade_db_version (31); 
 	}
 
 	return $log;
