@@ -80,6 +80,8 @@ function format_date($timestamp = '', $format = 'full') {
 	$my_date = _T('date_format_' . $format, array(
 				'day_name' => _T('date_wday_' . ($day_of_w + 0)),
 				'month_name' => _T('date_month_' . ($dd[1] + 0)),
+				'month_short' => _T('date_month_short_' .($dd[1] + 0)),
+				'month' => ($dd[1] + 0),
 				'day_order' => _T('date_day_' . $dd[2]),
 				'day' => ($dd[2] + 0),
 				'year' => $dd[0],
