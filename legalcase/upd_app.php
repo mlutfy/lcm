@@ -75,11 +75,18 @@ if ($prefs['time_intervals']=='absolute') {
 			$_SESSION['app_data']['end_time'] = date('Y-m-d H:i:s',$unix_end_time);
 	}
 } else {
-	$unix_end_time = $unix_start_time
-			+ $_SESSION['app_data']['delta_days'] * 86400
-			+ $_SESSION['app_data']['delta_hours'] * 3600
-			+ $_SESSION['app_data']['delta_minutes'] * 60;
-	$_SESSION['app_data']['end_time'] = date('Y-m-d H:i:s', $unix_end_time);
+	if ( ! (isset($_SESSION['app_data']['delta_days']) && (!is_numeric($_SESSION['app_data']['delta_days']) || $_SESSION['app_data']['delta_days'] < 0) ||
+		isset($_SESSION['app_data']['delta_hours']) && (!is_numeric($_SESSION['app_data']['delta_hours']) || $_SESSION['app_data']['delta_hours'] < 0) ||
+		isset($_SESSION['app_data']['delta_minutes']) && (!is_numeric($_SESSION['app_data']['delta_minutes']) || $_SESSION['app_data']['delta_minutes'] < 0) ) ) {
+		$unix_end_time = $unix_start_time
+				+ $_SESSION['app_data']['delta_days'] * 86400
+				+ $_SESSION['app_data']['delta_hours'] * 3600
+				+ $_SESSION['app_data']['delta_minutes'] * 60;
+		$_SESSION['app_data']['end_time'] = date('Y-m-d H:i:s', $unix_end_time);
+	} else {
+		$_SESSION['errors']['end_time'] = 'Invalid time interval!';	// TRAD
+		$_SESSION['app_data']['end_time'] = $_SESSION['app_data']['start_time'];
+	}
 }
 
 // reminder
@@ -108,11 +115,18 @@ if ($prefs['time_intervals']=='absolute') {
 			$_SESSION['app_data']['reminder'] = date('Y-m-d H:i:s',$unix_reminder_time);
 	}
 } else {
-	$unix_reminder_time = $unix_start_time
-			- $_SESSION['app_data']['rem_offset_days'] * 86400
-			- $_SESSION['app_data']['rem_offset_hours'] * 3600
-			- $_SESSION['app_data']['rem_offset_minutes'] * 60;
-	$_SESSION['app_data']['reminder'] = date('Y-m-d H:i:s', $unix_reminder_time);
+	if ( ! (isset($_SESSION['app_data']['rem_offset_days']) && (!is_numeric($_SESSION['app_data']['rem_offset_days']) || $_SESSION['app_data']['rem_offset_days'] < 0) ||
+		isset($_SESSION['app_data']['rem_offset_hours']) && (!is_numeric($_SESSION['app_data']['rem_offset_hours']) || $_SESSION['app_data']['rem_offset_hours'] < 0) ||
+		isset($_SESSION['app_data']['rem_offset_minutes']) && (!is_numeric($_SESSION['app_data']['rem_offset_minutes']) || $_SESSION['app_data']['rem_offset_minutes'] < 0) ) ) {
+		$unix_reminder_time = $unix_start_time
+				- $_SESSION['app_data']['rem_offset_days'] * 86400
+				- $_SESSION['app_data']['rem_offset_hours'] * 3600
+				- $_SESSION['app_data']['rem_offset_minutes'] * 60;
+		$_SESSION['app_data']['reminder'] = date('Y-m-d H:i:s', $unix_reminder_time);
+	} else {
+		$_SESSION['errors']['reminder'] = 'Invalid reminder offset!';	// TRAD
+		$_SESSION['app_data']['reminder'] = $_SESSION['app_data']['start_time'];
+	}
 }
 
 // title
