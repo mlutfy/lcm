@@ -72,7 +72,6 @@ if (empty($errors)) {
 	}
 }
 
-$prefs = ($usr['prefs']) ? unserialize($usr['prefs']) : array();
 $statuses = array('admin', 'normal', 'external', 'trash', 'waiting', 'suspended');
 
 // Start the page with the proper title
