@@ -69,7 +69,7 @@ show_context_end();
 ?>
 
 	<table class="tbl_usr_dtl" width="99%">
-		<tr><td><?php echo 'Author:'; /* TRAD */ ?></td>
+		<tr><td><?php echo _T('case_input_author'); ?></td>
 			<td><?php echo get_person_name($fu_data); ?></td></tr>
 		<tr><td><?php echo _T('fu_input_date_start'); ?></td>
 			<td><?php echo format_date($fu_data['date_start']); ?></td></tr>
