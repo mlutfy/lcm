@@ -186,7 +186,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			<td><?php 
 				if ($prefs['time_intervals'] == 'absolute') {
 					$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
-					echo _T('calendar_info_date'); 
+					echo _T('calendar_info_date') . ' '; 
 					echo get_date_inputs($name, $_SESSION['fu_data']['date_end']);
 					echo ' ';
 					echo _T('calendar_info_time') . ' ';
