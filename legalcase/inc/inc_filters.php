@@ -374,21 +374,21 @@ function vider_date($letexte) {
 }
 
 function heures($numdate) {
-	$date_array = recup_heure($numdate);
+	$date_array = recup_time($numdate);
 	if ($date_array)
 		list($heures, $minutes, $secondes) = $date_array;
 	return $heures;
 }
 
 function minutes($numdate) {
-	$date_array = recup_heure($numdate);
+	$date_array = recup_time($numdate);
 	if ($date_array)
 		list($heures, $minutes, $secondes) = $date_array;
 	return $minutes;
 }
 
 function secondes($numdate) {
-	$date_array = recup_heure($numdate);
+	$date_array = recup_time($numdate);
 	if ($date_array)
 		list($heures,$minutes,$secondes) = $date_array;
 	return $secondes;
@@ -570,7 +570,7 @@ function date_ical($date_heure, $minutes = 0) {
 
 function date_iso($date_heure) {
 	list($annee, $mois, $jour) = recup_date($date_heure);
-	list($heures, $minutes, $secondes) = recup_heure($date_heure);
+	list($heures, $minutes, $secondes) = recup_time($date_heure);
 	$time = mktime($heures, $minutes, $secondes, $mois, $jour, $annee);
 	return gmdate("Y-m-d\TH:i:s\Z", $time);
 }
