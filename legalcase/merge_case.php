@@ -16,7 +16,7 @@
 
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
-    59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
 
 	$Id$
 */
@@ -66,9 +66,9 @@ $q = "INSERT INTO lcm_followup SET id_followup=0,
 		id_author=$id_author,
 		date_start=NOW(),
 		date_end=NOW(),
-		type=$type,
+		type='$type',
 		sumbilled=$sumbilled,
-		description='Merged to case ID:$destination'";
+		description='Merged to case ID:$destination\\n$description'";
 $result = lcm_query($q);
 
 // Add "merged from" follow-up to the new case
@@ -78,8 +78,8 @@ $q = "INSERT INTO lcm_followup SET
 		id_author=$id_author,
 		date_start=NOW(),
 		date_end=NOW(),
-		type=$type,
-		description='Case ID:$case merged in'";
+		type='$type',
+		description='Case ID:$case merged in. \\n$description'";
 // That would cause double counting the sumbilled
 //		sumbilled=$sumbilled";
 $result = lcm_query($q);
