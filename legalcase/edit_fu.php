@@ -297,7 +297,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			echo "</td></tr>\n";
 
 			echo "<!-- Appointment title -->\n\t\t<tr><td>";
-			echo _T('app_input_title');
+			echo f_err_star('app_title') . _T('app_input_title');
 			echo "</td><td>";
 			echo '<input type="text" ' . $title_onfocus . $dis . ' name="app_title" size="50" value="';
 			echo clean_output($_SESSION['fu_data']['app_title']) . '" />';
