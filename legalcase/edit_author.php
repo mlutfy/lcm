@@ -127,7 +127,7 @@ else lcm_page_start("New author");
 
 		if ($c['name'] != 'email_main')
 			//echo '<acronym title="Show icon with garbage bin to delete the contact?">Del?</acronym>';
-			echo "&nbsp;<img src=\"images/jimmac/stock_trash-16.png\" width=\"16\" height=\"16\" alt=\"Delete?\" />";
+			echo "&nbsp;<img src=\"images/jimmac/stock_trash-16.png\" width=\"16\" height=\"16\" alt=\"Delete?\" title=\"Delete?\" />&nbsp;<input type=\"checkbox\" name=\"del_contact[]\" />";
 
 		echo "</td>\n</tr>\n";
 
