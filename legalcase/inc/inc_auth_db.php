@@ -25,6 +25,8 @@
 if (defined('_INC_AUTH_DB')) return;
 define('_INC_AUTH_DB', '1');
 
+include_lcm('inc_filters');
+
 class Auth_db {
 	var $nom, $username, $md5pass, $md5next, $alea_futur, $statut;
 
@@ -130,7 +132,7 @@ class Auth_db {
 			return false;
 
 		// Check for password size
-		if (strlen(utf8_decode($pass)) <= 5) {
+		if (strlen(lcm_utf8_decode($pass)) <= 5) {
 			$this->error = _T('pass_warning_too_short');
 			return false;
 		}
@@ -170,7 +172,7 @@ class Auth_db {
 			return false;
 
 		// Check for username size
-		if (strlen(utf8_decode($new_username)) <= 3) {
+		if (strlen(lcm_utf8_decode($new_username)) <= 3) {
 			$this->error = _T('login_warning_too_short');
 			return false;
 		}
