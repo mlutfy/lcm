@@ -24,9 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_filters');
 
-
-if (isset($_REQUEST['client']) && $_REQUEST['client'] > 0)
-	$client = intval($_REQUEST['client']);
+$client = intval($_GET['client']); // To be sure that we get exaclty the GET value
 
 $client_data = array();
 session_start();
@@ -35,7 +33,7 @@ if (empty($errors)) {
     // Clear form data
     $client_data = array('referer' => $HTTP_REFERER);
 
-	if (isset($client)) {
+	if ($client>0) {
 		// Register client as session variable
 	    if (!session_is_registered("client"))
 			session_register("client");
@@ -55,9 +53,9 @@ if (empty($errors)) {
 	}
 }
 
-if ($client) {
-	lcm_page_start("Edit client: " 
-		. $client_data['name_first'] . ' ' 
+if ($client>0) {
+	lcm_page_start("Edit client: "
+		. $client_data['name_first'] . ' '
 		. $client_data['name_middle'] . ' '
 		. $client_data['name_last']);
 } else {
