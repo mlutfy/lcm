@@ -94,7 +94,10 @@ echo show_all_errors($_SESSION['errors']);
 <form name="edit_author" method="post" action="upd_author.php">
 	<input name="id_author" type="hidden" id="id_author" value="<?php echo $usr['id_author']; ?>"/>
 	<input name="email_exists" type="hidden" id="email_exists" value="<?php echo $usr['email_exists']; ?>"/>
-	<input name="ref_edit_author" type="hidden" id="ref_edit_author" value="<?php echo $usr['ref_edit_author']; ?>"/>
+	<input name="ref_edit_author" type="hidden" id="ref_edit_author" value="<?php 
+			$ref_link = new Link($usr['ref_edit_author']);
+			echo $ref_link->getUrl();
+		?>"/>
 
 	<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0" class="tbl_usr_dtl">
 		<?php
