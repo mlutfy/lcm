@@ -69,7 +69,6 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 
 	// The 'antifocus' is used to erase default titles such as "New appointment"
 	// other functions are used in calendar functions (taken from Spip's presentation.js)
-	echo '<script type="text/javascript" src="inc/layer.js"></script>' . "\n";
 	echo "<script type='text/javascript'><!--
 		var title_antifocus = false;
 
