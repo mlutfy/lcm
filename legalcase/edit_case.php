@@ -84,6 +84,8 @@ if (empty($_SESSION['errors'])) {
 if ($existing) lcm_page_start(_T('title_case_edit'));
 else lcm_page_start(_T('title_case_new'));
 
+echo lcm_help("case_edit");
+
 // Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);
 
