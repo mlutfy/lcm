@@ -60,7 +60,7 @@ function show_author_form() {
 	}
 ?>
 	    <tr>
-	    	<td align="right" valign="top"><?php echo _T('authorconf_input_screen') ?></td>
+	    	<td align="right" valign="top" width="50%"><?php echo _T('authorconf_input_screen') ?></td>
 			<td align="left" valign="top">
 				<input type="hidden" name="old_screen" id="old_screen" value="<?php echo $prefs['screen'] ?>" />
 				<select name="sel_screen" class="sel_frm">
@@ -98,9 +98,14 @@ function show_author_form() {
 		</tr>
 		<tr>
 			<td align="right" valign="top">Font size:</td>
-			<td align="left" valign="top"><input name="inc_fnt" type="button" class="search_form_btn" id="inc_fnt" value="A -" />
-                &nbsp; <input name="dec_fnt" type="button" class="search_form_btn" id="dec_fnt" value="A +" />
-				(not working yet)
+			<td align="left" valign="top"><!-- <input name="inc_fnt" type="button" class="search_form_btn" id="inc_fnt" value="A -" />
+                &nbsp; <input name="dec_fnt" type="button" class="search_form_btn" id="dec_fnt" value="A +" / >
+				(not working yet) -->
+				<select name="change_fnt_size" class="sel_frm" onchange="setActiveStyleSheet(document.upd_user_profile.change_fnt_size.options[document.upd_user_profile.change_fnt_size.options.selectedIndex].value)">
+					<option value="small_font">small</option>
+					<option value="">normal</option>
+					<option value="large_font">large</option>
+				</select>
 			</td>
 		</tr>
 		<tr>
