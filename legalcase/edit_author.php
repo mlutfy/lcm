@@ -73,8 +73,9 @@ if ($existing) {
 }
 
 // Fetch values that caused errors to show them with the error message
-foreach($_SESSION['usr'] as $key => $value)
-	$usr[$key] = $value;
+if (isset($_SESSION['usr']))
+	foreach($_SESSION['usr'] as $key => $value)
+		$usr[$key] = $value;
 
 // Start the page with the proper title
 if ($existing) lcm_page_start("Edit author");
@@ -156,13 +157,15 @@ echo show_all_errors($_SESSION['errors']);
 		$cpt++;
 	}
 
+	$cpt = 0;
+
 	if (! $emailmain_exists) {
 		echo '<tr><td align="right" valign="top">' . _T("kw_contacts_emailmain_title") . "\n";
 		echo '<td align="left" valign="top">';
-		echo '<input name="contact_type[]" id="contact_type_' . $cpt . '" '
+		echo '<input name="new_contact_type_name[]" id="new_contact_type_name_' . $cpt . '" '
 			. 'type="hidden" value="email_main" />' . "\n";
 
-		echo '<input name="contact_value[]" id="contact_value_' . $cpt . '" type="text" '
+		echo '<input name="new_contact_value[]" id="new_contact_value_' . $cpt . '" type="text" '
 			. 'class="search_form_txt" size="35" value=""/>&nbsp;';
 		
 		echo "</td>\n</tr>\n";

@@ -21,8 +21,6 @@
 	$Id$
 */
 
-// [ML] inc_auth session_start();
-
 include('inc/inc.php');
 include_lcm('inc_filters');
 
