@@ -889,7 +889,7 @@ function get_yes_no($name, $value = '') {
 	$val_yes = 'yes';
 	$val_no = 'no';
 
-	if ($value == 'Y' || $value = 'N') {
+	if ($value == 'Y' || $value == 'N') {
 		$val_yes = 'Y';
 		$val_no  = 'N';
 	}
