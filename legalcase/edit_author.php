@@ -135,27 +135,6 @@ echo show_all_errors($_SESSION['errors']);
 	$contacts_other = get_contacts('author', $usr['id_author'], 'email_main,address_main', 'not');
 
 /*
-	function print_existing_contact($c, $num) {
-		echo '<tr><td align="right" valign="top">' . _T($c['title']) . "\n";
-		echo '<td align="left" valign="top">';
-	
-		echo '<input name="contact_id[]" id="contact_id_' . $num . '" '
-			. 'type="hidden" value="' . $c['id_contact'] . '" />' . "";
-		echo '<input name="contact_type[]" id="contact_type_' . $num . '" '
-			. 'type="hidden" value="' . $c['type_contact'] . '" />' . "";
-
-		// [ML] Removed spaces (nbsp) between elements, or it causes the layout
-		// to show on two lines when using a large font.
-		echo '<input name="contact_value[]" id="contact_value_' . $num . '" type="text" '
-			. 'class="search_form_txt" size="35" value="' . clean_output($c['value']) . '"/>';
-		echo f_err('email', $_SESSION['errors']) . "";
-
-		echo '<label for="id_del_contact' . $num . '"><img src="images/jimmac/stock_trash-16.png" width="16" height="16" alt="Delete?" title="Delete?" /></label>&nbsp;<input type="checkbox" id="id_del_contact' . $num . '" name="del_contact_' . $c['id_contact'] . '"/>';
-
-		echo "</td>\n</tr>\n\n";
-
-	}
-
 	// For new specific type of contact, such as 'email_main', 'address_main'
 	function print_new_contact($type_kw, $type_name, $num_new) {
 		echo '<tr><td align="right" valign="top">' . _T("kw_contacts_" . $type_kw . "_title") . "\n";
@@ -309,7 +288,7 @@ echo show_all_errors($_SESSION['errors']);
 			} /* is_newpass_allowed() */
 		?>
 
-		<tr><td align="right" valign="top">Status:</td>
+		<tr><td align="right" valign="top"><?php echo "Status:"; /* TRAD */ ?></td>
 			<td align="left" valign="top">
 			
 <?php
