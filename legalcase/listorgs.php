@@ -78,6 +78,7 @@ for ($i = 0 ; (($i < $prefs['page_rows']) && ($row = lcm_fetch_array($result))) 
 	echo "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
 	echo '<a href="org_det.php?org=' . $row['id_org'] . '" class="content_link">';
 	echo highlight_matches(clean_output($row['name']), $find_org_string);
+	echo "</a>\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 }
