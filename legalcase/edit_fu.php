@@ -204,9 +204,14 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			else
 				$default_fu = $system_kwg['followups']['suggest'];
 
-			foreach($system_kwg['followups']['keywords'] as $kw) {
-				$sel = ($kw['name'] == $default_fu ? ' selected="selected"' : '');
-				echo "<option value='" . $kw['name'] . "'" . "$sel>" . _T($kw['title']) . "</option>\n";
+			$opts = array();
+			foreach($system_kwg['followups']['keywords'] as $kw)
+				$opts[$kw['name']] = _T($kw['title']);
+			asort($opts);
+
+			foreach($opts as $k => $opt) {
+				$sel = ($k == $default_fu ? ' selected="selected"' : '');
+				echo "<option value='$k'$sel>$opt</option>\n";
 			}
 
 			?>
