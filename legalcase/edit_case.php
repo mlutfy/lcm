@@ -219,8 +219,12 @@ if ($_SESSION['case_data']['id_case']) {
 	echo '<select name="status" id="input_status" class="sel_frm">' . "\n";
 	$statuses = ($existing ? array('draft','open','suspended','closed','merged') : array('draft','open') );
 
-	foreach ($statuses as $s)
-		echo "<option" .  (($s == $_SESSION['case_data']['status']) ? ' selected="selected"' : '') . ">$s</option>\n";
+	foreach ($statuses as $s) {
+		$sel = ($s == $_SESSION['case_data']['status'] ? ' selected="selected"' : '');
+		echo '<option value="' . $s . '"' . $sel . ">" 
+			. _T('case_status_option_' . $s)
+			. "</option>\n";
+	}
 
 	echo "</select></td>\n";
 	echo "</tr>\n";
