@@ -41,7 +41,7 @@ if (!allowed($case,'w')) die("You don't have permission to add information to th
 
 // Add "merged to" follow-up to the old case
 $q = "INSERT INTO lcm_followup SET id_followup=0,id_case=$case,date_start=NOW(),type=$type,sumbilled=$sumbilled";
-$result = lcm_query($q)
+$result = lcm_query($q);
 
 // Create new case if $destination is 0
 if ($destination==0) {
