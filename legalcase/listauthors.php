@@ -73,28 +73,28 @@ if ($list_pos>0)
 // Process the output of the query
 for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; $i++) {
 	// Show author name
-	echo "<tr><td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-	if (($GLOBALS['author_session']['status'] == 'admin') ||
-		($row['id_author'] == $GLOBALS['author_session']['id_author']))
-			 echo '<a href=".php?author=' . $row['id_author'] . '" class="content_link">';
+	echo "\t<tr><td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
+	echo '<a href="author_det.php?author=' . $row['id_author'] . '" class="content_link">';
 	echo highlight_matches(clean_output($row['name_first'] . ' ' . $row['name_middle'] . ' '
 		. $row['name_last']),$find_author_string);
+	echo "</a></td>\n";
+	// Show author status
+	echo "\t\t<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
+	echo clean_output($row['status']);
+	echo "</td>\n";
+	// Show author action(s)
+	echo "\t\t<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
 	if (($GLOBALS['author_session']['status'] == 'admin') ||
 		($row['id_author'] == $GLOBALS['author_session']['id_author']))
-			echo '</a>';
-	echo "</td>\n<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-	echo clean_output($row['status']);
-	echo "</td>\n<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-	if ($GLOBALS['author_session']['status'] = 'admin')
-		echo '<a href="edit_author.php?author=' . $row['id_author'] . '" class="content_link">Edit</a>';
-	echo "</td></tr>\n";
+			echo '<a href="edit_author.php?author=' . $row['id_author'] . '" class="content_link">Edit</a>';
+	echo "</td>\n\t</tr>\n";
 }
 
-?>
-</table>
-<br /><a href="edit_author.php?author=0" class="create_new_lnk">Add author</a><br />
+echo "</table>\n<br />\n";
 
-<?php
+// Show add auhor button
+if ($GLOBALS['author_session']['status'] == 'admin')
+	echo '<a href="edit_author.php?author=0" class="create_new_lnk">Add author</a><br />';
 
 // Show link to previous page
 if ($list_pos>0) {
