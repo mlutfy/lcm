@@ -203,7 +203,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			</td>
 		</tr>
 		<tr><td><?php echo _T('fu_input_type'); ?></td>
-			<td><select <?php echo $dis; ?> name="type" size="1">
+			<td><select <?php echo $dis; ?> name="type" size="1" class="sel_frm">
 			<?php
 
 			global $system_kwg;
