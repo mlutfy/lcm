@@ -24,6 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
+include_lcm('inc_keywords_default');
 
 // Initiate session
 // [ML] now in inc_auth session_start();
