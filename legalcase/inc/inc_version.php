@@ -370,7 +370,7 @@ function include_data($file) {
 
 $flag_connect = @file_exists('inc/config/inc_connect.php');
 
-function lcm_query($query) {
+function lcm_query($query, $accept_fail = false) {
 	include_lcm('inc_db');
 
 	// We silently fail if there is no database, this avoids 
@@ -381,7 +381,7 @@ function lcm_query($query) {
 			return;
 	}
 
-	return lcm_query_db($query);
+	return lcm_query_db($query, $accept_fail);
 }
 
 function spip_query($query) {
