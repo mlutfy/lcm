@@ -703,10 +703,24 @@ function upgrade_database($old_db_version) {
 	
 	if ($lcm_db_version_current < 31) {
 		// [ML] If no one complained, uncomment the following:
-		// lcm_query("ALTER TABLE lcm_client DROP address");
-		// lcm_query("ALTER TABLE lcm_org DROP address");
+		lcm_query("ALTER TABLE lcm_client DROP address");
+		lcm_query("ALTER TABLE lcm_org DROP address");
 
-		// upgrade_db_version (31); 
+		// [AG] Adding id_author, date_removed and index to attached documents
+		lcm_query("ALTER TABLE lcm_case_attachment	ADD id_author BIGINT(21) NOT NULL AFTER id_case,
+								CHANGE content content LONGBLOB DEFAULT NULL,
+								ADD date_removed DATETIME NOT NULL,
+								ADD INDEX (id_author)");
+		lcm_query("ALTER TABLE lcm_client_attachment	ADD id_author BIGINT(21) NOT NULL AFTER id_client,
+								CHANGE content content LONGBLOB DEFAULT NULL,
+								ADD date_removed DATETIME NOT NULL,
+								ADD INDEX (id_author)");
+		lcm_query("ALTER TABLE lcm_org_attachment	ADD id_author BIGINT(21) NOT NULL AFTER id_org,
+								CHANGE content content LONGBLOB DEFAULT NULL,
+								ADD date_removed DATETIME NOT NULL,
+								ADD INDEX (id_author)");
+
+		upgrade_db_version (31);
 	}
 
 	return $log;

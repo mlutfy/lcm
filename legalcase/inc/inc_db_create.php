@@ -98,14 +98,17 @@ function create_database() {
 	$query = "CREATE TABLE lcm_case_attachment (
 		  id_attachment bigint(21) NOT NULL auto_increment,
 		  id_case bigint(21) NOT NULL default '0',
+		  id_author bigint(21) NOT NULL default '0',
 		  filename varchar(255) NOT NULL default '',
 		  type varchar(255) default NULL,
 		  size bigint(21) NOT NULL default '0',
 		  description text,
-		  content longblob NOT NULL,
+		  content longblob,
 		  date_attached datetime NOT NULL default '0000-00-00 00:00:00',
+		  date_removed datetime NOT NULL default '0000-00-00 00:00:00',
 		  PRIMARY KEY  (id_attachment),
 		  KEY id_case (id_case),
+		  KEY id_author (id_author),
 		  KEY filename (filename),
 		  FULLTEXT KEY description (description))";
 	$result = lcm_query($query);
@@ -183,14 +186,17 @@ function create_database() {
 	$query = "CREATE TABLE lcm_client_attachment (
 		  id_attachment bigint(21) NOT NULL auto_increment,
 		  id_client bigint(21) NOT NULL default '0',
+		  id_author bigint(21) NOT NULL default '0',
 		  filename varchar(255) NOT NULL default '',
 		  type varchar(255) default NULL,
 		  size bigint(21) NOT NULL default '0',
 		  description text,
-		  content longblob NOT NULL,
+		  content longblob,
 		  date_attached datetime NOT NULL default '0000-00-00 00:00:00',
+		  date_removed datetime NOT NULL default '0000-00-00 00:00:00',
 		  PRIMARY KEY  (id_attachment),
 		  KEY id_client (id_client),
+		  KEY id_author (id_author),
 		  KEY filename (filename),
 		  FULLTEXT KEY description (description))";
 	$result = lcm_query($query);
@@ -216,14 +222,17 @@ function create_database() {
 	$query = "CREATE TABLE lcm_org_attachment (
 		  id_attachment bigint(21) NOT NULL auto_increment,
 		  id_org bigint(21) NOT NULL default '0',
+		  id_author bigint(21) NOT NULL default '0',
 		  filename varchar(255) NOT NULL default '',
 		  type varchar(255) default NULL,
 		  size bigint(21) NOT NULL default '0',
 		  description text,
-		  content longblob NOT NULL,
+		  content longblob,
 		  date_attached datetime NOT NULL default '0000-00-00 00:00:00',
+		  date_removed datetime NOT NULL default '0000-00-00 00:00:00',
 		  PRIMARY KEY  (id_attachment),
 		  KEY id_org (id_org),
+		  KEY id_author (id_author),
 		  KEY filename (filename),
 		  FULLTEXT KEY description (description))";
 	$result = lcm_query($query);
