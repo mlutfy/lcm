@@ -176,7 +176,7 @@ if ($case > 0) {
 
 		while ($row = lcm_fetch_array($result)) {
 			$html .= "<tr>\n";
-			$html .= '<td width="25"><img src="images/spip/client_one-20.png" alt="" height="20" width="20" /></td>' . "\n";
+			$html .= '<td width="25" align="center"><img src="images/jimmac/stock_person.png" alt="" height="16" width="16" /></td>' . "\n";
 			$html .= '<td><a href="client_det.php?client=' . $row['id_client'] . '" class="content_link">';
 			$html .=  clean_output($row['name_first'] . ' ' . $row['name_middle'] . ' ' .$row['name_last']);
 			$html .= "</a></td>\n";
@@ -199,7 +199,7 @@ if ($case > 0) {
 
 		while ($row = lcm_fetch_array($result)) {
 			$html .= "<tr>\n";
-			$html .= '<td width="25"><img src="images/spip/client_org-20.png" alt="" height="20" width="20" /></td>' . "\n";
+			$html .= '<td width="25" align="center"><img src="images/jimmac/stock_people.png" alt="" height="16" width="16" /></td>' . "\n";
 			$html .= '<td><a href="org_det.php?org=' . $row['id_org'] . '" class="content_link">';
 			$html .= clean_output($row['name']);
 			$html .= "</a></td>\n";
