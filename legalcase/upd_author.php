@@ -40,6 +40,13 @@ function force_session_restart($id_author) {
 function change_password() {
 	global $author_session;
 
+	if ($_SESSION['usr']['status'] != 'admin' 
+		&& $_SESSION['usr']['status'] != 'normal'
+		&& empty($_SESSION['usr']['username']))
+	{
+		return;
+	}
+
 	// FIXME: include auth type according to 'auth_type' field in DB
 	// default on 'db' if field not present/set.
 	$class_auth = 'Auth_db';
@@ -100,6 +107,13 @@ function change_password() {
 
 function change_username($id_author, $old_username, $new_username) {
 	global $author_session;
+
+	if ($_SESSION['usr']['status'] != 'admin' 
+		&& $_SESSION['usr']['status'] != 'normal'
+		&& empty($_SESSION['usr']['username']))
+	{
+		return;
+	}
 
 	include_lcm('inc_auth_db');
 	$class_auth = 'Auth_db'; // FIXME, take from author_session
@@ -175,13 +189,6 @@ if ($_SESSION['usr']['id_author'] > 0) {
 			WHERE id_author = " . $_SESSION['usr']['id_author'];
 	$result = lcm_query($q);
 } else {
-	// Keep form information in session, just in case there is an error
-	// now or later (username/pass).
-	/* [ML] It is already saved
-	foreach($usr as $key => $value)
-		$_SESSION['usr'][$key] = $value;
-	*/
-
 	if (count($errors)) {
     	header("Location: edit_author.php?author=0");
 		exit;
