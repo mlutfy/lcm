@@ -113,6 +113,8 @@ if (count($_SESSION['errors'])) {
 			die("You don't have permission to add information to this case!");
 
 		// Update case status
+		$status = '';
+		$stage = '';
 		switch ($_SESSION['fu_data']['type']) {
 			case 'conclusion' :
 				$status = 'closed';
@@ -128,12 +130,13 @@ if (count($_SESSION['errors'])) {
 			case 'merge' :
 				$status = 'merged';
 				break;
-			default: $status = '';
+			case 'stage_change' :
+				$stage = $_POST['new_stage'];
 		}
 		
-		if ($status) {
+		if ($status || $stage) {
 			$q = "UPDATE lcm_case
-					SET status='$status'
+					SET " . ($status ? "status='$status'" : '') . ($status && $stage ? ',' : '') . ($stage ? "stage='$stage'" : '') . "
 					WHERE id_case=$id_case";
 			$result = lcm_query($q);
 		}
