@@ -94,6 +94,10 @@ if ($row = lcm_fetch_array($result)) {
 		echo "<br />\n";
 	}
 
+	// Show edit appointment button
+	if ($row['id_author'] == $GLOBALS['author_session']['id_author'])
+		echo '<br /><a href="edit_app.php?app=' . $row['id_app'] . '" class="create_new_lnk">' . 'Edit this appointment' . "</a><br />\n"; // TRAD
+
 	if ($row['id_case'] > 0) {
 //		echo '<br />';
 		// Show child followup
