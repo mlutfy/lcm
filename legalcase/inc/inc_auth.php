@@ -136,7 +136,7 @@ function auth() {
 			$prefs['theme'] = 'green';
 
 		if (! isset($prefs['screen']) || ! $prefs['screen'])
-			$prefs['screen'] = 'narrow';
+			$prefs['screen'] = 'wide';
 
 		if (! isset($prefs['font_size']) || ! $prefs['font_size'])
 			$prefs['font_size'] = 'medium_font';
