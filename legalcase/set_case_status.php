@@ -96,7 +96,7 @@ switch ($status) {
 	<table class='tbl_usr_dtl' width='99%'>
 		<tr><td>$date_title</td>
 			<td>";
-		echo _T('calendar_info_date');
+		echo _T('calendar_info_date') . ' ';
 		echo get_date_inputs('start', $date_start, false);
 		echo ' ' . _T('calendar_info_time') . ' ';
 		echo get_time_inputs('start', $date_start);
@@ -155,7 +155,7 @@ switch ($status) {
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td>Close:</td>
 			<td>';
-		echo _T('calendar_info_date');
+		echo _T('calendar_info_date') . ' ';
 		echo get_date_inputs('start', $date_start, false);
 		echo ' ' . _T('calendar_info_time') . ' ';
 		echo get_time_inputs('start', $date_start);
@@ -214,7 +214,7 @@ switch ($status) {
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td>Suspension:</td>
 			<td>';
-		echo _T('calendar_info_date');
+		echo _T('calendar_info_date') . ' ';
 		echo get_date_inputs('start', $date_start, false);
 		echo ' ' . _T('calendar_info_time') . ' ';
 		echo get_time_inputs('start', $date_start);
@@ -273,7 +273,7 @@ switch ($status) {
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td>Merge:</td>
 			<td>';
-		echo _T('calendar_info_date');
+		echo _T('calendar_info_date') . ' ';
 		echo get_date_inputs('start', $date_start, false);
 		echo ' ' . _T('calendar_info_time') . ' ';
 		echo get_time_inputs('start', $date_start);
