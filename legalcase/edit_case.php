@@ -76,7 +76,7 @@ if (empty($errors)) {
 		$case_data['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
 		$case_data['public'] = read_meta('case_default_read');
 		$case_data['pub_write'] = read_meta('case_default_write');
-		$case_data['status'] = 'open';
+		$case_data['status'] = 'draft';
 
 		$admin = true;
 
