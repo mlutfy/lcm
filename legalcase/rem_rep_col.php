@@ -28,14 +28,14 @@ include_lcm('inc_lang');
 $rep = intval($_GET['rep']);
 $order = intval($_GET['order']);
 
-if (($rep>0) && ($col)) {
-	// Remove the conlumn
+if (($rep>0) && ($order)) {
+	// Remove the column
 	$q = "DELETE FROM lcm_rep_cols
 			WHERE id_report=$rep
 			AND col_order=$order";
 	$result = lcm_query($q);
 
-	// Change order of the rest of the conditions
+	// Change order of the rest of the columns
 	$q = "UPDATE lcm_rep_cols
 			SET col_order=col_order-1
 			WHERE (id_report=$rep
