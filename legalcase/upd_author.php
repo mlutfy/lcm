@@ -63,7 +63,7 @@ $fl = "id_author=" . $usr['id_author'] . ",username='" . clean_input($usr['usern
 
 if ($usr['id_author'] > 0) {
 	// Check access rights
-	if ($GLOBALS['author_session']['status'] != 'admin')
+	if (($GLOBALS['author_session']['status'] != 'admin') && ($GLOBALS['author_session']['id_author'] != $usr['id_author']))
 		die("You don't have permission to change author's information!");
 	else {
 		$q = "UPDATE lcm_author SET $fl WHERE id_author=" . $usr['id_author'];
