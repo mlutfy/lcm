@@ -375,10 +375,10 @@ function http_href($href, $clic, $title='', $style='', $class='', $evt='') {
 	return '<a href="' .
 		str_replace('&', '&amp;', $href) .
 		'"' .
-		(!$title ? '' : ("\ntitle=\"" . supprimer_tags($title)."\"")) .
-		(!$style ? '' : ("\nstyle=\"" . $style . "\"")) .
-		(!$class ? '' : ("\nclass=\"" . $class . "\"")) .
-		($evt ? "\n$evt" : '') .
+		(!$title ? '' : (" title=\"" . supprimer_tags($title)."\"")) .
+		(!$style ? '' : (" style=\"" . $style . "\"")) .
+		(!$class ? '' : (" class=\"" . $class . "\"")) .
+		($evt ? " $evt" : '') .
 		'>' .
 		$clic .
 		'</a>';
