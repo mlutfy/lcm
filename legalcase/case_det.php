@@ -92,7 +92,8 @@ if ($case > 0) {
 		echo _T('alledged_crime') . ': ' . clean_output($row['alledged_crime']) . "<br>\n";
 
 		// Change status form
-		echo "<form action='set_case_status.php?case=$case' method='GET'>\n";
+		echo "<form action='set_case_status.php' method='GET'>\n";
+		echo "\t<input type='hidden' name='case' value='$case'>\n";
 		echo _T('status') . ":&nbsp;\n";
 		echo "\t<select name='status'>\n";
 		$statuses = array('open','closed','merged');
