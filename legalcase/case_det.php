@@ -132,6 +132,9 @@ if ($case > 0) {
 				if ($case_alledged_crime == 'yes')
 					echo _T('case_input_alledged_crime') . ' ' . clean_output($row['alledged_crime']) . "<br />\n";
 
+				include_lcm('inc_keywords');
+				show_all_keywords('case', $row['id_case']);
+
 				// Show case status
 				if ($edit) {
 					// Change status form
