@@ -255,7 +255,7 @@ if ($case > 0) {
 		echo '<td>' . clean_output($row['type']) . '</td>';
 		if (strlen($row['description'])<$title_length) $short_description = $row['description'];
 		else $short_description = substr($row['description'],0,$title_length) . '...';
-		echo '<td>' . clean_output($short_description) . '</td>';
+		echo '<td><a href="fu_det.php?followup=' . $row['id_followup'] . '">' . clean_output($short_description) . '</a></td>';
 		if ($edit)
 			echo '<td><a href="edit_fu.php?followup=' . $row['id_followup'] . '" class="content_link">' . _T('Edit') . '</a></td>';
 		echo "</tr>\n";
