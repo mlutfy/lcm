@@ -30,7 +30,7 @@ $_SESSION['errors'] = array();
 
 $id_app = 0;
 if (isset($_REQUEST['id_app']))
-	$id_app = $_REQUEST['id_app'];
+	$id_app = intval($_REQUEST['id_app']);
 
 // Get form data from POST fields
 foreach($_POST as $key => $value)
@@ -115,6 +115,12 @@ if ($prefs['time_intervals']=='absolute') {
 	$_SESSION['app_data']['reminder'] = date('Y-m-d H:i:s', $unix_reminder_time);
 }
 
+// title
+if (!(strlen($_SESSION['title'])>0)) $_SESSION['errors']['title'] = 'Appointment title should not be empty!';
+
+//
+// Check if errors found
+//
 if (count($_SESSION['errors'])) {
 	// Errors, return to editing page
 	header("Location: " . $GLOBALS['HTTP_REFERER']);
