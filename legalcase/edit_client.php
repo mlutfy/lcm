@@ -26,12 +26,12 @@ include_lcm('inc_filters');
 
 $client = intval($_GET['client']); // To be sure that we get exaclty the GET value
 
-$client_data = array();
 session_start();
 
 if (empty($errors)) {
     // Clear form data
-    $client_data = array('referer' => $HTTP_REFERER);
+    $client_data = array();
+	$client_data['referer'] = $HTTP_REFERER;
 
 	if ($client>0) {
 		// Register client as session variable
