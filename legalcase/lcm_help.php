@@ -75,7 +75,7 @@ if ($code) {
 			// [ML] This is a temporary fix until we fix the menu navigation
 			$toc = array(
 				'installation' => array('install_permissions', 'install_database', 'install_personal'),
-				'cases' => array('case_intro', 'case_participants', 'case_followups'),
+				'cases' => array('cases_intro', 'cases_participants', 'cases_followups'),
 				'clients' => array('clients_intro', 'clients_org'),
 				'authors' => array('authors_intro', 'authors_admin'),
 				'siteconfig' => array('siteconfig_general', 'siteconfig_collab', 'siteconfig_policy', 'siteconfig_regional'),
