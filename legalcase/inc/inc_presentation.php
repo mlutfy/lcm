@@ -1287,7 +1287,7 @@ function show_listcase_end($current_pos = 0, $number_of_rows = 0) {
 	show_list_end($current_pos, $number_of_rows);
 }
 
-function show_find_box($type, $string) {
+function show_find_box($type, $string, $dest = '') {
 	// the joy of patching around
 	switch ($type) {
 		case 'case':
@@ -1301,6 +1301,9 @@ function show_find_box($type, $string) {
 		default:
 			lcm_panic("invalid type: $type");
 	}
+
+	if ($dest)
+		$action = $dest;
 
 	echo '<form name="frm_find_' . $type . '" class="search_form" action="' . $action . '" method="get">' . "\n";
 	echo _T('input_search_' . $type) . "&nbsp;";
