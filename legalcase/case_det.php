@@ -42,7 +42,7 @@ if (isset($_GET['fu_order']))
 
 if ($case > 0) {
 	$q="SELECT id_case, title, id_court_archive, date_creation, date_assignment,
-			legal_reason, alledged_crime, status, public, pub_write
+			legal_reason, alledged_crime, status, stage, public, pub_write
 		FROM lcm_case
 		WHERE id_case=$case";
 
