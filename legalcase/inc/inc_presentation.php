@@ -69,6 +69,7 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 
 	// The 'antifocus' is used to erase default titles such as "New appointment"
 	// other functions are used in calendar functions (taken from Spip's presentation.js)
+	echo '<script type="text/javascript" src="inc/layer.js"></script>' . "\n";
 	echo "<script type='text/javascript'><!--
 		var title_antifocus = false;
 
@@ -105,8 +106,17 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 
 		function setvisibility (objet, status) {
 			element = findObj(objet);
-			if (element.style.visibility != status)
-				element.style.visibility = status; 
+			if (element.style.visibility != status) {
+				if (status == 'flip') {
+					if (element.style.visibility == 'visible') {
+						element.style.visibility = 'hidden';
+					} else {
+						element.style.visibility = 'visible';
+					}
+				} else {
+					element.style.visibility = status;
+				}
+			}
 		}
 
 		function lcm_show(objet) {
