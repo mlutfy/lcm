@@ -131,6 +131,7 @@ if ($next_pos<$number_of_rows) {
 echo "</td>\n\t</tr>\n</table>\n";
 ?>
 <br /><a href="edit_case.php?case=0" class="create_new_lnk">Open new case</a>
+<br /><br />
 <?php
 lcm_page_end();
 ?>
