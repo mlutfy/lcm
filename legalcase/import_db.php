@@ -171,7 +171,10 @@ function import_database($input_filename) {
 
 	// Change backup dir permissions back
 	chmod($dir,0700);
-
+	
+	// Update lcm_db_version since we have overwritten lcm_meta
+	write_meta('lcm_db_version',$backup_db_version);
+	
 	// Debugging
 	//lcm_query("use lcm");
 
