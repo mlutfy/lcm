@@ -114,9 +114,9 @@ if ($client > 0) {
 				echo '<div class="prefs_column_menu_head">' . _T('client_subtitle_associated_org') . "</div>\n";
 		
 				echo '
-				<br /><table border="0" class="tbl_usr_dtl">
+				<br /><table border="0" class="tbl_usr_dtl" width="100%">
 				<tr>
-					<th class="heading">Organisation name</th>
+					<th class="heading">' . "Organisation name" . /* TRAD */ '</th>
 					<th class="heading">&nbsp;</th>
 				</tr>';
 		
