@@ -109,9 +109,15 @@ function show_keyword_group_id($action = 'view', $id_group) {
 //
 // View the details on a keyword 
 //
-function show_keyword_id($id_keyword) {
+function show_keyword_id($action = 'view', $id_keyword) {
+	$kw = get_kw_from_id($id_keyword);
 
+	lcm_page_start("Keyword: " . $kw['name']);
 
+	echo "<p>Title = " . $kw['title'] . "</p>\n";
+	echo "<p>TODO</p>\n";
+
+	lcm_page_end();
 }
 
 if (isset($_REQUEST['action'])) {
@@ -130,6 +136,8 @@ if (isset($_REQUEST['action'])) {
 		exit;
 	}
 }
+
+error_reporting(E_ALL);
 
 // Default action
 $type = (isset($_REQUEST['type']) ? $_REQUEST['type'] : '');
