@@ -93,13 +93,13 @@ if ($case > 0) {
 
 		// Change status form
 		echo "<form action='set_case_status.php?case=$case' method='POST'>\n";
-		echo _T('status') . ': ';
-		echo "\t<select name='status'>";
+		echo _T('status') . ":&nbsp;\n";
+		echo "\t<select name='status'>\n";
 		$statuses = array('open','closed','merged');
 		foreach ($statuses as $s)
 			echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
 		echo "\t</select>\n";
-		echo "\t<input type='submit' name='Set case status'>\n";
+		echo "\t<input type='submit' name='submit' value='Set case status'>\n";
 		echo "</form><br>\n";
 
 		echo _T('public') . ': ' . _T('Read') . '=';
