@@ -92,7 +92,7 @@ function format_date($timestamp = '', $format = 'full') {
 }
 
 // Formats time interval
-function format_time_interval($time, $hours_only=false) {
+function format_time_interval($time, $hours_only=false, $hours_only_format='%.2f') {
 	if (is_int($time) && ($time>0)) {
 		if ($hours_only) {
 			$days = 0;
@@ -106,7 +106,12 @@ function format_time_interval($time, $hours_only=false) {
 
 		$ret = array();
 		if ($days) $ret[] = $days . 'd';
-		if ($hours) $ret[] = $hours . ($hours_only ? ( ($hours == 1.0) ? 'hr' : 'hrs') : 'h');
+		if ($hours) {
+			if ($hours_only)
+				$ret[] = sprintf($hours_only_format,$hours) . ( ($hours == 1.0) ? ' hr' : ' hrs');
+			else
+				$ret[] = $hours . 'h';
+		}
 		if ($minutes) $ret[] = $minutes . 'm';
 
 		return join(', ',$ret);
