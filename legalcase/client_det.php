@@ -134,7 +134,7 @@ if ($client > 0) {
 					echo $html;
 
 				if ($edit)
-					echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a>' . "<br /><br /></p>\n";
+					echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a>' . "<br /><br /></p>\n"; // TRAD
 
 				echo "</fieldset>\n";
 				break;
@@ -241,7 +241,8 @@ if ($client > 0) {
 				if ($edit)
 					show_attachments_upload('client', $client);
 
-				echo '</fieldset>';
+				echo "</p>\n";
+				echo "</fieldset>\n";
 				break;
 		}
 
