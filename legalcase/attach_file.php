@@ -38,7 +38,7 @@ if (isset($_FILES['filename'])) {
 	if (is_uploaded_file($filename) && $_SESSION['user_file']['size'] > 0) {
 		$file = fopen($filename,"r");
 		$file_contents = fread($file, filesize($filename));
-		$file_contents = (get_magic_quotes_gpc() ? $file_contents, addslashes($file_contents));
+		$file_contents = (get_magic_quotes_gpc() ? $file_contents : addslashes($file_contents));
 
 		if ($case > 0) {
 			$q = "INSERT INTO lcm_case_attachment
