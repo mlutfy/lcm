@@ -92,6 +92,22 @@ function create_database() {
 	
 	$log .= log_if_not_duplicate_table(lcm_sql_errno());
 
+	$query = "CREATE TABLE lcm_case_attachment (
+		  id_attachment bigint(21) NOT NULL auto_increment,
+		  id_case bigint(21) NOT NULL default '0',
+		  filename varchar(255) NOT NULL default '',
+		  type varchar(255) default NULL,
+		  size bigint(21) NOT NULL default '0',
+		  description text,
+		  content longblob NOT NULL,
+		  PRIMARY KEY  (id_attachment),
+		  KEY id_case (id_case),
+		  KEY filename (filename),
+		  FULLTEXT KEY description (description))";
+	$result = lcm_query($query);
+	
+	$log .= log_if_not_duplicate_table(lcm_sql_errno());
+
 	$query = "CREATE TABLE lcm_followup (
 		id_followup bigint(21) NOT NULL auto_increment,
 		id_case bigint(21) DEFAULT '0' NOT NULL,

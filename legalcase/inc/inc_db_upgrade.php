@@ -479,10 +479,26 @@ function upgrade_database($old_db_version) {
 			id_app bigint(21) NOT NULL default '0',
 			KEY id_author (id_author,id_app))");
 		
-		lcm_query("");
-		
 		upgrade_db_version (21);
 	}
+	
+	if ($lcm_db_version_current < 22) {
+		lcm_query("CREATE TABLE lcm_case_attachment (
+			  id_attachment bigint(21) NOT NULL auto_increment,
+			  id_case bigint(21) NOT NULL default '0',
+			  filename varchar(255) NOT NULL default '',
+			  type varchar(255) default NULL,
+			  size bigint(21) NOT NULL default '0',
+			  description text,
+			  content longblob NOT NULL,
+			  PRIMARY KEY  (id_attachment),
+			  KEY id_case (id_case),
+			  KEY filename (filename),
+			  FULLTEXT KEY description (description))");
+
+		upgrade_db_version (22);
+	}
+
 	return $log;
 }
 
