@@ -584,8 +584,7 @@ function help_page_start($page_title) {
 <title>' . _T('help_title_help') . '</title>
 <meta http-equiv="Content-Type" content="text/html; charset=' . $charset . '" />
 <link rel="stylesheet" href="styles/lcm_help.css" type="text/css" />
-<link rel="stylesheet" href="styles/lcm_opt_mediumfonts.css" type="text/css" />
-<script type="text/javascript" language="JavaScript" src="help_menu.js"></script>
+<script type="text/javascript" language="JavaScript" src="inc/help_menu.js"></script>
 </head>' . "\n";
 
 	echo "<body>\n";
@@ -605,15 +604,12 @@ function help_page_start($page_title) {
 	
 	echo "\n\t\t". '</ul>
 	</div>
-	<div id="hlp_cont">
-		<h2>' . $page_title . "</h2>\n";
+	<div id="hlp_cont"><h2>' . $page_title . "</h2>\n";
 
 }
 
 function help_page_end() {
-
 	echo "</div>
-	<div id=\"hlp_btm\">&nbsp;</div>
 </div>
 </body>
 </html>";
