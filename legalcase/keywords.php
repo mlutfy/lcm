@@ -152,6 +152,7 @@ if (isset($_REQUEST['action'])) {
 			} else if (isset($_REQUEST['id_keyword']) && intval($_REQUEST['id_keyword']) > 0) {
 				show_keyword_id($_REQUEST['action'], intval($_REQUEST['id_keyword']));
 			}
+			exit;
 			break;
 		case 'refresh' :
 			// Do not remove, or variables won't be declared
