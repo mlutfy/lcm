@@ -384,13 +384,12 @@ function http_href($href, $clic, $title='', $style='', $class='', $evt='') {
 		'</a>';
 }
 
-// produit une balise img avec un champ alt d'office (et different) si vide
-// attention le htmlentities et la traduction doivent etre appliques avant.
-
-function http_img_pack($img, $alt, $att, $title='') {
+// Produces an IMG tag with an 'alt' field and optional title + extra attributes
+// Warning: htmlentities and translation must be applied first.
+function http_img_pack($img, $alt = '', $att = '', $title = '') {
 	static $num = 0;
-	return "<img src='" . _DIR_IMG_PACK . $img
-		. ("'\nalt=\"" . ($alt ? $alt : ('img_pack' . $num++)) . '" ')
+	return '<img src="images/spip/' . $img . '" '
+		. 'alt="' . ($alt ? $alt : '') . '" '
 		. ($title ? " title=\"$title\"" : '')
 		. $att . " />";
 }
@@ -399,7 +398,7 @@ function http_href_img($href, $img, $att, $title='', $style='', $class='', $evt=
 	return  http_href($href, http_img_pack($img, $title, $att), $title, $style, $class, $evt);
 }
 
-// Corrige les caracteres degoutants utilises par les Windozeries
+// Corrects annoying characters caused by various Windows messy apps
 function corriger_caracteres($texte) {
 	static $trans;
 	if (!$trans) {
