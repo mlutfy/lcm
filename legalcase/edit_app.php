@@ -277,7 +277,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		$result = lcm_query($q);
 		echo "\t\t<form action=\"" . $_SERVER['REQUEST_URI'] . "\" method=\"POST\">\n";
 		echo "\t\t\t<select name=\"author\">\n";
-		echo "\t\t\t\t<option selected>- Select author -</option>\n";
+		echo "\t\t\t\t<option selected value=\"0\">- Select author -</option>\n";
 		while ($row = lcm_fetch_array($result)) {
 			echo "\t\t\t\t<option value=\"" . $row['id_author'] . '">'
 				. join(' ',array($row['name_first'],$row['name_middle'],$row['name_last']))
@@ -313,7 +313,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		
 		$result = lcm_query($q);
 		echo "\t\t\t<select name=\"client\">\n";
-		echo "\t\t\t\t<option selected>- Select client -</option>\n";
+		echo "\t\t\t\t<option selected value=\"0\">- Select client -</option>\n";
 		while ($row = lcm_fetch_array($result)) {
 			echo "\t\t\t\t<option value=\"" . $row['id_client'] . ':' . $row['id_org'] . '">'
 				. join(' ',array($row['name_first'],$row['name_middle'],$row['name_last']))
