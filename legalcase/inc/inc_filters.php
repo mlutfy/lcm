@@ -119,6 +119,16 @@ function clean_output($string) {
 	}
 }
 
+// Dirty hack: utf8_decode is mainly used for strlen(),
+// so if it is not installed, it's not such a big problem.
+// Use with care!
+function lcm_utf8_decode($string) {
+	if (function_exists("utf8_decode"))
+		return utf8_decode($string);
+	else
+		return $string;
+}
+
 /* ********************************************************
  * DEPRECATED: The following functions will be removed soon
  * ******************************************************** */
