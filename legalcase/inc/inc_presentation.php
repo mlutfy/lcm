@@ -1252,7 +1252,7 @@ function show_listcase_item($item, $cpt, $custom = '') {
 	// Date creation
 	echo "<td class='tbl_cont_" . $css . "'>";
 	if ($ac_read) echo '<a href="case_det.php?case=' . $item['id_case'] . '" class="content_link">';
-	echo format_date($item['date_creation'], 'short');
+	echo format_date($item['date_creation'], 'date_short');
 	if ($ac_read) echo '</a>';
 	echo "</td>\n";
 
