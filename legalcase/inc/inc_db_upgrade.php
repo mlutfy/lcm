@@ -549,6 +549,13 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (23); 
 	}
 
+	if ($lcm_db_version_current < 24) {
+		lcm_query("ALTER TABLE lcm_keyword DROP INDEX idx_kw_name");
+		lcm_query("CREATE UNIQUE INDEX idx_kw_name ON lcm_keyword (id_group, name)");
+
+		upgrade_db_version (24); 
+	}
+
 	return $log;
 }
 

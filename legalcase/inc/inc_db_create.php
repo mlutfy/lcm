@@ -209,7 +209,7 @@ function create_database() {
 	$result = lcm_query($query);
 	$log .= log_if_not_duplicate_table(lcm_sql_errno());
 
-	$query = "CREATE UNIQUE INDEX idx_kw_name ON lcm_keyword (name)";
+	$query = "CREATE UNIQUE INDEX idx_kw_name ON lcm_keyword (id_group, name)";
 	$result = lcm_query($query);
 
 	$query = "CREATE TABLE lcm_keyword_group (
