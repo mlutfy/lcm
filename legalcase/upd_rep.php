@@ -99,17 +99,18 @@ if (count($errors)) {
 	// session_destroy();
 
 	//header("Location: rep_det.php?rep=$id_report");
+	$ref_edit_rep = ($rep_data['ref_edit_rep'] ? $rep_data['ref_edit_rep'] : "rep_det.php?rep=$id_report");
 
 	// Proceed accoring to the button type
 	switch ($submit) {
 		case 'addnew':
-			header("Location: edit_rep.php?rep=0&ref=" . $rep_data['ref_edit_rep']);
+			header("Location: edit_rep.php?rep=0&ref=$ref_edit_rep");
 			break;
 		case 'adddet':
-			header("Location: case_rep.php?rep=$id_report");
+			header("Location: rep_det.php?rep=$id_report");
 			break;
 		default :
-			header("Location: " . $rep_data['ref_edit_rep']);
+			header("Location: $ref_edit_rep");
 	}
 }
 ?>
