@@ -134,17 +134,18 @@ if (count($_SESSION['errors'])) {
 	// [AG] In each case the return page will be different.
 
 	//header("Location: case_det.php?case=$id_case");
+	$ref_edit_case = ($_SESSION['case_data']['ref_edit_case'] ? $_SESSION['case_data']['ref_edit_case'] : "case_det.php?case=$id_case");
 
 	// Proceed accoring to the button type
 	switch ($submit) {
 		case 'addnew':
-			header("Location: edit_case.php?case=0&ref=" . $_SESSION['case_data']['ref_edit_case']);
+			header("Location: edit_case.php?case=0&ref=$ref_edit_case");
 			break;
 		case 'adddet':
 			header("Location: case_det.php?case=$id_case");
 			break;
 		default :
-			header("Location: " . $_SESSION['case_data']['ref_edit_case']);
+			header("Location: $ref_edit_case");
 	}
 }
 ?>
