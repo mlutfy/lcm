@@ -36,10 +36,13 @@ function show_author_form() {
 	global $author_session;
 	global $prefs;
 
+	// Referer not always set (bookmark, reload, etc.)
+	$http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
+
 ?>
 <form name="upd_user_profile" method="post" action="config_author.php">
 	<input type="hidden" name="author_ui_modified" value="yes"/>
-	<input type="hidden" name="referer" value="<?php echo $GLOBALS['HTTP_REFERER']; ?>"/>
+	<input type="hidden" name="referer" value="<?php echo $http_ref; ?>" />
 
 	<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0" class="tbl_usr_dtl">
 		<tr>
