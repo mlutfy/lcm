@@ -95,7 +95,7 @@ if ($list_pos>0)
 	if (!lcm_data_seek($result,$list_pos))
 		die("Error seeking position $list_pos in the result");
 
-show_find_box('client', $find_client_string);
+show_find_box('client', $find_client_string, '__self__');
 echo '<form action="add_client.php" method="post">' . "\n";
 
 $headers[0]['title'] = "";
