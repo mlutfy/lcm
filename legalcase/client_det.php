@@ -101,7 +101,7 @@ if ($client > 0) {
 				echo "</p>\n";
 		
 				if ($edit)
-					echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a>' . "</p>\n";
+					echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a>' . "<br /><br /></p>\n";
 		
 				echo "</fieldset>\n";
 				break;
