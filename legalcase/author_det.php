@@ -22,6 +22,7 @@
 */
 
 include('inc/inc.php');
+include_lcm('inc_lang');
 
 // Initialise variables
 $author = intval($_GET['author']);
