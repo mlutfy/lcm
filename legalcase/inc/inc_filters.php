@@ -91,6 +91,28 @@ function format_date($timestamp = '', $format = 'full') {
 	return $my_date;
 }
 
+// Formats time interval
+function format_time_interval($time, $hours_only=false) {
+	if (is_int($time) && ($time>0)) {
+		if ($hours_only) {
+			$days = 0;
+			$hours = $time / 3600;
+			$minutes = 0;
+		} else {
+			$days = (int) ($time / 86400);
+			$hours = (int) ( ($time % 86400) / 3600);
+			$minutes = (int) ( ($time % 3600) / 60);
+		}
+
+		$ret = array();
+		if ($days) $ret[] = $days . 'd';
+		if ($hours) $ret[] = $hours . ($hours_only ? ( ($hours == 1.0) ? 'hr' : 'hrs') : 'h');
+		if ($minutes) $ret[] = $minutes . 'm';
+
+		return join(', ',$ret);
+	} else return '';
+}
+
 // Error display function
 // Highlights (outlines) errors in the form data
 function f_err($fn, $errors) {
