@@ -51,7 +51,7 @@ if ($case>0) {
 
 				// Add 'assigned' followup to the case
 				$q = "INSERT INTO lcm_followup
-						SET id_followup=0,id_case=$case,type='assigned',description='";
+						SET id_followup=0,id_case=$case,type=assignment,description='";
 				$q .= $author_data['name_first'];
 				$q .= (($author_data['name_middle']) ? ' ' . $author_data['name_middle'] : '');
 				$q .= (($author_data['name_last']) ? ' ' . $author_data['name_last'] : '');
