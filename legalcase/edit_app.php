@@ -181,7 +181,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 				} else {
 					$name = (($admin || ($edit && ($_SESSION['app_data']['end_time']=='0000-00-00 00:00:00'))) ? 'rem_offset' : '');
 					$interval = ( ($_SESSION['app_data']['end_time']!='0000-00-00 00:00:00') ?
-							strtotime($_SESSION['app_data']['reminder']) - strtotime($_SESSION['app_data']['start_time']) : 0);
+							strtotime($_SESSION['app_data']['start_time']) - strtotime($_SESSION['app_data']['reminder']) : 0);
 				//	echo _T('calendar_info_time') . ' ';
 					echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
 					echo " before the start time"; // TRAD
