@@ -148,9 +148,9 @@ else
 echo "<ul style=\"padding-left: 0.5em; padding-top: 0.2; padding-bottom: 0.2; font-size: 12px;\">\n";
 
 // Name of case
-$query = "SELECT title
+$query = "SELECT id_case, title
 		FROM lcm_case
-		WHERE id_case=$case";
+		WHERE id_case = $case";
 
 $result = lcm_query($query);
 while ($row = lcm_fetch_array($result))  // should be only once
