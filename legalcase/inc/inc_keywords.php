@@ -82,8 +82,12 @@ function get_kwg_applicable_for($type_obj, $id_obj) {
 	// Get list of keyword groups which can be applied to object
 	$query = "SELECT kwg.*, COUNT(k.id_keyword) as cpt
 				FROM lcm_keyword_group as kwg, lcm_keyword as k
-				WHERE type = '$type_obj'
-				  AND kwg.id_group = k.id_group ";
+				WHERE (type = '$type_obj' ";
+	
+	if ($type_obj == 'client' || $type_obj == 'org')
+		$query .= " OR type = 'client_org' ";
+				
+	$query .= "	) AND kwg.id_group = k.id_group ";
 	
 	if ($not_in_str)
 		$query .= " AND kwg.id_group NOT IN (" . $not_in_str . ") ";
