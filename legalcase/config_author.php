@@ -151,6 +151,23 @@ function show_author_form() {
 				</select>
 			</td>
 		</tr>
+	    <tr>
+	    	<td align="right" valign="top" width="50%"><?php echo _T('authorconf_input_time_intervals') ?></td>
+			<td align="left" valign="top">
+				<input type="hidden" name="old_time_intervals" id="old_time_intervals" value="<?php echo $prefs['time_intervals'] ?>" />
+				<select name="sel_time_intervals" class="sel_frm">
+<?php
+	$time_intervals = array("absolute", "relative");
+	foreach ($time_intervals as $ti) {
+		$selected_ti = ($ti == $prefs['time_intervals'] ? " selected='selected'" : '');
+		echo "<option value='" . $ti . "'" . $selected_ti . ">"
+			. _T('authorconf_input_time_interval_' . $ti)
+			. "</option>\n";
+	}
+?>
+				</select>
+			</td>
+		</tr>
 		<tr>
 			<td colspan="2" align="center" valign="middle">
 				<input type="submit" name="submit" type="submit" class="search_form_btn" id="submit" value="<?php echo _T('authorconf_button_update_preferences'); ?>" /></td>
@@ -213,6 +230,13 @@ function apply_author_ui_change() {
 
 	if ($sel_mode == $prefs['mode'] && $sel_mode <> $old_mode)
 		array_push($log, "User interface mode set to $sel_mode, was $old_mode.");
+
+	//
+	// Change the time intervals
+	//
+
+	if ($sel_time_intervals == $prefs['time_intervals'] && $sel_time_intervals <> $old_time_intervals)
+		array_push($log, "Time intervals set to $sel_time_intervals, was $old_time_intervals.");
 }
 
 function show_changes() {
