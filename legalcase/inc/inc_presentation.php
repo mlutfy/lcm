@@ -606,6 +606,10 @@ function lcm_help($code, $anchor = '') {
 		. "</a>\n";
 }
 
+function lcm_bubble($code) {
+	echo '<div class="small_help_box">' . _T('help_intro_' . $code) . "</div>\n";
+}
+
 // shows help link for a string rather than for icon (see GPL notice in install + footer)
 function lcm_help_string($code, $string, $anchor = '') {
 	global $lcm_lang;
