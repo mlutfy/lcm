@@ -235,13 +235,13 @@ if ($case > 0) {
 		<tr><th class='heading'>";
 	switch ($fu_order) {
 		case 'ASC':
-			echo "<a href='case_det.php?case=$case&amp;fu_order=DESC' class='content_link'>" . _T('date') . '</a> v';
+			echo "<a href='case_det.php?case=$case&amp;fu_order=DESC' class='content_link'>" . _T('date') . '</a> <img src="images/lcm/asc_desc_arrow.gif" width="9" height="11" alt="" />';
 			break;
 		case 'DESC':
-			echo "<a href='case_det.php?case=$case&amp;fu_order=ASC' class='content_link'>" . _T('date') . '</a> ^';
+			echo "<a href='case_det.php?case=$case&amp;fu_order=ASC' class='content_link'>" . _T('date') . '</a> <img src="images/lcm/desc_asc_arrow.gif" width="9" height="11" alt="" />';
 			break;
 		default:
-			echo "<a href='case_det.php?case=$case&amp;fu_order=DESC' class='content_link'>" . _T('date') . '</a> v';
+			echo "<a href='case_det.php?case=$case&amp;fu_order=DESC' class='content_link'>" . _T('date') . '</a> <img src="images/lcm/asc_desc_arrow.gif" width="9" height="11" alt="" />';
 	}
 //	echo _T('date') .
 	echo "</th><th class='heading'>" . _T('type') . "</th><th class='heading'>" . _T('description') . "</th><th class='heading'>&nbsp;</th></tr>\n";
