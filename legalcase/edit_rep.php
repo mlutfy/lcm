@@ -81,7 +81,7 @@ if ($existing)
 else 
 	lcm_page_start(_T('new_report'));
 
-if (isset($_SESSION['errors'])) 
+if (! empty($_SESSION['errors']))
 	echo show_all_errors($_SESSION['errors']);
 
 echo "<fieldset class=\"info_box\">\n";
