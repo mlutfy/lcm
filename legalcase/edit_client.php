@@ -213,7 +213,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 */
 
 	// Show all contacts
-	foreach ($contacts_other as $contact) {
+	foreach ($contacts as $contact) {
 		print_existing_contact($contact, $cpt);
 		$cpt++;
 	}
