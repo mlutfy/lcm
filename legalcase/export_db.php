@@ -31,7 +31,7 @@ $tabs = array(	array('name' => 'All cases','url' => 'archive.php'),
 	);
 
 function get_parameters() {
-	lcm_page_start('Archives');
+	lcm_page_start(_T('title_archives'));
 
 	// Show tabs
 	global $tabs;
@@ -86,7 +86,7 @@ function export_database($output_filename) {
 	if (file_exists("$root/inc/data/db-$output_filename")) {
 		if ($_POST['conf']!=='yes') {
 			// Print confirmation form
-			lcm_page_start('Archives');
+			lcm_page_start(_T('title_archives'));
 
 			// Show tabs
 			show_tabs_links($tabs,1,true);
@@ -144,7 +144,7 @@ function export_database($output_filename) {
 	}
 	chmod("$root/inc/data/db-$output_filename",0700);
 	
-	lcm_page_start('Archives');
+	lcm_page_start(_T('title_archives'));
 
 	// Show tabs
 	show_tabs_links($tabs,1,true);

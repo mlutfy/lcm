@@ -31,7 +31,7 @@ $tabs = array(	array('name' => 'All cases','url' => 'archive.php'),
 	);
 
 function get_parameters() {
-	lcm_page_start('Archives');
+	lcm_page_start(_T('title_archives'));
 
 	// Show tabs
 	global $tabs;
@@ -83,7 +83,7 @@ function import_database($input_filename) {
 	if (file_exists($dir)) {
 		if ($_POST['conf']!=='yes') {
 			// Print confirmation form
-			lcm_page_start('Archives');
+			lcm_page_start(_T('title_archives'));
 
 			// Show tabs
 			show_tabs_links($tabs,2,true);
@@ -146,7 +146,7 @@ function import_database($input_filename) {
 	}	// Old backup version
 	else if ($backup_db_version > read_meta('lcm_db_version')) {
 		// Backup version newer than installed db version
-		lcm_page_start('Archives');
+		lcm_page_start(_T('title_archives'));
 		
 		// Show tabs
 		show_tabs_links($tabs,2,true);
@@ -206,7 +206,7 @@ function import_database($input_filename) {
 	// Debugging
 	//lcm_query("use lcm");
 
-	lcm_page_start('Archives');
+	lcm_page_start(_T('title_archives'));
 
 	// Show tabs
 	show_tabs_links($tabs,2,true);
