@@ -388,15 +388,12 @@ if ($case > 0) {
 			
 				echo "\t<table border='0' class='tbl_usr_dtl' width='99%'>\n";
 				echo "\t\t<tr><th class='heading'>";
-				switch ($fu_order) {
-					case 'ASC':
-						echo "<a href='case_det.php?case=$case&amp;fu_order=DESC&amp;tab=followups' class='content_link'>" . _T('date_start') . '</a> <img src="images/lcm/asc_desc_arrow.gif" width="9" height="11" alt="" />';
-						break;
-					case 'DESC':
-						echo "<a href='case_det.php?case=$case&amp;fu_order=ASC&amp;tab=followups' class='content_link'>" . _T('date_start') . '</a> <img src="images/lcm/desc_asc_arrow.gif" width="9" height="11" alt="" />';
-						break;
-					default:
-						echo "<a href='case_det.php?case=$case&amp;fu_order=DESC&amp;tab=followups' class='content_link'>" . _T('date_start') . '</a> <img src="images/lcm/asc_desc_arrow.gif" width="9" height="11" alt="" />';
+
+				if ($fu_order == 'ASC') {
+					echo "<a href='case_det.php?case=$case&amp;fu_order=DESC&amp;tab=followups' class='content_link'>" . _T('date_start') . '</a> <img src="images/lcm/asc_desc_arrow.gif" width="9" height="11" alt="" />';
+				} else {
+					// by default
+					echo "<a href='case_det.php?case=$case&amp;fu_order=ASC&amp;tab=followups' class='content_link'>" . _T('date_start') . '</a> <img src="images/lcm/desc_asc_arrow.gif" width="9" height="11" alt="" />';
 				}
 			//	echo _T('date') .
 				echo "</th>";
