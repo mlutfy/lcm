@@ -42,7 +42,7 @@ $fu_sum_billed = read_meta('fu_sum_billed');
 // Check if there are no errors - new followup
 if (! count($_SESSION['errors'])) {
 	// Clear followup data
-	$_SESSION['fu-data'] = array();
+	$_SESSION['fu_data'] = array();
 }
 
 // Get case details
