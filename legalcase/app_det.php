@@ -51,7 +51,7 @@ if ($row = lcm_fetch_array($result)) {
 		$duration = ($end_time ? strtotime($row['end_time']) - strtotime($row['start_time']) : 0);
 		echo "Duration: " . format_time_interval($duration,($prefs['time_intervals_notation'] == 'hours_only')) . "<br />\n";
 		$reminder_offset = ($reminder ? strtotime($row['start_time']) - strtotime($row['reminder']) : 0);
-		echo "Reminder: " . format_time_interval($duration,($prefs['time_intervals_notation'] == 'hours_only')) . " before start time<br />\n";
+		echo "Reminder: " . format_time_interval($reminder_offset,($prefs['time_intervals_notation'] == 'hours_only')) . " before start time<br />\n";
 	}
 	echo "Type: " . $row['type'] . "<br />\n";
 	echo "Title: " . $row['title'] . "<br />\n";
