@@ -341,4 +341,64 @@ function show_edit_contacts_form($type_person, $id_person) {
 	$cpt_new++;
 }
 
+function update_contacts_request($type_person, $id_of_person) {
+
+	//
+	// Update existing contacts
+	//
+	if (isset($_REQUEST['contact_value'])) {
+		$contacts = $_REQUEST['contact_value'];
+		$c_ids = $_REQUEST['contact_id'];
+		$c_types = $_REQUEST['contact_type'];
+		// $c_delete = $_REQUEST['del_contact'];
+
+		//
+		// Check if the contacts provided are really attached to the person
+		// or else the user can provide a form with false contacts.
+		//
+		$all_contacts = get_contacts($type_person, $id_of_person);
+		for ($cpt = 0; $c_ids[$cpt]; $cpt++) {
+			$valid = false;
+
+			foreach ($all_contacts as $c)
+				if ($c['id_contact'] == $c_ids[$cpt])
+					$valid = true;
+
+			if (! $valid)
+				lcm_panic("Invalid modification of contacts detected.");
+		}
+
+		for ($cpt = 0; isset($c_ids[$cpt]); $cpt++) {
+			if (isset($_REQUEST['del_contact_' . $c_ids[$cpt]]) && $_REQUEST['del_contact_' . $c_ids[$cpt]]) {
+				delete_contact($c_ids[$cpt]);
+			} else {
+				update_contact($c_ids[$cpt], $contacts[$cpt]);
+			}
+		}
+	}
+
+	//
+	// New contacts
+	//
+	if (isset($_REQUEST['new_contact_value'])) {
+		$cpt = 0;
+		$new_contacts = $_REQUEST['new_contact_value'];
+		$c_type_names = $_REQUEST['new_contact_type_name'];
+
+		while (isset($new_contacts[$cpt])) {
+			// Process only new contacts which have a value
+			if ($new_contacts[$cpt]) {
+				// And make sure that they have a "type of contact"
+				if ($c_type_names[$cpt]) {
+					add_contact($type_person, $id_of_person, $c_type_names[$cpt], $new_contacts[$cpt]);
+				} else {
+					$_SESSION['errors']['new_contact_' . $cpt] = "Please specify the type of contact."; // TRAD
+				}
+			}
+
+			$cpt++;
+		}
+	}
+}
+
 ?>
