@@ -60,6 +60,12 @@ if ($list_pos > 0)
 	if (!lcm_data_seek($result,$list_pos))
 		lcm_panic("Error seeking position $list_pos in the result");
 
+echo '<form name="frm_find_client" class="search_form" action="listclients.php" method="get">' . "\n";
+echo _T('input_search_client') . "&nbsp;";
+echo '<input type="text" name="find_client_string" size="10" class="search_form_txt" value="' .  $find_client_string . '" />';
+echo '&nbsp;<input type="submit" name="submit" value="' . _T('button_search') . '" class="search_form_btn" />' . "\n";
+echo "</form>\n";
+
 // Output table tags
 ?>
 <table border='0' width='99%' class='tbl_usr_dtl'>
