@@ -91,10 +91,16 @@ if ($client > 0) {
 				if (read_meta('client_citizen_number') == 'yes')
 					echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
 		
-				echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
-				echo _T('person_input_civil_status') . ' ' . $row['civil_status'] . "<br/>\n";
-				echo _T('person_input_income') . ' ' . $row['income'] . "<br/>\n";
-				echo 'Creation date: ' . format_date($row['date_creation']) . "<br/>\n";
+				// [ML] this has been moved in contacts
+				// echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
+
+				if (read_meta('client_civil_status') == 'yes')
+					echo _Ti('person_input_civil_status') . $row['civil_status'] . "<br/>\n";
+
+				if (read_meta('client_income') == 'yes')
+					echo _Ti('person_input_income') . $row['income'] . "<br/>\n";
+
+				echo _Ti('case_input_date_creation') . format_date($row['date_creation']) . "<br/>\n";
 				// [ML] echo 'Last update date: ' . $row['date_update'] . "<br/>\n";
 				echo "</p>\n";
 		
