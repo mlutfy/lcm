@@ -265,7 +265,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		$q = '';
 		foreach($_SESSION['authors'] as $author) {
 			$q .= ($q ? ', ' : '');
-			$q .= join(' ',array($author['name_first'],$author['name_middle'],$author['name_last']));
+			$q .= njoin(array($author['name_first'],$author['name_middle'],$author['name_last']));
 		}
 		echo "\t\t\t$q\n";
 		// List rest of the authors to add
@@ -275,17 +275,18 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			USING (id_author)
 			WHERE id_app IS NULL";
 		$result = lcm_query($q);
-		echo "\t\t<form action=\"" . $_SERVER['REQUEST_URI'] . "\" method=\"POST\">\n";
+//		echo "\t\t<form action=\"" . $_SERVER['REQUEST_URI'] . "\" method=\"POST\">\n";
 		echo "\t\t\t<select name=\"author\">\n";
 		echo "\t\t\t\t<option selected value=\"0\">- Select author -</option>\n";
 		while ($row = lcm_fetch_array($result)) {
 			echo "\t\t\t\t<option value=\"" . $row['id_author'] . '">'
-				. join(' ',array($row['name_first'],$row['name_middle'],$row['name_last']))
+				. njoin(array($row['name_first'],$row['name_middle'],$row['name_last']))
 				. "</option>\n";
 		}
-		echo "\t\t\t</select></td></tr>\n";
+		echo "\t\t\t</select>\n";
 		echo "\t\t\t<button name=\"submit\" type=\"submit\" value=\"add_author\" class=\"simple_form_btn\">" . 'Add' . "</button>\n";
-		echo "\t\t</form>\n";
+//		echo "\t\t</form>\n";
+		echo "\t\t</td></tr>\n";
 		
 		// Appointment participants - clients
 		echo "\t\t<tr><td valign=\"top\">Participant clients:</td><td>";
@@ -298,7 +299,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		$q = '';
 		while ($row = lcm_fetch_array($result)) {
 			$q .= ($q ? ', ' : '');
-			$q .= join(' ',array($row['name_first'],$row['name_middle'],$row['name_last']))
+			$q .= njoin(array($row['name_first'],$row['name_middle'],$row['name_last']))
 				. ( ($row['name']) ? " of " . $row['name'] : '');
 		}
 		echo "\t\t\t$q\n";
@@ -316,11 +317,13 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		echo "\t\t\t\t<option selected value=\"0\">- Select client -</option>\n";
 		while ($row = lcm_fetch_array($result)) {
 			echo "\t\t\t\t<option value=\"" . $row['id_client'] . ':' . $row['id_org'] . '">'
-				. join(' ',array($row['name_first'],$row['name_middle'],$row['name_last']))
+				. njoin(array($row['name_first'],$row['name_middle'],$row['name_last']))
 				. ($row['name'] ? ' of ' . $row['name'] : '')
 				. "</option>\n";
 		}
-		echo "\t\t\t</select></td></tr>\n";
+		echo "\t\t\t</select>\n";
+		echo "\t\t\t<button name=\"submit\" type=\"submit\" value=\"add_author\" class=\"simple_form_btn\">" . 'Add' . "</button>\n";
+		echo "\t\t</td></tr>\n";
 
 		echo "	</table>\n";
 
