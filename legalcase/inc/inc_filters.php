@@ -93,7 +93,7 @@ function format_date($timestamp = '', $format = 'full') {
 
 // Formats time interval
 function format_time_interval($time, $hours_only=false, $hours_only_format='%.2f') {
-	if (is_int($time) && ($time>0)) {
+	if (is_numeric($time) && ($time>0)) {
 		if ($hours_only) {
 			$days = 0;
 			$hours = $time / 3600;
