@@ -659,8 +659,8 @@ function upgrade_database($old_db_version) {
 			PRIMARY KEY (id_entry),
 			KEY id_org (id_org))");
 
-		lcm_query("ALTER TABLE lcm_case ADD notes text NOT NULL AFTER alledged_crime");
-		lcm_query("ALTER TABLE lcm_client ADD notes text NOT NULL");
+		lcm_query("ALTER TABLE lcm_case ADD notes text NOT NULL DEFAULT '' AFTER alledged_crime");
+		lcm_query("ALTER TABLE lcm_client ADD notes text NOT NULL DEFAULT ''");
 
 		lcm_query("ALTER TABLE lcm_org 
 						ADD notes text NOT NULL default '',
