@@ -37,11 +37,14 @@ function show_author_form($tab) {
 	global $prefs;
 
 	// Referer not always set (bookmark, reload, etc.)
-//	$http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
 	// [AG] This is to preserve page's referer in 'ref' GET value during tab transitions
 	// giving it higher priority than the actual page referer
-	if (isset($_GET['ref'])) $http_ref = urldecode(clean_input($_GET['ref']));
-	else $http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
+	if (isset($_GET['ref']))
+		$http_ref = urldecode(clean_input($_GET['ref']));
+	else 
+		$http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
+
+	$http_ref_link = new Link($http_ref);
 
 	switch ($tab) {
 		//
@@ -50,7 +53,7 @@ function show_author_form($tab) {
 		case 'interface' : ?>
 <form name="upd_user_profile" method="post" action="config_author.php">
 	<input type="hidden" name="author_ui_modified" value="yes"/>
-	<input type="hidden" name="referer" value="<?php echo $http_ref; ?>" />
+	<input type="hidden" name="referer" value="<?php echo $http_ref_link->getUrl(); ?>" />
 
 	<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0" class="tbl_usr_dtl">
 		<tr>
@@ -156,7 +159,7 @@ function show_author_form($tab) {
 <form name="upd_user_profile" method="post" action="config_author.php">
 	<input type="hidden" name="tab" value="1" />
 	<input type="hidden" name="author_advanced_settings_modified" value="yes"/>
-	<input type="hidden" name="referer" value="<?php echo $http_ref; ?>" />
+	<input type="hidden" name="referer" value="<?php echo $http_ref_link; ?>" />
 
 	<table width="99%" border="0" align="center" cellpadding="5" cellspacing="0" class="tbl_usr_dtl">
 		<tr>
