@@ -24,11 +24,11 @@
 include('inc/inc.php');
 include_lcm('inc_filters');
 
-// Initialise variables
-$org = intval($_GET['org']);
-
 // Initiate session
 session_start();
+
+// Initialise variables
+$org = intval($_GET['org']);
 
 if (empty($errors)) {
     // Clear form data
