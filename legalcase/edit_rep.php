@@ -85,17 +85,26 @@ echo "\n<form action='upd_rep.php' method='post'>\n";
 
 if ($_SESSION['rep_data']['id_report']) {
 	echo "<strong>". _T('report_id') . ":</strong>&nbsp;" . $_SESSION['rep_data']['id_report'] . "
-		<input type=\"hidden\" name=\"id_report\" value=\"" .  $_SESSION['rep_data']['id_report'] . "\">&nbsp;|&nbsp;\n";
+		<input type=\"hidden\" name=\"id_report\" value=\"" .
+		$_SESSION['rep_data']['id_report'] . "\">\n";
+		
+	// [ML] echo "&nbsp;|&nbsp;\n";
 }
 
-echo "<strong>". _T('author_id') . ":</strong>&nbsp;" . $_SESSION['rep_data']['id_author'] . "
-		<input type=\"hidden\" name=\"id_author\" value=\"" . $_SESSION['rep_data']['id_author'] . "\"><br /><br />" . f_err_star('title', $_SESSION['errors']) ."<strong>". _T('rep_title') . ":</strong><br /><input name=\"title\" value=\"" . clean_output($_SESSION['rep_data']['title']) . "\" class=\"search_form_txt\">\n";
+/* [ML] not useful for now
+echo "<strong>". _T('author_id') . ":</strong>&nbsp;" . $_SESSION['rep_data']['id_author'];
+*/
+
+echo "<input type=\"hidden\" name=\"id_author\" value=\"" . $_SESSION['rep_data']['id_author'] . "\" />\n";
+
+// Title of report
+echo "<p>" . f_err_star('title', $_SESSION['errors']) ."<strong>". _T('rep_title') . ":</strong><br /><input name=\"title\" value=\"" . clean_output($_SESSION['rep_data']['title']) . "\" class=\"search_form_txt\"></p>\n";
 
 // Description
-echo '<br /><br />' . "<strong>Description:</strong><br />\n";
+echo '<p>' . "<strong>Description:</strong><br />\n";
 echo '<textarea name="description" rows="5" cols="40" class="frm_tarea">';
 echo $_SESSION['rep_data']['description'];
-echo "</textarea><br /><br />\n";
+echo "</textarea></p>\n";
 
 //	if ($admin || !read_meta('case_read_always') || !read_meta('case_write_always')) {
 //		echo "\t<tr><td>" . _T('public') . "</td>
