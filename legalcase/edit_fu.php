@@ -85,7 +85,7 @@ if (empty($_SESSION['errors'])) {
 				$result = lcm_query($q);
 				if ($row = lcm_fetch_array($result)) {
 					$_SESSION['fu_data']['description'] = 'Following the ' . _T(get_kw_title($row['type']))
-						. ' (' . $row['title'] . ') from ' . format_date($row['start_time']);
+						. ' (' . $row['title'] . ') from ' . unhtmlentities(format_date($row['start_time']));
 					
 					// Show appointment participants
 					$participants = array();
