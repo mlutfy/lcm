@@ -72,7 +72,7 @@ if ($list_pos >= $number_of_rows)
 // Position to the page info start
 if ($list_pos > 0)
 	if (!lcm_data_seek($result,$list_pos))
-		lcm_panic("Error seeking position $list_pos in the result");
+		lcm_panic("Error seeking position $list_pos in the result");	// TRAD
 
 // Process the output of the query
 show_listcase_start();
