@@ -247,11 +247,19 @@ switch ($status) {
 		echo "\t\t<tr><td>Merge to case:</td>\n";
 		echo "\t\t\t<td><select name='destination'>\n";
 		$q = "SELECT id_case,title
-		FROM lcm_case
-		WHERE id_case<>$case";
+				FROM lcm_case
+				WHERE id_case<>$case
+				ORDER BY title";
 		$result = lcm_query($q);
+
+		// Set the length of short followup title
+		$title_length = (($prefs['screen'] == "wide") ? 48 : 115);
+
+		// Write the <select> options
 		while ($row = lcm_fetch_array($result)) {
-			echo "\t\t\t\t<option value='" . $row['id_case'] . "'>" . $row['title'] . "</option>\n";
+			if (strlen($row['title'])<$title_length) $short_title = $row['title'];
+			else $short_title = substr($row['title'],0,$title_length) . '...';
+			echo "\t\t\t\t<option value='" . $row['id_case'] . "'>" . clean_output($short_title) . "</option>\n";
 		}
 		echo "\t\t\t</select></td>\n";
 		echo "\t\t</tr>\n";
