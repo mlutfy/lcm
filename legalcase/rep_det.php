@@ -49,7 +49,7 @@ if ($rep > 0) {
 		if ($edit)
 			echo '<a href="edit_rep.php?rep=' . $row['id_report'] . '" class="edit_lnk">Edit this report</a>&nbsp;';
 		echo '<a href="run_rep.php?rep=' . $row['id_report'] . '" class="run_lnk">Run this report</a><br /><br />';
-		echo "\nReport ID: " . $row['id_report'] . "<br>\n";
+//		echo "\nReport ID: " . $row['id_report'] . "<br>\n";
 		echo "Created on: " . $row['date_creation'] . "<br>\n";
 		echo "Last update: " . $row['date_update'] . "<br>\n";
 
