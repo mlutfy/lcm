@@ -95,20 +95,18 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 
 ?>
 </table>
-<br /><a href="edit_case.php?case=0" class="create_new_lnk">Open new case</a>
 
-<table border='0' align='center' width='99%'>
-	<tr><td align="left"><?php
-
+<table border='0' align='center' width='99%' class='page_numbers'>
+	<tr><td align="left" width="15%"><?php
 // Show link to previous page
 if ($list_pos>0) {
 	echo '<a href="listcases.php?list_pos=';
 	echo ( ($list_pos>$prefs['page_rows']) ? ($list_pos - $prefs['page_rows']) : 0);
 	if (strlen($find_case_string)>1) echo "&amp;find_case_string=" . rawurlencode($find_case_string);
-	echo '">< Prev</a> ';
+	echo '" class="content_link">< Prev</a> ';
 }
 
-echo "</td>\n\t\t<td align='center'>";
+echo "</td>\n\t\t<td align='center' width='70%'>";
 
 // Show page numbers with direct links
 $list_pages = ceil($number_of_rows / $prefs['page_rows']);
@@ -119,22 +117,24 @@ if ($list_pages>1) {
 		else {
 			echo '<a href="listcases.php?list_pos=' . ($i*$prefs['page_rows']);
 			if (strlen($find_case_string)>1) echo "&amp;find_case_string=" . rawurlencode($find_case_string);
-			echo '">' . ($i+1) . '</a> ';
+			echo '" class="content_link">' . ($i+1) . '</a> ';
 		}
 	}
 }
 
-echo "</td>\n\t\t<td align='right'>";
+echo "</td>\n\t\t<td align='right' width='15%'>";
 
 // Show link to next page
 $next_pos = $list_pos + $prefs['page_rows'];
 if ($next_pos<$number_of_rows) {
 	echo "<a href=\"listcases.php?list_pos=$next_pos";
 	if (strlen($find_case_string)>1) echo "&amp;find_case_string=" . rawurlencode($find_case_string);
-	echo '">Next ></a>';
+	echo '" class="content_link">Next ></a>';
 }
 
 echo "</td>\n\t</tr>\n</table>\n";
-
+?>
+<br /><a href="edit_case.php?case=0" class="create_new_lnk">Open new case</a>
+<?php
 lcm_page_end();
 ?>
