@@ -94,6 +94,14 @@ if (isset($_REQUEST['author_ui_modified'])) {
 		}
 	}
 
+	// Set absolute/relative time intervals
+	if ($_REQUEST['sel_time_intervals'] != $_REQUEST['old_time_intervals']) {
+		if ($_REQUEST['sel_time_intervals'] == 'absolute' || $_REQUEST['sel_time_intervals'] == 'relative') {
+			$prefs['time_intervals'] = $_REQUEST['sel_time_intervals'];
+			$prefs_mod = true;
+		}
+	}
+
 	// Set rows per page preference
 	if (intval($_REQUEST['page_rows']) > 0) {
 		$prefs['page_rows'] = intval($_REQUEST['page_rows']);
