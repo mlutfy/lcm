@@ -282,9 +282,9 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 	include_lcm('inc_calendar');
 	$now = date('Y-m-d');
 
-	echo "<table><tr><td>\n"; // Temporary? [ML]
+	echo "<table border='0' align='center'><tr><td>\n"; // Temporary? [ML]
 	echo http_calendrier_agenda(mois($now), annee($now), jour($now), mois($now), annee($now), false, 'calendar.php');
-	echo "</table>\n";
+	echo "</td></tr></table>\n";
 
 	echo "
 					</div>\n";
