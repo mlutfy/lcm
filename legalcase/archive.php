@@ -35,7 +35,7 @@ if (isset($_REQUEST['find_case_string']))
 
 // Show page start
 lcm_page_start(_T('title_archives'));
-show_find_box('case', $find_case_string, "archive.php");
+show_find_box('case', $find_case_string, '__self__');
 
 // Show tabs
 $tabs = array(	array('name' => _T('archives_tab_all_cases'), 'url' => 'archive.php'),
