@@ -46,7 +46,7 @@ if ($filter > 0) {
 		echo "<p class='normal_text'>";
 
 		if ($edit)
-			echo '[<a href="edit_filter.php?filter=' . $row['id_filter'] . '" class="content_link"><strong>Edit this filter</strong></a>]<br /><br />';
+			echo '<a href="edit_filter.php?filter=' . $row['id_filter'] . '" class="edit_lnk">Edit this filter</a><br />';
 		echo "\nFilter ID: " . $row['id_filter'] . "<br>\n";
 		echo "Created on: " . $row['date_creation'] . "<br>\n";
 		echo "Last update: " . $row['date_update'] . "<br>\n";
@@ -103,7 +103,7 @@ if ($filter > 0) {
 
 			// Get condition order
 			echo "\t\t<tr><th class='heading'>Position</th><td>\n";
-			echo "\t\t\t<select name='order'>\n";
+			echo "\t\t\t<select name='order' class='sel_frm'>\n";
 			$i = 1;
 			while ($i<$last_order) {
 				echo "\t\t\t\t<option label='Insert before condition $i' value='$i'>Insert before condition $i</option>\n";
@@ -116,7 +116,7 @@ if ($filter > 0) {
 
 			// Get field from list
 			echo "\t\t<tr><th class='heading'>Field</th>\n";
-			echo "\t\t\t<td><select name='field'>\n";
+			echo "\t\t\t<td><select name='field' class='sel_frm'>\n";
 			echo "\t\t\t\t<option selected disabled label='' value=''>-- Select field to check from the list --</option>";
 			$q = "SELECT * FROM lcm_fields ORDER BY table_name,description";
 			$fields = lcm_query($q);
@@ -143,7 +143,7 @@ if ($filter > 0) {
 
 			// Get condition value
 			echo "\t\t<tr><th class='heading'>Value</th>\n";
-			echo "\t\t\t<td><input type='text' name='value' /></td></tr>\n";
+			echo "\t\t\t<td><input type='text' name='value' class='search_form_txt' /></td></tr>\n";
 
 			echo "\t</table>\n";
 			echo "\t<button type='submit' class='simple_form_btn'>Add condition</button>\n";
