@@ -140,6 +140,12 @@ function auth() {
 
 		if (! isset($prefs['font_size']) || ! $prefs['font_size'])
 			$prefs['font_size'] = 'medium_font';
+
+		if (! isset($prefs['mode']) || ! $prefs['mode'])
+			$prefs['mode'] = 'simple';
+
+		if (! isset($prefs['time_intervals']) || ! $prefs['time_intervals'])
+			$prefs['time_intervals'] = 'relative';
 	}
 	else {
 		// This case is a strange possibility: the author is authentified
