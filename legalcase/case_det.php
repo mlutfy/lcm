@@ -264,7 +264,7 @@ if ($case > 0) {
 	while ($row = lcm_fetch_array($result)) {
 		// Show followup
 		echo '<tr><td>' . format_date($row['date_start'], 'short') . '</td>';
-		echo '<td>' . clean_output($row['type']) . '</td>';
+		echo '<td>' . _T('kw_followups_' . $row['type'] . '_title') . '</td>';
 
 		if (strlen(lcm_utf8_decode($row['description'])) < $title_length) 
 			$short_description = $row['description'];
