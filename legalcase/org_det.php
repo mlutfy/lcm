@@ -75,7 +75,7 @@ if ($row = lcm_fetch_array($result)) {
 			echo _Ti('time_input_date_creation') . format_date($row['date_creation'], 'full') . "<br />\n";
 
 			echo _Ti('org_input_notes') . "<br />\n";
-			echo $row['notes'];
+			echo nl2br($row['notes']);
 
 			echo "</p>\n";
 

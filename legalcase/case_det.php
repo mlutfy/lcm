@@ -42,7 +42,7 @@ if (isset($_GET['fu_order']))
 
 if ($case > 0) {
 	$q="SELECT id_case, title, id_court_archive, date_creation, date_assignment,
-			legal_reason, alledged_crime, status, stage, public, pub_write
+			legal_reason, alledged_crime, status, stage, public, pub_write, notes
 		FROM lcm_case
 		WHERE id_case=$case";
 
@@ -134,6 +134,10 @@ if ($case > 0) {
 
 				include_lcm('inc_keywords');
 				show_all_keywords('case', $row['id_case']);
+
+				// Notes
+				echo _Ti('case_input_notes') . "<br />\n";
+				echo nl2br($row['notes']);
 
 				// Show case status
 				if ($edit) {

@@ -83,6 +83,36 @@ echo '<td><input name="name" value="' . clean_output($_SESSION['org_data']['name
 	. "</td>\n";
 echo "</tr>\n";
 
+// Court registration number
+echo "<tr>\n";
+echo "<td>" . f_err_star('court_reg') . _Ti('org_input_court_reg') . "</td>\n";
+echo '<td><input name="court_reg" value="' . clean_output($_SESSION['org_data']['court_reg']) . '" class="search_form_txt" />'
+	. "</td>\n";
+echo "</tr>\n";
+
+// Tax number
+echo "<tr>\n";
+echo "<td>" . f_err_star('tax_number') . _Ti('org_input_tax_number') . "</td>\n";
+echo '<td><input name="tax_number" value="' . clean_output($_SESSION['org_data']['tax_number']) . '" class="search_form_txt" />'
+	. "</td>\n";
+echo "</tr>\n";
+
+// Statistical number
+echo "<tr>\n";
+echo "<td>" . f_err_star('stat_number') . _Ti('org_input_stat_number') . "</td>\n";
+echo '<td><input name="stat_number" value="' . clean_output($_SESSION['org_data']['stat_number']) . '" class="search_form_txt" />'
+	. "</td>\n";
+echo "</tr>\n";
+
+// Notes
+echo "<tr>\n";
+echo "<td>" . f_err_star('notes') . _Ti('org_input_notes') . "</td>\n";
+echo '<td><textarea name="notes" id="input_notes" class="frm_tarea" rows="3" cols="60">'
+	. clean_output($_SESSION['org_data']['notes'])
+	. "</textarea>\n"
+	. "</td>\n";
+echo "</tr>\n";
+
 // Creation date
 if ($_SESSION['org_data']['id_org']) {
 	echo "<tr>\n";

@@ -64,6 +64,7 @@ $cl = "name_first = '" . clean_input($_SESSION['client_data']['name_first']) . "
 	gender = '" . clean_input($_SESSION['client_data']['gender']) . "',
 	citizen_number = '" . clean_input($_SESSION['client_data']['citizen_number']) . "',
 	civil_status = '" . clean_input($_SESSION['client_data']['civil_status']) . "',
+	notes = '" . clean_input($_SESSION['client_data']['notes']) . "', 
 	income = '" . clean_input($_SESSION['client_data']['income']) . "'";
 
 if ($_SESSION['client_data']['id_client'] > 0) {
@@ -110,6 +111,10 @@ if (!empty($_SESSION['client_data']['new_org'])) {
 		VALUES (" . $_SESSION['client_data']['id_client'] . ',' . $_SESSION['client_data']['new_org'] . ")";
 	$result = lcm_query($q);
 }
+
+// Keywords
+include_lcm('inc_keywords');
+update_keywords_request('client', $_SESSION['client_data']['id_client']);
 
 //
 // Insert/update client contacts

@@ -92,17 +92,21 @@ if ($client > 0) {
 				if (read_meta('client_citizen_number') == 'yes')
 					echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
 		
-				// [ML] this has been moved in contacts
-				// echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
-
 				if (read_meta('client_civil_status') == 'yes')
 					echo _Ti('person_input_civil_status') . $row['civil_status'] . "<br/>\n";
 
 				if (read_meta('client_income') == 'yes')
 					echo _Ti('person_input_income') . $row['income'] . "<br/>\n";
 
+				include_lcm('inc_keywords');
+				show_all_keywords('client', $row['id_client']);
+
 				echo _Ti('case_input_date_creation') . format_date($row['date_creation']) . "<br/>\n";
 				// [ML] echo 'Last update date: ' . $row['date_update'] . "<br/>\n";
+
+				echo _Ti('client_input_notes') . "<br />\n";
+				echo nl2br($row['notes']);
+
 				echo "</p>\n";
 		
 				// Show client contacts (if any)

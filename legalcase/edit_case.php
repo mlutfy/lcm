@@ -213,9 +213,18 @@ if ($_SESSION['case_data']['id_case']) {
 		echo "</tr>\n";
 	}
 
-	// Keywords already attached
+	// Keywords (if any)
 	include_lcm('inc_keywords');
 	show_edit_keywords_form('case', $_SESSION['case_data']['id_case']);
+
+	// Notes
+	echo "<tr>\n";
+	echo "<td>" . f_err_star('notes') . _Ti('case_input_notes') . "</td>\n";
+	echo '<td><textarea name="notes" id="input_notes" class="frm_tarea" rows="3" cols="60">'
+		. clean_output($_SESSION['case_data']['notes'])
+		. "</textarea>\n"
+		. "</td>\n";
+	echo "</tr>\n";
 
 	// Case status
 	echo '<tr><td><label for="input_status">' . _T('case_input_status') . "</label></td>\n";

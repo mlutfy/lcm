@@ -50,7 +50,8 @@ if (count($_SESSION['errors'])) {
 			id_court_archive='" . clean_input($_SESSION['case_data']['id_court_archive']) . "',";
 	$fl .= "
 			legal_reason='" . clean_input($_SESSION['case_data']['legal_reason']) . "',
-			alledged_crime='" . clean_input($_SESSION['case_data']['alledged_crime']) . "'";
+			alledged_crime='" . clean_input($_SESSION['case_data']['alledged_crime']) . "',
+			notes = '" . clean_input($_SESSION['case_data']['notes']) . "'";
 
 	// Add status to the list of fields
 	$fl .= ",status='" . $_SESSION['case_data']['status'] . "'";

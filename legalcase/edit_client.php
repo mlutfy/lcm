@@ -191,6 +191,15 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 	include_lcm('inc_keywords');
 	show_edit_keywords_form('client', $client_data['id_client']);
 
+	// Notes
+	echo "<tr>\n";
+	echo "<td>" . f_err_star('notes') . _Ti('client_input_notes') . "</td>\n";
+	echo '<td><textarea name="notes" id="input_notes" class="frm_tarea" rows="3" cols="60">'
+		. clean_output($client_data['notes'])
+		. "</textarea>\n"
+		. "</td>\n";
+	echo "</tr>\n";
+
 	//
 	// Contacts (e-mail, phones, etc.)
 	//
