@@ -47,7 +47,7 @@ if (isset($_GET['followup'])) {
 lcm_page_start("Follow-up details");
 
 // Show a bit of background on the case
-
+$case = $fu_data['id_case'];
 echo "<ul style=\"padding-left: 0.5em; padding-top: 0.2; padding-bottom: 0.2; font-size: 12px;\">\n";
 
 // Name of case
