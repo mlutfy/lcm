@@ -331,14 +331,16 @@ if ($case > 0) {
 			case 3 :
 				// Attach new file form
 				if ($add) {
+					echo '<fieldset class="info_box">';
 					echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
 					echo "<input type=\"hidden\" name=\"case\" value=\"$case\" />\n";
 					echo '<input type="hidden" name="MAX_FILE_SIZE" value="300000" />' . "\n";
-					echo 'Filename: <input type="file" name="filename" />' . "\n";
-					// echo "<br />\n";
-					echo ' Description: <input type="text" size="30" name="description" />' . "\n";
-					echo '<input type="submit" name="submit" value="Attach" />' . "\n";
+					echo '<strong>Filename:</strong><br /><input type="file" name="filename" size="40" />' . "\n";
+					echo "<br /><br />\n";
+					echo '<strong>Description:</strong><br /><input type="text" name="description" class="search_form_txt" /><br /><br />' . "\n";
+					echo '<input type="submit" name="submit" value="Attach" class="search_form_btn" />' . "\n";
 					echo "</form>\n";
+					echo '</fieldset>';
 				}
 
 				// List of attached files
@@ -354,7 +356,7 @@ if ($case > 0) {
 					for ($i=0 ; $row = lcm_fetch_array($result) ; $i++) {
 						echo "\t<tr>";
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">'
-							. '<a href="view_file.php?file_id=' . $row['id_attachment'] . '">'
+							. '<a href="view_file.php?file_id=' . $row['id_attachment'] . '" class="content_link">'
 							. $row['filename'] . '</a></td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['type'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['size'] . '</td>';
