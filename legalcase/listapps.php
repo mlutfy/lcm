@@ -123,7 +123,7 @@ if ($number_of_rows) {
 
 }
 
-echo '<a href="edit_app.php?app=0" class="create_new_lnk">New appointment</a><br /><br />';
+echo '<br /><a href="edit_app.php?app=0" class="create_new_lnk">New appointment</a><br /><br />';
 
 lcm_page_end();
 
