@@ -58,7 +58,7 @@ function change_password($usr) {
 	}
 	
 	// Is user allowed to change the password?
-	if (! $auth->is_newpass_allowed($usr['username'], $author_session)) {
+	if (! $auth->is_newpass_allowed($usr['id_author'], $usr['username'], $author_session)) {
 		// TODO: use $auth->error ?
 		$_SESSION['errors']['password_generic'] = "You are not allowed to change the password.";
 		return;
@@ -94,7 +94,7 @@ function change_password($usr) {
 	}
 
 	// Change the password
-	$ok = $auth->newpass($usr['username'], $usr['usr_new_passwd'], $author_session);
+	$ok = $auth->newpass($usr['id_author'], $usr['username'], $usr['usr_new_passwd'], $author_session);
 
 	if (! $ok) {
 		// TODO return error: $this->get_error() ? generic error?
@@ -162,19 +162,6 @@ if(!session_is_registered("usr"))
 foreach($_POST as $key => $value)
     $usr[$key] = $value;
 
-//
-// Change password (if requested)
-//
-
-if ($usr['usr_new_passwd'])
-	change_password($usr);
-
-//
-// Change username
-//
-
-if ($usr['username'] != $usr['username_old'])
-	change_username($usr['id_author'], $usr['username_old'], $usr['username']);
 
 // FIXME: 
 // - do not allow status change to users
@@ -201,6 +188,20 @@ if ($usr['id_author'] > 0) {
 	$result = lcm_query($q);
 	$usr['id_author'] = lcm_insert_id();
 }
+
+//
+// Change password (if requested)
+//
+
+if ($usr['usr_new_passwd'])
+	change_password($usr);
+
+//
+// Change username
+//
+
+if ($usr['username'] != $usr['username_old'])
+	change_username($usr['id_author'], $usr['username_old'], $usr['username']);
 
 //
 // Insert/update author contacts
