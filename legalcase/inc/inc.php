@@ -144,15 +144,15 @@ if (isset($lang) AND $lang <> $lcm_lang) {
 $installed_db_version = read_meta('lcm_db_version');
 
 if ($installed_db_version <> $lcm_db_version) {
-	lcm_page_start("Database upgrade"); // TRAD
+	lcm_page_start(_T('title_updade_database'));
 	if (! isset($installed_version))
 		$installed_version = "old version";
 
 	echo "<div class='box_warning'>\n";
-	echo "<p><b>" . _T('title_technical_message') . _T('typo_column') . "</b> The
-		format of the database has changed. <a class='content_link' href='lcm_upgrade.php'>To
-		proceed with the automatic upgrade, click here</a>. You are also
-		encouraged to make a backup before proceeding.</p>\n"; // TRAD
+	echo "<p><b>" . _T('title_technical_message') . _T('typo_column') . "</b> "
+		. _T('info_upgrade_database1') . ' '
+		. '<a class="content_link" href="lcm_upgrade.php">' . _T('info_upgrade_database2') . "</a>"
+		. "</p>";
 	echo "</div>\n";
 
 	lcm_page_end();
