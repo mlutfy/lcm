@@ -98,11 +98,11 @@ if ($case > 0) {
 		echo _T('case_input_alledged_crime') . ' ' . clean_output($row['alledged_crime']) . "<br>\n";
 
 		// Show case status
-		echo _T('case_input_status') . "&nbsp;\n";
 		if ($edit) {
 			// Change status form
 			echo "<form action='set_case_status.php' method='GET'>\n";
-			echo "\t<input type='hidden' name='case' value='$case'>\n";
+			echo "\t" . _T('case_input_status') . "&nbsp;";
+			echo "<input type='hidden' name='case' value='$case'>\n";
 			echo "\t<select name='status' class='sel_frm'>\n";
 			$statuses = array('draft','open','suspended','closed','merged');
 			foreach ($statuses as $s)
@@ -111,7 +111,7 @@ if ($case > 0) {
 			echo "\t<button type='submit' name='submit' value='set_status' class='simple_form_btn'>" . _T('button_validate') . "</button>\n";
 			echo "</form>\n";
 		} else {
-			echo clean_output($row['status']) . "<br>\n";
+			echo _T('case_input_status') . "&nbsp;" . clean_output($row['status']) . "<br>\n";
 		}
 
 		echo _T('public') . ': ' . _T('Read') . '=';
