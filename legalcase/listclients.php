@@ -100,7 +100,7 @@ for ($i = 0 ; (($i < $prefs['page_rows']) && ($row = lcm_fetch_array($result))) 
 show_listclient_end($list_pos, $number_of_rows);
 
 ?>
-<a href="edit_client.php" class="create_new_lnk">Register new client</a> <?php /* TRAD */ ?>
+<p><a href="edit_client.php" class="create_new_lnk"><?php echo _T('client_button_new'); ?></a></p>
 <br /><br />
 <?php
 lcm_page_end();
