@@ -240,7 +240,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 					<input type='text' size='40' style='style: 99%' name='new_contact_value[]' id='new_contact_value_<?php echo $cpt_new; ?>' 
 					
 					<?php 
-						echo ' value="' . $_SESSION['client_data']['new_contact_' . $cpt_new] . '" ';
+						echo ' value="' . $client_data['new_contact_' . $cpt_new] . '" ';
 						$cpt_new++;
 					?>
 						
