@@ -1174,9 +1174,11 @@ function show_list_end($current_pos = 0, $number_of_rows = 0, $allow_show_all = 
 			}
 		}
 
-		$link->delVar('list_pos');
-		$link->addVar('list_pos', 'all');
-		echo '<a href="' . $link->getUrl() . '" class="content_link">' . _T('listnav_link_show_all') . '</a>';
+		if ($allow_show_all) {
+			$link->delVar('list_pos');
+			$link->addVar('list_pos', 'all');
+			echo '<a href="' . $link->getUrl() . '" class="content_link">' . _T('listnav_link_show_all') . '</a>';
+		}
 	}
 
 	echo "</td>\n";
