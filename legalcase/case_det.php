@@ -263,11 +263,16 @@ if ($case > 0) {
 	// Process the output of the query
 	while ($row = lcm_fetch_array($result)) {
 		// Show followup
-		echo '<tr><td>' . clean_output(date(_T('date_format_short'),strtotime($row['date_start']))) . '</td>';
+		echo '<tr><td>' . format_date($row['date_start'], 'short') . '</td>';
 		echo '<td>' . clean_output($row['type']) . '</td>';
-		if (strlen($row['description'])<$title_length) $short_description = $row['description'];
-		else $short_description = substr($row['description'],0,$title_length) . '...';
+
+		if (strlen(lcm_utf8_decode($row['description'])) < $title_length) 
+			$short_description = $row['description'];
+		else
+			$short_description = substr($row['description'],0,$title_length) . '...';
+
 		echo '<td><a href="fu_det.php?followup=' . $row['id_followup'] . '" class="content_link">' . clean_output($short_description) . '</a></td>';
+
 		if ($edit)
 			echo '<td><a href="edit_fu.php?followup=' . $row['id_followup'] . '" class="content_link">' . _T('Edit') . '</a></td>';
 		echo "</tr>\n";
