@@ -85,8 +85,9 @@ if ($client > 0) {
 				echo '<div class="prefs_column_menu_head">' . _T('generic_subtitle_general') . "</div>\n";
 		
 				echo '<p class="normal_text">';
-				echo _T('client_input_id') . ' ' . $row['id_client'] . "<br/>\n";
-				echo _T('person_input_gender') . ' ' . $gender . "<br/>\n";
+				echo _Ti('client_input_id') . $row['id_client'] . "<br/>\n";
+				echo _Ti('person_input_name') . get_person_name($row) . "<br />\n";
+				echo _Ti('person_input_gender') . $gender . "<br/>\n";
 		
 				if (read_meta('client_citizen_number') == 'yes')
 					echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
