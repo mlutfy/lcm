@@ -139,7 +139,7 @@ $result = lcm_query($q);
 // Update old case status to 'merged'
 //
 $q = "UPDATE lcm_case SET status='merged' WHERE id_case=$case";
-$result = lcm_query($q)
+$result = lcm_query($q);
 
 // Clear the session
 // [ML] why? session_destroy();
