@@ -968,10 +968,10 @@ function http_calendrier_agenda_rv ($annee, $mois, $les_rv, $fclic, $perso='',
 		if (checkdate($mois, $j, $annee)) {
 			if ($j == $jour_ved AND $mois == $mois_ved AND $annee == $annee_ved) {
 				// Currently selected day (not necessarely Today)
-				$ligne .= "<li>" . $fclic($annee, $mois, $j, "jour", "black", $perso, 'sel_day') . "</li>\n";
+				$ligne .= "<li>" . $fclic($annee, $mois, $j, "jour", "", $perso, 'sel_day') . "</li>\n";
 			} else if ($semaine AND $nom >= $debut AND $nom <= $fin) {
 				// Highlights a given week
-				$ligne .= "<li>" . $fclic($annee,$mois, $j,($semaine ? 'semaine' : 'jour'),"black", $perso, 'sel_week') . "</li>\n";
+				$ligne .= "<li>" . $fclic($annee,$mois, $j,($semaine ? 'semaine' : 'jour'),"", $perso, 'sel_week') . "</li>\n";
 			} else {
 				// All other days, including weekends
 				$css = '';
@@ -990,7 +990,7 @@ function http_calendrier_agenda_rv ($annee, $mois, $les_rv, $fclic, $perso='',
 					}
 				}
 
-				$ligne .= "<li>" . $fclic($annee,$mois, $j,($semaine ? 'semaine' : 'jour'),$couleur, $perso, $css) . "</li>\n";
+				$ligne .= "<li>" . $fclic($annee,$mois, $j,($semaine ? 'semaine' : 'jour'), '', $perso, $css) . "</li>\n";
 			}
 
 			if ($jour_semaine == 7) {
