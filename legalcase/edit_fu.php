@@ -16,7 +16,7 @@
 
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
-    59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
 
 	$Id$
 */
@@ -74,8 +74,6 @@ if (empty($errors)) {
 		}
 	}
 }
-
-$types = array("assignment","suspension","delay","conclusion","consultation","correspondance","travel","other");
 
 if ($followup)
 	lcm_page_start("Edit follow-up");
