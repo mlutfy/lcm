@@ -145,8 +145,7 @@ if ($_SESSION['app_data']['id_case']>0) {
 	foreach ($all_clients as $client) {
 		if ($client['id_client']) {
 			echo '<a href="client_det.php?client=' . $client['id_client'] . '" class="content_link">'
-				. $client['name_first'] . ' ' . $client['name_middle'] . ' ' . $client['name_last']
-				. '</a>';
+				. get_person_name($client) . '</a>';
 	
 			if (++$current < $numrows)
 				echo ", ";
