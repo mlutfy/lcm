@@ -38,7 +38,7 @@ foreach($_POST as $key => $value)
 
 // Check case data for validity
 if (!$_SESSION['case_data']['title'])
-	$_SESSION['errors']['title'] = _T('case_warning_no_case_title');
+	$_SESSION['errors']['title'] = _T('case_warning_no_title');
 
 if (count($_SESSION['errors'])) {
     header("Location: $HTTP_REFERER");
