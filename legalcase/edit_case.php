@@ -112,8 +112,6 @@ else lcm_page_start(_T('title_case_new'));
 
 echo "<div style='float: right'>" . lcm_help("case_edit") . "</div>\n";
 
-print_r($_SESSION);
-
 // Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);
 
