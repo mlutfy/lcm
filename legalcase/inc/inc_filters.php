@@ -129,7 +129,7 @@ function f_err_star($fn, $errors) {
 }
 
 function show_all_errors($all_errors) {
-	$ret = "<ul>";
+	$ret = "<ul class=\"err_list\">";
 
 	if (! count($all_errors))
 		return "";
