@@ -118,7 +118,7 @@ if (count($errors)) {
 		$q .= $author_data['name_first'];
 		$q .= (($author_data['name_middle']) ? ' ' . $author_data['name_middle'] : '');
 		$q .= (($author_data['name_last']) ? ' ' . $author_data['name_last'] : '');
-		$q .= " created and auto-assigned to the case',date_start=NOW()";
+		$q .= " created the case and is auto-assigned to it',date_start=NOW()";
 		$result = lcm_query($q);
 
 		// Set case date_assigned to NOW()
