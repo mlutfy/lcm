@@ -71,6 +71,8 @@ function init_default_config() {
 		// ** Policy **
 		'client_name_middle' => 'yes',
 		'client_citizen_number' => 'no',
+		'client_civil_status' => 'yes',
+		'client_income' => 'yes',
 		'case_court_archive' => 'yes',
 		'case_assignment_date' => 'yes',
 		'case_alledged_crime' => 'yes',
