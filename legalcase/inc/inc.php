@@ -61,7 +61,9 @@ if (isset($_REQUEST['author_ui_modified'])) {
 		// [ML] I used $lcm_lang because there are rare cases where the cookie
 		// can disagree with $author_session['lang'] (e.g. login one user, set
 		// cookie, logout, login other user, conflict).
-		header("Location: lcm_cookie.php?var_lang_lcm=" . $lang . "&url=" .  $_SERVER['REQUEST_URI']);
+		// [ML] Added $ref because some forms such as config_author.php expect it
+		$ref = (isset($_REQUEST['referer']) ? '&referer=' . $_REQUEST['referer'] : '');
+		header("Location: lcm_cookie.php?var_lang_lcm=" . $lang . "&url=" . $_SERVER['REQUEST_URI'] . $ref);
 		exit;
 	}
 
