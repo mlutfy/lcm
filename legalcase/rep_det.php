@@ -76,6 +76,7 @@ if ($rep > 0) {
 			ORDER BY 'col_order'";
 		// Do the query
 		$cols = lcm_query($q);
+		$rows = lcm_num_rows($cols);
 		// Show the results
 		while ($column = lcm_fetch_array($cols)) {
 			// Display column order
@@ -115,7 +116,11 @@ if ($rep > 0) {
 			// Display allowed actions
 			echo '<td>';
 			if ($edit) {
-				echo "<a href='rem_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "'>Remove</a>";
+				if ($column['col_order'] > 1)
+					echo "<a href='move_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "&amp;order=" . ($column['col_order']-1) . "'>^</a> ";
+				if ($column['col_order'] < $rows)
+					echo "<a href='move_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "&amp;order=" . ($column['col_order']+1) . "'>v</a> ";
+				echo "<a href='rem_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "'>(!)Remove</a>";
 			}
 			echo "</td>\n";
 			echo "</tr>\n";
@@ -126,7 +131,7 @@ if ($rep > 0) {
 //
 //	Display add new column form
 //
-		if (true) {
+		if ($edit) {
 			echo "<form action='add_rep_col.php' method='POST'>\n";
 			echo "\t<input type='hidden' name='rep' value='$rep' />\n";
 			echo "\t<table border='0' class='tbl_usr_dtl'>\n";
