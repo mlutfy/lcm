@@ -276,7 +276,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		$q = "SELECT lcm_author.id_author,lcm_author.name_first,lcm_author.name_middle,lcm_author.name_last
 			FROM lcm_author
 			LEFT JOIN lcm_author_app
-			USING (id_author)
+			ON (lcm_author.id_author=lcm_author_app.id_author AND id_app=" . $_SESSION['app_data']['id_app'] . ")
 			WHERE id_app IS NULL";
 		$result = lcm_query($q);
 //		echo "\t\t<form action=\"" . $_SERVER['REQUEST_URI'] . "\" method=\"POST\">\n";
