@@ -85,6 +85,7 @@ function create_database() {
 		legal_reason text NOT NULL,
 		alledged_crime text NOT NULL,
 		status text NOT NULL,
+		stage varchar(255) NOT NULL,
 		public tinyint(1) DEFAULT '0' NOT NULL,
 		pub_write tinyint(1) DEFAULT '0' NOT NULL,
 		PRIMARY KEY (id_case))";
