@@ -49,9 +49,9 @@ if ($case > 0) {
 
 		// Show case details
 		lcm_page_start(_T('title_case_details') . " " . $row['title']);
-		
+
 		echo "<div id=\"breadcrumb\"><a href=\"". getenv("HTTP_REFERER") ."\">List of cases</a> &gt; ". $row['title'] ."</div>";
-		
+
 		echo "<fieldset class='info_box'>";
 		echo "<div class='prefs_column_menu_head'>" . _T('case_subtitle_general') . "</div>";
 		echo "<p class='normal_text'>";
@@ -104,7 +104,7 @@ if ($case > 0) {
 			echo "<form action='set_case_status.php' method='GET'>\n";
 			echo "\t<input type='hidden' name='case' value='$case'>\n";
 			echo "\t<select name='status' class='sel_frm'>\n";
-			$statuses = array('open','suspended','closed','merged');
+			$statuses = array('draft','open','suspended','closed','merged');
 			foreach ($statuses as $s)
 				echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
 			echo "\t</select>\n";
