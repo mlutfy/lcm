@@ -29,6 +29,9 @@ $file_id = intval($_REQUEST['file_id']);
 $type = clean_input($_REQUEST['type']);
 
 switch ($type) {
+	//
+	// View case attachment
+	//
 	case 'case' :
 		$q = "SELECT lcm_case_attachment.*,lcm_case.public
 			FROM lcm_case_attachment,lcm_case
@@ -44,9 +47,26 @@ switch ($type) {
 			die(_T('error_no_read_permission'));
 		}
 		break;
+	//
+	// View client attachment
+	//
 	case 'client' :
 		$q = "SELECT *
 			FROM lcm_client_attachment
+			WHERE id_attachment=$file_id";
+		$result = lcm_query($q);
+
+		if (lcm_num_rows($result) == 0) die("There is no such file!");
+
+		$row = lcm_fetch_array($result);
+
+		break;
+	//
+	// View organisation attachment
+	//
+	case 'org' :
+		$q = "SELECT *
+			FROM lcm_org_attachment
 			WHERE id_attachment=$file_id";
 		$result = lcm_query($q);
 
