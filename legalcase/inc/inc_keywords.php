@@ -124,5 +124,14 @@ function check_if_kwg_name_unique($name) {
 	return (lcm_num_rows($result) == 0);
 }
 
+// Get keyword title
+function get_kw_title($name) {
+	$query = "SELECT title FROM lcm_keyword WHERE name='" . clean_input($name) . "'";
+	$result = lcm_query($query);
+	if ($row = lcm_fetch_array($result))
+		return $row['title'];
+	else
+		return false;
+}
 
 ?>
