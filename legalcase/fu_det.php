@@ -130,7 +130,7 @@ echo "</ul>\n";
 		<tr><td><?php echo _T('fu_input_type'); ?></td>
 			<td><?php echo _T('kw_followups_' . $fu_data['type'] . '_title'); ?></td></tr>
 		<tr><td valign="top"><?php echo _T('fu_input_description'); ?></td>
-			<td><?php echo clean_output($fu_data['description']);
+			<td><?php echo nl2br(clean_output($fu_data['description']));
 				echo "</td></tr>\n";
 
 				// Read the policy settings
