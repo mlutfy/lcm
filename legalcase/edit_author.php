@@ -105,7 +105,7 @@ echo show_all_errors($_SESSION['errors']);
 
 		<?php
 			// Middle name can be desactivated, but show anyway if there is one
-			if (! $usr['name_middle'] && read_meta('client_name_middle') == 'yes') {
+			if ($usr['name_middle'] || read_meta('client_name_middle') == 'yes') {
 		?>
 
 		<tr><td align="right" valign="top"><?php echo _T('person_input_name_middle'); ?></td>
