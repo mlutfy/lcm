@@ -124,17 +124,37 @@ class Auth_db {
 		return true;
 	}
 
-	function is_newusername_allowed($username, $author_session) {
+	function is_newusername_allowed($id_author, $username, $author_session) {
 		if ($author_session['status'] == 'admin')
 			return true;
 		else
 			return false;
 	}
 
-	function newusername($username, $new_username, $author_session) {
-		// TODO TODO
-		lcm_log("newlogin: code me!");
-		return false;
+	function newusername($id_author, $old_username, $new_username, $author_session) {
+		$query = "SELECT username
+					FROM lcm_author
+					WHERE username = '" . addslashes($new_username) . "'";
+		$result = lcm_query($query);
+
+		if ($row = lcm_fetch_array($result)) {
+			$this->error = "The username already exists.";
+			return false;
+		}
+	
+		$query = "UPDATE lcm_author
+					SET username = '" . addslashes($new_username) . "'
+					WHERE id_author = $id_author";
+		lcm_query($query);
+
+		// Check for errors (duplicates, format, etc.)
+		if (lcm_sql_errno()) {
+			$this->error = lcm_sql_error();
+			lcm_log("newusername: " . $this->error);
+			return false;
+		}
+
+		return true;
 	}
 }
 
