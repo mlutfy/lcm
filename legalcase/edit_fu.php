@@ -53,7 +53,7 @@ if (empty($errors)) {
 		} else die("There's no such follow-up!");
 
 		// Check for access rights
-		if (!(($GLOBALS['author_session']['status'] = 'admin') || allowed($fu_data['id_case'],'e')))
+		if (!(($GLOBALS['author_session']['status'] == 'admin') || allowed($fu_data['id_case'],'e')))
 			die("You don't have permission to edit this case's information!");
 
 		// Set the case ID, to which this followup belongs
