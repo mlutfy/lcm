@@ -543,7 +543,7 @@ function affdate_base($numdate, $vue) {
 
 	if ($jour == 0)
 		$jour = '';
-	else if ($jourth = _T('date_day'.$jour))
+	else if ($jourth = _T('date_day_'.$jour))
 			$jour = $jourth;
 
 	$mois = intval($mois);
