@@ -139,8 +139,8 @@ function show_author_form() {
 			<td align="left" valign="top">
 				<input type="hidden" name="old_mode" id="old_mode" value="<?php echo $prefs['mode'] ?>" />
 				<select name="sel_mode" class="sel_frm">
-<?php
-	$interface_modes = array("normal", "technical");
+<?php	// [AG] Exactly these names have to be used in the code to avoid changing in every place where the preference is checked
+	$interface_modes = array("simple", "extended"); 
 	foreach ($interface_modes as $ifm) {
 		$selected_mode = ($ifm == $prefs['mode'] ? " selected='selected'" : '');
 		echo "<option value='" . $ifm . "'" . $selected_mode . ">"
