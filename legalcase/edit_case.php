@@ -154,13 +154,16 @@ if ($case_data['id_case']) {
 	echo "</table>\n";
 
 	// Different buttons for edit existing and for new case
-	// TODO: add expert mode
 	if ($existing) {
 		echo '<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
 	} else {
-		echo '<button name="submit" type="submit" value="add" class="simple_form_btn">' . _T('button_validate') . '</button>
-	<button name="submit" type="submit" value="addnew" class="simple_form_btn">' . _T('add_and_open_new') . '</button>
-	<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('add_and_go_to_details') . "</button>\n";
+		// More buttons for 'extended' mode
+		if ($prefs['mode'] == 'extended') {
+			echo '<button name="submit" type="submit" value="add" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
+			echo '<button name="submit" type="submit" value="addnew" class="simple_form_btn">' . _T('add_and_open_new') . "</button>\n";
+			echo '<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('add_and_go_to_details') . "</button>\n"; }
+		else	// Less buttons in simple mode
+			echo '<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
 	}
 
 	// [ML] if ($existing)
