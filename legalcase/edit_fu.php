@@ -317,4 +317,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 
 <?php
 	lcm_page_end();
+
+	// Clear the errors, in case user jumps to other 'edit' page
+	$_SESSION['errors'] = array();
 ?>

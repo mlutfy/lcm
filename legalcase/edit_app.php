@@ -359,8 +359,10 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 </form>
 
 <?php
-	// Clear the errors, in case user jumps to other 'edit' page
-	$_SESSION['errors'] = array();
 
-	lcm_page_end();
+lcm_page_end();
+
+// Clear the errors, in case user jumps to other 'edit' page
+$_SESSION['errors'] = array();
+
 ?>
