@@ -213,6 +213,35 @@ if ($_SESSION['case_data']['id_case']) {
 		echo "</tr>\n";
 	}
 
+	// Keywords
+	include_lcm('inc_keywords');
+	$kwg_for_case = get_kwg_all('case', true);
+	$cpt_kw = 0;
+
+	foreach ($kwg_for_case as $kwg) {
+		echo "<tr>\n";
+		echo '<td>' . f_err_star('keyword_' . $cpt_kw) . $kwg['title'] 
+			. " (" . _T('keywords_input_policy_' . $kwg['policy']) . ")</td>\n";
+
+		$kw_for_kwg = get_keywords_in_group_id($kwg['id_group']);
+		if (count($kw_for_kwg)) {
+			echo "<td>";
+			echo '<input type="hidden" name="kwg_name[]" value="' . $kwg['name'] . '" />' . "\n";
+			echo '<select name="kwg_value[]">';
+
+			foreach ($kw_for_kwg as $kw)
+				echo '<option value="' . $kw['name'] . '">' . _T($kw['title']) . "</option>\n";
+
+			echo "</select>\n";
+			echo "</td>\n";
+		} else {
+			// This should not happen, we should get only non-empty groups
+		}
+		
+		echo "</tr>\n";
+		$cpt_kw++;
+	}
+
 	// Case status
 	echo '<tr><td><label for="input_status">' . _T('case_input_status') . "</label></td>\n";
 	echo '<td>';
