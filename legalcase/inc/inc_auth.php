@@ -149,8 +149,10 @@ function auth() {
 		include_lcm('inc_presentation');
 		include_lcm('inc_text');
 
-		install_html_start(_T('avis_erreur_connexion'));
-		echo "<br><br><p>"._T('texte_inc_auth_1', array('auth_login' => $auth_login))." <A HREF='lcm_cookie.php?logout=$auth_login'>".  _T('texte_inc_auth_2')."</A>"._T('texte_inc_auth_3');
+		install_html_start(_T('login_warning_connection_failed'));
+		echo "<p>" . _T('login_warning_connection_failed1', array('username' => $auth_login));
+		echo " <a href='lcm_cookie.php?logout=$auth_login'>" 
+			. _T('login_warning_connection_failed1') . "</a>";
 		install_html_end();
 		exit;
 	}
