@@ -29,19 +29,9 @@ include_lcm('inc_keywords');
 // client, org, author).
 //
 function show_all_keywords($type = '') {
-/*	if (! $type)
+	if (! $type)
 		$type = 'system';
 	
-	$html_system = ($type == 'system' ? '&nbsp;&lt;--' : '');
-	$html_user   = ($type == 'user' ? '&nbsp;&lt;--' : '');
-
-	// Mini-menu: system or user keyword groups
-	echo "<ul>";
-	echo '<li><a href="?type=system" class="content_link">System keywords</a>' . $html_system . "</li>\n";
-	echo '<li><a href="?type=user" class="content_link">User keywords</a>' . $html_user . "</li>\n";
-	echo "</ul>\n\n";
-	
-*/
 	$kwg_all = get_kwg_all($type);
 
 	foreach ($kwg_all as $kwg) {
@@ -188,7 +178,7 @@ echo "</fieldset>\n";
 
 // Show tabs
 //show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
-show_tabs($groups,$tab,$_SERVER['SCRIPT_NAME']);
+show_tabs($groups, $tab, $_SERVER['SCRIPT_NAME']);
 
 // Show tab contents
 switch ($tab) {
