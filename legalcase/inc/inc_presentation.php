@@ -991,7 +991,7 @@ function show_list_start($headers = array()) {
 	echo "<tr>\n";
 
 	foreach($headers as $h) {
-		echo "<th>";
+		echo "<th class=\"heading\">";
 
 		if ($h['order'] && $h['order'] != 'no_order') {
 			$ovar = $h['order'];
