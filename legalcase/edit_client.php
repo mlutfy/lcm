@@ -127,7 +127,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		<tr><td><?php echo _T('person_input_income'); ?></td>
 			<td><input name="income" value="<?php echo clean_output($client_data['income']); ?>" class="search_form_txt"></td></tr>
 		<tr>
-			<td colspan="2" align="center" valign="middle" class="heading"><h4><?php echo _T('clientedit_subtitle_connectionidentifiers'); ?></h4></td>
+			<td colspan="2" align="center" valign="middle" class="heading"><h4><?php echo _T('client_subtitle_contacts'); ?></h4></td>
 		</tr>
 <?php
 	//
