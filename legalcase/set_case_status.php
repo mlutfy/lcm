@@ -51,14 +51,14 @@ switch ($status) {
 			case 'suspended' :
 				// Set defaults
 				$page_title = 'Resuming case: ' . clean_output($row['title']);
-				$date_title = 'Resumption date:';
+				$date_title = 'Resumption:';
 				$type = 'resumption';
 				$date_start = date('Y-m-d H:i:s');
 				break;
 			case 'closed' :
 				// Set defaults
 				$page_title = 'Re-opening case: ' . clean_output($row['title']);
-				$date_title = 'Re-opening date:';
+				$date_title = 'Re-opening:';
 				$type = 'reopening';
 				$date_start = date('Y-m-d H:i:s');
 				break;
@@ -71,7 +71,7 @@ switch ($status) {
 			default :
 				// Set defaults
 				$page_title = 'Opening case: ' . clean_output($row['title']);
-				$date_title = 'Start date:';
+				$date_title = 'Start:';
 				$type = 'opening';
 				$date_start = date('Y-m-d H:i:s');
 				break;
@@ -87,8 +87,11 @@ switch ($status) {
 	<table class='tbl_usr_dtl' width='99%'>
 		<tr><td>$date_title</td>
 			<td>";
+		echo _T('calendar_info_date');
 		echo get_date_inputs('start', $date_start, false);
-//		echo f_err('date_start',$errors);
+		echo ' ' . _T('calendar_info_time') . ' ';
+		echo get_time_inputs('start', $date_start);
+		echo ' ' . f_err('date_start',$errors);
 		echo "</td>
 		</tr>
 		<tr><td>Type:</td>
