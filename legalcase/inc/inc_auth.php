@@ -144,8 +144,10 @@ function auth() {
 		if (! isset($prefs['mode']) || ! $prefs['mode'])
 			$prefs['mode'] = 'simple';
 
-		if (! isset($prefs['time_intervals']) || ! $prefs['time_intervals'])
+		if (! isset($prefs['time_intervals']) || ! $prefs['time_intervals']) {
 			$prefs['time_intervals'] = 'relative';
+			$prefs['time_intervals_notation'] = 'hours_only';
+		}
 	}
 	else {
 		// This case is a strange possibility: the author is authentified
