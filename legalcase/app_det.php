@@ -57,7 +57,8 @@ if ($row = lcm_fetch_array($result)) {
 	echo "Title: " . $row['title'] . "<br />\n";
 	echo "Description: " . $row['description'] . "<br />\n";
 	echo "Created by: " . njoin(array($row['name_first'],$row['name_middle'],$row['name_last'])) . "<br />\n";
-	if ($row['case_title']) echo "In connection with: " . $row['case_title'] , "<br />\n";
+	if ($row['case_title'])
+		echo 'In connection with case: <a href="case_det.php?case=' . $row['id_case'] . '">' . $row['case_title'] , "</a><br />\n";
 
 	// Show appointment participants
 	$q = "SELECT lcm_author_app.*,lcm_author.name_first,lcm_author.name_middle,lcm_author.name_last
@@ -94,7 +95,7 @@ if ($row = lcm_fetch_array($result)) {
 	}
 
 	if ($row['id_case'] > 0) {
-		echo '<br />';
+//		echo '<br />';
 		// Show child followup
 		$q = "SELECT lcm_app_fu.id_followup,lcm_followup.description FROM lcm_app_fu,lcm_followup
 			WHERE lcm_app_fu.id_app=" . $row['id_app'] . "
@@ -109,16 +110,19 @@ if ($row = lcm_fetch_array($result)) {
 				$short_description = $fu['description'];
 			else
 				$short_description = substr($fu['description'],0,$title_length) . '...';
-			echo 'Followup:' . ' <a href="fu_det.php?followup=' . $fu['id_followup'] . '">' . $short_description;
+			echo '<br />Followup:' . ' <a href="fu_det.php?followup=' . $fu['id_followup'] . '">' . $short_description;
 		} else {
 			// Show create followup from appointment
 			echo '<br /><a href="edit_fu.php?case=' . $row['id_case'] . '&amp;app=' . $row['id_app']
 				. '">Create new followup from this appointment';
 		}
-		echo "</a><br /><br />\n";
+		echo "</a><br />\n";
+
+		// Show link back to the case details
+		echo '<br /><a href="case_det.php?case=' . $row['id_case'] . '&amp;tab=appointments">' . 'To case appointments' . "</a><br />\n";
 	}
 
-	echo "</p>";
+	echo "<br /></p>";
 	echo "</fieldset>\n";
 
 	lcm_page_end();
