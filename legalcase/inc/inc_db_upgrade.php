@@ -550,8 +550,19 @@ function upgrade_database($old_db_version) {
 	}
 
 	if ($lcm_db_version_current < 24) {
+		// Name doesn't need to be 100% unique, but unique for a given group
 		lcm_query("ALTER TABLE lcm_keyword DROP INDEX idx_kw_name");
 		lcm_query("CREATE UNIQUE INDEX idx_kw_name ON lcm_keyword (id_group, name)");
+
+		// Convert civil_status + income to varchar(255) for keywords
+		// Users should not have been using this field, and if they have, the usage was wrong, sorry
+		lcm_query("ALTER TABLE lcm_client CHANGE civil_status civil_status varchar(255) NOT NULL DEFAULT 'unknown'");
+		lcm_query("ALTER TABLE lcm_client CHANGE income income varchar(255) NOT NULL DEFAULT 'unknown'");
+		lcm_query("UPDATE lcm_client SET civil_status = 'unknown', income = 'unknown'");
+
+		// Convert follow-up type to varchar(255) so that we can use keywords
+		// This should convert without problems. Knock on wood.
+		lcm_query("ALTER TABLE lcm_followup CHANGE type type varchar(255) NOT NULL DEFAULT 'other'");
 
 		upgrade_db_version (24); 
 	}
