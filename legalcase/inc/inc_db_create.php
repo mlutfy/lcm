@@ -115,7 +115,7 @@ function create_database() {
 		id_author bigint(21) DEFAULT '0' NOT NULL,
 		date_start datetime NOT NULL,
 		date_end datetime NOT NULL,
-		type ENUM('assignment', 'suspension', 'resumption', 'delay', 'conclusion', 'reopening', 'merge', 'consultation', 'correspondance', 'travel', 'other') NOT NULL,
+		type varchar(255) NOT NULL DEFAULT 'other',
 		description text NOT NULL,
 		sumbilled decimal(19,4) NOT NULL,
 		PRIMARY KEY (id_followup),
@@ -168,8 +168,8 @@ function create_database() {
 		citizen_number text NOT NULL,
 		address text NOT NULL,
 		gender ENUM('female','male') DEFAULT 'male' NOT NULL,
-		civil_status decimal(2) DEFAULT 0 NOT NULL,
-		income decimal(2) DEFAULT 0 NOT NULL,
+		civil_status varchar(255) DEFAULT 'unknown' NOT NULL,
+		income varchar(255) DEFAULT 'unknown' NOT NULL,
 		PRIMARY KEY id_client (id_client))";
 	$result = lcm_query($query);
 
