@@ -1273,7 +1273,7 @@ function show_listcase_item($item, $cpt, $custom = '') {
 	}
 	
 	// Status
-	echo "<td class='tbl_cont_" . $css . "'>" . $item['status'] . "</td>\n";
+	echo "<td class='tbl_cont_" . $css . "'>" . _T('case_status_option_' . $item['status']) . "</td>\n";
 	
 	// Actions / custom html
 	echo "<td class='tbl_cont_" . $css . "'>";
