@@ -161,6 +161,14 @@ function clean_output($string) {
 	}
 }
 
+// Converts &...; to the respective characters
+function unhtmlentities($string)
+{
+   $trans_tbl = get_html_translation_table(HTML_ENTITIES);
+   $trans_tbl = array_flip($trans_tbl);
+   return strtr($string, $trans_tbl);
+}
+
 // Joins non-empty elements of the array
 function njoin($parts,$separator=' ') {
 	if (!empty($parts) && is_array($parts)) {
