@@ -157,8 +157,8 @@ if ($author > 0) {
 				echo $link->getForm();
 
 				echo "<p class=\"normal_text\">\n";
-				$date_end = get_datetime_from_array($_REQUEST, 'date_end', date('Y-m-d'));
-				$date_start = get_datetime_from_array($_REQUEST, 'date_start', date('Y-m-d', strtotime("-1 month" . $date_end)));
+				$date_end = get_datetime_from_array($_REQUEST, 'date_end', 'end', date('Y-m-d H:i:s'));
+				$date_start = get_datetime_from_array($_REQUEST, 'date_start', 'start', date('Y-m-d H:i:s', strtotime("-1 month" . $date_end)));
 
 				echo _Ti('time_input_date_start');
 				echo get_date_inputs('date_start', $date_start);
