@@ -86,6 +86,14 @@ if (isset($_REQUEST['page_rows'])) {
 	}
 }
 
+// Set font size
+if (isset($_REQUEST['font_size'])) {
+	if ($font_size == 'small_font' || $font_size == 'medium_font' || $font_size == 'large_font') {
+		$prefs['font_size'] = $font_size;
+		$prefs_mod = true;
+	}
+}
+
 // Update user preferences if modified
 if ($prefs_mod) {
 	lcm_query("UPDATE lcm_author
