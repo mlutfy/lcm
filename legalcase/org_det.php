@@ -27,7 +27,7 @@ include('inc/inc_acc.php');
 $org = (isset($_REQUEST['org']) ? intval($_REQUEST['org']) : 0);
 
 if ($org <= 0)
-	die("Which organisation?");
+	die("Which organisation?");	// TRAD
 
 $q = "SELECT *
 		FROM lcm_org
@@ -36,7 +36,7 @@ $q = "SELECT *
 $result = lcm_query($q);
 
 if ($row = lcm_fetch_array($result)) {
-	lcm_page_start("Organisation: " . $row['name']);
+	lcm_page_start("Organisation: " . $row['name']);	// TRAD
 
 	/* Saved for future use
 	// Check for access rights
