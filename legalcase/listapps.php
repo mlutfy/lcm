@@ -37,7 +37,7 @@ if ($number_of_rows) {
 	echo "<table border='0' align='center' class='tbl_usr_dtl' width='99%'>\n";
 	echo "\t<tr>";
 	echo '<th class="heading">Start time</th>';
-	echo '<th class="heading">End time</th>';
+	echo '<th class="heading">' . ( ($prefs['time_intervals'] == 'absolute') ? 'End time' : 'Length' ) . '</th>';
 	echo '<th class="heading">Type</th>';
 	echo '<th class="heading">Title</th>';
 	echo '<th class="heading">Reminder</th>';
@@ -59,11 +59,18 @@ if ($number_of_rows) {
 	// Show page of the list
 	for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; $i++) {
 		echo "\t<tr>";
-		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['start_time'] . '</td>';
-		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['end_time'] . '</td>';
+		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
+			. date('d.m.y H:i',strtotime($row['start_time'])) . '</td>';
+		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
+			. ( ($prefs['time_intervals'] == 'absolute') ?
+				date('d.m.y H:i',strtotime($row['end_time'])) :
+				format_time_interval(strtotime($row['end_time']) - strtotime($row['start_time']),
+							($prefs['time_intervals_notation'] == 'hours_only') )
+			) . '</td>';
 		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['type'] . '</td>';
 		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['title'] . '</td>';
-		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">' . $row['reminder'] . '</td>';
+		echo '<td class="tbl_cont_' . ($i % 2 ? 'dark' : 'light') . '">'
+			. date('d.m.y H:i',strtotime($row['reminder'])) . '</td>';
 		echo "</tr>\n";
 	}
 	
