@@ -381,6 +381,25 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (18);
 	}
 
+	if ($lcm_db_version_current < 19) {
+		lcm_query("CREATE TABLE lcm_rep_filter (
+			id_filter bigint(21) NOT NULL auto_increment,
+			id_report bigint(21) NOT NULL default 0,
+			id_field bigint(21) NOT NULL default 0,
+			type varchar(255) NOT NULL default '',
+			value varchar(255) NOT NULL default '',
+			KEY id_report (id_report),
+			KEY id_field (id_field),
+			PRIMARY KEY  (id_filter))");
+
+		lcm_query("ALTER TABLE lcm_fields
+			ADD filter ENUM('none', 'date', 'number', 'text') NOT NULL DEFAULT 'none'");
+
+		// TODO: set filter types for various lcm_fields
+
+		upgrade_db_version (19);
+	}
+
 	return $log;
 }
 
