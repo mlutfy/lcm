@@ -123,6 +123,31 @@ function format_time_interval($time, $hours_only=false, $hours_only_format='%.2f
 	} else return '';
 }
 
+function format_money($money) {
+	// this is very stupid i18n because windows does not have strfmon,
+	// altough we cannot depend on locales on all servers for all languages
+	// so for our small needs, this should be good enough.
+	if (! is_numeric($money))
+		lcm_panic("parameter is not a valid number: " . $money);
+	
+	$seperator_cents    = _T('currency_format_seperator_cents');
+	$seperator_hundreds = _T('currency_format_seperator_hundreds');
+
+	$hundreds = (int) $money;
+	$cents = round(($money - $hundreds) * 100); // only two last digits
+
+	// format as text
+	$str_cents = sprintf('%02u', $cents);
+	$str_hundreds = $hundreds % 1000;
+
+	while ($hundreds > 999) {
+		$hundreds /= 1000;
+		$str_hundreds = ($hundreds % 1000) . $seperator_hundreds . $str_hundreds;
+	}
+
+	return $str_hundreds . $seperator_cents . $str_cents;
+}
+
 // Error display function
 // Highlights (outlines) errors in the form data
 function f_err($fn, $errors) {
