@@ -134,6 +134,7 @@ echo show_all_errors($_SESSION['errors']);
 	$contacts_addrmain = get_contacts('author', $usr['id_author'], 'address_main');
 	$contacts_other = get_contacts('author', $usr['id_author'], 'email_main,address_main', 'not');
 
+/*
 	function print_existing_contact($c, $num) {
 		echo '<tr><td align="right" valign="top">' . _T($c['title']) . "\n";
 		echo '<td align="left" valign="top">';
@@ -167,7 +168,8 @@ echo show_all_errors($_SESSION['errors']);
 		
 		echo "</td>\n</tr>\n\n";
 	}
-
+*/
+	
 	// First show the main address
 	foreach ($contacts_addrmain as $contact) {
 		print_existing_contact($contact, $cpt); 
