@@ -25,6 +25,8 @@ include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
 
+global $author_session;
+
 // Clear all previous errors
 $_SESSION['errors'] = array();
 
@@ -59,17 +61,32 @@ if (count($_SESSION['errors'])) {
 	// Add stage to the list of fields
 	$fl .= ",stage='" . $_SESSION['case_data']['stage'] . "'";
 
-// Put public access rights settings in a separate string
+	// Put public access rights settings in a separate string
 	$public_access_rights = '';
-	if (($_SESSION['case_data']['public'] == 'yes') || (read_meta('case_read_always') == 'yes'))
-		$public_access_rights .= "public=1";
-	else
-		$public_access_rights .= "public=0";
 
-	if (($_SESSION['case_data']['pub_write'] == 'yes') || (read_meta('case_write_always') == 'yes'))
-		$public_access_rights .= ",pub_write=1";
-	else
-		$public_access_rights .= ",pub_write=0";
+	/* 
+	 * [ML] Important note: the meta 'case_*_always' defines whether the user
+	 * has the choice of whether read/write should be allowed or not. If not,
+	 * we take the system default value in 'case_default_*'.
+	 */
+
+	if ((read_meta('case_read_always') == 'yes') && $author_session['status'] != 'admin') {
+		// impose system setting
+		$public_access_rights .= "public=" . (read_meta('case_default_read') == 'yes' ? 1 : 0);
+	} else {
+		// write user selection
+		$public_access_rights .= "public=" . ($_SESSION['case_data']['public'] == 'yes' ? 1 : 0);
+	}
+
+	lcm_log("status == " . $author_session['status']);
+
+	if ((read_meta('case_write_always') == 'yes') && $author_session['status'] != 'admin') {
+		// impose system setting
+		$public_access_rights .= ", pub_write=" . (read_meta('case_default_write') == 'yes' ? 1 : 0);
+	} else {
+		// write user selection
+		$public_access_rights .= ", pub_write=" . ($_SESSION['case_data']['pub_write'] == 'yes' ? 1 : 0);
+	}
 
 	if ($id_case > 0) {
 		// This is modification of existing case
