@@ -226,6 +226,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 							strtotime($_SESSION['app_data']['end_time']) - strtotime($_SESSION['app_data']['start_time']) : 0);
 				//	echo _T('calendar_info_time') . ' ';
 					echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
+					echo " before the start time";
 					echo f_err_star('end_time',$_SESSION['errors']);
 				} ?>
 			</td>
