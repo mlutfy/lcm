@@ -21,10 +21,10 @@
 	$Id$
 */
 
+session_start();
+
 include('inc/inc.php');
 include_lcm('inc_filters');
-
-session_start();
 
 // Register $errors array - just in case
 if (!session_is_registered("errors"))
@@ -72,7 +72,8 @@ if (count($errors)) {
 		die("$q<br>\nError ".lcm_errno().": ".lcm_error());
 
     // Clear the session
-    session_destroy();
+	// FIXME [ML] does this make sense, if we want to show errors afterwards?
+	// session_destroy();
 
     // Send user back to add/edit page's referer
     header('Location: ' . $client_data['ref_edit_client']);
