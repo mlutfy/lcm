@@ -1088,15 +1088,15 @@ function show_list_start($headers = array()) {
 		
 			echo '<a href="' . $sort_link->getUrl() . '" class="content_link">';
 			echo $h['title'];
-			echo "</a>";
 		
 			if ($cur_sort_order == 'ASC')
-				echo '<img src="images/lcm/asc_desc_arrow.gif" alt="" />';
+				echo '<img src="images/lcm/asc_desc_arrow.gif" alt="" border="0" />';
 			else if ($cur_sort_order == 'DESC')
-				echo '<img src="images/lcm/desc_asc_arrow.gif" alt="" />';
+				echo '<img src="images/lcm/desc_asc_arrow.gif" alt="" border="0" />';
 			else
-				echo '<img src="images/lcm/sort_arrow.gif" alt="" />';
-		
+				echo '<img src="images/lcm/sort_arrow.gif" alt="" border="0" />';
+
+			echo "</a>";
 		} else {
 			echo $h['title'];
 		}
