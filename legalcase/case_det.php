@@ -420,7 +420,7 @@ if ($case > 0) {
 					WHERE id_case=$case AND lcm_followup.id_author=lcm_author.id_author";
 			
 				// Add ordering
-				if ($fu_order) $q .= " ORDER BY date_start $fu_order";
+				if ($fu_order) $q .= " ORDER BY date_start $fu_order, id_followup $fu_order";
 			
 				// Do the query
 				$result = lcm_query($q);
