@@ -220,8 +220,8 @@ if ($_SESSION['case_data']['id_case']) {
 
 	foreach ($kwg_for_case as $kwg) {
 		echo "<tr>\n";
-		echo '<td>' . f_err_star('keyword_' . $cpt_kw) . $kwg['title'] 
-			. " (" . _T('keywords_input_policy_' . $kwg['policy']) . ")</td>\n";
+		echo '<td>' . f_err_star('keyword_' . $cpt_kw) . _Ti($kwg['title']) 
+			. "<br />(" . _T('keywords_input_policy_' . $kwg['policy']) . ")</td>\n";
 
 		$kw_for_kwg = get_keywords_in_group_id($kwg['id_group']);
 		if (count($kw_for_kwg)) {
