@@ -53,6 +53,14 @@ if (strlen($find_case_string) > 1) {
 
 $q .= ")";
 
+// Sort cases by creation date
+$case_order = 'DESC';
+if (isset($_REQUEST['case_order']))
+	if ($_REQUEST['case_order'] == 'ASC' || $_REQUEST['case_order'] == 'DESC')
+		$case_order = $_REQUEST['case_order'];
+
+$q .= " ORDER BY date_creation " . $case_order;
+
 $result = lcm_query($q);
 $number_of_rows = lcm_num_rows($result);
 
