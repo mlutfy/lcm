@@ -51,7 +51,7 @@ if (($rep>0) && ($old) && ($new) && ($old!=$new)) {
 	$q = "UPDATE lcm_rep_cols
 			SET col_order=$new
 			WHERE id_report=$rep
-			AND id_column=$order";
+			AND id_column=$col";
 	$result = lcm_query($q);
 
 }
