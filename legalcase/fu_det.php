@@ -57,7 +57,7 @@ $query = "SELECT title
 
 $result = lcm_query($query);
 while ($row = lcm_fetch_array($result))  // should be only once
-	echo '<li style="list-style-type: none;">' . _T('info_followup_to_case')
+	echo '<li style="list-style-type: none;">' . _T('info_followup_case')
 		. " <a href='case_det.php?case=$case'>" . $row['title'] . "</a></li>\n";
 
 // We dump all the clients and org in the same array, then show
