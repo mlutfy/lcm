@@ -254,4 +254,5 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 
 	// Clear the errors, in case user jumps to other 'edit' page
 	$_SESSION['errors'] = array();
+	$_SESSION['fu_data'] = array();
 ?>
