@@ -59,7 +59,6 @@ function lcm_query_db($query, $accept_fail = false) {
 		lcm_log("QUERY: $query\n", "mysql");
 
 	if (lcm_sql_errno() && (!$accept_fail)) {
-		echo "accept fail = $accept_fail";
 		$s = lcm_sql_error();
 		$error = _T('warning_sql_query_failed') . "<br />\n" . htmlentities($query) . "<br />\n";
 		$error .= "&laquo; " . htmlentities($s) . " &raquo;<br />";
