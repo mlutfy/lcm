@@ -251,7 +251,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		if (!isset($_GET['followup'])) {
 			echo "<!-- Add appointment? -->\n";
 			echo '<p class="normal_text">';
-			echo '<input type="checkbox" name="add_appointment" id="box_new_app" onclick="setvisibility(\'new_app\', \'flip\')"; />';
+			echo '<input type="checkbox" name="add_appointment" id="box_new_app" onclick="display_block(\'new_app\', \'flip\')"; />';
 			echo '<label for="box_new_app">' . 'Add a future activity for this follow-up.' . '</label>'; // TRAD
 			echo "</p>\n";
 
