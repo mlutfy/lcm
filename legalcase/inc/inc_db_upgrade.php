@@ -491,6 +491,7 @@ function upgrade_database($old_db_version) {
 			  size bigint(21) NOT NULL default '0',
 			  description text,
 			  content longblob NOT NULL,
+			  date_attached datetime NOT NULL default '0000-00-00 00:00:00',
 			  PRIMARY KEY  (id_attachment),
 			  KEY id_case (id_case),
 			  KEY filename (filename),
