@@ -97,7 +97,7 @@ for ($i = 0; (($i < $prefs['page_rows']) && ($row = lcm_fetch_array($result))) ;
 ?>
 		<tr>
 			<td>&nbsp;</td>
-			<td><a href="edit_org.php" class="content_link"><strong><?php echo "Add new organisation"; /* TRAD */ ?></strong></a></td>
+			<td><a href="edit_org.php" class="content_link"><strong><?php echo _T('org_button_new');  ?></strong></a></td>
 		</tr>
 
 <?php
