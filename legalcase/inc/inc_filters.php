@@ -225,9 +225,16 @@ function get_person_initials($item) {
 		return '';
 	}
 
-	$ret  = substr($item['name_first'],0,floor(ord($item['name_first']) / 128) + 1);
-	$ret .= substr($item['name_middle'],0,floor(ord($item['name_first']) / 128) + 1);
-	$ret .= substr($item['name_last'],0,floor(ord($item['name_first']) / 128) + 1);
+	if (function_exists("mb_substr")) {
+		$ret .= mb_substr($item['name_first'], 0, 1, "utf-8");
+		$ret .= mb_substr($item['name_middle'], 0, 1, "utf-8");
+		$ret .= mb_substr($item['name_last'], 0, 1, "utf-8");
+	} else {
+		// [ML] Works with Cyrillic (Bulgarian), but not Chinese :-)
+		$ret  = substr($item['name_first'],0,floor(ord($item['name_first']) / 128) + 1);
+		$ret .= substr($item['name_middle'],0,floor(ord($item['name_first']) / 128) + 1);
+		$ret .= substr($item['name_last'],0,floor(ord($item['name_first']) / 128) + 1);
+	}
 
 	return $ret;
 }
