@@ -84,7 +84,7 @@ if (count($_SESSION['errors'])) {
 		// This is new case
 		$q = "INSERT INTO lcm_case SET id_case=0,date_creation=NOW(),$fl,$public_access_rights";
 		$result = lcm_query($q);
-		$id_case = lcm_insert_id();
+		$id_case = lcm_insert_id($result);
 		$id_author = $GLOBALS['author_session']['id_author'];
 
 		// Insert new case_author relation
@@ -105,10 +105,8 @@ if (count($_SESSION['errors'])) {
 
 		// Add 'assignment' followup to the case
 		$q = "INSERT INTO lcm_followup
-				SET id_followup=0,id_case=$id_case,type='assignment',description='";
-		$q .= $author_data['name_first'];
-		$q .= (($author_data['name_middle']) ? ' ' . $author_data['name_middle'] : '');
-		$q .= (($author_data['name_last']) ? ' ' . $author_data['name_last'] : '');
+				SET id_followup=0,id_case=$id_case,id_author=$id_author,type='assignment',description='";
+		$q .= njoin(array($author_data['name_first'], $author_data['name_middle'], $author_data['name_last']));
 		$q .= " created the case and is auto-assigned to it',date_start=NOW()";
 		$result = lcm_query($q);
 
