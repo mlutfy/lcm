@@ -30,13 +30,13 @@ $order = intval($_GET['order']);
 
 if (($rep>0) && ($order)) {
 	// Remove the column
-	$q = "DELETE FROM lcm_rep_cols
+	$q = "DELETE FROM lcm_rep_col
 			WHERE id_report=$rep
 			AND col_order=$order";
 	$result = lcm_query($q);
 
 	// Change order of the rest of the columns
-	$q = "UPDATE lcm_rep_cols
+	$q = "UPDATE lcm_rep_col
 			SET col_order=col_order-1
 			WHERE (id_report=$rep
 				AND col_order>$order)";

@@ -33,13 +33,13 @@ $new = intval($_GET['new']);
 if (($rep>0) && ($old) && ($new) && ($old!=$new)) {
 	// Change order of the columns between old and new order
 	if ($old>$new) {
-		$q = "UPDATE lcm_rep_cols
+		$q = "UPDATE lcm_rep_col
 				SET col_order=col_order+1
 				WHERE (id_report=$rep
 					AND col_order>=$new
 					AND col_order<$old)";
 	} else {
-		$q = "UPDATE lcm_rep_cols
+		$q = "UPDATE lcm_rep_col
 				SET col_order=col_order-1
 				WHERE (id_report=$rep
 					AND col_order<=$new
@@ -48,7 +48,7 @@ if (($rep>0) && ($old) && ($new) && ($old!=$new)) {
 	$result = lcm_query($q);
 
 	// Update the column
-	$q = "UPDATE lcm_rep_cols
+	$q = "UPDATE lcm_rep_col
 			SET col_order=$new
 			WHERE id_report=$rep
 			AND id_column=$col";
