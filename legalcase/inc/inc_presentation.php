@@ -1219,6 +1219,7 @@ function show_find_box($type, $string) {
 	switch ($type) {
 		case 'case':
 		case 'client':
+		case 'author':
 			$action = 'list' . $type . 's.php';
 			break;
 		case 'org':
