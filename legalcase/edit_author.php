@@ -126,7 +126,8 @@ else lcm_page_start("New author");
 		echo f_err('email', $errors) . "\n";
 
 		if ($c['name'] != 'email_main')
-			echo '<acronym title="Show icon with garbage bin to delete the contact?">Del?</acronym>';
+			//echo '<acronym title="Show icon with garbage bin to delete the contact?">Del?</acronym>';
+			echo "&nbsp;<img src=\"images/jimmac/stock_trash-16.png\" width=\"16\" height=\"16\" alt=\"Delete?\" />";
 
 		echo "</td>\n</tr>\n";
 
@@ -159,7 +160,7 @@ else lcm_page_start("New author");
 				?>
 				</div>
 				<div>
-					<input type='text' size='40' style='style: 99%' name='contact_value[]' id='contact_value_$cpt' />
+					<input type='text' size='40' style='style: 99%' name='contact_value[]' id='contact_value_$cpt' class='search_form_txt' />
 				</div>
 			</td>
 		</tr>
