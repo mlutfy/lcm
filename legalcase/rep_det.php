@@ -132,7 +132,10 @@ if ($rep_info['description'])
 
 echo "<p class='normal_text'>";
 echo "Created on: " . format_date($rep_info['date_creation']) . "<br/>\n";
-echo "Last update: " . format_date($rep_info['date_update']) . "<br/>\n";
+
+if ($rep_info['date_creation'] != $rep_info['date_update'])
+	echo "Last update: " . format_date($rep_info['date_update']) . "<br/>\n";
+
 echo "<br />\n";
 
 if ($edit)
