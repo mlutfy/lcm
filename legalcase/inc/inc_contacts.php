@@ -253,9 +253,10 @@ function show_new_contact($num_new, $type_kw = "__add__", $type_name = "__add__"
 	if ($type_kw == "__add__") {
 		echo "Other contact:&nbsp;"; // TRAD
 	} else {
-		echo _Ti("kw_contacts_" . $type_kw . "_title") . "</td>\n";
+		echo _Ti("kw_contacts_" . $type_kw . "_title");
 	}
 
+	echo '</td>';
 	echo '<td align="left" valign="top">';
 
 	if ($type_name == "__add__") {
@@ -287,7 +288,8 @@ function show_new_contact($num_new, $type_kw = "__add__", $type_name = "__add__"
 			. 'class="search_form_txt" size="35" value=""/>&nbsp;';
 	}
 
-	echo "</td>\n</tr>\n\n";
+	echo "</td>\n";
+	echo "</tr>\n";
 }
 
 function show_edit_contacts_form($type_person, $id_person) {
