@@ -191,7 +191,7 @@ function get_person_name($item) {
 	if ($item['name_middle'])
 		$ret .= ' ' . $item['name_middle'];
 	
-	$ret = $item['name_last'];
+	$ret .= $item['name_last'];
 
 	return $ret;
 }
