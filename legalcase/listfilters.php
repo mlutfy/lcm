@@ -81,7 +81,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 
 ?>
 </table>
-<p align='right'><a href="edit_filter.php?filter=0" class="content_link">Create new filter</a></p>
+<br /><a href="edit_filter.php?filter=0" class="create_new_lnk">Create new filter</a><br />
 
 <table border='0' align='center' width='99%'>
 	<tr><td align="left"><?php
