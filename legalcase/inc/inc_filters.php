@@ -297,7 +297,36 @@ function recup_time($numdate) {
 	return array($hours, $minutes, $seconds);
 }
 
+function get_datetime_from_array($source, $prefix, $fallback = '') {
+	$ret = '';
 
+	if ($prefix)
+		$prefix = $prefix . '_';
+
+	if (is_numeric($source[$prefix . 'year']) 
+		&& is_numeric($source[$prefix . 'month'])
+		&& is_numeric($source[$prefix . 'day']))
+	{
+		$ret .= sprintf("%04d", $source[$prefix . 'year']) . '-' 
+			. sprintf("%02d", $source[$prefix . 'month']) . '-'
+			. sprintf("%02d", $source[$prefix . 'day']);
+	}
+
+	if (is_numeric($source[$prefix . 'hour'])
+		&& is_numeric($source[$prefix . 'minutes'])
+		&& is_numeric($source[$prefix . 'seconds']))
+	{
+		if ($ret)
+			$ret .= " ";
+
+		$ret .= $source[$prefix . 'hour'] . ':' . $source[$prefix . 'minutes'] . ':' . $source[$prefix . 'seconds'];
+	}
+
+	if ($ret)
+		return $ret;
+	else
+		return $fallback;
+}
 
 /* ********************************************************
  * DEPRECATED: The following functions will be removed soon
@@ -899,5 +928,14 @@ function quote_amp ($text) {
 	$text = str_replace("&", "&amp;", $text);
 	return $text;
 }
+
+
+function http_script($script, $src = '', $noscript = '') {
+	return '<script type="text/javascript"' . ($src ? ' src="$src"' : '') . ">"   
+		. ($script ? "<!--\n$script\n//-->" : '')
+		. "</script>\n"
+		. (!$noscript ? '' : "<noscript>\n\t$noscript\n</noscript>\n");
+}
+
 
 ?>
