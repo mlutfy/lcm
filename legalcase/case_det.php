@@ -100,7 +100,7 @@ if ($case > 0) {
 			echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
 		echo "\t</select>\n";
 		echo "\t<input type='submit' name='submit' value='Set case status'>\n";
-		echo "</form><br>\n";
+		echo "</form>\n";
 
 		echo _T('public') . ': ' . _T('Read') . '=';
 		if ($row['public']) echo 'Yes';
