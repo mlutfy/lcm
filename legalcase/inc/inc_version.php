@@ -818,12 +818,28 @@ function _T($text, $args = '') {
 	return translate_string($text, $args);
 }
 
-// Strings in the process of being translated
-function _L($text) {
-	if ($GLOBALS['test_i18n'])
-		return "<span style='color:red;'>$text</span>";
-	else
-		return $text;
+// Translate text and use it in 'input field', meaning that it should
+// have ':' at the end.
+function _Ti($text, $args = '') {
+	include_lcm('inc_lang');
+	$str = translate_string($text, $args);
+	
+	if (! preg_match('/:$/', $str))
+		$str .= ':';
+	
+	return $str;
+}
+
+// Translate text and use it in 'header field', meaning that it should
+// NOT have ':' at the end.
+function _Th($text, $args = '') {
+	include_lcm('inc_lang');
+	$str = translate_string($text, $args);
+	
+	if (preg_match('/(.*):$/', $str, $regs))
+		$str = $regs[1];
+	
+	return $str;
 }
 
 // Main language of the site
