@@ -197,7 +197,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 					$interval = ( ($fu_data['date_end']!='0000-00-00 00:00:00') ?
 							strtotime($fu_data['date_end']) - strtotime($fu_data['date_start']) : 0);
 					echo _T('calendar_info_time') . ' ';
-					echo get_time_interval_inputs($name, $interval));
+					echo get_time_interval_inputs($name, $interval);
 					echo f_err_star('date_end',$errors);
 				} ?>
 			</td>
