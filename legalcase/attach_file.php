@@ -22,6 +22,7 @@
 */
 
 include("inc/inc.php");
+include_lcm('inc_filters');
 
 // Get POST values
 $case = intval($_POST['case']);
@@ -35,7 +36,7 @@ if (isset($_FILES['filename'])) {
 	if (is_uploaded_file($filename)) {
 		$file = fopen($filename,"r");
 		$file_contents = fread($file, filesize($filename));
-		$file_contents = addslashes($file_contents);
+		$file_contents = clean_input($file_contents);
 	
 		$q = "INSERT INTO lcm_case_attachment
 			SET	id_case=$case,
