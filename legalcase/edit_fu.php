@@ -247,14 +247,14 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		
 		echo "</table>\n\n";
 
-		echo "<!-- Add appointment? -->\n";
-		echo '<p class="normal_text">';
-		echo '<input type="checkbox" name="add_appointment" id="box_new_app" onclick="setvisibility(\'new_app\', \'flip\')"; />';
-		echo '<label for="box_new_app">' . 'Add a future activity for this follow-up.' . '</label>'; // TRAD
-		echo "</p>\n";
-
 		// Add followup appointment
 		if (!isset($_GET['followup'])) {
+			echo "<!-- Add appointment? -->\n";
+			echo '<p class="normal_text">';
+			echo '<input type="checkbox" name="add_appointment" id="box_new_app" onclick="setvisibility(\'new_app\', \'flip\')"; />';
+			echo '<label for="box_new_app">' . 'Add a future activity for this follow-up.' . '</label>'; // TRAD
+			echo "</p>\n";
+
 			echo '<div id="new_app" style="visibility: hidden;">';
 			echo '<table class="tbl_usr_dtl" width="99%">' . "\n";
 			echo "<!-- Start time -->\n\t\t<tr><td>";
