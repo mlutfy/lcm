@@ -53,12 +53,13 @@ if (isset($_REQUEST['author_ui_modified'])) {
 		$lang = $_REQUEST['sel_language'];
 	else
 		$lang = $GLOBALS['HTTP_COOKIE_VARS']['lcm_lang'];
-
+	
 	if (isset($lang) AND $lang <> $author_session['lang']) {
 		// Boomerang via lcm_cookie to set a cookie and do all the dirty work
 		// The REQUEST_URI should always be set, and point to the current page
 		// we are being sent to (Ex: from config_author.php to listcases.php).
 		header("Location: lcm_cookie.php?var_lang_lcm=" . $lang . "&url=" .  $_SERVER['REQUEST_URI']);
+		exit;
 	}
 
 	// Set UI theme
