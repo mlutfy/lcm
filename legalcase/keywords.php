@@ -305,7 +305,7 @@ switch ($tab) {
 		break;
 	case 'maint' :
 		echo '<form method="post" action="' . $_SERVER['REQUEST_URI'] . "\">\n";
-		echo "\t<button type=\"submit\" name=\"action\" value=\"refresh\">Refresh default keywords</button>\n";
+		echo "\t<button type=\"submit\" name=\"action\" value=\"refresh\" class=\"simple_form_btn\">Refresh default keywords</button>\n";
 		echo "</form>\n";
 }
 
