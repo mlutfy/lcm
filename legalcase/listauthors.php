@@ -25,7 +25,7 @@ include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
 
-lcm_page_start("List of authors"); // TRAD
+lcm_page_start(_T('title_author_list'));
 
 $q = "SELECT id_author,name_first,name_middle,name_last,status
 		FROM lcm_author
@@ -65,10 +65,10 @@ if ($list_pos>0)
 show_find_box('author', $find_author_string);
 
 $headers = array();
-$headers[0]['title'] = 'Name'; // TRAD
+$headers[0]['title'] = _Th('person_input_name');
 $headers[0]['order'] = 'order_name_first';
 $headers[0]['default'] = 'asc';
-$headers[1]['title'] = 'Status'; // TRAD
+$headers[1]['title'] = _Th('authoredit_input_status');
 $headers[1]['order'] = 'no_order';
 
 show_list_start($headers);
