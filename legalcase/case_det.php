@@ -98,7 +98,7 @@ if ($case > 0) {
 			echo "<form action='set_case_status.php' method='GET'>\n";
 			echo "\t<input type='hidden' name='case' value='$case'>\n";
 			echo "\t<select name='status'>\n";
-			$statuses = array('open','closed','merged');
+			$statuses = array('open','suspended','closed','merged');
 			foreach ($statuses as $s)
 				echo "\t\t<option" .  (($s == $row['status']) ? ' selected' : '') . ">$s</option>\n";
 			echo "\t</select>\n";
