@@ -28,9 +28,8 @@ include_lcm('inc_filters');
 $case = intval($_GET['case']);
 
 if ($case > 0) {
-	$q="SELECT id_case, title, id_court_archive, FROM_UNIXTIME(date_creation) AS date_creation,
-			FROM_UNIXTIME(date_assignment) AS date_assignment, legal_reason, alledged_crime,
-			status, public, pub_write
+	$q="SELECT id_case, title, id_court_archive, date_creation, date_assignment,
+			legal_reason, alledged_crime, status, public, pub_write
 		FROM lcm_case
 		WHERE id_case=$case";
 
