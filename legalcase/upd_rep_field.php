@@ -111,6 +111,38 @@ if (isset($_REQUEST['add'])) {
 
 }
 
+if (isset($_REQUEST['update'])) {
+	$update = $_REQUEST['update']; // = { 'filter' }
+	$id_filter = intval($_REQUEST['id_filter']);
+
+	if (! $id_filter)
+		die ("update field: missing valid 'id_filter'");
+
+	if ($update == 'filter') {
+		$type = clean_input($_REQUEST['filter_type']);
+		$value = clean_input($_REQUEST['filter_value']);
+
+		$fields = array();
+		$flist = "";
+
+		if ($type)
+			array_push($fields, "type = '" . $type . "'");
+
+		if ($value)
+			array_push($fields, "value = '" . $value . "'");
+
+		if (count($fields))
+			$flist = implode(", ", $fields);
+
+		$query = "UPDATE lcm_rep_filter
+						SET " . $flist . "
+						WHERE id_filter = " . $id_filter;
+
+		lcm_query($query);
+		$ref_tag = "#filter";
+	}
+}
+
 if (isset($_REQUEST['select_col_type']) && isset($_REQUEST['select_col_name'])) {
 	// Update only if not already set, or it will create mess
 	// if (! ($rep_info['col_src_type'] && $rep_info['col_src_name'])) {
