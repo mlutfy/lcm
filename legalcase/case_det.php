@@ -563,12 +563,18 @@ if ($case > 0) {
 				echo '<div class="prefs_column_menu_head">' . _T('case_subtitle_attachments') . '</div>';
 				echo "<p class=\"normal_text\">\n";
 
+				echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
+				echo '<input type="hidden" name="case" value="' . $case . '" />' . "\n";
+
 				// List of attached files
 				show_attachments_list('case', $case);
 
 				// Attach new file form
 				if ($add)
 					show_attachments_upload('case', $case, $_SESSION['user_file']['name'], $_SESSION['user_file']['description']);
+
+				echo '<input type="submit" name="submit" value="' . _T('button_validate') . '" class="search_form_btn" />' . "\n";
+				echo "</form>\n";
 
 				echo '</fieldset>';
 
