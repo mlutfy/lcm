@@ -63,7 +63,6 @@ $cl = "name_first = '" . clean_input($_SESSION['client_data']['name_first']) . "
 	name_last = '" . clean_input($_SESSION['client_data']['name_last']) . "',
 	gender = '" . clean_input($_SESSION['client_data']['gender']) . "',
 	citizen_number = '" . clean_input($_SESSION['client_data']['citizen_number']) . "',
-	address = '" . clean_input($_SESSION['client_data']['address']) . "',
 	civil_status = '" . clean_input($_SESSION['client_data']['civil_status']) . "',
 	income = '" . clean_input($_SESSION['client_data']['income']) . "'";
 

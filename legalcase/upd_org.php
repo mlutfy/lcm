@@ -49,8 +49,10 @@ if (count($_SESSION['errors'])) {
 
 
 	// Record data in database
-	$ol="name='" . clean_input($_SESSION['org_data']['name']) . "'," .
-		"address='" . clean_input($_SESSION['org_data']['address']) . "'";
+	$ol="name='" . clean_input($_SESSION['org_data']['name']);
+
+	// TODO [ML] add new fields (tax, court, etc.)
+	// . "'," .  "address='" . clean_input($_SESSION['org_data']['address']) . "'";
 
 	if ($_SESSION['data_org']['id_org'] > 0) {
 		$q = "UPDATE lcm_org SET date_update=NOW(),$ol WHERE id_org = " . $_SESSION['data_org']['id_org'];
