@@ -193,12 +193,13 @@ if ($case > 0) {
 				//
 				// Main table for attached organisations and clients
 				//
-				echo '<fieldset class="info_box">';
+				echo '<fieldset class="info_box">' . "\n";
 				echo '<div class="prefs_column_menu_head">'
 					. "<div style='float: right'>" . lcm_help('clients_intro') . "</div>"
 					. _T('case_subtitle_clients') 
-					. '</div>';
-				echo '<p class="normal_text">';
+					. "</div>\n";
+
+				// [ML] did not close + not very logical echo '<p class="normal_text">';
 		
 				//
 				// Show case client(s)
@@ -256,8 +257,8 @@ if ($case > 0) {
 					echo "</table>\n\n";
 		
 				if ($add) {
-					echo "<br /><a href=\"sel_client.php?case=$case\" class=\"add_lnk\">" . _T('case_button_add_client') . "</a>\n";
-					echo "<a href=\"sel_org.php?case=$case\" class=\"add_lnk\">" . _T('case_button_add_org') . "</a><br /><br />";
+					echo "<p><a href=\"sel_client.php?case=$case\" class=\"add_lnk\">" . _T('case_button_add_client') . "</a>\n";
+					echo "<a href=\"sel_org.php?case=$case\" class=\"add_lnk\">" . _T('case_button_add_org') . "</a><br /></p>";
 				}
 		
 				echo "</fieldset>";
