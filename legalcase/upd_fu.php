@@ -92,6 +92,7 @@ if (count($errors)) {
 			case 'suspension' :
 				$status = 'suspended';
 				break;
+			case 'opening' :
 			case 'resumption' :
 			case 'reopening' :
 				$status = 'open';
