@@ -46,7 +46,9 @@ foreach($_POST as $key => $value)
 // Convert day, month, year to date
 // Check submitted information
 // date_start
-$unix_date_start = strtotime($fu_data['start_year'] . '-' . $fu_data['start_month'] . '-' . $fu_data['start_day']);
+$unix_date_start = strtotime($fu_data['start_year'] . '-' . $fu_data['start_month'] . '-' . $fu_data['start_day'] . ' ' .
+							 $fu_data['start_hour'] . ':' . $fu_data['start_minutes'] . ':' .
+							 (isset($fu_data['start_seconds']) ? $fu_data['start_seconds'] : '00'));
 if ($unix_date_start<0) $errors['date_start']='Invalid start date!';
 else $fu_data['date_start'] = date('Y-m-d H:i:s',$unix_date_start);
 
