@@ -79,6 +79,9 @@ switch ($status) {
 		// Start the page
 		lcm_page_start($page_title);
 
+		// Show the errors (if any)
+		echo show_all_errors($_SESSION['errors']);
+		
 		// Write form
 		echo "<form action='upd_fu.php' method='POST'>
 	<table class='tbl_usr_dtl' width='99%'>
