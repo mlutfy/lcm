@@ -21,8 +21,6 @@
 	$Id$
 */
 
-//session_start();
-
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
@@ -179,5 +177,7 @@ if ($_SESSION['case_data']['id_case']) {
 ';
 
 	lcm_page_end();
-//	session_destroy();
+
+	// Reset error messages
+	$_SESSION['errors'] = array();
 ?>
