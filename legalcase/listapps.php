@@ -36,10 +36,10 @@ $number_of_rows = lcm_num_rows($result);
 if ($number_of_rows) {
 	echo "<table border='0' align='center' class='tbl_usr_dtl' width='99%'>\n";
 	echo "\t<tr>";
-	echo '<th class="heading">Start time</th>'; // TRAD
-	echo '<th class="heading">' . ( ($prefs['time_intervals'] == 'absolute') ? 'End time' : 'Duration' ) . '</th>'; // TRAD
-	echo '<th class="heading">Type</th>'; // TRAD
-	echo '<th class="heading">Title</th>'; // TRAD
+	echo '<th class="heading">' . _Th('time_input_date_start') . '</th>';
+	echo '<th class="heading">' . ( ($prefs['time_intervals'] == 'absolute') ? _Th('time_input_date_end') : _Th('time_input_duration') ) . '</th>';
+	echo '<th class="heading">' . _Th('app_input_type') . '</th>';
+	echo '<th class="heading">' . _Th('app_input_title'). '</th>';
 	echo '<th class="heading">Reminder</th>'; // TRAD 
 	echo '<th class="heading">Action</th>'; // TRAD
 	echo "</tr>\n";
