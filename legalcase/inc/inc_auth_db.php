@@ -92,7 +92,7 @@ class Auth_db {
 		if ($this->md5next) {
 			include_lcm('inc_session');
 			// creates a new salt for password encoding in the database
-			$nouvel_alea_futur = creer_uniqid();
+			$nouvel_alea_futur = create_uniq_id();
 			$query = "UPDATE lcm_author SET alea_actuel = alea_futur, ".
 				"password = '".addslashes($this->md5next)."', alea_futur = '$nouvel_alea_futur' ".
 				"WHERE username='".$this->username."'";
