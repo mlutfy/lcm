@@ -222,7 +222,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		$interval = ( ($_SESSION['app_data']['end_time']!='0000-00-00 00:00:00') ?
 				strtotime($_SESSION['app_data']['start_time']) - strtotime($_SESSION['app_data']['reminder']) : 0);
 		echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
-		echo " before the start time"; // TRAD
+		echo " " . _T('time_info_before_start');
 		echo f_err_star('reminder',$_SESSION['errors']);
 
 		echo "</td>\n";
