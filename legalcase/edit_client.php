@@ -134,18 +134,11 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo "</tr>\n";
 	}
 
-	/*
-	echo "<tr>\n";
-	echo '<td>' .  _T('person_input_address') . '</td>';
-	echo '<td><textarea name="address" rows="3" class="frm_tarea">' . clean_output($client_data['address']) . '</textarea></td>';
-	echo "</tr>\n";
-	*/
-
 	global $system_kwg;
 	
 	if ($client_civil_status == 'yes') {
 		echo "<tr>\n";
-		echo '<td>' . _T('person_input_civil_status') . '</td>';
+		echo '<td>' . _Ti('person_input_civil_status') . '</td>';
 		echo '<td>';
 		echo '<select name="civil_status">';
 
@@ -170,7 +163,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 
 	if ($client_income == 'yes') {
 		echo "<tr>\n";
-		echo '<td>' . _T('person_input_income') . '</td>';
+		echo '<td>' . _Ti('person_input_income') . '</td>';
 		echo '<td>';
 		echo '<select name="income">';
 		
@@ -191,6 +184,12 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo '</td>';
 		echo "</tr>\n";
 	}
+
+	//
+	// Keywords, if any
+	//
+	include_lcm('inc_keywords');
+	show_edit_keywords_form('client', $client_data['id_client']);
 
 	//
 	// Contacts (e-mail, phones, etc.)
