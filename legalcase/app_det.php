@@ -26,12 +26,12 @@ include('inc/inc.php');
 $app = intval($_GET['app']);
 
 $q = "SELECT lcm_app.*,lcm_author.name_first,lcm_author.name_middle,lcm_author.name_last,lcm_case.title AS case_title
-	FROM lcm_app, lcm_author_app, lcm_author, lcm_case
+	FROM lcm_app, lcm_author_app, lcm_author
+	LEFT JOIN lcm_case ON (lcm_case.id_case = lcm_app.id_case)
 	WHERE (lcm_app.id_app=$app
 		AND lcm_author_app.id_app=$app
 		AND lcm_author_app.id_author=" . $GLOBALS['author_session']['id_author'] . "
-		AND lcm_app.id_author=lcm_author.id_author
-		AND lcm_app.id_case=lcm_case.id_case)";
+		AND lcm_app.id_author=lcm_author.id_author)";
 $result = lcm_query($q);
 
 if ($row = lcm_fetch_array($result)) {
@@ -44,7 +44,7 @@ if ($row = lcm_fetch_array($result)) {
 	echo "Title: " . $row['title'] . "<br />\n";
 	echo "Description: " . $row['description'] . "<br />\n";
 	echo "Created by: " . join(' ',array($row['name_first'],$row['name_middle'],$row['name_last'])) . "<br />\n";
-	echo "In connection with: " . $row['case_title'] , "<br />\n";
+	if ($row['case_title']) echo "In connection with: " . $row['case_title'] , "<br />\n";
 
 	// Show appointment participants
 	$q = "SELECT lcm_author_app.*,lcm_author.name_first,lcm_author.name_middle,lcm_author.name_last
@@ -81,6 +81,6 @@ if ($row = lcm_fetch_array($result)) {
 	}
 
 	lcm_page_end();
-}
+} else die("There is no such appointment!");
 
 ?>
