@@ -54,7 +54,8 @@ function show_author_form() {
 			<tr>
 				<td align=\"right\" valign=\"top\">" . _T('authorconf_input_language') . "</td>
 				<td align=\"left\" valign=\"top\">
-					<input type='hidden' name='old_language' value='" .  $author_session['lang'] . "'/>\n";
+					<input type='hidden' name='old_language' value='" .
+					$GLOBALS['lcm_lang']  /* [ML] A cookie might cause problems in 1% of cases $author_session['lang'] */ . "'/>\n";
 
 		echo menu_languages('sel_language');
 		echo "

@@ -54,10 +54,13 @@ if (isset($_REQUEST['author_ui_modified'])) {
 	else
 		$lang = $GLOBALS['HTTP_COOKIE_VARS']['lcm_lang'];
 	
-	if (isset($lang) AND $lang <> $author_session['lang']) {
+	if (isset($lang) AND $lang <> $lcm_lang /* $author_session['lang'] */) {
 		// Boomerang via lcm_cookie to set a cookie and do all the dirty work
 		// The REQUEST_URI should always be set, and point to the current page
 		// we are being sent to (Ex: from config_author.php to listcases.php).
+		// [ML] I used $lcm_lang because there are rare cases where the cookie
+		// can disagree with $author_session['lang'] (e.g. login one user, set
+		// cookie, logout, login other user, conflict).
 		header("Location: lcm_cookie.php?var_lang_lcm=" . $lang . "&url=" .  $_SERVER['REQUEST_URI']);
 		exit;
 	}
