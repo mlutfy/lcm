@@ -103,6 +103,7 @@ if (count($errors)) {
 				ac_read=1,
 				ac_write=1,
 				ac_admin=1";
+		$result = lcm_query($q);
 
 		// Get author information
 		$q = "SELECT *
@@ -111,7 +112,7 @@ if (count($errors)) {
 		$result = lcm_query($q);
 		$author_data = lcm_fetch_array($result);
 
-		// Add 'assigned' followup to the case
+		// Add 'assignment' followup to the case
 		$q = "INSERT INTO lcm_followup
 				SET id_followup=0,id_case=$id_case,type='assignment',description='";
 		$q .= $author_data['name_first'];
@@ -124,7 +125,8 @@ if (count($errors)) {
 		$q = "UPDATE lcm_case
 				SET date_assignment=NOW()
 				WHERE id_case=$id_case";
-		$result = lcm_query($q);
+
+		// Last query is executed outside this block, so don't put lcm_query() for it!
 	}
 
 	// Some advanced ideas for future use
