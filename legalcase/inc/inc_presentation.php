@@ -223,7 +223,28 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 						<div class=\"nav_column_menu_head\">
 							<div class=\"mm_calendar\">" . _T('menu_calendar') . "</div>
 						</div>
-						<p class=\"nav_column_text\">". format_date() ."</p>
+						<p class=\"nav_column_text\">";
+//	echo format_date();
+	// Show calendar
+	include_lcm('inc_calendar');
+/*	$q = "SELECT lcm_app.*
+			FROM lcm_app, lcm_author_app as a
+			WHERE (a.id_author=" . $GLOBALS['author_session']['id_author'] . "
+				AND lcm_app.id_app=a.id_app)";
+
+	$result = lcm_query($q);
+
+	if (lcm_num_rows($result) > 0) {
+		$events = array();
+		while ($row=lcm_fetch_array($result)) {
+			$events[] = $row;
+		}
+		echo lcm_http_calendrier_ics($events,'20050222');
+	} */
+	$now = date('Y-m-d');
+	echo http_calendrier_agenda(mois($now), annee($now), jour($now), mois($now), annee($now));
+	echo "</p>";
+	echo "
 					</div>\n";
 	
 	// Start agenda box
