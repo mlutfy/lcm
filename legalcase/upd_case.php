@@ -158,6 +158,14 @@ if (count($_SESSION['errors'])) {
 		exit;
 	}
 
+	// Send to add_org if any org to attach
+	if ($_SESSION['case_data']['attach_org']) {
+		header("Location: add_org.php?case=$id_case"
+			. "&orgs[]=" .  $_SESSION['case_data']['attach_org'] 
+			. "&ref_sel_client=" . rawurlencode($send_to));
+		exit;
+	}
+
 	header("Location: " . $send_to);
 }
 ?>

@@ -579,6 +579,9 @@ if ($case > 0) {
 		}
 	} else die(_T('error_no_such_case'));
 
+	$_SESSION['errors'] = array();
+	$_SESSION['case_data'] = array();
+
 	lcm_page_end();
 } else {
 	lcm_page_start(_T('title_error'));
