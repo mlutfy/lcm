@@ -131,6 +131,8 @@ function import_database($input_filename) {
 	// Import data into database tables\
 	//
 	
+	// Change backup dir permissions, so MySQL could read from it.
+	chmod($dir,0755);
 	// Open backup dir
 	if (false === ($dh = opendir("$dir/")))
 		die("System error: Could not open directory '$dir'!");
@@ -157,6 +159,9 @@ function import_database($input_filename) {
 		}
 	}
 	closedir($dh);
+
+	// Change backup dir permissions back
+	chmod($dir,0700);
 
 	// Debugging
 	//lcm_query("use lcm");
