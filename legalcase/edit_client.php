@@ -180,7 +180,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo "</td>\n</tr>\n\n";
 	}
 */
-	
+/*	
 	// First show the main address
 	foreach ($contacts_addrmain as $contact) {
 		print_existing_contact($contact, $cpt); 
@@ -210,6 +210,13 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		print_existing_contact($contact, $cpt);
 		$cpt++;
 	}
+*/
+
+	// Show all contacts
+	foreach ($contacts_other as $contact) {
+		print_existing_contact($contact, $cpt);
+		$cpt++;
+	}
 
 	// Show "new contact"
 ?>
@@ -218,7 +225,7 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 			
 			<?php
 				echo f_err_star('new_contact_' . $cpt_new, $_SESSION['errors']);
-				echo "Other contact";
+				echo "Add contact";
 			?>
 			
 			</td>
