@@ -74,6 +74,9 @@ if ($list_pos > 0)
 	if (!lcm_data_seek($result,$list_pos))
 		lcm_panic("Error seeking position $list_pos in the result");
 
+// Short help text
+lcm_bubble('case_list');
+
 // Process the output of the query
 show_listcase_start();
 
