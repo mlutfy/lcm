@@ -693,10 +693,11 @@ class Link {
 	//
 	// Fetch the beginning of the form associated with the link
 	// (opening tag + hidden variables representing the variables)
-	function getForm($method = 'get', $anchor = '', $enctype = '') {
+	function getForm($method = 'get', $anchor = '', $enctype = '', $class = '') {
 		if ($anchor) $anchor = '#'.$anchor;
 		$form = "<form method='$method' action='".$this->file.$anchor."'";
 		if ($enctype) $form .= " enctype='$enctype'";
+		if ($class) $form .= " class='$class'";
 		$form .= ">\n";
 		$vars = $this->getAllVars();
 		if (is_array($vars)) {
