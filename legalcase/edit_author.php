@@ -48,7 +48,7 @@ if ($existing) {
 	// Check if user is permitted to edit this author's data
 	if (($author_session['status'] != 'admin') &&
 			($author != $author_session['id_author'])) {
-		die("You don't have the right to edit this author's details");	// TRAD
+		die("You don't have the right to edit this author's details");
 	}
 
 	// Get author data
@@ -72,8 +72,8 @@ if (isset($_SESSION['usr']))
 		$user[$key] = $value;
 
 // Start the page with the proper title
-if ($existing) lcm_page_start("Edit author"); // TRAD
-else lcm_page_start("New author"); // TRAD
+if ($existing) lcm_page_start(_T('title_author_edit'));
+else lcm_page_start(_T('title_author_new'));
 
 echo show_all_errors($_SESSION['errors']);
 
@@ -148,7 +148,9 @@ echo show_all_errors($_SESSION['errors']);
 			$auth = new $class_auth;
 
 			if (! $auth->init()) {
-				echo "<p><b>ERROR: failed to initialize auth method: " . $auth->error . "</b></p>\n";	// TRAD
+				// [ML] If this happens, it's a bug. Right now, no auth methods
+				// use it, so hell with translation
+				echo "<p><b>ERROR: failed to initialize auth method: " . $auth->error . "</b></p>\n"; // TRAD-LATER
 				lcm_log("ERROR: failed to initialize auth method: " . $auth->error);
 			}
 
