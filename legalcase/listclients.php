@@ -78,6 +78,7 @@ for ($i = 0 ; (($i < $prefs['page_rows']) && ($row = lcm_fetch_array($result))) 
 	echo '<a href="client_det.php?client=' . $row['id_client'] . '" class="content_link">';
 	$fullname = clean_output($row['name_first'] . ' ' . $row['name_middle'] . ' ' . $row['name_last']);
 	echo highlight_matches($fullname, $find_client_string);
+	echo "</a>\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 }
