@@ -189,6 +189,13 @@ if ($row = lcm_fetch_array($result)) {
 
 	}
 
+	// Show this in all tabs
+	echo '<p>';
+	echo '<a href="edit_case.php?case=0&amp;attach_org=' . $row['id_org'] . '" class="create_new_lnk">';
+	echo "Open new case involving this organisation"; // TRAD
+	echo "</a>";
+	echo "</p>\n";
+
 } else die("There's no such organisation!");
 
 lcm_page_end();
