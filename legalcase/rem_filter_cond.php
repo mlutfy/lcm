@@ -39,7 +39,7 @@ if (($filter>0) && ($cond)) {
 	$q = "UPDATE lcm_filter_conds
 			SET cond_order=cond_order-1
 			WHERE (id_filter=$filter
-				AND cond_order>$order)";
+				AND cond_order>$cond)";
 	$result = lcm_query($q);
 
 }
