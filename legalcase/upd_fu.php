@@ -96,6 +96,9 @@ if (count($errors)) {
 			case 'reopening' :
 				$status = 'open';
 				break;
+			case 'merge' :
+				$status = 'merged';
+				break;
 			default: $status = '';
 		}
 		if ($status) {
