@@ -107,7 +107,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 	// Court archive ID
 	if ($case_court_archive == 'yes') {
 		echo "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-		echo highlight_matches(clean_output($row['id_case_archive']),$find_case_string);
+		echo highlight_matches(clean_output($row['id_court_archive']),$find_case_string);
 		echo "</td>\n";
 	}
 	
