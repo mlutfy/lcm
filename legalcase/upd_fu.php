@@ -123,7 +123,7 @@ if (count($errors)) {
     }
 
     // Send user back to add/edit page's referer or (default) to followup detail page
-    header('Location: ' . ($fu_data['ref_edit_fu'] ? $fu_data['ref_edit_fu'] : "fu_det.php?followup=$id_followup");
+    header('Location: ' . ($fu_data['ref_edit_fu'] ? $fu_data['ref_edit_fu'] : "fu_det.php?followup=$id_followup"));
 }
 
 ?>
