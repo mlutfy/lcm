@@ -152,12 +152,30 @@ if (count($_SESSION['errors'])) {
 			lcm_panic("$q<br>\nError ".lcm_errno().": ".lcm_error());
 
 		$id_app = lcm_insert_id();
+
+		// Add relationship with the creator
+		$q = "INSERT INTO lcm_author_app SET id_app=$id_app,id_author=" . $GLOBALS['author_session']['id_author'];
+
+		if (!($result = lcm_query($q))) 
+			lcm_panic("$q<br>\nError ".lcm_errno().": ".lcm_error());
+
 	}
 
 	// Add/update appointment participants (authors)
+	if ($_SESSION['app_data']['author']) {
+		$q = "INSERT IGNORE INTO lcm_author_app SET id_app=$id_app,id_author=" . $_SESSION['app_data']['author'];
+		$result = lcm_query($q);
+	}
 
 	// Add/update appointment clients/organisations
-
+	if ($_SESSION['app_data']['client']) {
+		$client_org = explode(':',$_SESSION['app_data']['client']);
+		$q = "INSERT IGNORE INTO lcm_app_client_org SET id_app=$id_app";
+		$q .= ',id_client=' . $client_org[0];
+		if ($client_org[1]) $q .= ',id_org=' . $client_org[1];
+		$result = lcm_query($q);
+	}
+	
 	// Send user back to add/edit page's referer or (default) to appointment detail page
 	header('Location: ' . ($_SESSION['app_data']['ref_edit_app'] ? $_SESSION['app_data']['ref_edit_app'] : "app_det.php?app=$id_app"));
 	
