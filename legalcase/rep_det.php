@@ -200,13 +200,13 @@ if ($rep > 0) {
 		echo "\t\t<tr><th class='heading'>Description</th></tr>\n";
 
 		// Show filters included in this report
-		$q = "SELECT lcm_rep_filters.*,lcm_filter.title
-			FROM lcm_rep_filters,lcm_filter
-			WHERE (id_report=$rep
-				AND lcm_rep_filters.id_filter=lcm_filter.id_filter)";
-		// Do the query
+		$q = "SELECT rf.*, f.title
+			FROM lcm_rep_filters as rf, lcm_filter as f
+			WHERE id_report = $rep
+				AND rf.id_filter = f.id_filter";
+
 		$fltrs = lcm_query($q);
-		// Show the results
+
 		while ($filter = lcm_fetch_array($fltrs)) {
 			echo "\t\t<tr><td>";
 			if (true) echo '<a href="filter_det.php?filter=' . $filter['id_filter'] . '" class="content_link">';
