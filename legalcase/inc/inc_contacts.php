@@ -367,7 +367,7 @@ function show_all_contacts($type_person, $id_of_person) {
 				$html .= "\t<tr>";
 				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
 				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-				$html .= '<a href="mailto:' . $c['value'] . '">' . $c['value'] . '</a></td>';
+				$html .= '<a href="mailto:' . $c['value'] . '" class="content_link">' . $c['value'] . '</a></td>';
 				$html .= "</tr>\n";
 				$i++;
 			}
