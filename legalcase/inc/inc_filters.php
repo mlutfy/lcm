@@ -81,8 +81,24 @@ function format_date($timestamp = '', $format = '') {
 // Error display function
 // Highlights (outlines) errors in the form data
 function f_err($fn, $errors) {
-    if (isset($errors[$fn]))
-		echo "<font color='red'>$errors[$fn]</font>";
+	return (isset($errors[$fn]) ? '<span style="color: #ff0000">' . $errors[$fn] . '</span>' : '');
+}
+
+function f_err_star($fn, $errors) {
+	return (isset($errors[$fn]) ? '<span style="color: #ff0000">*</span>' : '');
+}
+
+function show_all_errors($all_errors) {
+	$ret = "<ul>";
+
+	if (! count($all_errors))
+		return "";
+
+	foreach ($all_errors as $error)
+		$ret .= "<li>" . $error . "</li>\n";
+	
+	$ret .= "</ul>\n";
+	return $ret;
 }
 
 // Cleans user input string from 'dangerous' characters
