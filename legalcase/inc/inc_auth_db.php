@@ -26,6 +26,7 @@ if (defined('_INC_AUTH_DB')) return;
 define('_INC_AUTH_DB', '1');
 
 include_lcm('inc_filters');
+include_lcm('inc_session');
 
 class Auth_db {
 	var $nom, $username, $md5pass, $md5next, $alea_futur, $statut;
