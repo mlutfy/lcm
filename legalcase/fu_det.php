@@ -121,9 +121,9 @@ echo "</ul>\n";
 
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td>Start:</td>
-			<td><?php echo $fu_data['date_start']; ?></td></tr>
+			<td><?php echo format_date($fu_data['date_start']); ?></td></tr>
 		<tr><td>End:</td>
-			<td><?php echo $fu_data['date_end']; ?></td></tr>
+			<td><?php echo format_date($fu_data['date_end']); ?></td></tr>
 		<tr><td>Type:</td>
 			<td><?php echo $fu_data['type']; ?></td></tr>
 		<tr><td valign="top">Description:</td>
