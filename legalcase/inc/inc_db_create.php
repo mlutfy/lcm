@@ -374,6 +374,19 @@ function create_database() {
 
 	$log .= log_if_not_duplicate_table(lcm_sql_errno());
 
+	$query = "CREATE TABLE lcm_rep_filter (
+		id_filter bigint(21) NOT NULL auto_increment,
+		id_report bigint(21) NOT NULL default 0,
+		id_field bigint(21) NOT NULL default 0,
+		type varchar(255) NOT NULL default '',
+		value varchar(255) NOT NULL default '',
+		KEY id_report (id_report),
+		KEY id_field (id_field),
+		PRIMARY KEY  (id_filter))";
+	$result = lcm_query($query);
+
+	$log .= log_if_not_duplicate_table(lcm_sql_errno());
+
 	//
 	// Management of the application
 	//
