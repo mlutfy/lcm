@@ -103,8 +103,7 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 			return x;
 		}
 		
-		// [KM]
-		/*
+		// [ML] used in inc_calendar.php
 		function setvisibility (objet, status) {
 			element = findObj(objet);
 			if (element.style.visibility != status) {
@@ -120,19 +119,18 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 			}
 		}
 		
+		// [ML] used in inc_calendar.php
 		function lcm_show(objet) {
 			setvisibility(objet, 'visible');
 		}
 
+		// [ML] used in inc_calendar.php
 		function lcm_hide(objet) {
 			setvisibility(objet, 'hidden');
 		}
-		*/
 		
-		// [KM] The code above works too
-		// but it uses VISIBILITY property which causes blank space when the for is not visible
-		
-		function setvisibility (objet, status) {
+		// Used in 'New follow-up -> New activity'
+		function display_block (objet, status) {
 			element = findObj(objet);
 			if (element.style.display != status) {
 				if (status == 'flip') {
@@ -147,12 +145,13 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 			}
 		}
 		
-		function lcm_show(objet) {
-			setvisibility(objet, 'block');
+		// [ML] Not used at the moment (afaik)
+		function display_block_on(objet) {
+			display_block(objet, 'block');
 		}
 
-		function lcm_hide(objet) {
-			setvisibility(objet, 'none');
+		function display_block_off(objet) {
+			display_block(objet, 'none');
 		}
 
 		//--></script>\n";
