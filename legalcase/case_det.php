@@ -47,7 +47,7 @@ if ($case > 0) {
 		$admin = ($GLOBALS['author_session']['status'] == 'admin') || allowed($case,'a');
 
 		// Show case details
-		lcm_page_start(_T('case_details') . ": " . $row['title']);
+		lcm_page_start(_T('title_case_details') . " " . $row['title']);
 		
 		echo "<div id=\"breadcrumb\"><a href=\"". getenv("HTTP_REFERER") ."\">List of cases</a> &gt; ". $row['title'] ."</div>";
 		
