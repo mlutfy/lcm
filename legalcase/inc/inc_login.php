@@ -114,7 +114,7 @@ function login($cible, $prive = 'prive', $message_login='') {
 	// What informations to pass?
 	if ($login) {
 		$status_login = 0; // unknown status
-		$login = addslashes($login);
+		$login = clean_input($login);
 		$query = "SELECT id_author, status, password, prefs, alea_actuel, alea_futur 
 					FROM lcm_author 
 					WHERE username='$login'";
