@@ -555,18 +555,23 @@ if ($case > 0) {
 			// Case attachments
 			//
 			case 'attachments' :
+				// Show the errors (if any)
+				echo show_all_errors($_SESSION['errors']);
+
 				echo '<fieldset class="info_box">';
 				echo '<div class="prefs_column_menu_head">' . _T('case_subtitle_attachments') . '</div>';
 				echo "<p class=\"normal_text\">\n";
 
 				// List of attached files
-				show_attachments_list('case', $id_case);
+				show_attachments_list('case', $case);
 
 				// Attach new file form
 				if ($add)
-					show_attachments_upload('case', $id_case);
+					show_attachments_upload('case', $case);
 
 				echo '</fieldset>';
+
+				$_SESSION['errors'] = array();
 
 				break;
 		}
