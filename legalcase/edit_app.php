@@ -263,7 +263,9 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 			echo clean_output($_SESSION['app_data']['description']) . "</textarea></td></tr>\n";
 
 		// Appointment participants - authors
-		echo "\t\t<tr><td valign=\"top\">Participant authors:</td><td>";
+		echo "\t\t<tr><td valign=\"top\">";
+		echo _T('app_input_authors');
+		echo "</td><td>";
 		$q = '';
 		foreach($_SESSION['authors'] as $author) {
 			$q .= ($q ? ', ' : '');
@@ -291,7 +293,9 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		echo "\t\t</td></tr>\n";
 		
 		// Appointment participants - clients
-		echo "\t\t<tr><td valign=\"top\">Participant clients:</td><td>";
+		echo "\t\t<tr><td valign=\"top\">";
+		echo _T('app_input_clients');
+		echo "</td><td>";
 		$q = "SELECT lcm_client.name_first,lcm_client.name_middle,lcm_client.name_last,lcm_org.name
 			FROM lcm_client,lcm_app_client_org
 			LEFT JOIN lcm_org USING (id_org)
