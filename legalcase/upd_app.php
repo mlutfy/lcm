@@ -162,13 +162,13 @@ if (count($_SESSION['errors'])) {
 	}
 
 	// Add/update appointment participants (authors)
-	if ($_SESSION['app_data']['author']) {
+	if (!empty($_SESSION['app_data']['author'])) {
 		$q = "INSERT IGNORE INTO lcm_author_app SET id_app=$id_app,id_author=" . $_SESSION['app_data']['author'];
 		$result = lcm_query($q);
 	}
 
 	// Add/update appointment clients/organisations
-	if ($_SESSION['app_data']['client']) {
+	if (!empty($_SESSION['app_data']['client'])) {
 		$client_org = explode(':',$_SESSION['app_data']['client']);
 		$q = "INSERT IGNORE INTO lcm_app_client_org SET id_app=$id_app";
 		$q .= ',id_client=' . $client_org[0];
