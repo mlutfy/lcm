@@ -188,8 +188,8 @@ if ($author > 0) {
 				$q = "SELECT id_followup, id_case, date_start, date_end, type, description
 					FROM lcm_followup
 					WHERE id_author = $author
-					  AND UNIX_TIMESTAMP(date_start) > UNIX_TIMESTAMP('" . $date_start . "')
-					  AND UNIX_TIMESTAMP(date_end) < UNIX_TIMESTAMP('" . $date_end . "')";
+					  AND UNIX_TIMESTAMP(date_start) >= UNIX_TIMESTAMP('" . $date_start . "')
+					  AND UNIX_TIMESTAMP(date_end) <= UNIX_TIMESTAMP('" . $date_end . "')";
 			
 				// Add ordering
 				if ($fu_order) $q .= " ORDER BY date_start $fu_order, id_followup $fu_order";
