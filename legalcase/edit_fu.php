@@ -24,7 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
-include_lcm('inc_keywords_default');
+//include_lcm('inc_keywords_default');
 
 // Initiate session
 // [ML] now in inc_auth session_start();
@@ -174,7 +174,7 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 <form action="upd_fu.php" method="POST">
 	<table class="tbl_usr_dtl" width="99%">
 		<tr><td><?php echo _T('fu_input_date_start'); ?></td>
-			<td><?php echo _T('calendar_info_date');  
+			<td><?php echo _T('calendar_info_date') . ' ';  
 				$name = (($admin || ($edit && $modify)) ? 'start' : '');
 				echo get_date_inputs($name, $_SESSION['fu_data']['date_start'], false);
 				echo ' ' . _T('calendar_info_time') . ' ';
