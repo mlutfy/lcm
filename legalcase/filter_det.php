@@ -87,7 +87,7 @@ if ($filter > 0) {
 			// Condition description
 			echo '<td>' . $GLOBALS['condition_types'][$condition['type']] . '</td>';
 			echo '<td>' . $condition['value'] . '</td>';
-			if ($edit) echo "<td><a href='rem_filter_cond.php?filter=$filter&amp;cond=" . $condition['cond_order'] . "' class='content_link'></td>\n";
+			if ($edit) echo "<td><a href='rem_filter_cond.php?filter=$filter&amp;cond=" . $condition['cond_order'] . "' class='content_link'>Remove</a></td>\n";
 			echo "</tr>\n";
 			$last_order = $condition['cond_order']+1;
 		}
