@@ -46,9 +46,9 @@ function init_default_config() {
 		// Does the site allow users to self-register an account? (yes/no)
 		'site_open_subscription' => 'no',
 
-		// Defaut name/description of the site
-		'site_name' => _T('title_software'),
-		'site_description' => _T('title_software_description'),
+		// Defaut name/description of the site, will be sent through in _T()
+		'site_name' => 'title_software',
+		'site_description' => 'title_software_description',
 
 		// Default currency (based on the language/regional of admin)
 		'currency' => _T('currency_default_format'),
