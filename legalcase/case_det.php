@@ -251,7 +251,7 @@ if ($case > 0) {
 	echo "<th class='heading'>&nbsp;</th></tr>\n";
 
 	// Prepare query
-	$q = "SELECT id_followup,date_start,type,description
+	$q = "SELECT id_followup,date_start,date_end,type,description
 		FROM lcm_followup
 		WHERE id_case=$case";
 
