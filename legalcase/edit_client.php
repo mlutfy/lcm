@@ -60,10 +60,10 @@ if (empty($_SESSION['errors'])) {
 
 if ($client > 0) {
 	lcm_page_start(_T('title_client_edit')
-		. $client_data['name_first'] . ' '
+		. ' ' . $client_data['name_first']
 		// [ML] always show middle name, if any, no matter the configuration
-		. $client_data['name_middle'] . ' ' 
-		. $client_data['name_last']);
+		. ' ' . $client_data['name_middle']
+		. ' ' . $client_data['name_last']);
 } else {
 	lcm_page_start(_T('title_client_new'));
 }
