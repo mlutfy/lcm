@@ -136,7 +136,7 @@ if ($client > 0) {
 		$cpt = 0;
 
 		while ($row = lcm_fetch_array($result)) {
-			$html .= '<tr><td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' 
+			$html .= '<tr><td class="tbl_cont_' . ($cpt++ % 2 ? "dark" : "light") . '">' 
 				. '<a href="case_det.php?case=' . $row['id_case'] . '" class="content_link">' 
 				.  $row['title'] 
 				. '</a></td></tr>' . "\n";
