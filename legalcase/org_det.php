@@ -67,12 +67,15 @@ if ($row = lcm_fetch_array($result)) {
 			echo '<div class="prefs_column_menu_head">' . _T('generic_subtitle_general') . "</div>\n";
 			echo '<p class="normal_text">';
 		
-			//		echo "\n<br />Organisation ID: " . $row['id_org'] . "<br />\n";
-			//		echo 'Organisation name: ' . $row['name'] . "<br />\n";
-			// [ML] Should not be used echo 'Address: ' . $row['address'] . "<br />\n"; // TRAD
+			echo _Ti('org_input_id') . $row['id_org'] . "<br />\n";
+			echo _Ti('org_input_name') . $row['name'] . "<br />\n";
+			echo _Ti('org_input_court_reg') . $row['court_reg'] . "<br />\n";
+			echo _Ti('org_input_tax_number') . $row['tax_number'] . "<br />\n";
+			echo _Ti('org_input_stat_number') . $row['stat_number'] . "<br />\n";
 			echo _Ti('time_input_date_creation') . format_date($row['date_creation'], 'full') . "<br />\n";
 
-			// More fields to add
+			echo _Ti('org_input_notes') . "<br />\n";
+			echo $row['notes'];
 
 			echo "</p>\n";
 
