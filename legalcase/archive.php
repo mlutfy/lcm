@@ -30,7 +30,7 @@ if ($GLOBALS['author_session']['status'] != 'admin')
 	die("You don't have the right to list all cases!");
 
 $find_case_string = '';
-if (isset($_REQUEST['find_case_string'])) {
+if (isset($_REQUEST['find_case_string']))
 	$find_case_string = $_REQUEST['find_case_string'];
 
 // Show page start
