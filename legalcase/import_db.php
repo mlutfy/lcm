@@ -25,9 +25,9 @@ include('inc/inc.php');
 include_lcm('inc_filters');
 include_lcm('inc_conditions');
 
-$tabs = array(	array('name' => 'All cases','url' => 'archive.php'),
-		array('name' => 'Export DB','url' => 'export_db.php'),
-		array('name' => 'Import DB','url' => 'import_db.php')
+$tabs = array(	array('name' => _T('archives_tab_all_cases'), 'url' => 'archive.php'),
+		array('name' => _T('archives_tab_export'), 'url' => 'export_db.php'),
+		array('name' => _T('archives_tab_import'), 'url' => 'import_db.php')
 	);
 
 function get_parameters() {
