@@ -92,7 +92,12 @@ echo show_all_errors($_SESSION['errors']);
 			//
 		?>
 		<tr>
-			<td colspan="2" align="center" valign="middle" class="heading"><h4><?php echo _T('authoredit_subtitle_personalinfo'); ?></h4></td>
+			<td colspan="2" align="center" valign="middle" class="heading">
+<?php
+			echo "<div style='float: right'>" . lcm_help('author_edit', 'system') . "</div>\n";
+			echo "<h4>" . _T('authoredit_subtitle_personalinfo') . "</h4>\n";
+?>
+			</td>
 		</tr>
 
 		<tr><td align="left" valign="top"><?php echo f_err_star('name_first', $_SESSION['errors']) . _T('person_input_name_first'); ?></td>
@@ -122,6 +127,7 @@ echo show_all_errors($_SESSION['errors']);
 
 	echo "<tr>\n";
 	echo '<td colspan="2" align="center" valign="middle" class="heading">';
+	echo "<div style='float: right'>" . lcm_help('contacts') . "</div>\n";
 	echo '<h4>' . _T('client_subtitle_contacts') . '</h4>';
 	echo '</td>';
 	echo "</tr>\n";
@@ -134,7 +140,12 @@ echo show_all_errors($_SESSION['errors']);
 
 	?>
 		<tr>
-			<td colspan="2" align="center" valign="middle" class="heading"><h4><?php echo _T('authoredit_subtitle_connectionidentifiers'); ?></h4></td>
+			<td colspan="2" align="center" valign="middle" class="heading">
+<?php
+			echo "<div style='float: right'>" . lcm_help('author_edit', 'system') . "</div>\n";
+			echo "<h4>" . _T('authoredit_subtitle_connectionidentifiers') . "</h4>\n";
+?>
+			</td>
 		</tr>
 		<tr><td align="left" valign="top"><?php echo f_err_star('username', $_SESSION['errors']) . _T('authoredit_input_username'); ?></td>
 			<td align="left" valign="top">
