@@ -164,8 +164,8 @@ switch ($status) {
 // Suspend case
 //
 	case 'suspended' :
-		// Check if the case is already suspended
-		if ($row['status'] == 'suspended') {
+		// Check if the case is already suspended or closed
+		if (($row['status'] == 'suspended') || ($row['status'] == 'closed')) {
 			header('Location: ' . $GLOBALS['HTTP_REFERER']);
 			break;
 		}
@@ -218,6 +218,11 @@ switch ($status) {
 // Merge case
 //
 	case 'merged' :
+		// Check if the case is already merged
+		if ($row['status'] == 'merged') {
+			header('Location: ' . $GLOBALS['HTTP_REFERER']);
+			break;
+		}
 		break;
 }
 
