@@ -79,7 +79,10 @@ if ($client > 0) {
 		echo '<p class="normal_text">';
 		echo _T('client_input_id') . ' ' . $row['id_client'] . "<br/>\n";
 		echo _T('person_input_gender') . ' ' . $gender . "<br/>\n";
-		echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
+
+		if (read_meta('client_citizen_number') == 'yes')
+			echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
+
 		echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
 		echo _T('person_input_civil_status') . ' ' . $row['civil_status'] . "<br/>\n";
 		echo _T('person_input_income') . ' ' . $row['income'] . "<br/>\n";
@@ -88,9 +91,13 @@ if ($client > 0) {
 		echo "</p>\n";
 
 		if ($edit)
-			echo '<a href="edit_client.php?client=' . $row['id_client'] .  '" class="edit_lnk">Edit client information</a><br />' . "\n";
+			echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a></p>' . "\n";
+
+		echo '<p><a href="edit_case.php?case=0&attach_client=' . $row['id_client'] . '" class="create_new_lnk">';
+		echo "Open new case involving this client";
+		echo "</a></p>\n";
 		
-		echo "<br /></fieldset>\n";
+		echo "</fieldset>\n";
 			
 		//
 		// Show client contacts (if any)
@@ -159,6 +166,7 @@ if ($client > 0) {
 
 		//
 		// Show 5 recent cases - why 5? - [ML] because I'm lazy
+		// [ML] we should have a general "list case" function in a libracy..
 		//
 		$q = "SELECT clo.id_case, c.title, c.date_creation
 				FROM lcm_case_client_org as clo, lcm_case as c
@@ -179,7 +187,7 @@ if ($client > 0) {
 
 		if ($html) {
 			echo '<fieldset class="info_box">' . "\n";
-			echo '<div class="prefs_column_menu_head">' . _T('client_subtitle_recent_cases') . "</div>\n";
+			echo '<div class="prefs_column_menu_head">' . _T('client_subtitle_cases') . "</div>\n";
 			echo "<table>\n";
 			echo $html;
 			echo "</table>\n";
