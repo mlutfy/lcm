@@ -129,16 +129,16 @@ function auth() {
 		// Default values for some possibly unset preferences
 		//
 
-		if (intval($prefs['page_rows']) < 1) 
+		if (! isset($prefs['page_rows']) || intval($prefs['page_rows']) < 1) 
 			$prefs['page_rows'] = 15;
 
-		if (! $prefs['theme'])
+		if (! isset($prefs['theme']) || ! $prefs['theme'])
 			$prefs['theme'] = 'green';
 
-		if (! $prefs['screen'])
+		if (! isset($prefs['screen']) || ! $prefs['screen'])
 			$prefs['screen'] = 'narrow';
 
-		if (! $prefs['font_size'])
+		if (! isset($prefs['font_size']) || ! $prefs['font_size'])
 			$prefs['font_size'] = 'medium_font';
 	}
 	else {
