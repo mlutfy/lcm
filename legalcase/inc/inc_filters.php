@@ -930,12 +930,4 @@ function quote_amp ($text) {
 }
 
 
-function http_script($script, $src = '', $noscript = '') {
-	return '<script type="text/javascript"' . ($src ? ' src="$src"' : '') . ">"   
-		. ($script ? "<!--\n$script\n//-->" : '')
-		. "</script>\n"
-		. (!$noscript ? '' : "<noscript>\n\t$noscript\n</noscript>\n");
-}
-
-
 ?>
