@@ -58,7 +58,7 @@ $query = "SELECT title
 
 $result = lcm_query($query);
 while ($row = lcm_fetch_array($result))  // should be only once
-	echo '<li style="list-style-type: none;">' . _T('info_followup_case')
+	echo '<li style="list-style-type: none;">' . _T('fu_input_for_case')
 		. " <a href='case_det.php?case=$case' class='content_link'>" . $row['title'] . "</a></li>\n";
 
 // We dump all the clients and org in the same array, then show
@@ -92,7 +92,7 @@ $numrows += lcm_num_rows($result);
 while ($all_clients[] = lcm_fetch_array($result));
 
 if ($numrows > 0)
-	echo '<li style="list-style-type: none;">' . _T('info_followup_involving') . " ";
+	echo '<li style="list-style-type: none;">' . _T('fu_input_involving_clients') . " ";
 
 foreach ($all_clients as $client) {
 	if ($client['id_client']) {
