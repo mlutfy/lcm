@@ -89,6 +89,16 @@ if (empty($_SESSION['errors'])) {
 		$_SESSION['app_data']['reminder']   = date('Y-m-d H:i:s');
 	}
 
+} else if ( array_key_exists('author_added',$_SESSION['errors']) ) {
+	// Refresh appointment participants
+	$q = "SELECT lcm_author.id_author,name_first,name_middle,name_last
+		FROM lcm_author_app,lcm_author
+		WHERE lcm_author_app.id_author=lcm_author.id_author
+			AND id_app=$app";
+	$result = lcm_query($q);
+	$_SESSION['authors'] = array();
+	while ($row = lcm_fetch_array($result))
+		$_SESSION['authors'][$row['id_author']] = $row;
 }
 
 if ($_SESSION['app_data']['id_app']>0)
