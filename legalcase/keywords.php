@@ -139,8 +139,6 @@ if (isset($_REQUEST['action'])) {
 	}
 }
 
-error_reporting(E_ALL);
-
 // Default action
 $type = (isset($_REQUEST['type']) ? $_REQUEST['type'] : '');
 show_all_keywords($type);
