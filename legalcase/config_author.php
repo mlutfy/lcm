@@ -40,7 +40,7 @@ function show_author_form($tab) {
 //	$http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
 	// [AG] This is to preserve page's referer in 'ref' GET value during tab transitions
 	// giving it higher priority than the actual page referer
-	if (isset($_GET['ref'])) $http_ref = clean_input($_GET['ref']);
+	if (isset($_GET['ref'])) $http_ref = urldecode(clean_input($_GET['ref']));
 	else $http_ref = (isset($GLOBALS['HTTP_REFERER']) ? $GLOBALS['HTTP_REFERER'] : '');
 
 	switch ($tab) {
@@ -368,7 +368,7 @@ if (count($log) > 0) {
 
 	$tab = (isset($_REQUEST['tab']) ? $_REQUEST['tab'] : 'interface' );
 	//show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
-	show_tabs($groups,$tab,$_SERVER['SCRIPT_NAME'] . "?ref=" . ( isset($_GET['ref']) ? clean_input($_GET['ref']) : $_SERVER['HTTP_REFERER']) );
+	show_tabs($groups,$tab,$_SERVER['SCRIPT_NAME'] . "?ref=" . urlencode( isset($_GET['ref']) ? urldecode(clean_input($_GET['ref'])) : $_SERVER['HTTP_REFERER']) );
 	
 	show_author_form($tab);
 	
