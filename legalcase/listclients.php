@@ -70,11 +70,11 @@ if ($list_pos>0)
 	</tr>
 <?php
 for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; $i++) {
-	echo "\t<tr><td><a href=\"client_det.php?client=" . $row['id_client'] . '" class="content_link">';
+	echo "\t<tr><td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'><a href=\"client_det.php?client=" . $row['id_client'] . '" class="content_link">';
 	$fullname = clean_output($row['name_first'] . ' ' . $row['name_middle'] . ' ' . $row['name_last']);
 	echo highlight_matches($fullname,$find_client_string);
 ?></td>
-		<td><a href="edit_client.php?client=<?php echo $row['id_client']; ?>" class="content_link">Edit</a></td>
+		<?php echo "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>"; ?><a href="edit_client.php?client=<?php echo $row['id_client']; ?>" class="content_link">Edit</a></td>
 	</tr>
 <?php
 }
