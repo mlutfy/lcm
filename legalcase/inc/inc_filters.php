@@ -77,6 +77,9 @@ function format_date($timestamp = '', $format = 'full') {
 	// $day_of_w = strftime("%u", mktime(0, 0, 0, $dd[1], $dd[2], $dd[0]));
 	$day_of_w = date("w", mktime(0, 0, 0, $dd[1], $dd[2], $dd[0]));
 
+	if ($format == 'short' && ereg('[0-9]{2}([0-9]{2})', $dd[0], $regs))
+		$dd[0] = $regs[1];
+
 	$my_date = _T('date_format_' . $format, array(
 				'day_name' => _T('date_wday_' . ($day_of_w + 0)),
 				'month_name' => _T('date_month_' . ($dd[1] + 0)),
