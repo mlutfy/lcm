@@ -625,12 +625,14 @@ function help_page_start($page_title) {
 	
 	echo "\n\t\t". '</ul>
 	</div>
-	<div id="hlp_cont"><h2>' . $page_title . "</h2>\n";
+	<div id="hlp_cont"><h2>' . $page_title . "</h2>
+		<div class=\"hlp_data\">";
 
 }
 
 function help_page_end() {
 	echo "</div>
+	</div>
 </div>
 </body>
 </html>";
