@@ -956,9 +956,12 @@ function http_calendrier_agenda_rv ($annee, $mois, $les_rv, $fclic, $perso='',
 
 	if ($jour_semaine == 0) $jour_semaine=7;
 
+	for ($i = 1; $i <= 7; $i++)
+		$ligne .= '<li>' . _T('date_wday_short_' . $i) . "</li>\n";
+
 	// Empty boxes at beginning of month
 	for ($i = 1; $i < $jour_semaine; $i++)
-		$ligne .= '<li>&nbsp;</li>' . "\n";
+		$ligne .= "<li>&nbsp;</li>\n";
 
 	for ($j = 1; $j < 32; $j++) {
 		$nom = mktime(1,1,1, $mois, $j, $annee); // current day?
