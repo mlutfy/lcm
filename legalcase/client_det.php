@@ -99,11 +99,11 @@ if ($client > 0) {
 				echo "</p>\n";
 		
 				if ($edit)
-					echo '<p><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a></p>' . "\n";
+					echo '<br /><a href="edit_client.php?client=' . $row['id_client'] . '" class="edit_lnk">Edit client information</a>' . "&nbsp;\n";
 		
-				echo '<p><a href="edit_case.php?case=0&attach_client=' . $row['id_client'] . '" class="create_new_lnk">';
+				echo '<a href="edit_case.php?case=0&attach_client=' . $row['id_client'] . '" class="create_new_lnk">';
 				echo "Open new case involving this client";
-				echo "</a></p>\n";
+				echo "</a><br /><br />\n";
 				
 				echo "</fieldset>\n";
 				break;
