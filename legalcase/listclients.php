@@ -28,7 +28,7 @@ $find_client_string = '';
 if (isset($_REQUEST['find_client_string']))
 	$find_client_string = $_REQUEST['find_client_string'];
 
-lcm_page_start("List of clients"); // TRAD
+lcm_page_start(_T('title_client_list'));
 show_find_box('client', $find_client_string);
 
 // List all clients in the system + search criterion if any
