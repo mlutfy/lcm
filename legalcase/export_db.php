@@ -117,7 +117,11 @@ function export_database($output_filename) {
 				LINES TERMINATED BY '\r\n'";
 		$res = lcm_query($q);
 	}
-
+	
+	lcm_page_start("Export finished");
+	echo "Database has been successfully exported. The name of the backup is '$output_filename'.";
+	lcm_page_end();
+	
 }
 
 //
