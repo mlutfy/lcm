@@ -142,7 +142,8 @@ $q = "UPDATE lcm_case SET status='merged' WHERE id_case=$case";
 $result = lcm_query($q)
 
 // Clear the session
-session_destroy();
+// [ML] why? session_destroy();
+
 
 // Send user back to add/edit page's referer
 header("Location: $ref_edit_fu");

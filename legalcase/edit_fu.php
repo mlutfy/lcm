@@ -26,7 +26,7 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 
 // Initiate session
-session_start();
+// [ML] now in inc_auth session_start();
 
 if (empty($errors)) {
     // Clear form data

@@ -26,7 +26,7 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 
 // Start session
-session_start();
+// [ML] inc_auth session_start();
 
 // Register $errors array - just in case
 if (!session_is_registered("errors"))
@@ -82,7 +82,8 @@ if (count($errors)) {
 	}
 
     // Clear the session
-    session_destroy();
+    // [ML] errors must be shown first
+	// session_destroy();
 
 	//header("Location: filter_det.php?filter=$id_filter");
 

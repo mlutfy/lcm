@@ -25,7 +25,7 @@ include('inc/inc.php');
 include_lcm('inc_filters');
 
 // Initiate session
-session_start();
+// [ML] now in inc_auth session_start();
 
 // Initialise variables
 $org = intval($_GET['org']);

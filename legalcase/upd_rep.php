@@ -26,7 +26,7 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 
 // Start session
-session_start();
+// [ML] inc_auth session_start();
 
 // Register $errors array - just in case
 if (!session_is_registered("errors"))
@@ -95,7 +95,8 @@ if (count($errors)) {
 	$result = lcm_query($q);
 
     // Clear the session
-    session_destroy();
+	// [ML] errors must be shown first
+	// session_destroy();
 
 	//header("Location: rep_det.php?rep=$id_report");
 

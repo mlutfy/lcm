@@ -26,7 +26,7 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 
 // Start session
-session_start();
+// [ML] inc_auth session_start();
 
 // Register $errors array - just in case
 if (!session_is_registered("errors"))
@@ -117,7 +117,8 @@ if (count($errors)) {
     //echo $q;
 
     // Clear the session
-    session_destroy();
+	// [ML] errors must be shown first
+	// session_destroy();
 
     // Send user back to add/edit page's referer
     header('Location: ' . $fu_data['ref_edit_fu']);
