@@ -253,7 +253,7 @@ switch ($status) {
 		$result = lcm_query($q);
 
 		// Set the length of short followup title
-		$title_length = (($prefs['screen'] == "wide") ? 25 : 60);
+		$title_length = (($prefs['screen'] == "wide") ? 30 : 65);
 
 		// Write the <select> options
 		while ($row = lcm_fetch_array($result)) {
