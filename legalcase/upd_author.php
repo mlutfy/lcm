@@ -84,7 +84,7 @@ include_lcm('inc_contacts');
 if (isset($_REQUEST['contact_value'])) {
 	$cpt = 0;
 	$contacts = $_REQUEST['contact_value'];
-	$c_types  = $_REQUEST['contact_type']; 
+	$c_types  = $_REQUEST['contact_type'];
 
 	// TODO: update existing information
 	// check for doubles, etc.
@@ -100,7 +100,7 @@ if (isset($_REQUEST['contact_value'])) {
 				if (is_existing_contact('author', 0, 'email', $usr['email'])) {
 					// email exists, and is associated to someone else
 				} else {
-					add_contact('author', $id_author, 'email', $contacts[$cpt]);
+					add_contact('author', $usr['id_author'], 'email', $contacts[$cpt]);
 				}
 			} else {
 				// update
@@ -109,7 +109,7 @@ if (isset($_REQUEST['contact_value'])) {
 		} else {
 			lcm_debug("contact type = " . $c_types[$cpt]);
 			if ($contacts[$cpt])
-				add_contact('author', $id_author, $c_types[$cpt], $contacts[$cpt]);
+				add_contact('author', $usr['id_author'], $c_types[$cpt], $contacts[$cpt]);
 		}
 
 		$cpt++;
