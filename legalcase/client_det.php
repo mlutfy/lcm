@@ -77,7 +77,7 @@ if ($client > 0) {
 		echo _T('person_input_gender') . ' ' . $gender . "<br/>\n";
 		echo _T('person_input_citizen_number') . ' ' . $row['citizen_number'] . "<br/>\n";
 		echo _T('person_input_address') . ' ' . $row['address'] . "<br/>\n";
-		echo _T('person_input_address') . ' ' . $row['civil_status'] . "<br/>\n";
+		echo _T('person_input_civil_status') . ' ' . $row['civil_status'] . "<br/>\n";
 		echo _T('person_input_income') . ' ' . $row['income'] . "<br/>\n";
 		echo 'Creation date: ' . format_date($row['date_creation']) . "<br/>\n";
 		// [ML] echo 'Last update date: ' . $row['date_update'] . "<br/>\n";
