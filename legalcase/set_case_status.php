@@ -27,7 +27,7 @@ include_lcm('inc_filters');
 
 // Get input values
 $case = intval($_GET['case']);
-$status = clean_input($_POST['status']);
+$status = clean_input($_GET['status']);
 
 if (!($case>0)) die("Which case?");
 
