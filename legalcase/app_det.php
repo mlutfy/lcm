@@ -118,7 +118,7 @@ if ($row = lcm_fetch_array($result)) {
 		} else {
 			// Show create followup from appointment
 			echo '<br /><a href="edit_fu.php?case=' . $row['id_case'] . '&amp;app=' . $row['id_app']
-				. '" class="create_new_lnk">Create new followup from this appointment';
+				. '" class="create_new_lnk">Create new followup from this appointment';	// TRAD
 		}
 		echo "</a><br />\n";
 
