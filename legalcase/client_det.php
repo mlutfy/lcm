@@ -48,7 +48,7 @@ if ($client>0) {
 		$edit = true;
 
 		if ($row['gender'] == 'male' || $row['gender'] == 'female')
-			$gender = _T('person_gender_' . $row['gender']);
+			$gender = _T('person_input_gender_' . $row['gender']);
 		else
 			$gender = _T('info_not_available');
 
