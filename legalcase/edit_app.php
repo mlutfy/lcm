@@ -137,15 +137,21 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 	<table class="tbl_usr_dtl" width="99%">
 
 		<!-- Start time -->
-		<tr><td><?php echo f_err_star('start_time') . _T('app_input_date_start'); ?></td>
-			<td><?php
-				$name = (($admin || ($edit && $modify)) ? 'start' : '');
-				echo get_date_inputs($name, $_SESSION['app_data']['start_time'], false);
-				echo ' ' . _T('time_input_time_at') . ' ';
-				echo get_time_inputs($name, $_SESSION['app_data']['start_time']);
-			</td>
-		</tr>
+		<tr>
+<?php
 
+	echo "<td>" . f_err_star('start_time') . _T('app_input_date_start') . "</td>\n";
+	echo "<td>";
+
+	$name = (($admin || ($edit && $modify)) ? 'start' : '');
+	echo get_date_inputs($name, $_SESSION['app_data']['start_time'], false);
+	echo ' ' . _T('time_input_time_at') . ' ';
+	echo get_time_inputs($name, $_SESSION['app_data']['start_time']);
+
+	echo "</td>\n";
+
+?>
+		</tr>
 		<!-- End time -->
 		<tr>
 <?php
