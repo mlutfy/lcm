@@ -120,7 +120,7 @@ if ($rep > 0) {
 					echo "<a href='move_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "&amp;order=" . ($column['col_order']-1) . "'>^</a> ";
 				if ($column['col_order'] < $rows)
 					echo "<a href='move_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "&amp;order=" . ($column['col_order']+1) . "'>v</a> ";
-				echo "<a href='rem_rep_col.php?rep=$rep&amp;col=" . $column['id_column'] . "'>(!)Remove</a>";
+				echo "<a href='rem_rep_col.php?rep=$rep&amp;order=" . $column['col_order'] . "'>(!)Remove</a>";
 			}
 			echo "</td>\n";
 			echo "</tr>\n";
