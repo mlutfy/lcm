@@ -69,7 +69,10 @@ if (empty($errors)) {
 	} else {
 		// Set default values for the new report
 		$rep_data['id_author'] = $GLOBALS['author_session']['id_author'];
-		$rep_data['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
+
+		// [ML] Not used, and should be format_date($date, 'short')
+		// $rep_data['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
+
 		//$rep_data['public'] = read_meta('case_default_read');
 		//$rep_data['pub_write'] = read_meta('case_default_write');
 

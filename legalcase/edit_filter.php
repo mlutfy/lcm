@@ -69,7 +69,10 @@ if (empty($errors)) {
 	} else {
 		// Set default values for the new filter
 		$filter_data['id_author'] = $GLOBALS['author_session']['id_author'];
-		$filter_data['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
+
+		// [ML] not used, and should be format_date($date, 'short'); 
+		// $filter_data['date_creation'] = date(_T('date_format')); // was: date('Y-m-d H:i:s');
+
 		//$filter_data['public'] = read_meta('case_default_read');
 		//$filter_data['pub_write'] = read_meta('case_default_write');
 
