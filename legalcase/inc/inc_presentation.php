@@ -242,7 +242,7 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 		echo lcm_http_calendrier_ics($events,'20050222');
 	} */
 	$now = date('Y-m-d');
-	echo http_calendrier_agenda(mois($now), annee($now), jour($now), mois($now), annee($now));
+	echo http_calendrier_agenda(mois($now), annee($now), jour($now), mois($now), annee($now), false, 'calendar.php');
 	echo "</p>";
 	echo "
 					</div>\n";
