@@ -169,6 +169,15 @@ function njoin($parts,$separator=' ') {
 	} else return false;
 }
 
+function get_person_name($item) {
+	if (! is_array($item)) {
+		lcm_debug("get_person_name: parameter is not an array.");
+		return '';
+	}
+
+	return $item['name_first'] . ' ' . $item['name_middle'] . ' ' . $item['name_last'];
+}
+
 // Dirty hack: utf8_decode is mainly used for strlen(),
 // so if it is not installed, it's not such a big problem.
 // Use with care!
