@@ -111,9 +111,20 @@ if (isset($_REQUEST['contact_value'])) {
 				lcm_log("update");
 			}
 		} else {
+			// Contact is not primary e-mail address
 			lcm_debug("contact type = " . $c_types[$cpt]);
-			if ($contacts[$cpt])
-				add_contact('author', $usr['id_author'], $c_types[$cpt], $contacts[$cpt]);
+			if ($contacts[$cpt]) {
+				// Contact is set to some value
+				if (! is_existing_contact('author', $usr['id_author'], $c_types[$cpt], $contacts[$cpt])) {
+					// New contact, add
+					add_contact('author', $usr['id_author'], $c_types[$cpt], $contacts[$cpt]);
+				} else {
+					// Existing contact, update
+					lcm_log("update " . $c_types[$cpt] . ' to ' . $contacts[$cpt]);
+				}
+			} else {
+				// Empty contact value. Maybe delete the contact?
+			}
 		}
 
 		$cpt++;
