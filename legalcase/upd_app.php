@@ -116,7 +116,7 @@ if ($prefs['time_intervals']=='absolute') {
 }
 
 // title
-if (!(strlen($_SESSION['title'])>0)) $_SESSION['errors']['title'] = 'Appointment title should not be empty!';
+if (!(strlen($_SESSION['app_data']['title'])>0)) $_SESSION['errors']['title'] = 'Appointment title should not be empty!';
 
 //
 // Check if errors found
