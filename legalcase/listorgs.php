@@ -49,7 +49,18 @@ $result = lcm_query($q);
 $number_of_rows = lcm_num_rows($result);
 
 // Check for correct start position of the list
-$list_pos = get_list_pos($result);
+$list_pos = 0;
+
+if (isset($_REQUEST['list_pos']))
+	$list_pos = $_REQUEST['list_pos'];
+
+if ($list_pos >= $number_of_rows)
+	$list_pos = 0;
+
+// Position to the page info start
+if ($list_pos > 0)
+	if (!lcm_data_seek($result,$list_pos))
+		lcm_panic("Error seeking position $list_pos in the result");
 
 // Output table tags
 // Not worth creating show_listorgs_*() for now
