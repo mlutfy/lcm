@@ -383,7 +383,7 @@ if ($case > 0) {
 				$headers[0]['title'] = _Th('time_input_date_start');
 				$headers[0]['order'] = 'fu_order';
 				$headers[0]['default'] = 'ASC';
-				$headers[1]['title'] = _Th('time_input_length');
+				$headers[1]['title'] = ( ($prefs['time_intervals'] == 'absolute') ? _Th('time_input_date_end') : _Th('time_input_length') );
 				$headers[1]['order'] = 'no_order';
 				$headers[2]['title'] = _Th('case_input_author');
 				$headers[2]['order'] = 'no_order';
