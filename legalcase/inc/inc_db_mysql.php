@@ -55,17 +55,16 @@ function lcm_query_db($query) {
 		echo " -> <font color='blue'>".sprintf("%3f", $dt)."</font> ($tt)</small><p>\n";
 	}
 
-	if ($my_debug AND lcm_sql_errno()) {
+	if ($my_debug)
+		lcm_log("QUERY: $query\n", "mysql");
+
+	if (lcm_sql_errno()) {
 		$s = lcm_sql_error();
 		$error = _T('warning_sql_query_failed') . "<br />\n" . htmlentities($query) . "<br />\n";
 		$error .= "&laquo; " . htmlentities($s) . " &raquo;<br />";
-		echo $error;
-		echo lcm_getbacktrace();
+		lcm_panic($error);
 	}
 
-	if ($my_debug)
-		lcm_log("QUERY: $query\n", "mysql");
-	
 	return $result;
 }
 
