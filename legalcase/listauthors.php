@@ -134,7 +134,7 @@ echo "</td>\n\t</tr>\n</table>\n";
 
 // Show add auhor button
 if ($GLOBALS['author_session']['status'] == 'admin')
-	echo '<br /><a href="edit_author.php?author=0" class="create_new_lnk">Add author</a><br />';
+	echo '<a href="edit_author.php?author=0" class="create_new_lnk">Add author</a><br /><br />';
 
 lcm_page_end();
 ?>

@@ -129,7 +129,7 @@ if ($next_pos<$number_of_rows) {
 
 echo "</td>\n\t</tr>\n</table>\n";
 ?>
-<br /><a href="edit_rep.php?rep=0" class="create_new_lnk">Create new report</a><br />
+<a href="edit_rep.php?rep=0" class="create_new_lnk">Create new report</a><br /><br />
 <?php
 lcm_page_end();
 ?>

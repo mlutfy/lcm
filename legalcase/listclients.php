@@ -131,7 +131,8 @@ if ($next_pos<$number_of_rows) {
 }
 echo "</td>\n\t</tr>\n</table>\n";
 ?>
-<br /><a href="edit_client.php" class="create_new_lnk">Add new client</a>
+<a href="edit_client.php" class="create_new_lnk">Add new client</a>
+<br /><br />
 <?php
 lcm_page_end();
 ?>
