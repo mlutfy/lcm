@@ -28,6 +28,7 @@ if (isset($_REQUEST['find_org_string']))
 	$find_org_string = $_REQUEST['find_org_string'];
 
 lcm_page_start(_T('title_org_list'));
+lcm_bubble('org_list');
 show_find_box('org', $find_org_string);
 
 // List all organisations in the system + search criterion if any

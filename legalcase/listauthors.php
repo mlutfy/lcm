@@ -25,7 +25,13 @@ include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
 
+$find_author_string = '';
+if (isset($_REQUEST['find_author_string']))
+	$find_author_string = $_REQUEST['find_author_string'];
+
 lcm_page_start(_T('title_author_list'));
+lcm_bubble('author_list');
+show_find_box('author', $find_author_string);
 
 $q = "SELECT id_author,name_first,name_middle,name_last,status
 		FROM lcm_author
@@ -72,8 +78,6 @@ if ($list_pos>0)
 	if (!lcm_data_seek($result,$list_pos))
 		lcm_panic("Error seeking position $list_pos in the result");
 
-// Search form
-show_find_box('author', $find_author_string);
 
 $headers = array();
 $headers[0]['title'] = _Th('person_input_name');
