@@ -154,7 +154,10 @@ function f_err($fn, $errors) {
 	return (isset($errors[$fn]) ? '<span style="color: #ff0000">' . $errors[$fn] . '</span>' : '');
 }
 
-function f_err_star($fn, $errors) {
+function f_err_star($fn, $errors = array()) {
+	if (empty($errors))
+		$errors = $_SESSION['errors'];
+
 	return (isset($errors[$fn]) ? '<span style="color: #ff0000">*</span>' : '');
 }
 
