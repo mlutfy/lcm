@@ -536,7 +536,7 @@ if($prefs['screen'] == "narrow")
 	echo _T('info_free_software', 
 			array(
 				'distributed' => '<a href="http://www.lcm.ngo-bg.org/" class="prefs_normal_lnk">' . _T('info_free_software1') . '</a>',
-				'license' => lcm_help_string('about#license', _T('info_free_software2'))))
+				'license' => lcm_help_string('about_license', _T('info_free_software2'))))
 		. "</div>\n";
 
 	//
