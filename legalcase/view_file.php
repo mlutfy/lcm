@@ -42,8 +42,9 @@ if (!(($GLOBALS['author_session']['status'] == 'admin') || $row['public'] || all
 	die(_T('error_no_read_permission'));
 }
 
-header("Content-Location: " . $row['filename']);
 header("Content-Type: " . ($row['type'] ? $row['type'] : "application/octet-stream") );
+header("Content-Disposition: filename=" . $row['filename']);
+header("Content-Description: " . $row['description']);
 header("Content-Transfer-Encoding: binary");
 echo ( get_magic_quotes_runtime() ? stripslashes($row['content']) : $row['content'] );
 
