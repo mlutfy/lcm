@@ -184,8 +184,11 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		<tr><td><?php echo _T('fu_input_date_end'); ?></td>
 			<td><?php echo _T('calendar_info_date'); 
 				$name = (($admin || ($edit && ($fu_data['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
-				echo get_date_inputs($name, $fu_data['date_end']);
-				echo ' ' . _T('calendar_info_time') . ' ';
+				if ($prefs['time_intervals'] == 'absolute') {
+					echo get_date_inputs($name, $fu_data['date_end']);
+					echo ' ';
+				}
+				echo _T('calendar_info_time') . ' ';
 				echo get_time_inputs($name, $fu_data['date_end']);
 				echo f_err_star('date_end',$errors); ?>
 			</td>
