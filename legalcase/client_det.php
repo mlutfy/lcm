@@ -101,8 +101,7 @@ if ($client > 0) {
 		$html = '<fieldset class="info_box">';
 		$html .= '<div class="prefs_column_menu_head">' . _T('client_subtitle_contacts') . "</div>\n";
 
-		$html = '';
-		$html .= '<table border="0" align="center" class="tbl_usr_dtl" width="99%">' . "\n";
+		$html .= '<table border="0" align="center" class="tbl_usr_dtl">' . "\n";
 		$html .= '<tr><th class="heading" colspan="2">' . "Contacts:" . '</th></tr>' . "\n";
 
 		$i = 0;
