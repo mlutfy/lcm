@@ -67,12 +67,12 @@ if ($case > 0) {
 		// echo "<div id=\"breadcrumb\"><a href=\"". getenv("HTTP_REFERER") ."\">List of cases</a> &gt; ". $row['title'] ."</div>";
 
 		// Show tabs
-		$groups = array('general' => _T('case_tab_general'),
-				'clients' => _T('case_tab_clients'),
-				'appointments' => _T('case_tab_appointments'),
-				'followups' => _T('case_tab_followups'),
-				'times' => _T('case_tab_times'),
-				'attachments' => _T('case_tab_attachments'));
+		$groups = array('general' => _T('generic_tab_general'),
+				'clients' => _T('generic_tab_clients'),
+				'appointments' => _T('generic_tab_agenda'),
+				'followups' => _T('generic_tab_followups'),
+				'times' => _T('generic_tab_reports'),
+				'attachments' => _T('generic_tab_documents'));
 		$tab = ( isset($_GET['tab']) ? $_GET['tab'] : 'general' );
 		show_tabs($groups,$tab,$_SERVER['REQUEST_URI']);
 
@@ -84,7 +84,7 @@ if ($case > 0) {
 				echo "<fieldset class='info_box'>";
 				echo "<div class='prefs_column_menu_head'>"
 					. "<div style='float: right'>" . lcm_help('cases_intro') . "</div>"
-					. _T('case_subtitle_general') 
+					. _T('generic_subtitle_general') 
 					. "</div>";
 				echo "<p class='normal_text'>";
 		
