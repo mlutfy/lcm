@@ -182,12 +182,18 @@ if ($row = lcm_fetch_array($result)) {
 			echo '<div class="prefs_column_menu_head">' . _T('org_subtitle_documents') . '</div>';
 			echo "<p class=\"normal_text\">\n";
 
+			echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
+			echo '<input type="hidden" name="org" value="' . $org . '" />' . "\n";
+
 			// List of attached files
 			show_attachments_list('org', $org);
 
 			// Attach new file form
 			if ($edit)
 				show_attachments_upload('org', $org);
+
+			echo '<input type="submit" name="submit" value="' . _T('button_validate') . '" class="search_form_btn" />' . "\n";
+			echo "</form>\n";
 
 			echo '</fieldset>';
 
