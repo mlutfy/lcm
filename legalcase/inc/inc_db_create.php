@@ -118,6 +118,7 @@ function create_database() {
 		date_end datetime NOT NULL,
 		type varchar(255) NOT NULL DEFAULT 'other',
 		description text NOT NULL,
+		case_stage varchar(255) NOT NULL,
 		sumbilled decimal(19,4) NOT NULL,
 		PRIMARY KEY (id_followup),
 		KEY id_case (id_case),

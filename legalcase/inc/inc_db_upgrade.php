@@ -574,6 +574,13 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (25); 
 	}
 
+	if ($lcm_db_version_current < 26) {
+		// Add case stage
+		lcm_query("ALTER TABLE lcm_followup ADD case_stage VARCHAR(255) NOT NULL AFTER description");
+
+		upgrade_db_version (26); 
+	}
+
 	return $log;
 }
 
