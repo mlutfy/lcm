@@ -272,6 +272,8 @@ if (isset($_REQUEST['action'])) {
 			include_lcm('inc_keywords_default');
 			create_groups($system_keyword_groups);
 
+			write_metas();
+			
 			break;
 		default:
 			die("No such action! (" . $_REQUEST['action'] . ")");
