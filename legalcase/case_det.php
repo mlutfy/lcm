@@ -28,8 +28,8 @@ include_lcm('inc_filters');
 $case = intval($_GET['case']);
 
 if ($case > 0) {
-	$q="SELECT id_case, title, id_court_archive, FROM_UNIXTIME(date_creation),
-			FROM_UNIXTIME(date_assignment), legal_reason, alledged_crime,
+	$q="SELECT id_case, title, id_court_archive, FROM_UNIXTIME(date_creation) AS date_creation,
+			FROM_UNIXTIME(date_assignment) AS date_assignment, legal_reason, alledged_crime,
 			status, public, pub_write
 		FROM lcm_case
 		WHERE id_case=$case";
@@ -84,7 +84,9 @@ if ($case > 0) {
 		echo _T('creation_date') . ': ' . format_date($row['date_creation']) . "<br>\n";
 
 		// [ML] FIXME: Not very clear how this should work
-		echo "<!-- " . var_dump($row) . "-->\n";
+		echo "<!-- ";
+		var_export($row);
+		echo "-->\n";
 		if ($row['date_assignment'])
 			echo _T('assignment_date') . ': ' .  format_date($row['date_assignment']) . "<br>\n";
 		else
