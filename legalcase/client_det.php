@@ -52,7 +52,7 @@ if ($client > 0) {
 
 
 		// Show client details
-		lcm_page_start(_T('title_client_view') . ' ' . $row['name_first'] . ' ' .  $row['name_middle'] . ' ' . $row['name_last']);
+		lcm_page_start(_T('title_client_view') . ' ' . get_person_name($row));
 
 		// Show tabs
 		$groups = array(
