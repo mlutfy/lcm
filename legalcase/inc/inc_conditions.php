@@ -38,7 +38,7 @@ $GLOBALS['condition_types'] = array(1 => 'IS EQUAL TO',
 function select_condition($name,$sel=0) {
 	global $condition_types;
 
-	$html = "<select name='$name'>\n";
+	$html = "<select name='$name' class='sel_frm'>\n";
 
 	foreach($condition_types as $key => $val) {
 		$html .= "<option " . (($key == $sel) ? 'selected ' : '') . "value=$key>$val</option>\n";
