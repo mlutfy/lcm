@@ -216,6 +216,19 @@ function get_person_name($item) {
 	return njoin(array($item['name_first'], $item['name_middle'], $item['name_last']));
 }
 
+function get_person_initials($item) {
+	if (! is_array($item)) {
+		lcm_debug("get_person_name: parameter is not an array.");
+		return '';
+	}
+
+	$ret  = substr($item['name_first'],0,1);
+	$ret .= substr($item['name_middle'],0,1);
+	$ret .= substr($item['name_last'],0,1);
+
+	return $ret;
+}
+
 // Dirty hack: utf8_decode is mainly used for strlen(),
 // so if it is not installed, it's not such a big problem.
 // Use with care!
