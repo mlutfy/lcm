@@ -129,10 +129,11 @@ else lcm_page_start(_T('new_report'));
 	echo "</table>\n";
 
 	// Different buttons for edit existing and for new case
+	// TODO: add normal/export mode
 	if ($existing) {
-		echo '	<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('save') . "</button>\n";
+		echo '	<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
 	} else {
-		echo '	<button name="submit" type="submit" value="add" class="simple_form_btn">' . _T('add') . '</button>
+		echo '	<button name="submit" type="submit" value="add" class="simple_form_btn">' . _T('button_validate') . '</button>
 	<button name="submit" type="submit" value="addnew" class="simple_form_btn">' . _T('add_and_open_new') . '</button>
 	<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('add_and_go_to_details') . "</button>\n";
 	}
