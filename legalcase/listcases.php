@@ -49,6 +49,9 @@ if (strlen($find_case_string)>0) {
 
 $q .= ")";
 
+// Sort cases by creation date
+$q .= " ORDER BY date_creation DESC";
+
 // Do the query
 $result = lcm_query($q);
 
