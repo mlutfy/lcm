@@ -104,7 +104,7 @@ for ($i = 0 ; (($i < $prefs['page_rows']) && ($row = lcm_fetch_array($result))) 
 
 show_list_end($list_pos, $number_of_rows);
 
-echo '<p><a href="edit_org.php" class="create_new_lnk">' . "Register new organisation" . "</a></p>\n"; // TRAD
+echo '<p><a href="edit_org.php" class="create_new_lnk">' .  _T('org_button_new') . "</a></p>\n";
 echo "<br />\n";
 
 lcm_page_end();
