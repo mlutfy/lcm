@@ -25,13 +25,6 @@ include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
 
-// Start session
-//session_start();
-
-// Register $errors array - just in case
-//if (!session_is_registered("errors"))
-//    session_register("errors");
-
 // Clear all previous errors
 $_SESSION['errors']=array();
 
@@ -134,9 +127,6 @@ if (count($_SESSION['errors'])) {
 	//$q="INSERT INTO lcm_case $cl VALUES $vl ON DUPLICATE KEY UPDATE $fl";
 
 	$result = lcm_query($q);
-
-    // Clear the session
-//    session_destroy();
 
 	// [ML] I don't understand why: header("Location: $ref_edit_case");
 	// [AG] Because "edit_case" could be invoked from diferent places i.e. edit existing case or add new or other.
