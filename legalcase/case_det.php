@@ -568,8 +568,8 @@ if ($case > 0) {
 					for ($i=0 ; $row = lcm_fetch_array($result) ; $i++) {
 						echo "\t<tr>";
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">'
-							. '<a href="view_file.php?file_id=' . $row['id_attachment'] . '" class="content_link">'
-							. $row['filename'] . '</a></td>';
+							. '<a href="view_file.php?type=case&amp;file_id=' . $row['id_attachment']
+							. '" class="content_link">' . $row['filename'] . '</a></td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['type'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . $row['size'] . '</td>';
 						echo '<td class="tbl_cont_' . ($i % 2 ? "dark" : "light") . '">' . clean_output($row['description']) . '</td>';
