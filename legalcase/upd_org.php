@@ -47,12 +47,12 @@ if (count($_SESSION['errors'])) {
 	exit;
 }
 
-
 	// Record data in database
-	$ol="name='" . clean_input($_SESSION['org_data']['name']);
-
-	// TODO [ML] add new fields (tax, court, etc.)
-	// . "'," .  "address='" . clean_input($_SESSION['org_data']['address']) . "'";
+	$ol="name='" . clean_input($_SESSION['org_data']['name']) . "', "
+		. "court_reg='" . clean_input($_SESSION['org_data']['court_reg']) .  "', "
+		. "tax_number='" . clean_input($_SESSION['org_data']['tax_number']) .  "', "
+		. "stat_number='" . clean_input($_SESSION['org_data']['stat_number']) . "', "
+		. "notes='" . clean_input($_SESSION['org_data']['notes']) . "'";
 
 	if ($_SESSION['data_org']['id_org'] > 0) {
 		$q = "UPDATE lcm_org SET date_update=NOW(),$ol WHERE id_org = " . $_SESSION['data_org']['id_org'];
