@@ -104,7 +104,7 @@ if ($list_pos>0)
 for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; $i++) {
 	// Show checkbox
 	echo "\t<tr><td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-	echo "<input type='checkbox' name='clients[]' value='" . $row['id_client'] "></td>\n";
+	echo "<input type='checkbox' name='clients[]' value='" . $row['id_client'] . "></td>\n";
 	// Show client name
 	echo "\t\t<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
 	echo highlight_matches(clean_output($row['name_first'] . ' ' . $row['name_middle'] . ' '
