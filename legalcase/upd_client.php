@@ -75,8 +75,7 @@ if ($_SESSION['client']['id_client'] > 0) {
 				date_update = NOW(),
 				$cl";
 
-	lcm_query($q);
-	$_SESSION['client']['id_client'] = lcm_insert_id();
+	$_SESSION['client']['id_client'] = lcm_insert_id(lcm_query($q));
 
 	//
 	// Attach client to case (Case -> Add Client -> Create new client)
@@ -91,6 +90,15 @@ if ($_SESSION['client']['id_client'] > 0) {
 			lcm_query($q);
 		}
 	}
+}
+
+//
+// Add organisation
+//
+if (!empty($_SESSION['client']['new_org'])) {
+	$q = "REPLACE INTO lcm_client_org
+		VALUES (" . $_SESSION['client']['id_client'] . ',' . $_SESSION['client']['new_org'] . ")";
+	$result = lcm_query($q);
 }
 
 //
