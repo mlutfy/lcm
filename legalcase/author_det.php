@@ -64,6 +64,7 @@ if ($author > 0) {
 
 				echo '<p class="normal_text">';
 				echo _Ti('authoredit_input_id') . $author_data['id_author'] . "<br />\n";
+				echo _Ti('person_input_name') . get_person_name($author_data) . "<br />\n";
 				echo _Ti('authoredit_input_status') . _T('authoredit_input_status_' . $author_data['status']) . "<br />\n";
 
 				echo "</p>\n";
