@@ -175,7 +175,7 @@ function get_person_name($item) {
 		return '';
 	}
 
-	return $item['name_first'] . ' ' . $item['name_middle'] . ' ' . $item['name_last'];
+	return njoin( array($item['name_first'], $item['name_middle'], $item['name_last']) );
 }
 
 // Dirty hack: utf8_decode is mainly used for strlen(),
