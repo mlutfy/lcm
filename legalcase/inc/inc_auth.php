@@ -168,6 +168,9 @@ function auth() {
 		$connect_status = 'normal';
 	}
 
+	// PHP sessions are started here, and stopped at logout
+	session_start();
+
 	return true;
 }
 
