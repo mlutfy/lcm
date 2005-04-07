@@ -566,7 +566,7 @@ lcm_page_start(_T('title_site_configuration'));
 
 // Show changes on screen
 if (! empty($log)) {
-	echo "<div align='left' style='border: 1px solid #00ff00; padding: 5px;'>\n";
+	echo "<div class=\"sys_msg_box\">\n";
 	echo "<div>" . _T('siteconf_info_changes_made') . "</div>\n";
 	echo "<ul>";
 
