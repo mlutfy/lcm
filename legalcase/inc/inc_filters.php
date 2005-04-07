@@ -228,7 +228,7 @@ function get_person_name($item) {
 	return njoin(array($item['name_first'], $item['name_middle'], $item['name_last']));
 }
 
-function get_person_initials($item) {
+function get_person_initials($item, $with_abbver = true) {
 	if (! is_array($item)) {
 		lcm_debug("get_person_name: parameter is not an array.");
 		return '';
@@ -244,6 +244,9 @@ function get_person_initials($item) {
 		$ret .= substr($item['name_middle'],0,floor(ord($item['name_first']) / 128) + 1);
 		$ret .= substr($item['name_last'],0,floor(ord($item['name_first']) / 128) + 1);
 	}
+
+	if ($with_abbver)
+		$ret = '<abbrev title="' . get_person_name($item) . '">' . $ret . '</abbrev>';
 
 	return $ret;
 }
