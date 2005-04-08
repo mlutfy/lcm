@@ -292,7 +292,7 @@ if ($case > 0) {
 
 				$q = "SELECT *
 					FROM lcm_app as a
-					WHERE lcm_app.id_case=$case";
+					WHERE a.id_case=$case";
 				$result = lcm_query($q);
 				
 				// Get the number of rows in the result
