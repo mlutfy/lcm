@@ -128,7 +128,15 @@ if (count($_SESSION['errors'])) {
 	exit;
 }
 
+//
 // Go to the 'view details' page of the author
-header('Location: client_det.php?client=' . $_SESSION['client_data']['id_client']);
+//
+
+// small reminder, if the client was created from the "add client to case" (Case details)
+$attach = "";
+if (isset($_SESSION['client_data']['attach_case']))
+	$attach = "&attach_case=" . $_SESSION['client_data']['attach_case'];
+
+header('Location: client_det.php?client=' . $_SESSION['client_data']['id_client'] . $attach);
 
 ?>
