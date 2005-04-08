@@ -191,7 +191,8 @@ if (count($_SESSION['errors'])) {
 		lcm_query("INSERT INTO lcm_author_app SET id_app=$id_app,id_author=" . $GLOBALS['author_session']['id_author']);
 
 		// Add relationship with the parent followup (if any)
-		lcm_query("INSERT INTO lcm_app_fu SET id_app=$id_app,id_followup=" . $_SESSION['app_data']['id_followup'] . ",relation='parent'");
+		if (!empty($_SESSION['app_data']['id_followup']))
+			lcm_query("INSERT INTO lcm_app_fu SET id_app=$id_app,id_followup=" . $_SESSION['app_data']['id_followup'] . ",relation='parent'");
 
 	}
 
