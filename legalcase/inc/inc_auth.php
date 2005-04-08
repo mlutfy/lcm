@@ -141,6 +141,12 @@ function auth() {
 		if (! isset($prefs['font_size']) || ! $prefs['font_size'])
 			$prefs['font_size'] = 'medium_font';
 
+		if (! isset($prefs['case_owner']) || ! $prefs['case_owner'])
+			$prefs['case_owner'] = 'my';
+
+		if (! isset($prefs['case_period']) || ! $prefs['case_period'])
+			$prefs['case_period'] = '91';
+
 		if (! isset($prefs['mode']) || ! $prefs['mode'])
 			$prefs['mode'] = 'simple';
 
