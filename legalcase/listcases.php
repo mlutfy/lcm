@@ -248,7 +248,13 @@ if (! ($case_owner == 'all' && $author_session['status'] == 'admin')) {
 	if ($case_owner == 'public')
 		$q .= " c.public = 1 OR ";
 
-	$q .= " fu.id_case IN (" . implode(",", $list_cases) . "))";
+	// [ML] XXX FIXME TEMPORARY PATCH
+	// if user and no cases + no follow-ups...
+	if (count($list_cases))
+		$q .= " fu.id_case IN (" . implode(",", $list_cases) . "))";
+	else
+		$q .= " fu.id_case IN ( 0 ))";
+	
 }
 
 // Period (date_creation) to show
