@@ -24,6 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
+include_lcm('inc_keywords');
 
 // Read parameters
 $case = intval($_GET['case']);
@@ -153,7 +154,7 @@ if ($case > 0) {
 
 					echo "\t" . _T('case_input_status') . "&nbsp;";
 					echo "\t<select name='status' class='sel_frm'>\n";
-					$statuses = array('draft','open','suspended','closed','merged');
+					$statuses = array('draft','open','suspended','closed','merged', 'deleted');
 					foreach ($statuses as $s)
 						echo "\t\t<option" .  (($s == $row['status']) ? ' selected="selected"' : '') . ">" . _T('case_status_option_' . $s) . "</option>\n";
 					echo "\t</select>\n";
@@ -171,12 +172,12 @@ if ($case > 0) {
 					echo "<input type='hidden' name='case' value='$case' />\n";
 					echo "\t<select name='stage' class='sel_frm'>\n";
 
-					global $system_kwg;
-
-					foreach($system_kwg['stage']['keywords'] as $kw) {
+					$stage_kws = get_keywords_in_group_name('stage');
+					foreach ($stage_kws as $kw) {
 						$sel = ($kw['name'] == $row['stage'] ? ' selected="selected"' : '');
 						echo "\t\t<option value='" . $kw['name'] . "'" . "$sel>" . _T($kw['title']) . "</option>\n";
 					}
+				
 					echo "\t</select>\n";
 					echo "\t<button type='submit' name='submit' value='set_stage' class='simple_form_btn'>" . _T('button_validate') . "</button>\n";
 					echo "</form>\n";
