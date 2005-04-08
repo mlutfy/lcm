@@ -772,10 +772,7 @@ function http_calendrier_clics($year, $month, $day, $clic, $script)
 	//  global $bleu, $jaune, $vert;
 
 	return http_href("$script?type=jour&jour=$day&mois=$month&annee=$year", $clic)
-		. '&nbsp;<a href="edit_app.php?time=' . rawurlencode("$year-$month-$day") . '">'
-		. '<img src="images/jimmac/stock_edit-16.png" border="0" width="16" '
-		. 'height="16" alt="' . _T('app_button_new') . '" title="' . _T('app_button_new') . '" />'
-		. '</a>';
+		. '&nbsp;<a href="edit_app.php?time=' . rawurlencode("$year-$month-$day") . '" class="edit_lnk" title="' . _T('app_button_new') . '">'. _T('app_button_new') . '</a>';
 }
 
 // Shows events of a week
@@ -1440,11 +1437,8 @@ function http_calendrier_jour($jour,$mois,$annee,$large = "wide", $partie_cal, $
 	}
 	else {
 	  if ($large == "wide")
-			$my_header = "<div align='center' style='padding: 5px;'>"
-			. '<a class="content_link" href="edit_app.php?time=' . rawurlencode("$annee-$mois-$jour") . '">' 
-			. '<img src="images/jimmac/stock_edit-16.png" border="0" width="16" '
-			. 'height="16" alt="' . _T('app_button_new') . '" title="' . _T('app_button_new') . '" />'
-			. _T('app_button_new') . '</a>'
+			$my_header = "<div align='center' style='padding: 19px;'>"
+			. '<a href="edit_app.php?time=' . rawurlencode("$annee-$mois-$jour") . '" class="edit_lnk" title="' . _T('app_button_new') . '">'. _T('app_button_new') . '</a>'
 			. "</div>\n";
 		else
 			$my_header = '';
