@@ -26,9 +26,6 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 include_lcm('inc_keywords');
 
-// Initiate session
-// [ML] now in inc_auth session_start();
-
 // Read the policy settings
 $fu_sum_billed = read_meta('fu_sum_billed');
 $fu_allow_modif = read_meta('fu_allow_modif');
@@ -45,14 +42,10 @@ if (empty($_SESSION['errors'])) {
 	if (isset($_GET['followup'])) {
 		$_SESSION['followup'] = intval($_GET['followup']);
 
-		// Register followup as session variable
-//		if (!session_is_registered("followup"))
-//			session_register("followup");
-
 		// Fetch the details on the specified follow-up
 		$q="SELECT *
-			FROM lcm_followup
-			WHERE id_followup=" . $_SESSION['followup'];
+			FROM lcm_followup as fu
+			WHERE fu.id_followup=" . $_SESSION['followup'];
 
 		$result = lcm_query($q);
 
@@ -141,7 +134,26 @@ if (empty($_SESSION['errors'])) {
 	$edit = allowed($_SESSION['fu_data']['id_case'],'e');
 	if (!($admin || $edit))
 		lcm_panic("You don't have permission to edit this case's information");
+	
+	//
+	// Change status: check for if case status is different than current
+	//
+	$statuses = array('draft' => 'draft',
+				'opening' => 'open',
+				'suspension' => 'suspended',
+				'conclusion' => 'closed',
+				'merge' => 'merged', 
+				'deletion' => 'deleted');
 
+	if (isset($_REQUEST['type'])) {
+		// Get case status
+		$result = lcm_query("SELECT status FROM lcm_case WHERE id_case = " . $case);
+		$row = lcm_fetch_array($result);
+	
+		if ($statuses[$_REQUEST['type']] == $row['status'])
+			header('Location: ' . $GLOBALS['HTTP_REFERER']);
+
+	}
 }
 
 if (isset($_SESSION['followup']))
@@ -191,37 +203,36 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 				} ?>
 			</td>
 		</tr>
-		<tr><td><?php echo _T('fu_input_type'); ?></td>
-			<td><select <?php echo $dis; ?> name="type" size="1" class="sel_frm">
-			<?php
+		<tr>
+<?php
+			echo "<td>" . _T('fu_input_type') . "</td>\n";
+			echo "<td>";
+		
+			if (isset($_REQUEST['type'])) {
+				echo '<input type="hidden" name="type" value="' . $_REQUEST['type'] . '" />' . "\n";
+				echo _T('kw_followups_' . $_REQUEST['type'] . '_title');
+			} else {
+				echo '<select ' . $dis . ' name="type" size="1" class="sel_frm">' . "\n";
 
-			if ($_SESSION['fu_data']['type'])
-				$default_fu = $_SESSION['fu_data']['type'];
-			else
-				$default_fu = $system_kwg['followups']['suggest'];
+				if ($_SESSION['fu_data']['type'])
+					$default_fu = $_SESSION['fu_data']['type'];
+				else
+					$default_fu = $system_kwg['followups']['suggest'];
 
-			$futype_kws = get_keywords_in_group_name('followups');
+				$futype_kws = get_keywords_in_group_name('followups');
 
-			/* [ML] Should now be done in get_keywords_in_group_name()
-			$opts = array();
+				foreach($futype_kws as $kw) {
+					$sel = ($kw['name'] == $default_fu ? ' selected="selected"' : '');
+					echo '<option value="' . $kw['name'] . '">' . _T(remove_number_prefix($kw['title'])) . "</option>\n";
+				}
 
-			foreach($futype_kws as $kw)
-				$opts[$kw['name']] = _T($kw['title']);
-
-			asort($opts);
-
-			foreach($opts as $k => $opt) {
-				$sel = ($k == $default_fu ? ' selected="selected"' : '');
-				echo "<option value='$k'$sel>$opt</option>\n";
-			} */
-
-			foreach($futype_kws as $kw) {
-				$sel = ($kw['name'] == $default_fu ? ' selected="selected"' : '');
-				echo '<option value="' . $kw['name'] . '">' . _T(remove_number_prefix($kw['title'])) . "</option>\n";
+				echo "</select>\n";
 			}
 
-			?>
-			</select></td></tr>
+			echo "</td>\n";
+?>
+		
+		</tr>
 		<tr><td valign="top"><?php echo f_err_star('description') . _T('fu_input_description'); ?></td>
 			<td><textarea <?php echo $dis; ?> name="description" rows="15" cols="60" class="frm_tarea"><?php
 			echo clean_output($_SESSION['fu_data']['description']) . "</textarea></td></tr>\n";
