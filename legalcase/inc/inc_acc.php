@@ -74,4 +74,58 @@ function allowed($case, $access) {
 	return $allow;
 }
 
+// Returns an array with the possible case statuses
+// c.f. http://www.lcm.ngo-bg.org/article78.html
+function get_possible_case_statuses($status) {
+	$statuses = array();
+
+	if ($status == 'draft') {
+		$statuses = array('draft' => 'draft', 
+				'open' => 'opening',
+				// 'suspended' => 'suspension',
+				'closed' => 'conclusion',
+				'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} elseif ($status == 'open') {
+		$statuses = array( // 'draft' => 'draft', 
+				'open' => 'opening',
+				'suspended' => 'suspension',
+				'closed' => 'conclusion',
+				'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} elseif ($status == 'suspended') {
+		$statuses = array( // 'draft' => 'draft', 
+				'open' => 'opening',
+				'suspended' => 'suspension',
+				'closed' => 'conclusion',
+				'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} elseif ($status == 'closed') {
+		$statuses = array( // 'draft' => 'draft', 
+				'open' => 'opening',
+				// 'suspended' => 'suspension',
+				'closed' => 'conclusion',
+				// 'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} elseif ($status == 'merged') {
+		$statuses = array( // 'draft' => 'draft', 
+				// 'open' => 'opening',
+				// 'suspended' => 'suspension',
+				// 'closed' => 'conclusion',
+				'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} elseif ($status == 'deleted') {
+		$statuses = array( // 'draft' => 'draft', 
+				'open' => 'opening',
+				// 'suspended' => 'suspension',
+				// 'closed' => 'conclusion',
+				// 'merged' => 'merge', 
+				'deleted' => 'deletion');
+	} else {
+		lcm_panic("unknown status: $status");
+	}
+
+	return $statuses;
+}
+
 ?>
