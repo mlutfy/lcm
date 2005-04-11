@@ -54,13 +54,13 @@ if (count($_SESSION['errors'])) {
 		. "stat_number='" . clean_input($_SESSION['org_data']['stat_number']) . "', "
 		. "notes='" . clean_input($_SESSION['org_data']['notes']) . "'";
 
-	if ($_SESSION['data_org']['id_org'] > 0) {
-		$q = "UPDATE lcm_org SET date_update=NOW(),$ol WHERE id_org = " . $_SESSION['data_org']['id_org'];
+	if ($_SESSION['org_data']['id_org'] > 0) {
+		$q = "UPDATE lcm_org SET date_update=NOW(),$ol WHERE id_org = " . $_SESSION['org_data']['id_org'];
 		$result = lcm_query($q);
 	} else {
 		$q = "INSERT INTO lcm_org SET id_org=0,date_update=NOW(),$ol";
 		$result = lcm_query($q);
-		$_SESSION['data_org']['id_org'] = lcm_insert_id($result);
+		$_SESSION['org_data']['id_org'] = lcm_insert_id($result);
 
 		// If there is an error (ex: in contacts), we should send back to 'org_det.php?org=XX'
 		// not to 'org_det.php?org=0'.
@@ -81,6 +81,6 @@ if (count($_SESSION['errors'])) {
 }
 
 // Go to the 'view details' page of the organisation
-header('Location: org_det.php?org=' . $_SESSION['data_org']['id_org']);
+header('Location: org_det.php?org=' . $_SESSION['org_data']['id_org']);
 
 ?>
