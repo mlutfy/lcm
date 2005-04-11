@@ -46,14 +46,21 @@ $q .= ')';
 
 $result = lcm_query($q);
 
-lcm_page_start("Edit author's rights on case $case"); // TRAD
+lcm_page_start("Edit access rights"); // TRAD
+
+// BUBBLE
+
+show_context_start();
+show_context_case_title($case);
+show_context_case_involving($case);
+show_context_end();
 
 echo '<form action="upd_auth.php" method="post">' . "\n";
 
 // TRAD TRAD TRAD ...
 ?>
 		<table border="0" class="tbl_usr_dtl" width="99%">
-			<tr><th align="center" class="heading">User</th>
+			<tr><th align="center" class="heading">&nbsp;</th>
 				<th align="center" class="heading">Read</th>
 				<th align="center" class="heading">Write</th>
 				<th align="center" class="heading">Edit</th>
