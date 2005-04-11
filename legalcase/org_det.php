@@ -38,8 +38,10 @@ $q = "SELECT *
 
 $result = lcm_query($q);
 
-if ($row = lcm_fetch_array($result)) {
-	lcm_page_start(_T('title_org_view') . ' ' . $row['name']);
+if (! ($row = lcm_fetch_array($result))) 
+	die("There's no such organisation!");
+
+lcm_page_start(_T('title_org_view') . ' ' . $row['name']);
 
 	/* Saved for future use
 	// Check for access rights
@@ -246,7 +248,8 @@ if ($row = lcm_fetch_array($result)) {
 	echo "</a>";
 	echo "</p>\n";
 
-} else die("There's no such organisation!");
+$_SESSION['errors'] = array();
+$_SESSION['org_data'] = array();
 
 lcm_page_end();
 
