@@ -401,8 +401,6 @@ function lcm_html_end() {
 		echo "// --></script>\n";
 	}
 
-	print_r($_SESSION);
-	
 	flush();
 }
 
