@@ -400,6 +400,8 @@ function lcm_html_end() {
 		echo "document.img_session.src='lcm_cookie.php?change_session=oui';\n";
 		echo "// --></script>\n";
 	}
+
+	print_r($_SESSION);
 	
 	flush();
 }
@@ -1361,6 +1363,10 @@ function show_find_box($type, $string, $dest = '') {
 
 function show_context_start() {
 	echo "<ul style=\"padding-left: 0.5em; padding-top: 0.2; padding-bottom: 0.2; font-size: 12px;\">\n";
+}
+
+function show_context_item($string) {
+	echo '<li style="list-style-type: none;">' . $string . "</li>\n";
 }
 
 function show_context_case_title($id_case) {
