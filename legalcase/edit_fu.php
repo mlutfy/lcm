@@ -158,8 +158,13 @@ if (empty($_SESSION['errors'])) {
 
 if (isset($_SESSION['followup']))
 	lcm_page_start(_T('title_fu_edit'));
-else
-	lcm_page_start(_T('title_fu_new'));
+else {
+	if (isset($_REQUEST['type'])) {
+		lcm_page_start(_T('title_fu_change_status'));
+	} else {
+		lcm_page_start(_T('title_fu_new'));
+	}
+}
 
 // Show a bit of background on the case
 show_context_start();
@@ -205,7 +210,11 @@ $dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
 		</tr>
 		<tr>
 <?php
-			echo "<td>" . _T('fu_input_type') . "</td>\n";
+			if (isset($_REQUEST['type']))
+				echo "<td>" . _T('case_input_status') . "</td>\n";
+			else
+				echo "<td>" . _T('fu_input_type') . "</td>\n";
+
 			echo "<td>";
 		
 			if (isset($_REQUEST['type'])) {
