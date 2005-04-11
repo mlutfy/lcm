@@ -324,14 +324,14 @@ function get_datetime_from_array($source, $prefix, $type = 'start', $fallback = 
 		$ret .= sprintf("%02d", $source[$prefix . 'month']) . '-';
 		$has_date = true;
 	} else {
-		$ret .= '00-';
+		$ret .= '01-';
 	}
 	
 	if (is_numeric($source[$prefix . 'day'])) {
 		$ret .= sprintf("%02d", $source[$prefix . 'day']);
 		$has_date = true;
 	} else {
-		$ret .= '00';
+		$ret .= '01';
 	}
 
 	$ret .= " ";
@@ -368,8 +368,12 @@ function get_datetime_from_array($source, $prefix, $type = 'start', $fallback = 
 
 	if ($has_date)
 		return $ret;
-	else
+	
+	if ($fallback) 
 		return $fallback;
+	
+	// Return empty date (0000-00-00 00:00:00 or 0000-01-01 23:59:59)
+	return $ret;
 }
 
 /* ********************************************************
