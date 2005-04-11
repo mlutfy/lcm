@@ -179,11 +179,13 @@ if ($case > 0) {
 				}
 
 				// Show case stage
-				if ($edit) {
+				if ($edit && $row['status'] != 'closed' && $row['status'] != 'deleted') {
 					// Change stage form
-					echo "<form action='set_case_stage.php' method='get'>\n";
+					// echo "<form action='set_case_stage.php' method='get'>\n";
+					echo "<form action='edit_fu.php' method='get'>\n";
 					echo _T('case_input_stage');
 					echo "<input type='hidden' name='case' value='$case' />\n";
+					echo "<input type='hidden' name='type' value='stage_change' />\n";
 					echo "<select name='stage' class='sel_frm' onchange='lcm_show(\"submit_stage\")'>\n";
 
 					$stage_kws = get_keywords_in_group_name('stage');
