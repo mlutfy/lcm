@@ -261,6 +261,12 @@ function lcm_utf8_decode($string) {
 		return $string;
 }
 
+// [ML] This is Spip's "supprimer_numero"
+function remove_number_prefix($string) {
+	$string = ereg_replace("^[[:space:]]*[0-9]+[.)".chr(176)."][[:space:]]+", "", $string);
+	return $string; 
+}
+
 function recup_date($numdate) {
 	if (! $numdate) return '';
 
@@ -731,7 +737,12 @@ function nom_mois($numdate) {
 	return affdate_base($numdate, 'nom_mois');
 }
 
+// year
 function annee($numdate) {
+	return affdate_base($numdate, 'annee');
+}
+
+function year($numdate) {
 	return affdate_base($numdate, 'annee');
 }
 
