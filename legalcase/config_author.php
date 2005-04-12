@@ -345,7 +345,8 @@ if (isset($_POST['author_ui_modified']))
 if (isset($_POST['author_advanced_settings_modified']))
 	apply_author_advanced_settings_change();
 
-/* [ML] I find this useful only for debugging, otherwise confusing for the user
+// [ML] I find this useful only for debugging, otherwise confusing for the user
+/*
 if (count($log) > 0) {
 	lcm_page_start(_T('title_authorconf'),'','<meta http-equiv="refresh" content="5; url=' . $_POST['referer'] . '">');
 	show_changes();
