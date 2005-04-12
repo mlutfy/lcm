@@ -109,9 +109,10 @@ if (count($_SESSION['errors'])) {
 				id_case=$id_case,
 				id_author=$id_author,
 				ac_read=1,
-				ac_write=1";
-		if (read_meta('case_allow_modif') == 'yes')
-			$q .= ", ac_edit=1, ac_admin=1";
+				ac_write=1,
+				ac_edit=" . (int)(read_meta('case_allow_modif') == 'yes') . ",
+				ac_admin=1";
+		// [AG] The user creating case should always have 'admin' access right, otherwise only admin could add new user(s) to the case
 		$result = lcm_query($q);
 
 		// Get author information
