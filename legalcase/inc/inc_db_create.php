@@ -144,7 +144,7 @@ function create_database() {
 		username VARCHAR(255) BINARY NOT NULL,
 		password tinytext NOT NULL,
 		lang VARCHAR(10) DEFAULT '' NOT NULL,
-		prefs tinytext NOT NULL,
+		prefs text NOT NULL,
 		status ENUM('admin', 'normal', 'external', 'trash', 'waiting', 'suspended') DEFAULT 'normal' NOT NULL,
 		cookie_recall tinytext NOT NULL,
 

@@ -723,6 +723,13 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (31);
 	}
 
+	if ($lcm_db_version_current < 32) {
+		// [AG] Expanding author preferences field to fit all data
+		lcm_query("ALTER TABLE lcm_author CHANGE prefs prefs text NOT NULL");
+
+		upgrade_db_version (32);
+	}
+
 	return $log;
 }
 
