@@ -166,12 +166,12 @@ if (count($_SESSION['errors'])) {
 	// Insert/update appointment
 	if ($id_app>0) {
 		// Update existing appointment
-		$q="UPDATE lcm_app SET $fl,date_update=NOW() WHERE id_app=$id_app";
+		$q="UPDATE lcm_app SET $fl,date_update=NOW() WHERE id_app = $id_app ";
 		// Only admin or appointment author itself could change it
 		if ( !($GLOBALS['author_session']['status'] === 'admin') )
-			$q .= "AND id_author=" . $GLOBALS['author_session']['id_author'];
-		if (!($result = lcm_query($q)))
-			lcm_panic("$q <br />\nError ".lcm_errno().": ".lcm_error());
+			$q .= " AND id_author = " . $GLOBALS['author_session']['id_author'];
+
+		$result = lcm_query($q);
 	} else {
 		// Add the new appointment
 		$q = "INSERT INTO lcm_app SET id_app=0";
