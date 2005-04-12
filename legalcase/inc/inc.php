@@ -38,6 +38,9 @@ include_lcm('inc_filters');
 if (! @file_exists('inc/data/inc_meta_cache.php'))
 	write_metas();
 
+// [AG] Adding to validate later references to it
+global $author_session;
+
 //
 // Preferences for presentation
 // Can be done from any screen, but for now most is in config_author.php
@@ -120,7 +123,7 @@ if (isset($_REQUEST['author_advanced_settings_modified'])) {
 // Update user preferences if modified
 if ($prefs_mod) {
 	lcm_query("UPDATE lcm_author
-				SET   prefs = '".addslashes(serialize($prefs))."'
+				SET   prefs = '" . addslashes(serialize($prefs)) . "'
 				WHERE id_author = " . $author_session['id_author']);
 }
 
