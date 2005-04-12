@@ -490,7 +490,7 @@ function apply_conf_changes_policy() {
 			$old_value = read_meta($it);
 			if ($_REQUEST[$it] != $old_value) {
 				write_meta($it, $_REQUEST[$it]);
-				array_push($log, _Ti($trad) . now_and_before($_REQUEST[$it], $old_value));
+				array_push($log, _Ti($trad) . now_and_before( _T('info_' . $_REQUEST[$it]), _T('info_' . $old_value) ));
 			}
 		}
 	}
