@@ -143,8 +143,20 @@ if ($_SESSION['app_data']['id_case'] > 0) {
 echo show_all_errors($_SESSION['errors']);
 
 // Disable inputs when edit is not allowed for the field
-$dis = (($admin || ($edit && $modify)) ? '' : 'disabled');
+$admin = allowed($_SESSION['app_data']['id_case'], 'a');
+$write = allowed($_SESSION['app_data']['id_case'], 'w');
+$edit  = allowed($_SESSION['app_data']['id_case'], 'e');
 
+$dis = '';
+
+if ($_SESSION['app_data']['id_case']) {
+	if (! $edit)
+		$dis = 'disabled="disabled"';
+} else {
+	if (! $write)
+		$dis = 'disabled="disabled"';
+}
+// $dis = (($admin || ($edit && $modify)) ? '' : 'disabled="disabled"');
 
 ?>
 
