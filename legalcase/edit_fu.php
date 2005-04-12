@@ -255,6 +255,7 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 				echo "<td>";
 
 				echo '<input type="hidden" name="type" value="' . $_REQUEST['type'] . '" />' . "\n";
+				echo '<input type="hidden" name="new_stage" value="' . $_REQUEST['stage'] . '" />' . "\n";
 				echo _T('kw_stage_' . $_REQUEST['stage'] . '_title');
 
 				echo "</td>\n";
