@@ -182,6 +182,11 @@ function lcm_fetch_array($r) {
 		return mysql_fetch_array($r);
 }
 
+function lcm_fetch_assoc($r) {
+	if ($r)
+		return mysql_fetch_assoc($r);
+}
+
 function spip_fetch_array($r) {
 	lcm_log("use of deprecated function: spip_fetch_array, use lcm_fetch_array instead");
 	return lcm_fetch_array($r);
