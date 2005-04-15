@@ -258,6 +258,32 @@ function get_person_initials($item, $with_abbver = true) {
 	return $ret;
 }
 
+function get_fu_description($item) {
+	if (! is_array($item)) {
+		lcm_debug("get_fu_description: parameter is not an array.");
+		return '';
+	}
+
+	$short_description = '';
+
+	if ($item['type'] == 'assignment' && is_numeric($item['description'])) {
+		$res1 = lcm_query("SELECT * FROM lcm_author WHERE id_author = " . $item['description']);
+		$author1 = lcm_fetch_array($res1);
+		$short_description = _T('case_info_author_assigned', array('name' => get_person_name($author1)));
+	} else{
+		if ($item['description']) {
+			if (strlen(lcm_utf8_decode($item['description'])) < $title_length) 
+				$short_description = $item['description'];
+			else
+				$short_description = substr($item['description'], 0, $title_length) . '...';
+		} else {
+			$short_description = _T('fu_info_emptydesc');
+		}
+	}
+
+	return $short_description;
+}
+
 // Dirty hack: utf8_decode is mainly used for strlen(),
 // so if it is not installed, it's not such a big problem.
 // Use with care!
