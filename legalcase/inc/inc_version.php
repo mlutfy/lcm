@@ -850,6 +850,21 @@ function _Th($text, $args = '') {
 	return $str;
 }
 
+function _Tkw($grp, $val, $args = '') {
+	global $system_kwg;
+	$kwg = array();
+
+	if ($system_kwg[$grp])
+		$kwg = $system_kwg[$grp]['keywords'];
+	else
+		$kwg = get_keywords_in_group_name($grp, false);
+
+	if (count($kwg))
+		return _T($kwg[$val]['title']);
+	else
+		lcm_panic("kwg not found");
+}
+
 // Main language of the site
 $langue_site = read_meta('langue_site');
 if (!$langue_site) include_lcm('inc_lang');
