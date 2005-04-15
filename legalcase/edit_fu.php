@@ -127,46 +127,51 @@ if (empty($_SESSION['errors'])) {
 			$_SESSION['fu_data']['id_app'] = $app;
 		}
 	}
-
-	// Check for access rights
-	$edit  = allowed($_SESSION['fu_data']['id_case'], 'e');
-	$write = allowed($_SESSION['fu_data']['id_case'], 'w');
-
-	if (!($admin || $write))
-		lcm_panic("You don't have permission to add follow-ups to this case");
-
-	if (isset($_SESSION['followup']) && (! $edit))
-		lcm_panic("You do not have the permission to edit existing follow-ups");
-	
-	//
-	// Change status: check for if case status is different than current
-	//
-	$statuses = array('draft' => 'draft',
-				'opening' => 'open',
-				'suspension' => 'suspended',
-				'conclusion' => 'closed',
-				'merge' => 'merged', 
-				'deletion' => 'deleted');
-
-	if ($_REQUEST['submit'] == 'set_status') {
-		// Get case status
-		$result = lcm_query("SELECT status FROM lcm_case WHERE id_case = " . $case);
-		$row = lcm_fetch_array($result);
-	
-		if ($statuses[$_REQUEST['type']] == $row['status'])
-			header('Location: ' . $GLOBALS['HTTP_REFERER']);
-	}
-
-	if ($_REQUEST['submit'] == 'set_stage') {
-		// Get case stage
-		$result = lcm_query("SELECT stage FROM lcm_case WHERE id_case = " . $case);
-		$row = lcm_fetch_array($result);
-	
-		if ($statuses[$_REQUEST['stage']] == $row['stage'])
-			header('Location: ' . $GLOBALS['HTTP_REFERER']);
-	}
 }
 
+//
+// Check for access rights
+//
+$edit  = allowed($_SESSION['fu_data']['id_case'], 'e');
+$write = allowed($_SESSION['fu_data']['id_case'], 'w');
+
+if (!($admin || $write))
+	lcm_panic("You don't have permission to add follow-ups to this case");
+
+if (isset($_SESSION['followup']) && (! $edit))
+	lcm_panic("You do not have the permission to edit existing follow-ups");
+
+//
+// Change status: check for if case status is different than current
+//
+$statuses = array('draft' => 'draft',
+		'opening' => 'open',
+		'suspension' => 'suspended',
+		'conclusion' => 'closed',
+		'merge' => 'merged', 
+		'deletion' => 'deleted');
+
+if ($_REQUEST['submit'] == 'set_status') {
+	// Get case status
+	$result = lcm_query("SELECT status FROM lcm_case WHERE id_case = " . $case);
+	$row = lcm_fetch_array($result);
+
+	if ($statuses[$_REQUEST['type']] == $row['status'])
+		header('Location: ' . $GLOBALS['HTTP_REFERER']);
+}
+
+if ($_REQUEST['submit'] == 'set_stage') {
+	// Get case stage
+	$result = lcm_query("SELECT stage FROM lcm_case WHERE id_case = " . $case);
+	$row = lcm_fetch_array($result);
+
+	if ($statuses[$_REQUEST['stage']] == $row['stage'])
+		header('Location: ' . $GLOBALS['HTTP_REFERER']);
+}
+
+//
+// Start page
+//
 if (isset($_SESSION['followup']))
 	lcm_page_start(_T('title_fu_edit'));
 else {
@@ -177,7 +182,6 @@ else {
 	}
 }
 
-// Show a bit of background on the case
 show_context_start();
 show_context_case_title($case);
 show_context_case_involving($case);
@@ -406,6 +410,11 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 			echo "</td></tr>\n";
 			echo "</table>\n";
 			echo "</div>\n";
+		}
+
+		if (isset($_SESSION['followup'])) {
+			// Allow case admin to hide the follow-up
+			// TODO
 		}
 
 		echo '<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
