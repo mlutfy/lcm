@@ -192,7 +192,7 @@ if ($_REQUEST['submit'] == 'set_status')
 
 // For 'change stage'
 if ($_REQUEST['submit'] == 'set_stage')
-	show_context_item(_Ti('fu_input_current_stage') . _T('kw_stage_' . $row['stage'] . '_title'));
+	show_context_item(_Ti('fu_input_current_stage') . _Tkw('stage', $row['stage']));
 
 show_context_end();
 
@@ -217,7 +217,15 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 		<tr><td><?php echo f_err_star('date_end') . (($prefs['time_intervals'] == 'absolute') ? _T('fu_input_date_end') : _T('fu_input_time_length')); ?></td>
 			<td><?php 
 				if ($prefs['time_intervals'] == 'absolute') {
-					$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
+					// Buggy code, so isolated most important cases
+					if ($_SESSION['fu_data']['id_followup'] == 0)
+						$name = 'end';
+					elseif ($edit)
+						$name = 'end';
+					else
+						// user can 'finish' entering data
+						$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
+
 					echo get_date_inputs($name, $_SESSION['fu_data']['date_end']);
 					echo ' ';
 					echo _T('time_input_time_at') . ' ';
