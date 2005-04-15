@@ -205,7 +205,7 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 
 <form action="upd_fu.php" method="post">
 	<table class="tbl_usr_dtl" width="99%">
-		<tr><td><?php echo _T('fu_input_date_start'); ?></td>
+		<tr><td><?php echo f_err_star('date_start') . _T('fu_input_date_start'); ?></td>
 			<td><?php 
 				$name = (($admin || $edit) ? 'start' : '');
 				echo get_date_inputs($name, $_SESSION['fu_data']['date_start'], false);
@@ -214,7 +214,7 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 				echo f_err_star('date_start', $errors); ?>
 			</td>
 		</tr>
-		<tr><td><?php echo (($prefs['time_intervals'] == 'absolute') ? _T('fu_input_date_end') : _T('fu_input_time_length')); ?></td>
+		<tr><td><?php echo f_err_star('date_end') . (($prefs['time_intervals'] == 'absolute') ? _T('fu_input_date_end') : _T('fu_input_time_length')); ?></td>
 			<td><?php 
 				if ($prefs['time_intervals'] == 'absolute') {
 					$name = (($admin || ($edit && ($_SESSION['fu_data']['date_end']=='0000-00-00 00:00:00'))) ? 'end' : '');
