@@ -372,7 +372,14 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 		echo '<p class="nav_column_text">' . _T('calendar_info_noacts') . "</p>\n";
 	}
 	
-	echo "&nbsp;<a href=\"listapps.php\" title=\"". _T('title_agenda_list') ."\"><img src=\"images/jimmac/stock_show-form-dialog.png\" border=\"0\" width=\"16\" height=\"16\" alt=\"\" /></a>&nbsp;<a href=\"edit_app.php?app=0\" title=\"". _T('app_button_new') ."\"><img src=\"images/jimmac/stock_new-16.png\" border=\"0\" width=\"16\" height=\"16\" alt=\"\" /></a>";
+	// my appointments
+	echo '&nbsp;<a href="author_det.php?tab=appointments&amp;author=' . $GLOBALS['author_session']['id_author'] . '" title="' . _T('title_agenda_list') . '">'
+		. '<img src="images/jimmac/stock_show-form-dialog.png" border="0" width="16" height="16" alt="" /></a>';
+	
+	// new appointment
+	echo '&nbsp;<a href="edit_app.php?app=0" title="' . _T('app_button_new') . '">'
+		. '<img src="images/jimmac/stock_new-16.png" border="0" width="16" height="16" alt="" /></a>';
+
 	// End of nav_menu_box for Agenda
 	echo "</div>\n";
 
