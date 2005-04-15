@@ -22,31 +22,62 @@
 */
 
 include('inc/inc.php');
+include_lcm('inc_acc');
 
 $case = intval($_REQUEST['case']);
+$_SESSION['errors'] = array();
 
 $destination = "case_det.php?case=$case";
+
+/* [ML] Not useful for now (my prefs redirection bug)
 if (isset($_REQUEST['ref_sel_client']) && $_REQUEST['ref_sel_client'])
 	$destination = $ref_sel_client;
+*/
 
-// Test whether clients were selected
-if (! isset($_REQUEST['clients'])) {
+// Test access rights (unlikely to happen, unless hack attempt)
+if (! ($case && allowed($case, 'a'))) {
+	$_SESSION['errors']['generic'] = "Access denied"; // TRAD
 	header("Location: " . $destination);
 	exit;
 }
 
-foreach ($_REQUEST['clients'] as $key=>$value) 
-	$clients[$key] = intval($value);
+// Add client to case
+if (isset($_REQUEST['clients'])) {
+	foreach ($_REQUEST['clients'] as $key=>$value) 
+		$clients[$key] = intval($value);
 
-if (($case>0) && ($clients)) {
-	foreach($clients as $client) {
-		$q="INSERT INTO lcm_case_client_org
-			SET id_case=$case,id_client=$client";
+	if ($clients) {
+		foreach($clients as $client) {
+			$q="INSERT INTO lcm_case_client_org
+				SET id_case=$case,id_client=$client";
+
+			$result = lcm_query($q);
+		}
+	}
+}
+
+// Remove client from case
+if (isset($_REQUEST['id_del_client'])) {
+	foreach ($_REQUEST['id_del_client'] as $id_client) {
+		$q="DELETE FROM lcm_case_client_org
+			WHERE id_case = $case
+			AND id_client = $id_client";
 
 		$result = lcm_query($q);
 	}
 }
 
-header("Location: " . $destination);
+// Remove organisation from case
+if (isset($_REQUEST['id_del_org'])) {
+	foreach ($_REQUEST['id_del_org'] as $id_org) {
+		$q="DELETE FROM lcm_case_client_org
+			WHERE id_case = $case
+			AND id_org = $id_org";
+
+		$result = lcm_query($q);
+	}
+}
+
+header("Location: " . $destination . "#clients");
 
 ?>
