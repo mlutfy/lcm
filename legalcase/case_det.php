@@ -471,7 +471,7 @@ if ($case > 0) {
 					echo '</td>';
 					
 					// Type
-					echo '<td>' . _T('kw_followups_' . $row['type'] . '_title') . '</td>';
+					echo '<td>' . _Tkw('followups', $row['type']) . '</td>';
 
 					// Description
 					if ($row['type'] == 'assignment' && is_numeric($row['description'])) {

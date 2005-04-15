@@ -860,7 +860,7 @@ function _Tkw($grp, $val, $args = '') {
 		$kwg = get_keywords_in_group_name($grp, false);
 
 	if (count($kwg))
-		return _T($kwg[$val]['title']);
+		return _T(remove_number_prefix($kwg[$val]['title']));
 	else
 		lcm_panic("kwg not found");
 }
