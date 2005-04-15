@@ -1,6 +1,6 @@
 \documentclass[12pt]{article}
 \usepackage{times}
-\usepackage[latin1]{inputenc}
+\usepackage[utf8]{inputenc}
 \usepackage{epsfig}
 \pagestyle{plain}
 
@@ -33,6 +33,57 @@
 \newpage
 
 %% ----------------------------------------------------------------------
+
+\section{About the project}
+
+\subsection{Contributors}
+
+The LCM project was initiated by the Internet Rights Bulgaria Foundation
+(IRBF) in July 2004. The project was made possible with the financial support
+of the Open Society Institute (information program) and with the collaboration
+of the Bulgarian Open Society Institute (law program).
+
+The main contributors to the project are:
+
+\begin{itemize}
+\item Christina Haralanova (Project manager)
+\item Mathieu Lutfy (Software development leader)
+\item Anastas Giokov (PHP/MySQL development)
+\item Krasimir Makaveev (Web development and quality assurance)
+\item Kaloian Doganov (Documentation and quality assurance)
+\item Alexander Shopov (Documentation)
+\end{itemize}
+
+Translators:
+
+\begin{itemize}
+\item Alexander Shopov (Bulgarian)
+\item Maria Velichkova (Bulgarian documentation)
+\item Luís André Beckhauser (Portuguese of Brazil)
+\end{itemize}
+
+Web hosting:
+
+\begin{itemize}
+\item Source Forge - http://www.sourceforge.net (download, CVS, mailing-lists)
+\item NGO Bulgaria Gateway - http://www.ngo-bg.org (website, documentation, testing sites)
+\end{itemize}
+
+Other contributions:
+
+- Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
+- Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
+
+We would also like to thank the authors of the Spip (http://www.spip.net)
+content management system, from which many concepts were re-used. As well as
+the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
+Florent Jugla, which is very helpful to manage the LCM translations.
+
+\subsection{History of releases (?)}
+
+\subsection{Contacts}
+
+\subsection{Copyright and terms of use}
 
 \section{Installation}
 
@@ -117,14 +168,6 @@
 \subsubsection{Role of reports}
 
 \subsubsection{Create/edit report}
-
-%% ----------------------------------------------------------------------
-
-\section{About the project}
-
-\subsection{Contributors}
-
-\subsection{History of releases}
 
 %% ----------------------------------------------------------------------
 
