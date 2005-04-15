@@ -1,0 +1,36 @@
+\documentclass[12pt]{article}
+\usepackage{times}
+\usepackage[latin1]{inputenc}
+\usepackage{epsfig}
+\pagestyle{plain}
+
+\title{Legal Case Management System\\ User's manual}
+\author{Authors ?}
+\date{1 May 2005}
+
+%% --------------------------------------------------------------------------
+%% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
+%% permet d'avoir des liens surlignes (ex: table des matieres) sans que ce
+%% soit vraiment laid (encadre en bleu)
+%% are we in pdftex ????
+\ifx\pdfoutput\undefined % We're not running pdftex
+\else
+\RequirePackage[colorlinks,hyperindex]{hyperref}
+\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+\fi
+%% --------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\abstract{Document abstract.}
+
+\tableofcontents
+
+\newpage
+
+\section{Section}
+
+
+\end{document}
