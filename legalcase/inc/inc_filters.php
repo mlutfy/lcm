@@ -121,15 +121,22 @@ function format_time_interval($time, $hours_only=false, $hours_only_format='%.2f
 			if ($days) $ret[] = $days . 'd';
 			if ($hours) {
 				if ($hours_only)
-					$ret[] = sprintf($hours_only_format,$hours) . ( ($hours == 1.0) ? ' hr' : ' hrs');
+					$ret[] = sprintf($hours_only_format,$hours) . ( ($hours == 1.0) ? ' hr' : ' hrs'); // TRAD
 				else
-					$ret[] = $hours . 'h';
+					$ret[] = $hours . 'h'; // TRAD
 			}
-			if ($minutes) $ret[] = $minutes . 'm';
+			if ($minutes) $ret[] = $minutes . 'm'; // TRAD
 
 			return join(', ',$ret);
 		} else if ($time == 0) return '0';
 	} else return '';
+}
+
+function format_time_interval_prefs($time) {
+	global $prefs;
+
+	$hours_only = $prefs['time_intervals_notation'] == 'hours_only';
+	return format_time_interval($time, $hours_only);
 }
 
 function format_money($money) {
