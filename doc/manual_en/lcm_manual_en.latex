@@ -6,7 +6,7 @@
 
 \title{Legal Case Management System\\ User's manual}
 \author{Authors ?}
-\date{1 May 2005}
+\date{Version 0.5 - $id$}
 
 %% --------------------------------------------------------------------------
 %% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
