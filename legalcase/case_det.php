@@ -275,7 +275,7 @@ if ($case > 0) {
 							echo '<td width="1%" nowrap="nowrap">';
 							echo '<label for="id_del_client' . $row['id_client'] . '">';
 							echo '<img src="images/jimmac/stock_trash-16.png" width="16" height="16" '
-								. 'alt="' . "Delete client association" . '" title="' .  "Delete" /* TRAD */ . '" />';
+								. 'alt="' . _T('case_info_delete_client') . '" title="' .  _T('case_info_delete_client') . '" />';
 							echo '</label>&nbsp;';
 							echo '<input type="checkbox" onclick="lcm_show(\'btn_delete\')" '
 								. 'id="id_del_client' . $row['id_client'] . '" name="id_del_client[]" '
@@ -317,7 +317,7 @@ if ($case > 0) {
 							echo '<td width="1%" nowrap="nowrap">';
 							echo '<label for="id_del_org' . $row['id_org'] . '">';
 							echo '<img src="images/jimmac/stock_trash-16.png" width="16" height="16" '
-								. 'alt="' . "Delete organisation association" . '" title="' .  "Delete" /* TRAD */ . '" />';
+								. 'alt="' . _T('case_info_delete_org') . '" title="' . _T('case_info_delete_org') . '" />';
 							echo '</label>&nbsp;';
 							echo '<input type="checkbox" onclick="lcm_show(\'btn_delete\')" '
 								. 'id="id_del_org' . $row['id_org'] . '" name="id_del_org[]" '
