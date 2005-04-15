@@ -88,6 +88,25 @@ function allowed($case, $access) {
 	return $allow;
 }
 
+function allowed_author($author, $access) {
+	global $author_session;
+
+	// Admins can access everything
+	if ($author_session['status'] == 'admin')
+		return true;
+
+	// Check if the author ID is present
+	if (! (intval($author) > 0))
+		return false;
+
+	// We're not checking for various access rights at the moment,
+	// since for read/write it is the same test (author = self or admin)
+	if ($author_session['id_author'] == $author)
+		return true;
+	
+	return false;
+}
+
 // Returns an array with the possible case statuses
 // c.f. http://www.lcm.ngo-bg.org/article78.html
 function get_possible_case_statuses($status) {
