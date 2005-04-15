@@ -1507,6 +1507,8 @@ function show_attachments_list($type, $id_type) {
 		echo '<p align="right" style="visibility: hidden">';
 		echo '<input type="submit" name="submit" id="btn_delete" value="' . _T('button_validate') . '" class="search_form_btn" />';
 		echo "</p>\n";
+	} else {
+		echo '<p class="normal_text">' . _T('file_info_emptylist') . "</p>\n";
 	}
 }
 
