@@ -6,7 +6,7 @@
 
 \title{Legal Case Management System\\ User's manual}
 \author{Authors ?}
-\date{Version 0.5 - $Version$}
+\date{Version 0.5-pre1}
 
 %% --------------------------------------------------------------------------
 %% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
@@ -24,13 +24,116 @@
 
 \maketitle
 
-\abstract{Document abstract.}
+\abstract{TODO: Document abstract.}
+
+\newpage
 
 \tableofcontents
 
 \newpage
 
-\section{Section}
+%% ----------------------------------------------------------------------
 
+\section{Installation}
+
+\subsection{Requirements}
+
+%% INSTALL file
+
+\subsection{Before installing}
+
+%% INSTALL file
+
+\subsection{While installing}
+
+\subsubsection{Setting up directory permissions}
+
+% help_title_install_permissions
+
+\subsubsection{Your database connection}
+
+% help_title_install_database
+
+\subsubsection{Personal information}
+
+% help_title_install_personal
+
+%% ----------------------------------------------------------------------
+
+\section{User functions}
+
+\subsection{Cases}
+
+\subsubsection{General overview + edit case}
+
+\subsubsection{Adding clients to the case}
+
+\subsubsection{Adding follow-up activities}
+
+\subsection{Clients and organisations}
+
+\subsubsection{Role of client, Edit client}
+
+\subsubsection{Role of org, Edit org}
+
+\subsection{Users}
+
+\subsubsection{Role of users, edit user}
+
+\subsubsection{Role of administrators}
+
+\subsection{Tools}
+
+\subsubsection{Agenda}
+
+\subsubsection{Document uploads/attachments}
+
+%% ----------------------------------------------------------------------
+
+\section{Administrative functions}
+
+\subsection{Site configuration}
+
+\subsubsection{General configuration}
+
+\subsubsection{Collaborative work}
+
+\subsubsection{Office policy}
+
+\subsubsection{Regional settings}
+
+\subsection{Archives}
+
+\subsubsection{Export}
+
+\subsubsection{Import}
+
+\subsection{Keywords}
+
+\subsubsection{Intro, todo}
+
+\subsection{Reports}
+
+\subsubsection{Role of reports}
+
+\subsubsection{Create/edit report}
+
+%% ----------------------------------------------------------------------
+
+\section{About the project}
+
+\subsection{Contributors}
+
+\subsection{History of releases}
+
+%% ----------------------------------------------------------------------
+
+\section{FAQ}
+
+\subsection{About usage}
+
+\subsection{Technical problems}
+
+%% ----------------------------------------------------------------------
 
 \end{document}
