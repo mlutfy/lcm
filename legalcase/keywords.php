@@ -61,7 +61,7 @@ function show_all_keywords_type($type = '') {
 			foreach ($kw_all as $key => $kw) {
 				echo "\t<li>";
 				if ($suggest == $kw['name']) echo "<b>";
-				echo "<a href='?action=edit_keyword&amp;id_keyword=" . $kw['id_keyword'] . "' class='content_link'>". _T(remove_number_prefix($kw['title'])) . "</a>";
+				echo "<a href='?action=edit_keyword&amp;id_keyword=" . $kw['id_keyword'] . "' class='content_link'>". _T($kw['title']) . "</a>";
 				if ($kw['ac_author'] != 'Y') echo " (hidden) "; // TRAD
 				if ($suggest == $kw['name']) echo "</b>";
 				echo "</li>\n";
