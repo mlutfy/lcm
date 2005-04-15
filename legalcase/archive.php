@@ -49,7 +49,9 @@ $tabs = array(	array('name' => _T('archives_tab_all_cases'), 'url' => 'archive.p
 	);
 show_tabs_links($tabs,0);
 
-show_find_box('case', $find_case_string, '__self__', (string)($GLOBALS['author_session']['status'] == 'admin') );
+// [ML] Use seperate function
+// show_find_box('case', $find_case_string, '__self__', (string)($GLOBALS['author_session']['status'] == 'admin') );
+show_find_box('case', $find_case_string, '__self__');
 
 $q = "SELECT DISTINCT lcm_case.id_case,title,status,public,pub_write
 		FROM lcm_case,lcm_case_author
