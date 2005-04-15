@@ -264,7 +264,11 @@ function get_fu_description($item) {
 		return '';
 	}
 
+	global $prefs;
 	$short_description = '';
+
+	// Set the length of short followup title
+	$title_length = (($prefs['screen'] == "wide") ? 48 : 115);
 
 	if ($item['type'] == 'assignment' && is_numeric($item['description'])) {
 		$res1 = lcm_query("SELECT * FROM lcm_author WHERE id_author = " . $item['description']);
