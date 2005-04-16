@@ -121,7 +121,7 @@ if ($row = lcm_fetch_array($result)) {
 		$q = "SELECT a.id_followup, fu.description, fu.type
 				FROM lcm_app_fu as a, lcm_followup as fu
 				WHERE a.id_app = " . $row['id_app'] . "
-			  	  AND aid_followup = fu.id_followup
+			  	  AND a.id_followup = fu.id_followup
 				  AND a.relation = 'parent'";
 		$res_fu = lcm_query($q);
 		if (lcm_num_rows($res_fu) > 0) {
