@@ -173,7 +173,7 @@ class Auth_db {
 			return false;
 
 		// Check for username size
-		if (strlen(lcm_utf8_decode($new_username)) <= 3) {
+		if (strlen(lcm_utf8_decode($new_username)) < 3) {
 			$this->error = _T('login_warning_too_short');
 			return false;
 		}
