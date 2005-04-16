@@ -215,7 +215,8 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 	//
 	// Organisations this client represents
 	//
-	echo "\t<tr>";
+	/* [ML] too confusing
+	echo "<tr>\n";
 	echo '<td colspan="2" align="center" valign="middle" class="heading">';
 	echo '<h4>' . _T('client_subtitle_organisations') . '</h4>';
 	echo '</td>';
@@ -243,7 +244,8 @@ echo '<option ' . $opt_sel_female . 'value="female">' . _T('person_input_gender_
 		echo "\t\t</select>\n";
 		echo "\t\t<button name=\"submit\" type=\"submit\" value=\"add_org\" class=\"simple_form_btn\">" . 'Add' . "</button>\n"; // TRAD
 	}
-	echo "\t</td></tr>\n";
+	echo "</td>\n</tr>\n";
+	*/
 
 ?>
 
