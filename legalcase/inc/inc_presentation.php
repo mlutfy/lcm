@@ -664,6 +664,7 @@ function help_page_start($page_title) {
 		'cases' => array('cases_intro', 'cases_participants', 'cases_followups'),
 		'clients' => array('clients_intro', 'clients_org'),
 		'authors' => array('authors_intro', 'authors_admin'),
+		'tools' => array('tools_agenda', 'tools_documents'),
 		'siteconfig' => array('siteconfig_general', 'siteconfig_collab', 'siteconfig_policy', 'siteconfig_regional'),
 		'archives' => array('archives_intro', 'archives_export', 'archives_import'),
 		'reports' => array('reports_intro'), 
@@ -1470,6 +1471,16 @@ function show_context_case_involving($id_case) {
 
 function show_context_end() {
 	echo "</ul>\n";
+}
+
+function show_page_subtitle($subtitle, $help_code = '', $help_target = '') {
+	echo '<div class="prefs_column_menu_head">';
+
+	if ($help_code)
+		echo "<div style='float: right'>" . lcm_help($help_code, $help_target) . "</div>";
+	
+	echo $subtitle;
+	echo "</div>\n";
 }
 
 function show_attachments_list($type, $id_type) {
