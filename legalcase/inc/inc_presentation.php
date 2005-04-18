@@ -212,7 +212,7 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 	echo '<body' . ($lcm_lang_rtl ? ' dir="rtl"' : '') . ">\n";
 }
 
-function lcm_page_start($title = "", $css_files = "", $meta = '') {
+function lcm_page_start($title = "", $css_files = "", $meta = '', $help_code = '') {
 	global $connect_id_auteur;
 	global $connect_status;
 	global $auth_can_disconnect, $connect_login;
@@ -390,7 +390,13 @@ function lcm_page_start($title = "", $css_files = "", $meta = '') {
 				<div id=\"main_column\">
 				
 					<!-- Start of 'main_column' content -->
-					<h3 class=\"content_head\">". $title ."</h3>
+					<h3 class=\"content_head\">";
+	
+	if ($help_code)
+		echo '<div style="float: right">' . lcm_help($help_code) . "</div> ";
+					
+	echo $title;
+	echo "</h3>
 					<!-- [KM] Just a small experiment how the future breadcrumb will look like -->
 					<!-- div id=\"breadcrumb\"><a href=\"#\" title=\"Test link\">Home</a> &gt; <a href=\"#\" title=\"Test link\">Page1</a> &gt; <a href=\"#\" title=\"Test link\">Subpage1</a> &gt; Subsubpage1</div -->
 	";

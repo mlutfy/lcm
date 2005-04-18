@@ -206,12 +206,12 @@ if ($_REQUEST['submit'] == 'set_status' || $_REQUEST['submit'] == 'set_stage' ||
 // Start page
 //
 if (isset($_SESSION['followup']))
-	lcm_page_start(_T('title_fu_edit'));
+	lcm_page_start(_T('title_fu_edit'), '', '', 'case_followups');
 else {
 	if (isset($_REQUEST['type'])) {
-		lcm_page_start(_T('title_fu_change_status'));
+		lcm_page_start(_T('title_fu_change_status'), '', '', 'case_followups');
 	} else {
-		lcm_page_start(_T('title_fu_new'));
+		lcm_page_start(_T('title_fu_new'), '', '', 'case_followups');
 	}
 }
 
