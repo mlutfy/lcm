@@ -1384,11 +1384,14 @@ function show_context_item($string) {
 	echo '<li style="list-style-type: none;">' . $string . "</li>\n";
 }
 
-function show_context_case_title($id_case) {
+function show_context_case_title($id_case, $link_tab = '') {
 	if (! (is_numeric($id_case) && $id_case > 0)) {
 		lcm_log("Warning: show_context_casename, id_case not a number > 0: $id_case");
 		return;
 	}
+
+	// Send back to follow-up tab (ex: from 'fu details')
+	$link_tab = ($link_tab ? '&amp;tab=' . $link_tab : '');
 
 	$query = "SELECT title FROM lcm_case WHERE id_case = $id_case";
 	$result = lcm_query($query);
@@ -1396,7 +1399,7 @@ function show_context_case_title($id_case) {
 	while ($row = lcm_fetch_array($result))  // should be only once
 		echo '<li style="list-style-type: none;">' 
 			. _T('fu_input_for_case')
-			. " <a href='case_det.php?case=$id_case' class='content_link'>" . $row['title'] . "</a>"
+			. " <a href='case_det.php?case=$id_case$link_tab' class='content_link'>" . $row['title'] . "</a>"
 			. "</li>\n";
 }
 

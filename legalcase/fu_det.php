@@ -51,7 +51,7 @@ lcm_page_start(_T('title_fu_view'));
 // Show a bit of background on the case
 $case = $fu_data['id_case'];
 show_context_start();
-show_context_case_title($case);
+show_context_case_title($case, 'followups');
 show_context_case_involving($case);
 
 // Show parent appointment, if any
