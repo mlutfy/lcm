@@ -206,17 +206,17 @@ if ($_REQUEST['submit'] == 'set_status' || $_REQUEST['submit'] == 'set_stage' ||
 // Start page
 //
 if (isset($_SESSION['followup']))
-	lcm_page_start(_T('title_fu_edit'), '', '', 'case_followups');
+	lcm_page_start(_T('title_fu_edit'), '', '', 'cases_followups');
 else {
 	if (isset($_REQUEST['type'])) {
-		lcm_page_start(_T('title_fu_change_status'), '', '', 'case_followups');
+		lcm_page_start(_T('title_fu_change_status'), '', '', 'cases_followups');
 	} else {
-		lcm_page_start(_T('title_fu_new'), '', '', 'case_followups');
+		lcm_page_start(_T('title_fu_new'), '', '', 'cases_followups');
 	}
 }
 
 show_context_start();
-show_context_case_title($case);
+show_context_case_title($case, 'followups');
 show_context_case_involving($case);
 
 // For 'change status'
