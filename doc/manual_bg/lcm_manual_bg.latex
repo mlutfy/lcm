@@ -1,0 +1,182 @@
+\documentclass[12pt]{article}
+\usepackage{times}
+\usepackage[utf8]{inputenc}
+\usepackage{epsfig}
+\pagestyle{plain}
+
+\title{Legal Case Management System\\ User's manual}
+\author{Authors ?}
+\date{Version 0.5-pre1}
+
+%% --------------------------------------------------------------------------
+%% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
+%% permet d'avoir des liens surlignes (ex: table des matieres) sans que ce
+%% soit vraiment laid (encadre en bleu)
+%% are we in pdftex ????
+\ifx\pdfoutput\undefined % We're not running pdftex
+\else
+\RequirePackage[colorlinks,hyperindex]{hyperref}
+\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
+\fi
+%% --------------------------------------------------------------------------
+
+\begin{document}
+
+\maketitle
+
+\abstract{TODO: Document abstract.}
+
+\newpage
+
+\tableofcontents
+
+\newpage
+
+%% ----------------------------------------------------------------------
+
+\section{About the project}
+
+\subsection{Contributors}
+
+The LCM project was initiated by the Internet Rights Bulgaria Foundation
+(IRBF) in July 2004. The project was made possible with the financial support
+of the Open Society Institute (information program) and with the collaboration
+of the Bulgarian Open Society Institute (law program).
+
+The main contributors to the project are:
+
+\begin{itemize}
+\item Christina Haralanova (Project manager)
+\item Mathieu Lutfy (Software development leader)
+\item Anastas Giokov (PHP/MySQL development)
+\item Krasimir Makaveev (Web development and quality assurance)
+\item Kaloian Doganov (Documentation and quality assurance)
+\item Alexander Shopov (Documentation)
+\end{itemize}
+
+Translators:
+
+\begin{itemize}
+\item Alexander Shopov (Bulgarian)
+\item Maria Velichkova (Bulgarian documentation)
+\item Luís André Beckhauser (Portuguese of Brazil)
+\end{itemize}
+
+Web hosting:
+
+\begin{itemize}
+\item Source Forge - http://www.sourceforge.net (download, CVS, mailing-lists)
+\item NGO Bulgaria Gateway - http://www.ngo-bg.org (website, documentation, testing sites)
+\end{itemize}
+
+Other contributions:
+
+- Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
+- Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
+
+We would also like to thank the authors of the Spip (http://www.spip.net)
+content management system, from which many concepts were re-used. As well as
+the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
+Florent Jugla, which is very helpful to manage the LCM translations.
+
+\subsection{History of releases (?)}
+
+\subsection{Contacts}
+
+\subsection{Copyright and terms of use}
+
+\section{Installation}
+
+\subsection{Requirements}
+
+%% INSTALL file
+
+\subsection{Before installing}
+
+%% INSTALL file
+
+\subsection{While installing}
+
+\subsubsection{Setting up directory permissions}
+
+% help_title_install_permissions
+
+\subsubsection{Your database connection}
+
+% help_title_install_database
+
+\subsubsection{Personal information}
+
+% help_title_install_personal
+
+%% ----------------------------------------------------------------------
+
+\section{User functions}
+
+\subsection{Cases}
+
+\subsubsection{General overview + edit case}
+
+\subsubsection{Adding clients to the case}
+
+\subsubsection{Adding follow-up activities}
+
+\subsection{Clients and organisations}
+
+\subsubsection{Role of client, Edit client}
+
+\subsubsection{Role of org, Edit org}
+
+\subsection{Users}
+
+\subsubsection{Role of users, edit user}
+
+\subsubsection{Role of administrators}
+
+\subsection{Tools}
+
+\subsubsection{Agenda}
+
+\subsubsection{Document uploads/attachments}
+
+%% ----------------------------------------------------------------------
+
+\section{Administrative functions}
+
+\subsection{Site configuration}
+
+\subsubsection{General configuration}
+
+\subsubsection{Collaborative work}
+
+\subsubsection{Office policy}
+
+\subsubsection{Regional settings}
+
+\subsection{Archives}
+
+\subsubsection{Export}
+
+\subsubsection{Import}
+
+\subsection{Keywords}
+
+\subsubsection{Intro, todo}
+
+\subsection{Reports}
+
+\subsubsection{Role of reports}
+
+\subsubsection{Create/edit report}
+
+%% ----------------------------------------------------------------------
+
+\section{FAQ}
+
+\subsection{About usage}
+
+\subsection{Technical problems}
+
+%% ----------------------------------------------------------------------
+
+\end{document}
