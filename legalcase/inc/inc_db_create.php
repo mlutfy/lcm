@@ -268,6 +268,8 @@ function create_database() {
 			id_entry bigint(21) NOT NULL auto_increment,
 			id_keyword bigint(21) NOT NULL default '0',
 			id_case bigint(21) NOT NULL default '0',
+			id_stage bigint(21) NOT NULL default '0',
+			value text NOT NULL default '',
 			PRIMARY KEY (id_entry),
 			KEY id_keyword (id_keyword),
 			KEY id_case (id_case))";

@@ -730,6 +730,14 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (32);
 	}
 
+	if ($lcm_db_version_current < 33) {
+		lcm_query("ALTER TABLE lcm_keyword_case
+					ADD id_stage bigint(21) not null default 0 AFTER id_case,
+					ADD value text not null default ''");
+
+		upgrade_db_version (33);
+	}
+
 	return $log;
 }
 
