@@ -225,7 +225,7 @@ if (count($_SESSION['errors'])) {
 		type         = '" . clean_input($_SESSION['fu_data']['type']) . "',
 		sumbilled    = '" . clean_input($_SESSION['fu_data']['sumbilled']) . "'";
 
-	if ($_SESSION['fu_data']['type'] == 'stage_change' || $_SESSION['fu_data']['type'] == 'status_change') {
+	if ($_SESSION['fu_data']['type'] == 'stage_change' || is_status_change($_SESSION['fu_data']['type'])) {
 		$desc = array(
 					'description'  => clean_input($_SESSION['fu_data']['description']),
 					'conclusion'   => clean_input($_SESSION['fu_data']['conclusion']),
