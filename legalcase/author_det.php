@@ -198,7 +198,7 @@ if ($author > 0) {
 			
 				show_list_start($headers);
 			
-				$q = "SELECT id_followup, id_case, date_start, date_end, type, description
+				$q = "SELECT id_followup, id_case, date_start, date_end, type, description, case_stage
 					FROM lcm_followup
 					WHERE id_author = $author
 					  AND UNIX_TIMESTAMP(date_start) >= UNIX_TIMESTAMP('" . $date_start . "')

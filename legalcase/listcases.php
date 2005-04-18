@@ -215,7 +215,7 @@ echo '<p class="normal_text">' . "\n";
 			
 show_list_start($headers);
 
-$q = "SELECT fu.id_case, fu.id_followup, fu.date_start, fu.date_end, fu.type, fu.description,
+$q = "SELECT fu.id_case, fu.id_followup, fu.date_start, fu.date_end, fu.type, fu.description, fu.case_stage,
 			a.name_first, a.name_middle, a.name_last, c.title 
 		FROM lcm_followup as fu, lcm_author as a, lcm_case as c 
 		WHERE fu.id_author = a.id_author 

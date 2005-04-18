@@ -463,7 +463,7 @@ if ($case > 0) {
 			
 				show_list_start($headers);
 			
-				$q = "SELECT fu.id_followup, fu.date_start, fu.date_end, fu.type, fu.description,
+				$q = "SELECT fu.id_followup, fu.date_start, fu.date_end, fu.type, fu.description, fu.case_stage,
 						a.name_first, a.name_middle, a.name_last
 					FROM lcm_followup as fu, lcm_author as a
 					WHERE id_case = $case
