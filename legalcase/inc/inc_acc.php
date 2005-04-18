@@ -109,7 +109,7 @@ function allowed_author($author, $access) {
 
 // Returns an array with the possible case statuses
 // c.f. http://www.lcm.ngo-bg.org/article78.html
-function get_possible_case_statuses($status) {
+function get_possible_case_statuses($status = '') {
 	$statuses = array();
 
 	if ($status == 'draft') {
@@ -155,7 +155,13 @@ function get_possible_case_statuses($status) {
 				// 'merged' => 'merge', 
 				'deleted' => 'deletion');
 	} else {
-		lcm_panic("unknown status: $status");
+		// Send back all
+		$statuses = array('draft' => 'draft', 
+				'open' => 'opening',
+				'suspended' => 'suspension',
+				'closed' => 'conclusion',
+				'merged' => 'merge', 
+				'deleted' => 'deletion');
 	}
 
 	return $statuses;
