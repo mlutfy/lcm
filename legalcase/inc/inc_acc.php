@@ -167,4 +167,14 @@ function get_possible_case_statuses($status = '') {
 	return $statuses;
 }
 
+function is_status_change($type) {
+	$statuses = get_possible_case_statuses();
+
+	foreach($statuses as $key => $val)
+		if ($key == $type || $val == $type)
+			return true;
+	
+	return false;
+}
+
 ?>
