@@ -220,13 +220,22 @@ if (count($_SESSION['errors'])) {
 //	Followup information update
 ///////////////////////////////////////////////////////////////////////
 
-	// global $author_session;
-
-	$fl="	date_start   = '" . clean_input($_SESSION['fu_data']['date_start']) . "',
+	$fl=" date_start = '" . clean_input($_SESSION['fu_data']['date_start']) . "',
 		date_end     = '" . clean_input($_SESSION['fu_data']['date_end']) . "',
 		type         = '" . clean_input($_SESSION['fu_data']['type']) . "',
-		description  = '" . clean_input($_SESSION['fu_data']['description']) . "',
 		sumbilled    = '" . clean_input($_SESSION['fu_data']['sumbilled']) . "'";
+
+	if ($_SESSION['fu_data']['type'] == 'stage_change' || $_SESSION['fu_data']['type'] == 'status_change') {
+		$desc = array(
+					'description'  => clean_input($_SESSION['fu_data']['description']),
+					'conclusion'   => clean_input($_SESSION['fu_data']['conclusion']),
+					'sentence'     => clean_input($_SESSION['fu_data']['sentence']),
+					'sentence_val' => clean_input($_SESSION['fu_data']['sentence_val']));
+
+		$fl .= ", description = '" . serialize($desc) . "'";
+	} else {
+		$fl .= ", description  = '" . clean_input($_SESSION['fu_data']['description']) . "'";
+	}
 
 	if ($id_followup>0) {
 		// Check access rights
