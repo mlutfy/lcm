@@ -274,7 +274,7 @@ function get_fu_description($item, $make_short = true) {
 		$res1 = lcm_query("SELECT * FROM lcm_author WHERE id_author = " . $item['description']);
 		$author1 = lcm_fetch_array($res1);
 		$short_description = _T('case_info_author_assigned', array('name' => get_person_name($author1)));
-	} elseif ($item['type'] == 'stage_change') {
+	} elseif ($item['type'] == 'stage_change' || is_status_change($item['type'])) {
 		$tmp = unserialize((get_magic_quotes_runtime() ? stripslashes($item['description']) : $item['description']));
 		$short_description = _Tkw('stage', $item['case_stage']);
 		if ($tmp['description'])
