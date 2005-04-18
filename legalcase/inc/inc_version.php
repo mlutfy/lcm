@@ -859,10 +859,14 @@ function _Tkw($grp, $val, $args = '') {
 	else
 		$kwg = get_keywords_in_group_name($grp, false);
 
-	if (count($kwg))
-		return _T(remove_number_prefix($kwg[$val]['title']));
-	else
+	if (count($kwg)) {
+		if ($kwg[$val])
+			return _T(remove_number_prefix($kwg[$val]['title']));
+		else
+			lcm_panic("kw not found");
+	} else {
 		lcm_panic("kwg not found");
+	}
 }
 
 // Main language of the site
