@@ -309,6 +309,16 @@ if (count($_SESSION['errors'])) {
 		}
 	}
 
+//
+// Update stage keywords
+//
+if ($_REQUEST['new_stage']) {
+	include_lcm('inc_keywords');
+	$stage_info = get_kw_from_name('stage', $_REQUEST['new_stage']);
+	$id_stage = $stage_info['id_keyword'];
+	update_keywords_request('stage', $id_case, $id_stage);
+}
+
 ///////////////////////////////////////////////////////////////////////
 //	Consequent appointment information update
 ///////////////////////////////////////////////////////////////////////
