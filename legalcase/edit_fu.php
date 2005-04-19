@@ -137,7 +137,7 @@ if (empty($_SESSION['errors'])) {
 
 			// First i18n attempt..
 			$_SESSION['fu_data']['description'] = _T('fu_info_after_event', array(
-						'title' => _Ti(get_kw_title($row['type'])) . $row['title'],
+						'title' => _Ti(_Tkw('appointments', $row['type'])) . $row['title'],
 						'date' => format_date($row['start_time']),
 						'participants' => join(', ', $participants)));
 
