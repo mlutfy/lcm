@@ -42,8 +42,7 @@ if (isset($_GET['fu_order']))
 		$fu_order = clean_input($_GET['fu_order']);
 
 if ($case > 0) {
-	$q="SELECT id_case, title, id_court_archive, date_creation, date_assignment,
-			legal_reason, alledged_crime, status, stage, public, pub_write, notes
+	$q="SELECT *
 		FROM lcm_case
 		WHERE id_case=$case";
 
@@ -163,8 +162,13 @@ if ($case > 0) {
 				if ($case_alledged_crime == 'yes')
 					echo _Ti('case_input_alledged_crime') . clean_output($row['alledged_crime']) . "<br />\n";
 
+				// Keywords
 				include_lcm('inc_keywords');
 				show_all_keywords('case', $row['id_case']);
+
+				$stage = get_kw_from_name('stage', $row['stage']);
+				$id_stage = $stage['id_keyword'];
+				show_all_keywords('stage', $row['id_case'], $id_stage);
 
 				// Notes
 				echo _Ti('case_input_notes') . "<br />\n";
