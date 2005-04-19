@@ -129,7 +129,7 @@ if ($row = lcm_fetch_array($result)) {
 			$fu = lcm_fetch_array($res_fu);
 
 			$short_description = get_fu_description($fu);
-			echo '<br />Consequent to:' . ' <a href="fu_det.php?followup=' . $fu['id_followup'] . '">' . $short_description . "</a><br />\n"; // TRAD
+			echo '<br />Consequent to:' . ' <a class="content_link" href="fu_det.php?followup=' . $fu['id_followup'] . '">' . $short_description . "</a><br />\n"; // TRAD
 		}
 		// Show child followup
 		$q = "SELECT lcm_app_fu.id_followup,lcm_followup.description FROM lcm_app_fu,lcm_followup
