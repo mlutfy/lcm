@@ -257,6 +257,7 @@ function create_database() {
 		name VARCHAR(255) NOT NULL,
 		title text NOT NULL DEFAULT '',
 		description text NOT NULL DEFAULT '',
+		hasvalue ENUM('Y', 'N') NOT NULL DEFAULT 'N',
 		ac_author ENUM('Y', 'N') NOT NULL DEFAULT 'Y',
 		PRIMARY KEY (id_keyword))";
 
@@ -307,7 +308,7 @@ function create_database() {
 		name VARCHAR(255) NOT NULL,
 		title text NOT NULL DEFAULT '',
 		description text NOT NULL DEFAULT '',
-		type ENUM('system', 'case', 'followup', 'client', 'org', 'author'),
+		type ENUM('system', 'case', 'stage', 'followup', 'client', 'org', 'client_org', 'author'),
 		policy ENUM('optional', 'recommended', 'mandatory') DEFAULT 'optional',
 		quantity ENUM('one', 'many') DEFAULT 'one',
 		suggest text NOT NULL DEFAULT '',
