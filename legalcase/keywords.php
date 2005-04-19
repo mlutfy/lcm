@@ -112,7 +112,7 @@ function show_keyword_group_id($id_group) {
 	if ($kwg['type'] == 'system') {
 		echo _T('keywords_input_type_system');
 	} else {
-		$all_types = array("case", "client", "org", "client_org");  // "author", "followup"
+		$all_types = array("case", "stage", "client", "org", "client_org");  // "author", "followup"
 		
 		echo '<select name="kwg_type" id="kwg_type">';
 
