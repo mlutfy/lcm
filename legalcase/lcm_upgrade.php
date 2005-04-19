@@ -34,15 +34,15 @@ if ($lcm_db_version <> $current_version) {
 	include_lcm('inc_db_upgrade');
 	lcm_page_start(_T('title_upgrade_database'));
 	
-	echo "\n<!-- Hide possibly confusing error messages: \n";
-	echo "\t** Upgrading from $current_version to $lcm_db_version **\n";
+	echo "\n<!-- Upgrading from $current_version to $lcm_db_version -->\n";
 	$log = upgrade_database($current_version);
-	echo "-->\n";
 
 	// Create new meta information, if necessary
 	include_lcm('inc_meta_defaults');
 	init_default_config();
 
+	// To be honest, in most cases, it will cause a lcm_panic() and this will
+	// not show, altough we could (in the future) catch/interpret errors.
 	if ($log) {
 		echo "<div class='box_error'>\n";
 		echo "<p>An error occured while upgrading the database: <br/>$log</p>\n"; // TRAD
@@ -51,7 +51,7 @@ if ($lcm_db_version <> $current_version) {
 	} else {
 		echo "<div class='box_success'>\n";
 		echo '<p class="normal_text">' . _T('info_upgrade_database3') 
-			. ' <a href="index.php">' . _T('info_upgrade_database5') . "</a></p>\n";
+			. ' <a class="content_link" href="index.php">' . _T('info_upgrade_database5') . "</a></p>\n";
 		echo "</div>\n";
 	}
 	
@@ -59,7 +59,7 @@ if ($lcm_db_version <> $current_version) {
 } else {
 	lcm_page_start("No database upgrade needed"); // TRAD
 
-	echo '<p class="normal_text"><a href="index.php">' . _T('info_upgrade_database5') . "</a></p>\n";
+	echo '<p class="normal_text"><a class="content_link" href="index.php">' . _T('info_upgrade_database5') . "</a></p>\n";
 
 	lcm_page_end();
 }
