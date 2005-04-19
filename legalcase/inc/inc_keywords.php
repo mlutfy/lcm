@@ -75,7 +75,7 @@ function get_kwg_applicable_for($type_obj, $id_obj, $id_obj_sec = 0) {
 					FROM lcm_keyword_case as ko, lcm_keyword as k, lcm_keyword_group as kwg
 					WHERE k.id_keyword = ko.id_keyword
 					  AND k.id_group = kwg.id_group
-					  AND ko.id_" . $type_obj . " = " . $id_obj . "
+					  AND ko.id_case = " . $id_obj . "
 					  AND ko.id_stage = " . $id_obj_sec . "
 					  AND kwg.quantity = 'one'";
 		} else {
