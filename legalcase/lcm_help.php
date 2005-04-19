@@ -78,6 +78,7 @@ if ($code) {
 				'cases' => array('cases_intro', 'cases_participants', 'cases_followups'),
 				'clients' => array('clients_intro', 'clients_org'),
 				'authors' => array('authors_intro', 'authors_admin'),
+				'tools' => array('tools_agenda', 'tools_documents'),
 				'siteconfig' => array('siteconfig_general', 'siteconfig_collab', 'siteconfig_policy', 'siteconfig_regional'),
 				'archives' => array('archives_intro', 'archives_export', 'archives_import'),
 				'reports' => array('reports_intro'), 
