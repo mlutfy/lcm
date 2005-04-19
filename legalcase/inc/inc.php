@@ -30,6 +30,7 @@ if (!@file_exists('inc/config/inc_connect.php')) {
 include ('inc/inc_version.php');
 
 include_lcm('inc_auth');
+include_lcm('inc_acc');
 include_lcm('inc_presentation');
 include_lcm('inc_text');
 include_lcm('inc_filters');
