@@ -474,6 +474,8 @@ function update_keywords_request($type_obj, $id_obj, $id_obj_sec = 0) {
 								id_" . $type_obj . " = " . $id_obj;
 				}
 
+				if ($_REQUEST['new_kw_entryval_' . $type_obj . $cpt])
+					$query .= ", value = '" . $_REQUEST['new_kw_entryval_' . $type_obj . $cpt] . "'";
 
 				lcm_query($query);
 			}
