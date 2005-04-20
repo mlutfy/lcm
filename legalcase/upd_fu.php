@@ -217,7 +217,16 @@ if (count($_SESSION['errors'])) {
 		type         = '" . clean_input($_SESSION['fu_data']['type']) . "',
 		sumbilled    = '" . clean_input($_SESSION['fu_data']['sumbilled']) . "'";
 
-	if ($_SESSION['fu_data']['type'] == 'stage_change' || is_status_change($_SESSION['fu_data']['type'])) {
+	if ($_SESSION['fu_data']['type'] == 'stage_change') {
+		$desc = array(
+					'description'  => clean_input($_SESSION['fu_data']['description']),
+					'conclusion'   => clean_input($_SESSION['fu_data']['conclusion']),
+					'sentence'     => clean_input($_SESSION['fu_data']['sentence']),
+					'sentence_val' => clean_input($_SESSION['fu_data']['sentence_val']),
+					'new_stage'    => clean_input($_SESSION['fu_data']['new_stage']));
+
+		$fl .= ", description = '" . serialize($desc) . "'";
+	} elseif (is_status_change($_SESSION['fu_data']['type'])) {
 		$desc = array(
 					'description'  => clean_input($_SESSION['fu_data']['description']),
 					'conclusion'   => clean_input($_SESSION['fu_data']['conclusion']),
