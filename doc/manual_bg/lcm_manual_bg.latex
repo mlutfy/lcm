@@ -1,12 +1,14 @@
 \documentclass[12pt]{article}
-\usepackage{times}
+\usepackage{ucs}
 \usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
+\usepackage[bulgarian]{babel}
 \usepackage{epsfig}
 \pagestyle{plain}
 
-\title{Legal Case Management System\\ User's manual}
-\author{Authors ?}
-\date{Version 0.5-pre1}
+\title{Система за управление на юридически практики\\ Ръководство за потребителя}
+\author{автори ?}
+\date{версия 0.5-pre1}
 
 %% --------------------------------------------------------------------------
 %% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
@@ -34,84 +36,86 @@
 
 %% ----------------------------------------------------------------------
 
-\section{About the project}
+\section{Относно проекта}
 
-\subsection{Contributors}
+\subsection{Сътрудници}
 
-The LCM project was initiated by the Internet Rights Bulgaria Foundation
-(IRBF) in July 2004. The project was made possible with the financial support
-of the Open Society Institute (information program) and with the collaboration
-of the Bulgarian Open Society Institute (law program).
+Проектът СУЮП бе започнат от Фондация "Интернет райтс България" през
+юли 2004. Проектът е осъществен с финансовата подкрепа на Институт
+"Отворено общество" (информационна програма) със участието на
+българския Институт "Отворено общество" (юридическа програма).
 
-The main contributors to the project are:
-
-\begin{itemize}
-\item Christina Haralanova (Project manager)
-\item Mathieu Lutfy (Software development leader)
-\item Anastas Giokov (PHP/MySQL development)
-\item Krasimir Makaveev (Web development and quality assurance)
-\item Kaloian Doganov (Documentation and quality assurance)
-\item Alexander Shopov (Documentation)
-\end{itemize}
-
-Translators:
+Основните сътрудници по проекта са:
 
 \begin{itemize}
-\item Alexander Shopov (Bulgarian)
-\item Maria Velichkova (Bulgarian documentation)
-\item Luís André Beckhauser (Portuguese of Brazil)
+\item Кристина Хараланова (ръководител на проекта)
+\item Матю Лютфи (водещ програмист)
+\item Анастас Гиоков (разработка с PHP/MySQL)
+\item Красимир Макавеев (уеб-разработка и контрол по качеството)
+\item Калоян Доганов (документация и контрол по качеството)
+\item Александър Шопов (документация)
 \end{itemize}
 
-Web hosting:
+Преводачи:
 
 \begin{itemize}
-\item Source Forge - http://www.sourceforge.net (download, CVS, mailing-lists)
-\item NGO Bulgaria Gateway - http://www.ngo-bg.org (website, documentation, testing sites)
+\item Александър Шопов (български)
+\item Мария Величкова (документация на български)
+\item Luís André Beckhauser (XXX TODO: как се произнася името на този фен? Луи Андре Бекхаузер?) (бразилски португалски)
 \end{itemize}
 
-Other contributions:
+Уеб-домакини:
 
-- Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
-- Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
+\begin{itemize}
+\item SourceForge - http://www.sourceforge.net (сваляне, CVS, пощенски списъци)
+\item НПО България - http://www.ngo-bg.org (уеб-страница, документация, място за тестове)
+\end{itemize}
 
-We would also like to thank the authors of the Spip (http://www.spip.net)
-content management system, from which many concepts were re-used. As well as
-the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
-Florent Jugla, which is very helpful to manage the LCM translations.
+Други сътрудници
 
-\subsection{History of releases (?)}
+- InterSpace - http://www.i-space.org (контрол по качеството, популяризиране и разпространение)
+- Български хелзинкски комитет - http://www.bghelsinki.org (рецензия и отзиви за софтуерния анализ и тестване)
 
-\subsection{Contacts}
+Също така бихме искали да благодарим на авторите на системата за
+управление на съдържание Спип (http://www.spip.net), от която
+използвахме много идеи. Също така благодарим и на системата за преводи
+Trad-Lang (http://www.eledo.com/download/trad\_lang) на Флорент Югла
+(XXX TODO: Така ли се произнася?), която се оказа много полезна при
+управлението на преводите на СУЮП.
 
-\subsection{Copyright and terms of use}
+\subsection{История на изданията (?)}
 
-\section{Installation}
+\subsection{Контакти}
 
-\subsection{Requirements}
+\subsection{Авторски права и условия за употреба}
+
+\section{Инсталация}
+
+\subsection{Изисквания}
 
 %% INSTALL file
 
-\subsection{Before installing}
+\subsection{Преди инсталацията}
 
 %% INSTALL file
 
-\subsection{While installing}
+\subsection{По време на инсталацията}
 
-\subsubsection{Setting up directory permissions}
+\subsubsection{Настройване на правата за достъп до директориите}
 
 % help_title_install_permissions
 
-\subsubsection{Your database connection}
+\subsubsection{Връзката Ви към базата от данни}
 
 % help_title_install_database
 
-\subsubsection{Personal information}
+\subsubsection{Лична информация}
 
 % help_title_install_personal
 
 %% ----------------------------------------------------------------------
 
-\section{User functions}
+\section{Потребителски функции}
 
 \subsection{Cases}
 
@@ -141,7 +145,7 @@ Florent Jugla, which is very helpful to manage the LCM translations.
 
 %% ----------------------------------------------------------------------
 
-\section{Administrative functions}
+\section{Административни функции}
 
 \subsection{Site configuration}
 
@@ -171,11 +175,11 @@ Florent Jugla, which is very helpful to manage the LCM translations.
 
 %% ----------------------------------------------------------------------
 
-\section{FAQ}
+\section{Често задавани въпроси (ЧЗВ)}
 
-\subsection{About usage}
+\subsection{Относно употребата}
 
-\subsection{Technical problems}
+\subsection{Технически въпроси}
 
 %% ----------------------------------------------------------------------
 
