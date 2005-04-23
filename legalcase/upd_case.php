@@ -38,14 +38,20 @@ foreach($_POST as $key => $value)
 if (!$_SESSION['case_data']['title'])
 	$_SESSION['errors']['title'] = _T('case_warning_no_title');
 
+// Date assignment (check only if a date is provided)
+$_SESSION['case_data']['date_assignment'] = get_datetime_from_array($_SESSION['case_data'], 'assignment', 'start', date('Y-m-d H:i:s'));
+
+if (! checkdate_sql($_SESSION['case_data']['date_assignment']))
+	$_SESSION['errors']['date_assignment'] = _Ti('case_input_date_assigned') . 'Invalid date.'; // TRAD
+
 if (count($_SESSION['errors'])) {
     header("Location: $HTTP_REFERER");
     exit;
 }
 
 	$fl = "title='" . clean_input($_SESSION['case_data']['title']) . "',
-			id_court_archive='" . clean_input($_SESSION['case_data']['id_court_archive']) . "',";
-	$fl .= "
+			id_court_archive='" . clean_input($_SESSION['case_data']['id_court_archive']) . "',
+			date_assignment = '" . $_SESSION['case_data']['date_assignment'] . "',
 			legal_reason='" . clean_input($_SESSION['case_data']['legal_reason']) . "',
 			alledged_crime='" . clean_input($_SESSION['case_data']['alledged_crime']) . "',
 			notes = '" . clean_input($_SESSION['case_data']['notes']) . "'";

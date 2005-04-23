@@ -73,6 +73,7 @@ if (empty($_SESSION['errors'])) {
 
 	} else {
 		// Set default values for the new case
+		$_SESSION['case_data']['date_assignment'] = date('Y-m-d H:i:s');
 		$_SESSION['case_data']['public'] = (int) (read_meta('case_default_read') == 'yes');
 		$_SESSION['case_data']['pub_write'] = (int) (read_meta('case_default_write') == 'yes');
 		$_SESSION['case_data']['status'] = 'draft';
@@ -179,6 +180,16 @@ if ($_SESSION['case_data']['id_case']) {
 		. clean_output($_SESSION['case_data']['title'])
 		. '" class="search_form_txt" />';
 	echo "</td></tr>\n";
+
+	// Date of earlier assignment
+	if ($case_assignment_date == 'yes') {
+		echo "<tr>\n";
+		echo "<td>" . f_err_star('date_assignment') . _Ti('case_input_date_assigned') . "</td>\n";
+		echo "<td>" 
+			. get_date_inputs('assignment', $_SESSION['case_data']['date_assignment'], false)
+			. "</td>\n";
+		echo "</tr>\n";
+	}
 	
 	// Court archive ID
 	/* [ML] will be in keyword
