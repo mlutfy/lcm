@@ -418,6 +418,11 @@ function get_datetime_from_array($source, $prefix, $type = 'start', $fallback = 
 	return $ret;
 }
 
+function checkdate_sql($date) {
+	$tmp = recup_date($date);
+	return checkdate($tmp[1], $tmp[2], $tmp[0]);
+}
+
 /* ********************************************************
  * DEPRECATED: The following functions will be removed soon
  * ******************************************************** */
