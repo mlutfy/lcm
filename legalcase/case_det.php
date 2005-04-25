@@ -231,7 +231,10 @@ if ($case > 0) {
 		
 				if ($edit && $modify)
 					echo '<p><a href="edit_case.php?case=' . $row['id_case'] . '" class="edit_lnk">' . _T('edit_case_information') . '</a></p>';
-		
+
+				if ($GLOBALS['author_session']['status'] == 'admin')
+					echo '<p><a href="export.php?item=case&amp;id=' . $row['id_case'] . '" class="edit_lnk">' . _T('export_case_information') . '</a></p>';
+
 				if ($admin) echo '<p><a href="sel_auth.php?case=' . $case . '" class="add_lnk">' . _T('add_user_case') . '</a></p>';
 		
 				echo "<br />\n";

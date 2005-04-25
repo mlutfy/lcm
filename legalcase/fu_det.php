@@ -166,6 +166,9 @@ if ($case_allow_modif == 'yes' && $edit) {
 		. '</a></p>';
 }
 
+if ($GLOBALS['author_session']['status'] == 'admin')
+	echo '<p><a href="export.php?item=followup&amp;id=' . $fu_data['id_followup'] . '" class="edit_lnk">' . _T('export_followup_information') . "</a></p>\n";
+
 if (! $app) {
 	// Show create appointment from followup
 	echo '<p><a href="edit_app.php?case=' . $case . '&amp;followup=' . $followup . '" class="create_new_lnk">Create new appointment related to this followup' . "</a></p>\n";  // TRAD

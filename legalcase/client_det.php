@@ -122,8 +122,12 @@ lcm_page_start(_T('title_client_view') . ' ' . get_person_name($row));
 
 				if ($edit)
 					echo '<p><a href="edit_client.php?client=' .
-					$row['id_client'] . '" class="edit_lnk">' .  _T('client_button_edit') . '</a>' . "</p><br />\n";
+					$row['id_client'] . '" class="edit_lnk">' .  _T('client_button_edit') . '</a>' . "</p>\n";
 
+				if ($GLOBALS['author_session']['status'] == 'admin')
+					echo '<p><a href="export.php?item=client&amp;id=' . $row['id_client'] . '" class="edit_lnk">' . _T('export_client_information') . "</a></p>\n";
+
+				echo '<br />';
 				echo "</fieldset>\n";
 				break;
 			case 'organisations':
