@@ -21,5 +21,10 @@ if [ "X$1" = "X" -a "X$2" = "X" -a "X$3" = "X" ]; then
 else
 	mkdir -p "$DEST/$2"
 	echo "$DEST/$2/$1.html"
-	wget -q -O "$DEST/$2/$1.html" "$3" 
+	# wget -q -O "$DEST/$2/$1.html" "$3" 
+	# [ML] I apologize in advance for this stupid cludge..
+	# Spip generates awful non-standart HTML, so I pass it through tidy,
+	# then I remove the tags we don't need (doctype, title, etc.)
+	wget -q -O /dev/stdout "$3" | tidy -i -utf8 -wrap 120 -q -asxhtml | sed "/^</d" | grep -v "HTML Tidy for MkLinux" | grep -v xhtml1-strict | grep -v "<title>" | grep -v "<p class=\"spip\">&nbsp;</p>" > "$DEST/$2/$1.html"
+	
 fi
