@@ -87,14 +87,14 @@ lcm_page_start(_T('title_org_view') . ' ' . $row['name']);
 			show_all_contacts('org', $row['id_org']);
 
 			if ($edit)
-				echo '<p><a href="edit_org.php?org=' . $row['id_org'] . '" class="edit_lnk">'
+				echo '<a href="edit_org.php?org=' . $row['id_org'] . '" class="edit_lnk">'
 					. _T('org_button_edit')
-					. "</a></p>\n";
+					. "</a>\n";
 
 			if ($GLOBALS['author_session']['status'] == 'admin')
-				echo '<p><a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="edit_lnk">' . _T('export_button_org') . "</a></p>\n";
+				echo '<a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="exp_lnk">' . _T('export_button_org') . "</a>\n";
 
-			echo '<br />';
+			echo '<br /><br />';
 			echo "</fieldset>\n";
 
 			break;
