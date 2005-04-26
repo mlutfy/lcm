@@ -92,7 +92,7 @@ lcm_page_start(_T('title_org_view') . ' ' . $row['name']);
 					. "</a></p>\n";
 
 			if ($GLOBALS['author_session']['status'] == 'admin')
-				echo '<p><a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="edit_lnk">' . _T('export_organization_information') . "</a></p>\n";
+				echo '<p><a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="edit_lnk">' . _T('export_button_org') . "</a></p>\n";
 
 			echo '<br />';
 			echo "</fieldset>\n";
