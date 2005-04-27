@@ -296,7 +296,7 @@ function load_client($id, $scope = 0) {
 	}
 
 	if ($scope & _LOAD_CONTACTS) {
-		$result = lcm_query("	SELECT * FROM lcm_contact WHERE type_person='client' AND id_person=$id");
+		$result = lcm_query("	SELECT * FROM lcm_contact WHERE type_person='client' AND id_of_person=$id");
 		while ($row = lcm_fetch_assoc($result)) {
 			$client_data['client']["ID$id"]['contact']['ID' . $row['id_contact']] = $row;
 			$client_data = array_merge_recursive($client_data, load_kw($row['type_contact']));
@@ -337,7 +337,7 @@ function load_org($id, $scope = 0) {
 	}
 
 	if ($scope & _LOAD_CONTACTS) {
-		$result = lcm_query("	SELECT * FROM lcm_contact WHERE type_person='org' AND id_person=$id");
+		$result = lcm_query("	SELECT * FROM lcm_contact WHERE type_person='org' AND id_of_person=$id");
 		while ($row = lcm_fetch_assoc($result)) {
 			$org_data['organization']["ID$id"]['contact']['ID' . $row['id_contact']] = $row;
 			$org_data = array_merge_recursive($org_data, load_kw($row['type_contact']));
