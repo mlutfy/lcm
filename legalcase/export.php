@@ -35,16 +35,16 @@ if (!empty($_REQUEST['id']))
 
 switch ($item) {
 	case 'case' :
-		$data = get_case($id,_GET_ALL);
+		$data = load_case($id,_GET_ALL);
 		break;
 	case 'followup' :
-		$data = get_followup($id,_GET_ALL);
+		$data = load_followup($id,_GET_ALL);
 		break;
 	case 'client' :
-		$data = get_client($id,_GET_ALL);
+		$data = load_client($id,_GET_ALL);
 		break;
 	case 'org' :
-		$data = get_org($id,_GET_ALL);
+		$data = load_org($id,_GET_ALL);
 		break;
 	default :
 		lcm_panic("Incorrect export item type!");
