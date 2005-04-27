@@ -25,6 +25,16 @@ else
 	# [ML] I apologize in advance for this stupid cludge..
 	# Spip generates awful non-standart HTML, so I pass it through tidy,
 	# then I remove the tags we don't need (doctype, title, etc.)
-	wget -q -O /dev/stdout "$3" | tidy -i -utf8 -wrap 120 -q -asxhtml | sed "/^</d" | grep -v "HTML Tidy for MkLinux" | grep -v xhtml1-strict | grep -v "<title>" | grep -v "<p class=\"spip\">&nbsp;</p>" > "$DEST/$2/$1.html"
+	wget -q -O /dev/stdout "$3" | tidy -i -utf8 -wrap 120 -q -asxhtml | \
+		# remove most start tags in margin (<!DOCTYPE, <body, etc.)
+		egrep -v "^<(\w|\!)" | \
+		# remove most end tags, except <textarea>
+		grep -v "^</[^(text)]" | \
+		# remove other tags which were in body
+		grep -v "HTML Tidy for MkLinux" | \
+		grep -v xhtml1-strict | \
+		grep -v "<title>" | \
+		# remove damm Spip empty paragraphs which make a mess
+		grep -v "<p class=\"spip\">&nbsp;</p>" > "$DEST/$2/$1.html"
 	
 fi
