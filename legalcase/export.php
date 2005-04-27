@@ -21,9 +21,13 @@
 	$Id$
 */
 
+include('inc/inc_auth.php');
 include('inc/inc_filters.php');
 include('inc/inc_impex.php');
 include('inc/inc_xml.php');
+
+if ($GLOBALS['author_session']['status'] != 'admin')
+	lcm_panic("You don't have permission to export!");
 
 $item = clean_input($_REQUEST['item']);
 if (!empty($_REQUEST['id']))
