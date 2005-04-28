@@ -230,14 +230,14 @@ if ($case > 0) {
 				echo "</p>\n";
 		
 				if ($edit && $modify)
-					echo '<a href="edit_case.php?case=' . $row['id_case'] . '" class="edit_lnk">' . _T('edit_case_information') . '</a>';
+					echo '<p><a href="edit_case.php?case=' . $row['id_case'] . '" class="edit_lnk">' . _T('edit_case_information') . '</a></p>';
 
 				if ($GLOBALS['author_session']['status'] == 'admin')
-					echo '<a href="export.php?item=case&amp;id=' . $row['id_case'] . '" class="exp_lnk">' . _T('export_button_case') . '</a>';
+					echo '<p><a href="export.php?item=case&amp;id=' . $row['id_case'] . '" class="exp_lnk">' . _T('export_button_case') . '</a></p>';
 
-				if ($admin) echo '<a href="sel_auth.php?case=' . $case . '" class="add_lnk">' . _T('add_user_case') . '</a>';
+				if ($admin) echo '<p><a href="sel_auth.php?case=' . $case . '" class="add_lnk">' . _T('add_user_case') . '</a></p>';
 		
-				echo "<br /><br />\n";
+				echo "<br />\n";
 
 				//
 				// Show case client(s)
