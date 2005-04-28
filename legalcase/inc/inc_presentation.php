@@ -1353,6 +1353,7 @@ function show_find_box($type, $string, $dest = '') {
 		case 'case':
 		case 'client':
 		case 'author':
+		case 'rep':
 			$action = 'list' . $type . 's.php';
 			break;
 		case 'org':
