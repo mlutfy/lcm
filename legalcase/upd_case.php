@@ -130,8 +130,14 @@ if (count($_SESSION['errors'])) {
 
 		// Add 'assignment' followup to the case
 		$q = "INSERT INTO lcm_followup
-				SET id_followup = 0, id_case = $id_case, id_author = $id_author, type = 'assignment',
-					date_start = NOW(), date_end = NOW(), description='" . $id_author . "'";
+				SET id_followup = 0,
+					id_case = $id_case, 
+					id_author = $id_author,
+					type = 'assignment',
+					case_stage = '" . clean_input($_SESSION['case_data']['stage']) . "',
+					date_start = NOW(),
+					date_end = NOW(),
+					description='" . $id_author . "'";
 
 		$result = lcm_query($q);
 
