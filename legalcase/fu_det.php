@@ -88,7 +88,8 @@ if ($app = lcm_fetch_array($res_app)) {
 // Show stage information
 if ($fu_data['case_stage']) {
 	// if editing an existing followup..
-	$stage_info = get_kw_from_name('stage', $_SESSION['fu_data']['case_stage']);
+	if ($_SESSION['fu_data']['case_stage'])
+		$stage_info = get_kw_from_name('stage', $_SESSION['fu_data']['case_stage']);
 	$id_stage = $stage_info['id_keyword'];
 	show_context_stage($case, $id_stage);
 }
