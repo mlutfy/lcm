@@ -67,7 +67,8 @@ if (empty($_SESSION['errors'])) {
 
 		// Case conclusion, if appropriate
 		if ($_SESSION['fu_data']['type'] == 'stage_change' || is_status_change($_SESSION['fu_data']['type'])) {
-			if ($tmp['description'])
+			// description might be empty
+			if (isset($tmp['description']))
 				$_SESSION['fu_data']['description'] = $tmp['description'];
 
 			if ($tmp['conclusion'])
