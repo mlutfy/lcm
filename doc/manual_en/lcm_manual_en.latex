@@ -1,42 +1,40 @@
-\documentclass[12pt]{article}
-\usepackage{times}
+\documentclass[a4paper,leqno]{book}
+\usepackage{ucs}
 \usepackage[utf8]{inputenc}
 \usepackage{epsfig}
 \pagestyle{plain}
 
-\title{Legal Case Management System\\ User's manual}
-\author{Authors ?}
-\date{Version 0.5-pre1}
 
-%% --------------------------------------------------------------------------
-%% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
-%% permet d'avoir des liens surlignes (ex: table des matieres) sans que ce
-%% soit vraiment laid (encadre en bleu)
-%% are we in pdftex ????
-\ifx\pdfoutput\undefined % We're not running pdftex
-\else
-\RequirePackage[colorlinks,hyperindex]{hyperref}
-\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
-\fi
-%% --------------------------------------------------------------------------
+\makeindex
+%%%\setcounter{chapter}{1}
+
+
 
 \begin{document}
 
+\frontmatter
+\title{Legal Case Management system for not-for-profit organisations \\ User's manual}
+\author{Kaloian Doganov\\ Christina Haralanova\\ Mathieu Lutfy}
+\date{version 0.5-pre1}
 \maketitle
 
-\abstract{TODO: Document abstract.}
+%%\abstract{TODO: Document abstract.}
 
-\newpage
+%%\newpage
 
 \tableofcontents
 
-\newpage
+%%\newpage
 
 %% ----------------------------------------------------------------------
 
-\section{About the project}
+\mainmatter
 
-\subsection{Contributors}
+\part{Introduction}
+
+\chapter{About the project}
+
+\section{Contributors}
 
 The LCM project was initiated by the Internet Rights Bulgaria Foundation
 (IRBF) in July 2004. The project was made possible with the financial support
@@ -79,103 +77,109 @@ content management system, from which many concepts were re-used. As well as
 the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
 Florent Jugla, which is very helpful to manage the LCM translations.
 
-\subsection{History of releases (?)}
+\section{History of releases (?)}
 
-\subsection{Contacts}
+\section{Contacts}
 
-\subsection{Copyright and terms of use}
+XXX TODO
 
-\section{Installation}
+\section{Copyright and terms of use}
 
-\subsection{Requirements}
+XXX TODO
 
-%% INSTALL file
+\chapter{Installation}
 
-\subsection{Before installing}
+XXX TODO
 
-%% INSTALL file
+\section{Requirements}
 
-\subsection{While installing}
+XXX TODO INSTALL file
 
-\subsubsection{Setting up directory permissions}
+\section{Before installing}
 
-% help_title_install_permissions
+XXX TODO INSTALL file
 
-\subsubsection{Your database connection}
+\section{While installing}
 
-% help_title_install_database
+\subsection{Setting up directory permissions}
 
-\subsubsection{Personal information}
+XXX TODO %help_title_install_permissions
 
-% help_title_install_personal
+\subsection{Your database connection}
 
-%% ----------------------------------------------------------------------
+XXX TODO %help_title_install_database
 
-\section{User functions}
+\subsection{Personal information}
 
-\subsection{Cases}
-
-\subsubsection{General overview + edit case}
-
-\subsubsection{Adding clients to the case}
-
-\subsubsection{Adding follow-up activities}
-
-\subsection{Clients and organisations}
-
-\subsubsection{Role of client, Edit client}
-
-\subsubsection{Role of org, Edit org}
-
-\subsection{Users}
-
-\subsubsection{Role of users, edit user}
-
-\subsubsection{Role of administrators}
-
-\subsection{Tools}
-
-\subsubsection{Agenda}
-
-\subsubsection{Document uploads/attachments}
+XXX TODO %help_title_install_personal
 
 %% ----------------------------------------------------------------------
 
-\section{Administrative functions}
+\part{User functions}
 
-\subsection{Site configuration}
+\chapter{Cases}
 
-\subsubsection{General configuration}
+\section{General overview + edit case}
 
-\subsubsection{Collaborative work}
+\section{Adding clients to the case}
 
-\subsubsection{Office policy}
+\section{Adding follow-up activities}
 
-\subsubsection{Regional settings}
+\chapter{Clients and organisations}
 
-\subsection{Archives}
+\section{Role of client, Edit client}
 
-\subsubsection{Export}
+\section{Role of org, Edit org}
 
-\subsubsection{Import}
+\chapter{Users}
 
-\subsection{Keywords}
+\section{Role of users, edit user}
 
-\subsubsection{Intro, todo}
+\section{Role of administrators}
 
-\subsection{Reports}
+\chapter{Tools}
 
-\subsubsection{Role of reports}
+\section{Agenda}
 
-\subsubsection{Create/edit report}
+\section{Document uploads/attachments}
 
 %% ----------------------------------------------------------------------
 
-\section{FAQ}
+\part{Administrative functions}
 
-\subsection{About usage}
+\chapter{Site configuration}
 
-\subsection{Technical problems}
+\section{General configuration}
+
+\section{Collaborative work}
+
+\section{Office policy}
+
+\section{Regional settings}
+
+\chapter{Archives}
+
+\section{Export}
+
+\section{Import}
+
+\chapter{Keywords}
+
+\section{Intro, todo}
+
+\chapter{Reports}
+
+\section{Role of reports}
+
+\section{Create/edit report}
+
+%% ----------------------------------------------------------------------
+
+\part{FAQ}
+
+\chapter{About usage}
+
+\chapter{Technical problems}
 
 %% ----------------------------------------------------------------------
 
