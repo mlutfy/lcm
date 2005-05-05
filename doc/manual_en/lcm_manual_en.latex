@@ -81,7 +81,84 @@ Florent Jugla, which is very helpful to manage the LCM translations.
 
 \section{Contacts}
 
-XXX TODO
+\subsection{Project management}
+
+The project manager is Christina Halaranova and the software development leader
+and co-ordinator is Mathieu Lutfy. The best way to contact them is by writing to
+the project management mailing-list:
+
+\begin{itemize}
+\item Contact: legalcase-core@lists.sourceforge.net
+\item Subscription: Access to this mailing-list is restricted
+\end{itemize}
+
+\subsection{Software developers}
+
+To report bugs, to join the software development or to contact the developers:
+
+\begin{itemize}
+\item Contact: legalcase-devel@lists.sourceforge.net
+\item Public archive: http://sourceforge.net/mailarchive/...
+\item Subscription: https://lists.sourceforge.net/lists...
+\end{itemize}
+
+\subsection{Software testers}
+
+People interested in testing LCM and sending us test reports and discussion
+related to testing:
+
+\begin{itemize}
+\item Contact: legalcase-testing-en@lists.sourceforge.net
+\item Public archive: http://sf.net/mailarchive/forum.php?forum\_id=42844
+\item Subscription: https://lists.sf.net/lists/listinfo/legalcase-testing-en
+\end{itemize}
+
+This list is also available in Bulgarian:
+
+\begin{itemize}
+\item Contact: legalcase-testing-bg@lists.sourceforge.net
+\item Public archive: http://sf.net/mailarchive/forum.php?forum\_id=42915
+\item Subscription: https://lists.sf.net/lists/listinfo/legalcase-testing-bg
+\end{itemize}
+
+Please note, that both lists forward all messages to the developers
+mailing-list, so there is no need to subscribe to all of the above.
+
+\subsection{Announcements}
+
+To receive announcements regarding new LCM releases, updates, important bugs
+or security issues, please consider subscribing to the news mailing-list:
+
+\begin{itemize}
+\item Contact: legalcase-news@lists.sourceforge.net
+\item Public archive: http://sf.net/mailarchive/forum.php?forum\_id=42845
+\item Subscription: https://lists.sf.net/lists/listinfo/legalcase-news
+\end{itemize}
+
+This list is also available in Bulgarian:
+
+\begin{itemize}
+\item Contact: legalcase-news-bg@lists.sourceforge.net
+\item Public archive: http://sf.net/mailarchive/forum.php?forum\_id=42914
+\item Subscription: https://lists.sf.net/lists/listinfo/legalcase-news-bg
+\end{itemize}
+
+Messages sent to this list are no more than 1-2 times per month. Note that due
+to lack of time, release managers often forget to make proper announcements.
+If you have a personal account on the Free Software database ``Freshmeat'' 
+(http://freshmeat.net), you may subscribe to our project ``legalcase''
+(http://freshmeat.net/projects/legalcase/) in order to get automatic 
+announcements of new releases.
+
+\subsection{Internet Rights Bulgaria Foundation - IRBF}
+
+IRBF is a not-for-profit and non-governmental organisation who has initiated
+the Legal Case Management software. 
+
+\begin{itemize}
+\item Website: http://www.irbf.ngo-bg.org
+\item Contact: irbf@ngo-bg.org
+\end{itemize}
 
 \section{Copyright and terms of use}
 
@@ -105,13 +182,59 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 XXX TODO
 
-\section{Requirements}
+\section{Minimal requirements}
 
-XXX TODO INSTALL file
+\begin{enumerate}
+\item MySQL 3.23.x, database server;
+
+\item Apache 1.3.x or 2.x, web server;
+
+\item PHP 4.3.x, language interpreter;
+
+\item libapache-mod-php or libapache2-mod-php 4.3.x, library which links Apache
+and PHP (it is possible that this is included in your PHP installation);
+
+\item PHP4-mysql, MySQL library for PHP (it is possible that this module is
+		part of your PHP installation)
+\end{enumerate}
 
 \section{Before installing}
 
-XXX TODO INSTALL file
+To start the LCM installation assistant, procede with the following steps.
+
+Download the latest tar.gz archive from our Source Forge project page
+<http://sf.net/projects/legalcase> and uncompress it in a temporary
+directory:
+
+\begin{verbatim}
+$ cd /tmp/
+$ tar xzf /path/to/legalcase-X.Y.Z.tar.gz
+\end{verbatim}
+
+After decompressing the archive, there will be a new directory called legalcase:
+
+\begin{verbatim}
+$ ls -l
+
+drwxr-xr-x 6 user user 4096 2005-03-09 10:26 legalcase
+\end{verbatim}
+
+Move the legalcase directory in a space accessible by the Apache Web server:
+
+\begin{verbatim}
+$ mv legalcase /var/www/
+\end{verbatim}
+
+Provide the permission to "write" to the Apache Web server for the directories
+log, inc/config and inc/data:
+
+\begin{verbatim}
+$ cd /var/www/legalcase/
+$ chmod a+rw log inc/config inc/data
+\end{verbatim}
+
+Access to this directory from your Web browser: <http://localhost/legalcase/> 
+and follow the instructions from the installation assistant.
 
 \section{While installing}
 
