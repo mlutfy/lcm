@@ -5,6 +5,24 @@
 \usepackage{graphicx}
 \pagestyle{plain}
 
+% 	This file is part of the Legal Case Management System (LCM).
+% 	(C) 2004-2005 Free Software Foundation, Inc.
+% 
+% 	This program is free software; you can redistribute it and/or modify it
+% 	under the terms of the GNU General Public License as published by the
+% 	Free Software Foundation; either version 2 of the License, or (at your
+% 	option) any later version.
+% 
+% 	This program is distributed in the hope that it will be useful, but
+% 	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+% 	or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+% 	for more details.
+% 
+% 	You should have received a copy of the GNU General Public License along
+% 	with this program; if not, write to the Free Software Foundation, Inc.,
+% 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+% 
+% 	$Id$
 
 \makeindex
 %%%\setcounter{chapter}{1}
@@ -86,13 +104,10 @@ Translators:
 
 Quality assurance:
 
-% \item Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
-% \item Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
-
 \begin{itemize}
 \item Open Society Foundation --- Bulgaria, http://www.osf.bg (legal consultation, structural testing)
 \item Bulgarian Helsinki Committee, http://www.bghelsinki.org (legal consultation, behavioral and structural testing)
-\item Inter-Space (user-interface quality assurance, promotion and distribution)
+\item Inter-Space, http://www.i-space.org (user-interface quality assurance, promotion and distribution)
 \item Chris Bailey (behavioral testing, English proof-reading)
 \end{itemize}
 
@@ -108,9 +123,9 @@ content management system, from which many concepts were re-used. As well as
 the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
 Florent Jugla, which is very helpful to manage the LCM translations.
 
-\section{History of releases (?)}
-
 \section{Contacts}
+
+% http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=8
 
 \subsection{Project management}
 
@@ -193,6 +208,35 @@ facilitate their ICT access.
 \item Website: http://www.irbf.ngo-bg.org
 \item Contact: irbf@ngo-bg.org
 \end{itemize}
+
+\section{Project history}
+
+XXX TODO - This section aims to show how LCM evolved and the main events of
+the software development.
+
+\begin{description}
+\item [April 23, 2005] Release of version 0.4.4. New features for case
+conclusions and enhancements to the case archive numbers for better tracking
+of the case history.
+\item [April 12, 2005] Release of version 0.4.3. New installer visual design,
+better keywords integration and many access rights bugfixes.
+\item [March 9, 2005] Release of version 0.4.2. New ``agenda'' feature, new
+concept of case ``stages'', many user interface enhancements and first
+Portuguese of Brazil translation.
+\item [January 26, 2005] Release of version 0.4.1. Bugfix release.
+\item [January 24, 2005] Release of version 0.4.0. Many user interface
+enhancements, as well as better internal structure and security. First
+completed Bulgarian translation.
+\item [December 14, 2004] Release of version 0.2.2. Experimental new features,
+such as a first reporting attempt and a primitive keywords implementation.
+\item [November 10, 2004] Release of version 0.2.1. Bugfix release.
+\item [November 1, 2004] Release of version 0.2.0. First public release.
+\item [August 1, 2004] Received financial support from the Open Society
+Institute (information program) in collaboration with the Open Society
+Foundation --- Bulgaria (legal program).
+\item [July-August 2003] Initial discussions on designing a legal case management
+system for Bulgarian not-for-profit organisations.
+\end{description}
 
 \section{Copyright and terms of use}
 
