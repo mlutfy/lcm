@@ -6,27 +6,34 @@
 \usepackage{epsfig}
 \pagestyle{plain}
 
+% 	This file is part of the Legal Case Management System (LCM).
+% 	(C) 2004-2005 Free Software Foundation, Inc.
+% 
+% 	This program is free software; you can redistribute it and/or modify it
+% 	under the terms of the GNU General Public License as published by the
+% 	Free Software Foundation; either version 2 of the License, or (at your
+% 	option) any later version.
+% 
+% 	This program is distributed in the hope that it will be useful, but
+% 	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+% 	or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+% 	for more details.
+% 
+% 	You should have received a copy of the GNU General Public License along
+% 	with this program; if not, write to the Free Software Foundation, Inc.,
+% 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+% 
+% 	$Id$
+
 \makeindex
 %%%\setcounter{chapter}{1}
-
-%% --------------------------------------------------------------------------
-%% Cette fonction entre en conflit avec \usepackage[pdftex]{hyperref} et
-%% permet d'avoir des liens surlignes (ex: table des matieres) sans que ce
-%% soit vraiment laid (encadre en bleu)
-%% are we in pdftex ????
-%\ifx\pdfoutput\undefined % We're not running pdftex
-%\else
-%%\RequirePackage[colorlinks,hyperindex]{hyperref}
-%\def\pdfBorderAttrs{/Border [0 0 0] } % No border arround Links
-%\fi
-%% --------------------------------------------------------------------------
 
 \begin{document}
 
 \frontmatter
 \title{Програма за управление на юридически практики\\ Ръководство за потребителя}
 \author{Калоян Доганов\\ Кристина Хараланова\\ Матю Лютфи}
-\date{версия 0.5-pre1}
+\date{версия 0.6-pre2}
 \maketitle
 
 %%\abstract{TODO: Document abstract.}
@@ -47,10 +54,10 @@
 
 \section{Сътрудници}
 
-Проектът ПУЮП бе започнат от Фондация "Интернет райтс България" през
+Проектът ПУЮП бе започнат от Фондация "`Интернет райтс България"' през
 юли 2004. Проектът е осъществен с финансовата подкрепа на Институт
-"Отворено общество" (информационна програма) със участието на
-българския Институт "Отворено общество" (юридическа програма).
+"`Отворено общество"' (информационна програма) със участието на
+българския Институт "`Отворено общество"' (юридическа програма).
 
 Основните сътрудници по проекта са:
 
@@ -105,7 +112,25 @@ XXX TODO
 
 \section{Авторски права и условия за употреба}
 
-XXX TODO
+% XXX TRAD
+
+\begin{verbatim}
+(C) 2004-2005 Free Software Foundation, Inc.
+
+This program is free software; you can redistribute it and/or modify it
+under the terms of the GNU General Public License as published by the 
+Free Software Foundation; either version 2 of the License, or (at your 
+option) any later version.
+
+This program is distributed in the hope that it will be useful, but 
+WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+for more details.
+
+You should have received a copy of the GNU General Public License along 
+with this program; if not, write to the Free Software Foundation, Inc.,
+59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+\end{verbatim}
 
 \chapter{Инсталация}
 
