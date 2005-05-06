@@ -160,7 +160,8 @@ if (isset($_REQUEST['select_col_type']) && isset($_REQUEST['select_col_name'])) 
 	// if (! ($rep_info['col_src_type'] && $rep_info['col_src_name'])) {
 		$query = "UPDATE lcm_report
 					SET col_src_type = '" . clean_input($_REQUEST['select_col_type']) . "',
-						col_src_name = '" . clean_input($_REQUEST['select_col_name']) .  "'";
+						col_src_name = '" . clean_input($_REQUEST['select_col_name']) .  "'
+					WHERE id_report = " . $rep;
 
 		lcm_query($query);
 	// }
@@ -173,7 +174,8 @@ if (isset($_REQUEST['select_line_type']) && isset($_REQUEST['select_line_name'])
 	// if (! ($rep_info['line_src_type'] && $rep_info['line_src_name'])) {
 		$query = "UPDATE lcm_report
 					SET line_src_type = '" . clean_input($_REQUEST['select_line_type']) . "',
-						line_src_name = '" . clean_input($_REQUEST['select_line_name']) . "'";
+						line_src_name = '" . clean_input($_REQUEST['select_line_name']) . "'
+					WHERE id_report = " . $rep;
 
 		lcm_query($query);
 	// }
