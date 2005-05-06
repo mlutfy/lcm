@@ -1,30 +1,54 @@
 \documentclass[a4paper,leqno]{book}
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
-\usepackage{epsfig}
+% \usepackage{epsfig}
+\usepackage{graphicx}
 \pagestyle{plain}
 
 
 \makeindex
 %%%\setcounter{chapter}{1}
 
-
-
 \begin{document}
-
 \frontmatter
-\title{Legal Case Management\\for not-for-profit organisations\\ User's manual}
-\author{Kaloian Doganov\\ Christina Haralanova\\ Mathieu Lutfy}
-\date{version 0.5-pre1}
-\maketitle
+
+\newlength{\centeroffset}
+\setlength{\centeroffset}{-0.5\oddsidemargin}
+\addtolength{\centeroffset}{0.5\evensidemargin}
+\addtolength{\textwidth}{-\centeroffset}
+\thispagestyle{empty}
+\noindent\hspace*{\centeroffset}%
+\begin{minipage}{\textwidth}
+\parindent=0pt
+\flushright
+{\Large\bfseries Legal Case Management\\
+for not-for-profit organisations
+\rule[-1ex]{\textwidth}{1.5pt}\\[2.5ex]
+User's manual}
+\end{minipage}
+
+\vspace{\stretch{1}}
+\noindent\hspace*{\centeroffset}\begin{minipage}{\textwidth}
+\flushright
+{\bfseries 
+by Kaloian Doganov\\[1.5ex]
+Christina Haralanova\\[1.5ex]
+Mathieu Lutfy\\[1.5ex]}
+Version: 0.6-pre2
+\end{minipage}
+\addtolength{\textwidth}{\centeroffset}
+\vspace{\stretch{2}}
+
+
+%\title{Legal Case Management\\for not-for-profit organisations\\ User's manual}
+%\author{Kaloian Doganov\\ Christina Haralanova\\ Mathieu Lutfy}
+%\date{version 0.6-pre1}
+%% \maketitle
+
 
 %%\abstract{TODO: Document abstract.}
 
-%%\newpage
-
 \tableofcontents
-
-%%\newpage
 
 %% ----------------------------------------------------------------------
 
@@ -60,17 +84,24 @@ Translators:
 \item Luís André Beckhauser (Portuguese of Brazil)
 \end{itemize}
 
+Quality assurance:
+
+% \item Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
+% \item Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
+
+\begin{itemize}
+\item Open Society Foundation --- Bulgaria, http://www.osf.bg (legal consultation, structural testing)
+\item Bulgarian Helsinki Committee, http://www.bghelsinki.org (legal consultation, behavioral and structural testing)
+\item Inter-Space (user-interface quality assurance, promotion and distribution)
+\item Chris Bailey (behavioral testing, English proof-reading)
+\end{itemize}
+
 Web hosting:
 
 \begin{itemize}
 \item Source Forge - http://www.sourceforge.net (download, CVS, mailing-lists)
 \item NGO Bulgaria Gateway - http://www.ngo-bg.org (website, documentation, testing sites)
 \end{itemize}
-
-Other contributions:
-
-- Inter-Space - http://www.i-space.org (quality assurance, promotion and distribution)
-- Bulgarian Helsinki Committee - http://www.bghelsinki.org (review of software analysis and testing)
 
 We would also like to thank the authors of the Spip (http://www.spip.net)
 content management system, from which many concepts were re-used. As well as
@@ -98,8 +129,8 @@ To report bugs, to join the software development or to contact the developers:
 
 \begin{itemize}
 \item Contact: legalcase-devel@lists.sourceforge.net
-\item Public archive: http://sourceforge.net/mailarchive/...
-\item Subscription: https://lists.sourceforge.net/lists...
+\item Public archive: http://sf.net/mailarchive/forum.php?forum\_id=42175
+\item Subscription: https://lists.sf.net/lists/listinfo/legalcase-devel
 \end{itemize}
 
 \subsection{Software testers}
@@ -152,8 +183,11 @@ announcements of new releases.
 
 \subsection{Internet Rights Bulgaria Foundation - IRBF}
 
-IRBF is a not-for-profit and non-governmental organisation who has initiated
-the Legal Case Management software. 
+IRBF is a not-for-profit and non-governmental organisation (NGO) who 
+coordinates the Legal Case Management software development. IRBF aims to 
+promote the social and human rights initiatives of social NGOs in Bulgaria.
+It encourages NGOs to strategically use the Internet and works to 
+facilitate their ICT access.
 
 \begin{itemize}
 \item Website: http://www.irbf.ngo-bg.org
@@ -162,6 +196,7 @@ the Legal Case Management software.
 
 \section{Copyright and terms of use}
 
+\begin{verbatim}
 (C) 2004-2005 Free Software Foundation, Inc.
 
 This program is free software; you can redistribute it and/or modify it
@@ -177,6 +212,7 @@ for more details.
 You should have received a copy of the GNU General Public License along 
 with this program; if not, write to the Free Software Foundation, Inc.,
 59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+\end{verbatim}
 
 \chapter{Installation}
 
