@@ -728,6 +728,16 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (34);
 	}
 
+	if ($lcm_db_version_current < 35) {
+		lcm_query("ALTER TABLE lcm_fields CHANGE filter filter text NOT NULL DEFAULT ''");
+		include_lcm('inc_repfields_defaults');
+
+		$fields = get_default_repfields();
+		create_repfields($fields);
+
+		upgrade_db_version (35);
+	}
+
 	//
 	// Create new keywords (if necessary)
 	// This must be done at the end, in case keyword DB structure changed
