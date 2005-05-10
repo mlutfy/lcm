@@ -85,8 +85,8 @@ The LCM project was initiated by the Internet Rights Bulgaria Foundation
 collaboration with various Bulgarian legal advice centres and the Cambridge
 Independent Advice Centre (CIAC, www.ciac.org.uk) in 2003. The project was
 made possible with the financial support of the Open Society Institute
-(information program) and with the collaboration of the Bulgarian Open Society
-Institute (law program).
+(OSI, www.soros.org, information program) and with the collaboration of the
+Bulgarian Open Society Institute (OSF, www.osf.bg, law program).
 
 The main contributors to the project are:
 
@@ -110,22 +110,22 @@ Translators:
 Quality assurance:
 
 \begin{itemize}
-\item Open Society Foundation --- Bulgaria, http://www.osf.bg (legal consultation, structural testing)
-\item Bulgarian Helsinki Committee, http://www.bghelsinki.org (legal consultation, behavioral and structural testing)
-\item Inter-Space, http://www.i-space.org (user-interface quality assurance, promotion and distribution)
+\item Open Society Foundation --- Bulgaria, www.osf.bg (legal consultation, structural testing)
+\item Bulgarian Helsinki Committee, www.bghelsinki.org (legal consultation, behavioral and structural testing)
+\item Inter-Space, www.i-space.org (user-interface quality assurance, promotion and distribution)
 \item Chris Bailey --- CIAC, www.ciac.org.uk (behavioral testing, English proof-reading)
 \end{itemize}
 
 Web hosting:
 
 \begin{itemize}
-\item Source Forge - http://www.sourceforge.net (download, CVS, mailing-lists)
-\item NGO Bulgaria Gateway - http://www.ngo-bg.org (website, documentation, testing sites)
+\item Source Forge - www.sourceforge.net (download, CVS, mailing-lists)
+\item NGO Bulgaria Gateway - www.ngo-bg.org (website, documentation, testing sites)
 \end{itemize}
 
-We would also like to thank the authors of the Spip (http://www.spip.net)
+We would also like to thank the authors of the Spip (www.spip.net)
 content management system, from which many concepts were re-used. As well as
-the Trad-Lang (http://www.eledo.com/download/trad\_lang) translation system by
+the Trad-Lang (www.eledo.com/download/trad\_lang) translation system by
 Florent Jugla, which is very helpful to manage the LCM translations.
 
 \section{Contacts}
@@ -198,8 +198,8 @@ Messages sent to this list are no more than 1-2 times per month. Note that due
 to lack of time, release managers often forget to make proper announcements.
 If you have a personal account on the Free Software database ``Freshmeat'' 
 (http://freshmeat.net), you may subscribe to our project ``legalcase''
-(http://freshmeat.net/projects/legalcase/) in order to get automatic 
-announcements of new releases.
+(http://freshmeat.net/p/legalcase/) in order to get automatic announcements 
+of new releases.
 
 \subsection{Internet Rights Bulgaria Foundation - IRBF}
 
@@ -288,12 +288,12 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 and PHP (it is possible that this is included in your PHP installation);
 
 \item PHP4-mysql, MySQL library for PHP (it is possible that this module is
-		part of your PHP installation)
+		part of your PHP installation).
 \end{enumerate}
 
 \section{Before installing}
 
-% This is taken from the README file. (small edits)
+% This is taken from the INSTALL file. (small edits)
 
 To start the LCM installation assistant, procede with the following steps.
 
