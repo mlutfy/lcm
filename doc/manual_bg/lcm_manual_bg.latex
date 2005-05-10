@@ -1648,89 +1648,88 @@ XXX TODO: трябва ли ни описание на редактиране н
 
 %% ----------------------------------------------------------------------
 
-\part{Административни функции}
+\part{Администриране на сайта}
 
-\chapter{Site configuration}
+\chapter{Настройки на сайта}
 
-\section{General configuration}
+\section{Общи настройки (обща информация)}
 
 % http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=87
 % TODO: Ready for translation into BG
 
-\subsection{Site identification}
+\subsection{Идентификатор на сайта}
 
-The site identification is used to personalise the system according to your
-work environment, for example:
+Идентификаторът на сайта се използва, за да може системата да се приспособи според работната среда в офиса, например:
 
 \begin{itemize}
-\item The “site name” can be the name of your organisation or the name of your
-project related to case management.
-\item The “site description” can be a short description (3-10 words) about the
-aim of the site.
+\item "Име на сайта" може да бъде името на Вашата организация или наименованието на проекта, свързан с управление на случаите.
+\item "Описание на сайта" е кратко (3-10 думи) описание относно целта на сайта.
 \end{itemize}
 
-A typical usage is to enter the name of the organisation as the “site name”
-and {\em title\_software} as the “site description”.
+Типичен пример за използването на горните идентификатори е вписването на името на организацията в "име на сайта" и {\em title\_software} като "описание на сайта".
 
-Note: The default values ({\em title\_software} and
-{\em title\_software\_description}) are identifiers that refer to the
-translation system, and therefore show the name and description of the
-software according to the language of the visitor.
+Бележка: Стойностите по подразбиране на ({\em title\_software} и
+{\em title\_software\_description}) са идентификатори, отнасящи се към
+системата за превод и следователно показват името и описанието на програмата
+според езика на посетителя.
 
-\subsection{Site location and contacts}
+\subsection{Местоположение на сайта и информация за контакти}
 
-The Internet address or network location, and the e-mail of site administrator
-are occasionally used when communicating with the user using various features.
+Интернет или мрежовия адрес и електронния адрес на администратора на сайта се
+използват понякога за комуникация с потребителя, посредством използването на 
+различни свойства. 
 
-For example, users who have forgotten their password can reset it using a
-request sent by e-mail. This e-mail includes a hyperlink which refers to the
-Internet address of the system.
+Например, потребители, които са забравили паролата си могат да получат нова като 
+изпратят молба по електронен път. Това съобщение включва хипервръзка, която се 
+отнася до Интернет адреса на системата.
 
-\section{Collaborative work}
+\section{Съвместна работа}
 
 % http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=88
 % TODO: Ready for translation into BG
 
-Collaborative work features refer to the different policies or habits that an
-organisation can adopt: they are usually a compromise between the privacy of
-the clients and collaboration between the users (office staff).
+Свойствата, включени в частта "съвместна работа" се отнасят до различни политики
+или навици, усвоени в ежедневната работа на организацията: обикновено това са 
+компромисни решения между защита на личната информация на клиентите и сътрудничеството
+между потребителите (сътрудниците в офиса).
 
-Collaborative work features (or access rights) are separated into two options
-for users who are not explicitly assigned to a case: who has access to read
-the information of a case and who has access to add information.
+Свойствата на съвместната работа (или правата за достъп) са разделение в две 
+възможности за потребителите, които не са изрично назначени към даден случай: тези, 
+които имат права за четене на информацията за случая и тези, които имат достъп да добавят информация. [КХ. TODO : Имат ли право също така да променят информация, а не само да добавят нова?]
 
-For each option, the system will recommend a setting to the user, based on the
-typical habits of the organisation. This allows the user to select how the
-information of the case is shared with other users. 
+За всяко свойство системата препоръчва настройка за потребителя, определени на база 
+типичните практики (правила) в организацията. Това позволява потребителят да избира как
+информацията по случая д бъде споделяна с останалите потребители.
 
-Administrators can also impose a strict policy, where users cannot decide how
-the case information is shared. The right to read or add information to a case
-can then be modified on a case by case basis only by the administrators.
+Администраторите могат също така да наложат стриктна политика, в която потребителите
+да не могат да взимат решения за това, как информацията по случая да бъде споделяна. 
+Правото да се консултират или да добавят информация по дадения случай може да бъде 
+променяна за всеки отделен случай поотделно и само от администраторите. 
 
-This is only for the criteria that influence access rights for a given case.
-For each case, one of the following criteria apply:
+Това важи само за критеритие, които влияят върху правата за достъп за даден случай. За всеки;
+случай може да избере един от следните критерии:
 
 \begin{itemize}
-\item Site administrators are given full access to all cases;
-\item Each user assigned to a case can have their own access rights;
-\item Other users, not assigned to the case, get access based on the collaborative
-work settings.
+\item Администраторите на сайта имат пълен достъп до всички случаи;
+\item Всеки потребител, назначен към даден случай може да има собствени права за достъп;
+\item Други потребители, които не са назначени към случая, придобиват достъп в зависимост от 
+настройките, определени в раздела "съвместна работа".
 \end{itemize}
 
-Note: If the above options are changed, it will not affect the settings of
-existing cases.
+Бележка: Ако някоя от горните настройки бъде променена, това няма да се отрази на вече съществуващите случаи. 
 
-\subsection{Self-registration of new users}
+\subsection{Самостоятелна регистрация на новите потребители}
 
-Self-registration of new users is aimed at Internet-based organisations  who
-allow new members to register by themselves. In other words, the case
-management system is open to all, but registration is required in order to
-access it.
+Самостоятелната регистрация на новите потребители е предназначена за Интернет-базирани
+организации. Тя помага новите членове да се регистрират сами. С други думи, системата
+за управление на случаи е отворена за всички, но е необходимо те да се регистрират, за
+да получат достъп до нея.
 
-\section{Office policy}
+\section{Политика на офиса}
 
 % http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=89
 % TODO: Ready for translation into BG
+
 
 Some fields of the system can be hidden or shown depending on the policy of
 the organisation. Sometimes it may be that a field is not recommended or
@@ -1783,42 +1782,43 @@ correct it. This option applies to the case information only, not to its
 follow-ups. In case of doubt, say “yes”.
 \end{itemize}
 
-\subsection{Follow-ups}
+\subsection{Следваща информация}
 
 \begin{itemize}
-\item Sum billed: Allows users (advisors, lawyers, etc.) to bill for their
-activities.
-\item Allow case follow-up information to be modified once they are created: By
+\item Таксувана сума: Позволява на потребителите (консултанти, адвокати и др.) да 
+начислят такса за дейностите си.
+\item Позволяване на промяна на следващата информация по случай от потребителите 
+след въвеждането й 
+Allow case follow-up information to be modified once they are created: By
 default, the user is allowed to correct information until the case is closed.
 If this option is set to “no”, users will be allowed to submit information but
 not to correct it. This option applies to the case follow-up information only,
 not to its follow-ups. In case of doubt, say “yes”.
 \end{itemize}
 
-\section{Regional settings}
+\section{Регионални настройки}
 
 % http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=90
 % TODO: Ready for trad into BG
 
 \begin{itemize}
-\item Default language: Used in rare cases where the language of the user could
-not be detected from the Web browser of the user or if the language setting of
-the browser is not correctly configured.
-\item Currency: Used only if the “sum billed” field for case follow-ups is
-activated.
+\item Език по подразбиране: Използва се рядко там, където езикът на потребителя не може
+да бъде открит автоматично от Интернет навигатора или настройката на езика
+на навигатора на е правилно зададена. 
+\item Парична единица: Изполва се само, ако е активирано полето за "таксувана сума".
 \end{itemize}
 
-\chapter{Archives}
+\chapter{Архиви}
 
 \section{Export}
 
 \section{Import}
 
-\chapter{Keywords}
+\chapter{Ключови думи}
 
 \section{Intro, todo}
 
-\chapter{Reports}
+\chapter{Отчети}
 
 \section{Role of reports}
 
