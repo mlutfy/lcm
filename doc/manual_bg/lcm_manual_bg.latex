@@ -365,19 +365,101 @@ $ chmod a+rw log inc/config inc/data
 
 \section{По време на инсталацията}
 
-
-
 \subsection{Настройване на правата за достъп до директориите}
 
-XXX TODO %help_title_install_permissions
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=79
+
+Когато инсталирате ПУЮП файлове на сървъра, някои директории няма да бъдат
+конфигурирани правилно: следователно, трябва да промените конфигурацията им
+през обичайния си FTP или SSH клиент.
+
+Тъй като ПУЮП записва информация на диска, трябва да дадете разрешение на
+уеб-сървъра да "`записва"' в следните папки:
+
+\begin{itemize}
+\item /log
+\item /inc/data
+\item /inc/config
+\end{itemize}
+
+FTP клиентите се различават по функции, но процедурата е най-общо следната:
+
+\begin{itemize}
+\item Изберете папката, на която желаете да промените „разрешенията“;
+\item Намерете във Вашия FTP клиент свойство, наречено "смяна или промяна или
+настройка на разрешения;
+\item Ако това свойство се появи като графичен интерфейс, отбележете кутийката,
+отговаряща на „Запис“ за „Други“ (или „Целият свят“ или „Всчки потребители“);
+\item Ако свойството се покаже в „текстов режим“, цифровата конфигурация е „777“.
+\end{itemize}
+
+Когато правите тази промяна за всяка директория, която е указана от системата
+за инсталация, трябва да презареждате страницата, за да може процедурата да се
+възобновява автоматично.
 
 \subsection{Връзката Ви към базата от данни}
 
-XXX TODO %help_title_install_database
+% TODO
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=60
+
+This step consists of entering the necessary information for the connection of
+LCM to the SQL database server.
+
+\begin{itemize}
+\item Database address: this information should be “localhost”, but it could also
+be your site’s address (“www.mysite.org”) depending on the configuration of
+the server.
+\item Connection login: it is often the same login you use to upload your files by
+FTP or SSH.
+\item Connection password: it is often the same password as the one you use to
+access your site by FTP or SSH.
+\end{itemize}
+
+{\em These settings cannot be invented: not knowing them means that your host has
+not given them to you. Therefore: if you do not have this information at hand
+you cannot continue.}
+
+\begin{itemize}
+\item If you are not the server administrator: you must contact him/her directly.
+Some Internet hosts provide such information in an online guide or require a
+specific procedure for that.
+\item If you are the server administrator: you can create a database for LCM with
+the following commands:
+\end{itemize}
+
+\begin{verbatim}
+$ mysql -u root
+mysql> create database lcm;
+mysql> grant all on lcm.* to lcm_user@localhost identified by 'mypassword';
+\end{verbatim}
+
+In the above example, we create a database named “lcm” and later create a new
+user named “lcm\_user” to whom we give full access to the “lcm” database.
+
+The “lcm\_user” and “mypassword” will then be the
+connection login and connection password respectively for continuing the
+installation.
+
+Please note that the best way to connect to your database depends on your
+local server configuration.
 
 \subsection{Лична информация}
 
-XXX TODO %help_title_install_personal
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=80
+
+Тази стъпка е много проста, но трябва да се извърши внимателно. Това е
+момента, в който определяте идентификацията си за връзка със сайта. Ако
+действате прибързано, може да не успеете да направите свързването...
+
+Забележете, че след като веднъж сте въвели информацията за себе си, ще имате
+възможоността по-късно да промените тази информация.
+
+\begin{itemize}
+\item Your connection identifiers: this the identification that you yourself
+choose to connect to your own LCM system.
+\item Your contact information: this will allow other authors to contact you. It
+also allows you to change your password by e-mail if you have forgotten it.
+\end{itemize}
 
 %% ----------------------------------------------------------------------
 
@@ -1563,11 +1645,159 @@ XXX TODO: трябва ли ни описание на редактиране н
 
 \section{General configuration}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=87
+% TODO: Ready for translation into BG
+
+\subsection{Site identification}
+
+The site identification is used to personalise the system according to your
+work environment, for example:
+
+\begin{itemize}
+\item The “site name” can be the name of your organisation or the name of your
+project related to case management.
+\item The “site description” can be a short description (3-10 words) about the
+aim of the site.
+\end{itemize}
+
+A typical usage is to enter the name of the organisation as the “site name”
+and {\em title\_software} as the “site description”.
+
+Note: The default values ({\em title\_software} and
+{\em title\_software\_description}) are identifiers that refer to the
+translation system, and therefore show the name and description of the
+software according to the language of the visitor.
+
+\subsection{Site location and contacts}
+
+The Internet address or network location, and the e-mail of site administrator
+are occasionally used when communicating with the user using various features.
+
+For example, users who have forgotten their password can reset it using a
+request sent by e-mail. This e-mail includes a hyperlink which refers to the
+Internet address of the system.
+
 \section{Collaborative work}
+
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=88
+% TODO: Ready for translation into BG
+
+Collaborative work features refer to the different policies or habits that an
+organisation can adopt: they are usually a compromise between the privacy of
+the clients and collaboration between the users (office staff).
+
+Collaborative work features (or access rights) are separated into two options
+for users who are not explicitly assigned to a case: who has access to read
+the information of a case and who has access to add information.
+
+For each option, the system will recommend a setting to the user, based on the
+typical habits of the organisation. This allows the user to select how the
+information of the case is shared with other users. 
+
+Administrators can also impose a strict policy, where users cannot decide how
+the case information is shared. The right to read or add information to a case
+can then be modified on a case by case basis only by the administrators.
+
+This is only for the criteria that influence access rights for a given case.
+For each case, one of the following criteria apply:
+
+\begin{itemize}
+\item Site administrators are given full access to all cases;
+\item Each user assigned to a case can have their own access rights;
+\item Other users, not assigned to the case, get access based on the collaborative
+work settings.
+\end{itemize}
+
+Note: If the above options are changed, it will not affect the settings of
+existing cases.
+
+\subsection{Self-registration of new users}
+
+Self-registration of new users is aimed at Internet-based organisations  who
+allow new members to register by themselves. In other words, the case
+management system is open to all, but registration is required in order to
+access it.
 
 \section{Office policy}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=89
+% TODO: Ready for translation into BG
+
+Some fields of the system can be hidden or shown depending on the policy of
+the organisation. Sometimes it may be that a field is not recommended or
+simply that is has no use for the case management activities. Fields which are
+shown are not mandatory, they are only a mean to encourage or remind the user
+to enter the information.
+
+If fields are hidden, the information previously entered will not be erased
+from the system, it will only be hidden.
+
+\subsection{Clients and users}
+
+\begin{itemize}
+\item Middle name or initial: Some countries such as Bulgaria often use middle
+names when they register people. Others, such as Canada sometimes ask for a
+middle initial. Most of the time, this information is not useful at all except
+for some particular administrative reasons (the address of the person is a
+more reliable way to identify someone).
+\item Citizen number: Some countries have national ID cards with a number unique
+for each citizen. In case of doubt, do not activate this field. There might be
+strict laws regarding the use of national ID numbers. Most of the time, the
+number is abused as a mean to identify the client. Unless specific
+administrative reasons suggest to use this number, clients should be
+identified according to their home address.
+\item Civil status: This field is aimed at statistical reporting of clients. It
+depends on the field of work of the organisation.
+\item Income: This field is aimed at statistical reporting of clients. It depends
+on the field of work of the organisation. For example, some legal offices
+offer free legal advice to people with an income lower to the national
+average. Some organisations offer legal advice only to people with a low
+income, such organisations can de-activate this field since it will always be
+“low income”.
+\item Hide user e-mails: For some Internet-based organisations, it might be
+necessary to hide user e-mails, depending on the policy of the organisation.
+In case of doubt, say no.
+\end{itemize}
+
+\subsection{Cases}
+
+\begin{itemize}
+\item Assignment date: This allows users to enter a date which is different from
+the creation date of the case (in the system, which cannot be changed). It
+could be the date of assignment of the case to the organisation or it could be
+the date when the case was previously created -- this depends on your
+organisation policy.
+\item Allow case information to be modified once they are created: By default, 
+the user is allowed to correct information until the case is closed. If this
+option is set to “no”, users will be allowed to submit information but not to
+correct it. This option applies to the case information only, not to its
+follow-ups. In case of doubt, say “yes”.
+\end{itemize}
+
+\subsection{Follow-ups}
+
+\begin{itemize}
+\item Sum billed: Allows users (advisors, lawyers, etc.) to bill for their
+activities.
+\item Allow case follow-up information to be modified once they are created: By
+default, the user is allowed to correct information until the case is closed.
+If this option is set to “no”, users will be allowed to submit information but
+not to correct it. This option applies to the case follow-up information only,
+not to its follow-ups. In case of doubt, say “yes”.
+\end{itemize}
+
 \section{Regional settings}
+
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=90
+% TODO: Ready for trad into BG
+
+\begin{itemize}
+\item Default language: Used in rare cases where the language of the user could
+not be detected from the Web browser of the user or if the language setting of
+the browser is not correctly configured.
+\item Currency: Used only if the “sum billed” field for case follow-ups is
+activated.
+\end{itemize}
 
 \chapter{Archives}
 
