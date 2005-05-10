@@ -78,10 +78,15 @@ Version: 0.6-pre2
 
 \section{Contributors}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=59
+
 The LCM project was initiated by the Internet Rights Bulgaria Foundation
-(IRBF) in July 2004. The project was made possible with the financial support
-of the Open Society Institute (information program) and with the collaboration
-of the Bulgarian Open Society Institute (law program).
+(IRBF, www.irbf.ngo-bg.org) in July 2004, as a result of research and 
+collaboration with various Bulgarian legal advice centres and the Cambridge
+Independent Advice Centre (CIAC, www.ciac.org.uk) in 2003. The project was
+made possible with the financial support of the Open Society Institute
+(information program) and with the collaboration of the Bulgarian Open Society
+Institute (law program).
 
 The main contributors to the project are:
 
@@ -108,7 +113,7 @@ Quality assurance:
 \item Open Society Foundation --- Bulgaria, http://www.osf.bg (legal consultation, structural testing)
 \item Bulgarian Helsinki Committee, http://www.bghelsinki.org (legal consultation, behavioral and structural testing)
 \item Inter-Space, http://www.i-space.org (user-interface quality assurance, promotion and distribution)
-\item Chris Bailey (behavioral testing, English proof-reading)
+\item Chris Bailey --- CIAC, www.ciac.org.uk (behavioral testing, English proof-reading)
 \end{itemize}
 
 Web hosting:
@@ -211,10 +216,16 @@ facilitate their ICT access.
 
 \section{Project history}
 
-XXX TODO - This section aims to show how LCM evolved and the main events of
-the software development.
+TODO: We should probably say some kind of introduction to why we are saying
+this. We are saying this because LCM has gained experience and evolved with
+time.
 
 \begin{description}
+\item [Mai 16, 2005] Release of version 0.6.0. Milestone release for stability
+and usability. This branch release (0.6.x) will only have bug fixes, where as
+the experimental development features will go into the 0.7.x branch.
+\item [Mai 12, 2005] Release of version 0.4.5. New features for reporting
+the case activities, including statistical information.
 \item [April 23, 2005] Release of version 0.4.4. New features for case
 conclusions and enhancements to the case archive numbers for better tracking
 of the case history.
@@ -260,9 +271,11 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 \chapter{Installation}
 
-XXX TODO
+% Are introductory words required?
 
 \section{Minimal requirements}
+
+% This is taken from the README file.
 
 \begin{enumerate}
 \item MySQL 3.23.x, database server;
@@ -279,6 +292,8 @@ and PHP (it is possible that this is included in your PHP installation);
 \end{enumerate}
 
 \section{Before installing}
+
+% This is taken from the README file. (small edits)
 
 To start the LCM installation assistant, procede with the following steps.
 
@@ -320,6 +335,8 @@ and follow the instructions from the installation assistant.
 
 \subsection{Setting up directory permissions}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=66
+
 When you install LCM files, some directories will not be configured correctly:
 therefore, you must modify their configuration through your usual FTP or SSH
 client.
@@ -349,6 +366,8 @@ installation system, you must reload the page and the procedure will resume
 automatically.
 
 \subsection{Your database connection}
+
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=36
 
 This step consists of entering the necessary information for the connection of
 LCM to the SQL database server.
@@ -393,6 +412,8 @@ local server configuration.
 
 \subsection{Personal information}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=67
+
 This step should be completed carefully. Indeed, it is this step that
 determines your connection identification to the system! If you proceed
 hastily, you might not be able to connect...
@@ -410,6 +431,8 @@ It also allows you to change your password by e-mail if you have forgotten it.
 %% ----------------------------------------------------------------------
 
 \part{User functions}
+
+% TODO: Needs translation from Bulgarian
 
 \chapter{Cases}
 
@@ -445,6 +468,8 @@ It also allows you to change your password by e-mail if you have forgotten it.
 
 \section{General configuration}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=87
+
 \subsection{Site identification}
 
 The site identification is used to personalise the system according to your
@@ -476,6 +501,8 @@ Internet address of the system.
 
 \section{Collaborative work}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=88
+
 Collaborative work features refer to the different policies or habits that an
 organisation can adopt: they are usually a compromise between the privacy of
 the clients and collaboration between the users (office staff).
@@ -505,7 +532,7 @@ work settings.
 Note: If the above options are changed, it will not affect the settings of
 existing cases.
 
-\section{Self-registration of new users}
+\subsection{Self-registration of new users}
 
 Self-registration of new users is aimed at Internet-based organisations  who
 allow new members to register by themselves. In other words, the case
@@ -513,6 +540,8 @@ management system is open to all, but registration is required in order to
 access it.
 
 \section{Office policy}
+
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=89
 
 Some fields of the system can be hidden or shown depending on the policy of
 the organisation. Sometimes it may be that a field is not recommended or
@@ -578,6 +607,8 @@ not to its follow-ups. In case of doubt, say “yes”.
 \end{itemize}
 
 \section{Regional settings}
+
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=90
 
 \begin{itemize}
 \item Default language: Used in rare cases where the language of the user could
