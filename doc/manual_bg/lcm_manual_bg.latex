@@ -30,6 +30,9 @@
 
 \begin{document}
 
+% [ML] Should we use the presentation page of the English version?
+% [ML] (taken from 'a short intro to LaTeX' :-)
+
 \frontmatter
 \title{Програма за управление на юридически практики\\ Ръководство за потребителя}
 \author{Калоян Доганов\\ Кристина Хараланова\\ Матю Лютфи}
@@ -38,11 +41,7 @@
 
 %%\abstract{TODO: Document abstract.}
 
-%%\newpage
-
 \tableofcontents
-
-%%\newpage
 
 %% ----------------------------------------------------------------------
 
@@ -54,10 +53,24 @@
 
 \section{Сътрудници}
 
+% http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=61
+
+% START
 Проектът ПУЮП бе започнат от Фондация "`Интернет райтс България"' през
 юли 2004. Проектът е осъществен с финансовата подкрепа на Институт
 "`Отворено общество"' (информационна програма) със участието на
 българския Институт "`Отворено общество"' (юридическа програма).
+
+% [ML] TODO: The above paragraph has been replaced by:
+
+The LCM project was initiated by the Internet Rights Bulgaria Foundation
+(IRBF, www.irbf.ngo-bg.org) in July 2004, as a result of research and 
+collaboration with various Bulgarian legal advice centres and the Cambridge
+Independent Advice Centre (CIAC, www.ciac.org.uk) in 2003. The project was
+made possible with the financial support of the Open Society Institute
+(OSI, www.soros.org, information program) and with the collaboration of the
+Bulgarian Open Society Institute (OSF, www.osf.bg, law program).
+% END
 
 Основните сътрудници по проекта са:
 
@@ -87,6 +100,7 @@
 за тестове)
 \end{itemize}
 
+% START
 Други сътрудници
 
 \begin{itemize}
@@ -96,23 +110,173 @@
 отзиви за софтуерния анализ и тестване)
 \end{itemize}
 
+% [ML] TODO Replaced by:
+Quality assurance:
+
+\begin{itemize}
+\item Open Society Foundation --- Bulgaria, www.osf.bg (legal consultation, structural testing)
+\item Bulgarian Helsinki Committee, www.bghelsinki.org (legal consultation, behavioral and structural testing)
+\item Inter-Space, www.i-space.org (user-interface quality assurance, promotion and distribution)
+\item Chris Bailey --- CIAC, www.ciac.org.uk (behavioral testing, English proof-reading)
+\end{itemize}
+% END
+
 Също така бихме искали да благодарим на авторите на системата за
-управление на съдържание Спип (http://www.spip.net), от която
-използвахме много идеи. Също така благодарим и на системата за преводи
-Trad-Lang (http://www.eledo.com/download/trad\_lang) на Флоран Жугла,
-която се оказа много полезна при управлението на преводите на ПУЮП.
-
-\section{История на изданията (?)}
-
-XXX TODO
+управление на съдържание Спип (www.spip.net), от която използвахме
+много идеи. Също така благодарим и на системата за преводи Trad-Lang
+(www.eledo.com/download/trad\_lang) на Флоран Жугла, която се оказа
+много полезна при управлението на преводите на ПУЮП.
 
 \section{Контакти}
 
-XXX TODO
+% [bg] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=18
+% [en] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=8
+
+% This is mostly already translated in 
+% [bg] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=18
+
+% But in English, I have removed most of the "at the moment", "until"..
+% etc. 
+
+\subsection{Управление на проекта}
+
+Ръководител на проекта е Кристина Хараланова, а координатор и ръководител на
+софтуерната разработка е Матю Лютфи. Най-добрият начин да се свържете с нас е
+като пишете на пощенския списък на управлението на проекта:
+
+\begin{itemize}
+\item За контакти: legalcase-core@lists.sourceforge.net
+\item За абонамент: Достъпът до този пощенски списък е ограничен
+\end{itemize}
+
+\subsection{Софтуерни разработчици}
+
+To report bugs, to join the software development or to contact the developers:
+
+\begin{itemize}
+\item За контакти: legalcase-devel@lists.sourceforge.net
+\item Публичен архив: http://sf.net/mailarchive/forum.php?forum\_id=42175
+\item За абонамент: https://lists.sf.net/lists/listinfo/legalcase-devel
+\end{itemize}
+
+\subsection{Изпитващи софтуера} % testers
+
+People interested in testing LCM and sending us test reports and discussion
+related to testing:
+
+\begin{itemize}
+\item За контакти: legalcase-testing-en@lists.sourceforge.net
+\item Публичен архив: http://sf.net/mailarchive/forum.php?forum\_id=42844
+\item За абонамент: https://lists.sf.net/lists/listinfo/legalcase-testing-en
+\end{itemize}
+
+Този списък има и българска част:
+
+\begin{itemize}
+\item За контакти: legalcase-testing-bg@lists.sourceforge.net
+\item Публичен архив: http://sf.net/mailarchive/forum.php?forum\_id=42915
+\item За абонамент: https://lists.sf.net/lists/listinfo/legalcase-testing-bg
+\end{itemize}
+
+Моля, имайте предвид, че и двата пощенски списъка препращат всички съобщения
+на пощенския списък на разработчиците, така че няма нужда да се абонирате за
+всеки поотделно.
+
+\subsection{Известия} % Announcements
+
+% To receive announcements regarding new LCM releases, updates, important bugs
+% or security issues, please consider subscribing to the news mailing-list:
+
+За да получавате известия, отнасящи се до новини за програмата за управление
+на юридически практики – актуализиране, поправяне на грешки, подобрения на
+сигурността, имайте предвид, че има и пощенски списък за новини:
+
+\begin{itemize}
+\item За контакти: legalcase-news@lists.sourceforge.net
+\item Публичен архив: http://sf.net/mailarchive/forum.php?forum\_id=42845
+\item За абонамент: https://lists.sf.net/lists/listinfo/legalcase-news
+\end{itemize}
+
+Той има и българска версия:
+
+\begin{itemize}
+\item За контакти: legalcase-news-bg@lists.sourceforge.net
+\item Публичен архив: http://sf.net/mailarchive/forum.php?forum\_id=42914
+\item За абонамент: https://lists.sf.net/lists/listinfo/legalcase-news-bg
+\end{itemize}
+
+Съобщенията в този списък не са повече от 1-2 на месец, поради ограниченото
+време, с което разполага екипът, работещ по проекта. Ако имате личен акаунт на
+базата от данни под свободен софтуер "`Freshmeat"' (http://freshmeat.net), 
+може да се абонирате за нашия проект за юридически практики 
+(http://freshmeat.net/p/legalcase/) и ще получавате автоматични известия 
+за новите разработки.
+
+\subsection{Фондация "`Интернет райтс България"' --- ФИРБ}
+
+% Taken from www.irbf.ngo-bg.org/bg
+
+ФИРБ е нестопанска организация, която има за цел да популяризира инициативите,
+свързани със защита на социалните и човешките права в България. Ние
+насърчаваме НПО да използват интернет за стратегически нужди и работим за
+улесняване достъпа им до информационните технологии.
+
+% In English version of LCM manual is:
+
+IRBF is a not-for-profit and non-governmental organisation (NGO) who 
+coordinates the Legal Case Management software development. IRBF aims to 
+promote the social and human rights initiatives of social NGOs in Bulgaria.
+It encourages NGOs to strategically use the Internet and works to 
+facilitate their ICT access.
+
+\begin{itemize}
+\item Website: http://www.irbf.ngo-bg.org
+\item За контакти: irbf@ngo-bg.org
+\end{itemize}
+
+\section{История на изданията (?)}
+
+% Copied from English version
+
+TODO: We should probably say some kind of introduction to why we are saying
+this. We are saying this because LCM has gained experience and evolved with
+time.
+
+\begin{description}
+\item [Mai 16, 2005] Release of version 0.6.0. Milestone release for stability
+and usability. This branch release (0.6.x) will only have bug fixes, where as
+the experimental development features will go into the 0.7.x branch.
+\item [Mai 12, 2005] Release of version 0.4.5. New features for reporting
+the case activities, including statistical information.
+\item [April 23, 2005] Release of version 0.4.4. New features for case
+conclusions and enhancements to the case archive numbers for better tracking
+of the case history.
+\item [April 12, 2005] Release of version 0.4.3. New installer visual design,
+better keywords integration and many access rights bugfixes.
+\item [March 9, 2005] Release of version 0.4.2. New ``agenda'' feature, new
+concept of case ``stages'', many user interface enhancements and first
+Portuguese of Brazil translation.
+\item [January 26, 2005] Release of version 0.4.1. Bugfix release.
+\item [January 24, 2005] Release of version 0.4.0. Many user interface
+enhancements, as well as better internal structure and security. First
+completed Bulgarian translation.
+\item [December 14, 2004] Release of version 0.2.2. Experimental new features,
+such as a first reporting attempt and a primitive keywords implementation.
+\item [November 10, 2004] Release of version 0.2.1. Bugfix release.
+\item [November 1, 2004] Release of version 0.2.0. First public release.
+\item [August 1, 2004] Received financial support from the Open Society
+Institute (information program) in collaboration with the Open Society
+Foundation --- Bulgaria (legal program).
+\item [July-August 2003] Initial discussions on designing a legal case management
+system for Bulgarian not-for-profit organisations.
+\end{description}
+
 
 \section{Авторски права и условия за употреба}
 
 % XXX TRAD
+% The GPL should already be translated, just make sure it's not one
+% of those "bez platen software"....
 
 \begin{verbatim}
 (C) 2004-2005 Free Software Foundation, Inc.
@@ -134,17 +298,74 @@ with this program; if not, write to the Free Software Foundation, Inc.,
 
 \chapter{Инсталация}
 
-XXX TODO
+% Are introductory words required?
 
 \section{Изисквания}
 
-XXX TODO INSTALL file
+% This is taken from the INSTALL.utf8.bg file.
+
+\begin{enumerate}
+\item MySQL 3.23.x, система за управление на бази данни;
+
+\item Apache 1.3.x или 2.x, уеб-сървър;
+
+\item PHP 4.3.x, език за програмиране в web;
+
+\item libapache-mod-php или libapache2-mod-php 4.3.x, библиотека за 
+       връзка между Apache и PHP (възможно е този модул да е част от 
+       Вашата инсталация на PHP);
+
+\item PHP4-mysql, библиотека за връзка между PHP и MySQL (възможно е
+       този модул да е част от Вашата инсталация на PHP).
+\end{enumerate}
 
 \section{Преди инсталацията}
 
-XXX TODO INSTALL file
+% This is taken from the INSTALL.utf8.bg file.
+% TODO it maybe needs small adaptation
+
+Началната инсталация на LegalCase се извършва с помощта на приятен
+помощник. За да стартирате помощника, следвайте инструкциите по-долу.
+
+Свалете си актуален tar.gz-пакет от страницата на проекта
+<http://sf.net/projects/legalcase> и го разархивирайте във временна
+директория:
+
+\begin{verbatim}
+$ cd /tmp/
+$ tar xzf /path/to/legalcase-X.Y.Z.tar.gz
+\end{verbatim}
+
+След разархивирането ще се появи нова поддиректория legalcase:
+
+\begin{verbatim}
+$ ls -l
+
+drwxr-xr-x 6 user user 4096 2005-03-09 10:26 legalcase
+\end{verbatim}
+
+Преместете legalcase в директория, видима за Apache и публикувана в
+web, например:
+
+\begin{verbatim}
+$ mv legalcase /var/www/
+\end{verbatim}
+
+Дайте права за писане на директориите log, inc/config и
+inc/data:
+
+\begin{verbatim}
+$ cd /var/www/legalcase/
+$ chmod a+rw log inc/config inc/data
+\end{verbatim}
+
+Насочете браузъра си към новосъздадената поддиректория във Вашия
+уеб-сървър: <http://localhost/legalcase/> и следвайте инструкциите.
+
 
 \section{По време на инсталацията}
+
+
 
 \subsection{Настройване на правата за достъп до директориите}
 
