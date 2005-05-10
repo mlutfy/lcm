@@ -147,7 +147,7 @@ if (isset($lang) AND $lang <> $lcm_lang) {
 
 $installed_db_version = read_meta('lcm_db_version');
 
-if ($installed_db_version <> $lcm_db_version) {
+if ($installed_db_version < $lcm_db_version) {
 	lcm_page_start(_T('title_upgrade_database'));
 	if (! isset($installed_version))
 		$installed_version = "old version";
