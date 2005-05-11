@@ -104,13 +104,14 @@ Version: 0.6-pre2
 
 % http://www.lcm.ngo-bg.org/ecrire/articles.php3?id_article=59
 
-The LCM project was initiated by the Internet Rights Bulgaria Foundation
-(IRBF, www.irbf.ngo-bg.org) in July 2004, as a result of research and 
-collaboration with various Bulgarian legal advice centres and the Cambridge
-Independent Advice Centre (CIAC, www.ciac.org.uk) in 2003. The project was
-made possible with the financial support of the Open Society Institute
-(OSI, www.soros.org, information program) and with the collaboration of the
-Bulgarian Open Society Institute (OSF, www.osf.bg, law program).
+The Legal Case Management project was initiated by the Internet Rights
+Bulgaria Foundation (IRBF, www.irbf.ngo-bg.org) in July 2004, as a result of
+research and collaboration with various Bulgarian legal advice centres and the
+Cambridge Independent Advice Centre (CIAC, www.ciac.org.uk) in 2003.
+
+The project was made possible with the financial support of the Information
+Program of the Open Society Institute (OSI, www.soros.org) and with the collaboration
+of the Law Program of the Bulgarian Open Society Institute (OSF, www.osf.bg).
 
 The main contributors to the project are:
 
@@ -240,9 +241,11 @@ facilitate their ICT access.
 
 \section{Project history}
 
-TODO: We should probably say some kind of introduction to why we are saying
-this. We are saying this because LCM has gained experience and evolved with
-time.
+The history of the versions describes the evolution of the software
+development based on dates and released versions from the very beginning of
+the ide till now. Version 0.6.0 is the first official and stable version of
+the program suitable for use by the not-for-profit advice centres. Development
+continues.
 
 \begin{description}
 \item [Mai 16, 2005] Release of version 0.6.0. Milestone release for stability
