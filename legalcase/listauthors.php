@@ -100,7 +100,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 
 	// Author status
 	echo "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
-	echo clean_output($row['status']);
+	echo _T('authoredit_input_status_' . $row['status']);
 	echo "</td>\n";
 
 	echo "</tr>\n";
