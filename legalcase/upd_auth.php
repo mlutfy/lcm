@@ -76,7 +76,7 @@ foreach ($auth as $id => $access) {
 					id_followup = 0, id_case = $case, 
 					id_author = " . $GLOBALS['author_session']['id_author'] . ",
 					type = 'unassignment', 
-					description = '" . $author_data['id_author'] . "'";
+					description = '" . $id . "'";
 
 		$result = lcm_query($q);
 	} else {
