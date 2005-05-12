@@ -81,8 +81,8 @@ if ($code) {
 				'tools' => array('tools_agenda', 'tools_documents'),
 				'siteconfig' => array('siteconfig_general', 'siteconfig_collab', 'siteconfig_policy', 'siteconfig_regional'),
 				'archives' => array('archives_intro', 'archives_export', 'archives_import'),
-				'reports' => array('reports_intro'), 
-				'keywords' => array('keywords_intro', 'keywords_new'),
+				'reports' => array('reports_intro', 'reports_edit'), 
+				'keywords' => array('keywords_intro', 'keywords_new_group', 'keywords_new', 'keywords_remove'),
 				'about' => array('about_contrib', 'about_license')); 
 
 			if (isset($toc[$code])) {
