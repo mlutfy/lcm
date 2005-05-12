@@ -57,7 +57,8 @@ if (! ($case > 0)) {
 
 				// Add 'assigned' followup to the case
 				$q = "INSERT INTO lcm_followup
-						SET id_followup = 0, id_case = $case, 
+						SET date_start = NOW(), date_end = NOW(),
+							id_followup = 0, id_case = $case, 
 							id_author = " . $GLOBALS['author_session']['id_author'] . ",
 							type = 'assignment', 
 							description = '" . $author_data['id_author'] . "'";
