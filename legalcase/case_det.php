@@ -155,7 +155,7 @@ if ($case > 0) {
 				$result = lcm_query($query);
 				$row_tmp = lcm_fetch_array($result);
 
-				echo "Total time spent: " . format_time_interval_prefs($row_tmp['time']) . "<br />\n"; // TRAD
+				echo _Ti('case_input_total_time') . format_time_interval_prefs($row_tmp['time']) . "<br />\n";
 		
 				echo _Ti('case_input_legal_reason') . clean_output($row['legal_reason']) . "<br />\n";
 				if ($case_alledged_crime == 'yes')

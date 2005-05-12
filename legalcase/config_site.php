@@ -550,7 +550,7 @@ global $author_session;
 // Restrict page to administrators
 if ($author_session['status'] != 'admin') {
 	lcm_page_start(_T('title_site_configuration'), '', '', 'siteconfig');
-	echo "<p>Warning: Access denied, not admin.\n";
+	echo '<p class="normal_text">' . _T('warning_forbidden_not_admin') . "</p>\n";
 	lcm_page_end();
 	exit;
 }
