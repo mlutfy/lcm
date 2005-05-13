@@ -120,7 +120,7 @@ echo "</tr>\n";
 // Date length
 echo "<tr>\n";
 echo '<td>' . _Ti('time_input_length') . "</td>\n";
-echo '<td>' . format_time_interval($fu_data['length']) . "</td>\n";
+echo '<td>' . format_time_interval_prefs($fu_data['length']) . "</td>\n";
 echo "</tr>\n";
 
 // FU type
