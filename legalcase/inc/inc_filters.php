@@ -105,31 +105,42 @@ function format_time($timestamp = '', $format = 'short') {
 
 // Formats time interval
 function format_time_interval($time, $hours_only=false, $hours_only_format='%.2f') {
-	if (is_numeric($time)) {
-		if ($time>0) {
-			if ($hours_only) {
-				$days = 0;
-				$hours = $time / 3600;
-				$minutes = 0;
-			} else {
-				$days = (int) ($time / 86400);
-				$hours = (int) ( ($time % 86400) / 3600);
-				$minutes = (int) ( ($time % 3600) / 60);
-			}
+	$ret = array();
 
-			$ret = array();
-			if ($days) $ret[] = $days . 'd';
-			if ($hours) {
-				if ($hours_only)
-					$ret[] = sprintf($hours_only_format,$hours) . ( ($hours == 1.0) ? ' hr' : ' hrs'); // TRAD
-				else
-					$ret[] = $hours . 'h'; // TRAD
-			}
-			if ($minutes) $ret[] = $minutes . 'm'; // TRAD
+	if (! is_numeric($time))
+		return '';
+	
+	if ($time == 0)
+		return '0';
+	
+	if ($time < 0)
+		return '-1'; // should never happen, right? :-)
 
-			return join(', ',$ret);
-		} else if ($time == 0) return '0';
-	} else return '';
+	if ($hours_only) {
+		$days = 0;
+		$hours = $time / 3600;
+		$minutes = 0;
+	} else {
+		$days = (int) ($time / 86400);
+		$hours = (int) ( ($time % 86400) / 3600);
+		$minutes = (int) ( ($time % 3600) / 60);
+	}
+
+	if ($days)
+		$ret[] = $days . ($hours_only ? '' : '&nbsp;' . _T('time_info_short_day'));
+
+	if ($hours) {
+		if ($hours_only) // limit hours to 2 decimals
+			$ret[] = sprintf($hours_only_format, $hours)
+				. ($hours_only ? '' : '&nbsp;' . _T('time_info_short_hour'));
+		else
+			$ret[] = $hours . ($hours_only ? '' : '&nbsp;' . _T('time_info_short_hour'));
+	}
+
+	if ($minutes) 
+		$ret[] = $minutes . ($hours_only ? '' : '&nbsp;' . _T('time_info_short_min'));
+
+	return join(' ',$ret);
 }
 
 function format_time_interval_prefs($time) {
