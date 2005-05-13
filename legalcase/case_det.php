@@ -220,6 +220,29 @@ if ($case > 0) {
 					echo _Ti('case_input_stage') . clean_output($row['stage']) . "<br />\n";
 				}
 
+				// If case closed, show conclusion
+				if ($row['status'] == 'closed') {
+					// get the last relevant conclusion
+					$q_tmp = "SELECT * 
+								FROM lcm_followup
+								WHERE id_case = $case
+								  AND (type = 'conclusion'
+								   OR type = 'stage_change')
+								ORDER BY id_followup DESC 
+								LIMIT 1";
+					$r_tmp = lcm_query($q_tmp);
+					$row = lcm_fetch_array($r_tmp);
+
+					if ($row) {
+						echo '<div style="background: #dddddd;">';
+						echo _Ti('fu_input_conclusion');
+						echo get_fu_description($row);
+						echo ' <a class="content_link" href="fu_det.php?followup=' . $row['id_followup'] . '">...</a>';
+						echo "</div>\n";
+						echo "<br />\n";
+					}
+				}
+
 				echo _Ti('case_input_collaboration');
 				echo "<ul style='padding-top: 1px; margin-top: 1px;'>";
 				echo "<li>" . _Ti('case_input_collaboration_read') . _T('info_' . ($row['public'] ? 'yes' : 'no')) . "</li>\n";
