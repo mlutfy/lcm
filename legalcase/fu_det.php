@@ -31,7 +31,7 @@ if (isset($_GET['followup'])) {
 
 	// Fetch the details on the specified follow-up
 	$q="SELECT fu.*, a.name_first, a.name_middle, a.name_last,
-			IF(fu.date_end - fu.date_start > 0, fu.date_end - fu.date_start, 0) as length
+			IF(UNIX_TIMESTAMP(fu.date_end) > 0, UNIX_TIMESTAMP(fu.date_end) - UNIX_TIMESTAMP(fu.date_start), 0) as length
 		FROM lcm_followup as fu, lcm_author as a
 		WHERE id_followup = $followup
 			AND fu.id_author = a.id_author";
