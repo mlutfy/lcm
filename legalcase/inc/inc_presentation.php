@@ -1037,14 +1037,22 @@ function show_tabs($tab_list, $selected, $url_base) {
 	// Display tabs
 	foreach($tab_list as $key => $tab) {
 		if ($key != $selected) {
-			echo "\t<li><a href=\"$url_base?";
+			$a_title = "";
+			if (is_array($tab))
+				$a_title = 'title="' . $tab['tooltip'] . '"';
+
+			echo "\t<li><a $a_title href=\"$url_base?";
 			if (count($params)>0) echo join('&amp;',$params) . '&amp;';
 			echo 'tab=' . $key . "\">";
 		} else {
 			echo "\t<li class=\"active\">";
 		}
 
-		echo $tab;
+		if (is_array($tab))
+			echo $tab['name'];
+		else
+			echo $tab;
+
 		if ($key != $selected) echo "</a>";
 		echo "</li>\n";
 	}
