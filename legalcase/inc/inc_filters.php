@@ -294,10 +294,10 @@ function get_fu_description($item, $make_short = true) {
 			$short_description .= " / " . $tmp['description'];
 
 		if ($tmp['conclusion'])
-			$short_description .= " " . _Ti('fu_input_conclusion') . _Tkw('conclusion', $tmp['conclusion']);
+			$short_description .= "\n" . _Ti('fu_input_conclusion') . _Tkw('conclusion', $tmp['conclusion']);
 
 		if ($tmp['sentence'])
-			$short_description .= " " . _Ti('fu_input_sentence') . _Tkw('sentence', $tmp['sentence']);
+			$short_description .= "\n" . _Ti('fu_input_sentence') . _Tkw('sentence', $tmp['sentence']);
 
 		if ($tmp['sentence_val'])
 			$short_description .= ": " . $tmp['sentence_val'];
@@ -313,6 +313,8 @@ function get_fu_description($item, $make_short = true) {
 			$short_description = _T('fu_info_emptydesc');
 		}
 	}
+
+	$short_description = nl2br($short_description);
 
 	if (empty($short_description))
 		$short_description = _T('info_not_available');
