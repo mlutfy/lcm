@@ -41,7 +41,7 @@ $result = lcm_query($q);
 
 	if ($author_data = lcm_fetch_array($result)) {
 		$fullname = get_person_name($author_data);
-		lcm_page_start(_T('title_author_view') . ' ' . $fullname);
+		lcm_page_start(_T('title_author_view') . ' ' . $fullname, '', '', 'authors_intro');
 
 		// Show tabs
 		if ($author == $author_session['id_author'] || $author_session['status'] == 'admin') {

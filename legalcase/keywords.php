@@ -508,7 +508,7 @@ if (isset($_REQUEST['action'])) {
 	}
 }
 
-lcm_page_start(_T('menu_admin_keywords'));
+lcm_page_start(_T('menu_admin_keywords'), '', '', 'keywords_intro');
 lcm_bubble('keyword_list');
 
 //

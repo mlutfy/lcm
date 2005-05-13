@@ -28,7 +28,7 @@ include_lcm('inc_filters');
 global $author_session;
 global $prefs;
 
-lcm_page_start(_T('title_my_cases'));
+lcm_page_start(_T('title_my_cases'), '', '', 'cases_intro');
 lcm_bubble('case_list');
 
 //

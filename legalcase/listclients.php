@@ -34,7 +34,7 @@ if (!empty($_REQUEST['export']) && ($GLOBALS['author_session']['status'] == 'adm
 	exit;
 }
 
-lcm_page_start(_T('title_client_list'));
+lcm_page_start(_T('title_client_list'), '', '', 'clients_intro');
 lcm_bubble('client_list');
 show_find_box('client', $find_client_string, '', (string)($GLOBALS['author_session']['status'] == 'admin') );
 

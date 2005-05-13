@@ -29,7 +29,7 @@ $find_author_string = '';
 if (isset($_REQUEST['find_author_string']))
 	$find_author_string = $_REQUEST['find_author_string'];
 
-lcm_page_start(_T('title_author_list'));
+lcm_page_start(_T('title_author_list'), '', '', 'authors_intro');
 lcm_bubble('author_list');
 show_find_box('author', $find_author_string);
 

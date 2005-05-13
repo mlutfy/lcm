@@ -28,7 +28,7 @@ global $author_session;
 
 // Restrict page to administrators
 if ($author_session['status'] != 'admin') {
-	lcm_page_start(_T('title_report_list'), '', '', 'report_intro');
+	lcm_page_start(_T('title_report_list'), '', '', 'reports_intro');
 	echo '<p class="normal_text">' . _T('warning_forbidden_not_admin') . "</p>\n";
 	lcm_page_end();
 	exit;
@@ -41,7 +41,7 @@ $find_rep_string = '';
 if (isset($_REQUEST['find_rep_string']))
 	$find_rep_string = $_GET['find_rep_string'];
 
-lcm_page_start(_T('title_report_list'), '', '', 'report_intro');
+lcm_page_start(_T('title_report_list'), '', '', 'reports_intro');
 // lcm_bubble('report_list');
 show_find_box('rep', $find_rep_string);
 

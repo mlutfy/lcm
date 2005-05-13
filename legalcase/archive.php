@@ -26,9 +26,13 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 include_lcm('inc_impex');
 
-// Check access rights
-if ($GLOBALS['author_session']['status'] != 'admin') 
-	die("You don't have the right to list all cases!");
+// Restrict page to administrators
+if ($author_session['status'] != 'admin') {
+	lcm_page_start(_T('title_archives'), '', '', 'archives_intro');
+	echo '<p class="normal_text">' . _T('warning_forbidden_not_admin') . "</p>\n";
+	lcm_page_end();
+	exit;
+}
 
 $find_case_string = '';
 if (isset($_REQUEST['find_case_string']))
@@ -40,7 +44,7 @@ if (!empty($_REQUEST['export']) && ($GLOBALS['author_session']['status'] == 'adm
 }
 
 // Show page start
-lcm_page_start(_T('title_archives'));
+lcm_page_start(_T('title_archives'), '', '', 'archives_intro');
 
 // Show tabs
 $tabs = array(	array('name' => _T('archives_tab_all_cases'), 'url' => 'archive.php'),
