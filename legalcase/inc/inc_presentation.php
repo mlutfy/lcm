@@ -1618,4 +1618,18 @@ function show_navmenu_item($dest, $name) {
 		. "</a></li>\n";
 }
 
+// Returns the author's name and a link to its details page.
+function get_author_link($item) {
+	if (! is_array($item)) {
+		lcm_log("Warning: show_author_link() was not given an array");
+		return;
+	}
+
+	return '<a class="content_link" '
+		. 'href="author_det.php?author=' . $item['id_author'] . '" '
+		. 'title="' . _T('case_tooltip_view_author_details', array('author' => get_person_name($item))) . '">'
+		. get_person_name($item)
+		. "</a>";
+}
+
 ?>
