@@ -142,7 +142,7 @@ $desc = get_fu_description($fu_data, false);
 
 echo "<tr>\n";
 echo '<td valign="top">' . _T('fu_input_description') . "</td>\n";
-echo '<td>' . nl2br(clean_output($desc)) . "</td>\n";
+echo '<td>' . nl2br($desc) . "</td>\n";
 echo "</tr>\n";
 
 // Sum billed (if activated from policy)

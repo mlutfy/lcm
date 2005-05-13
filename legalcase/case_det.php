@@ -538,7 +538,7 @@ if ($case > 0) {
 					$short_description = get_fu_description($row);
 			
 					echo '<td>';
-					echo '<a href="fu_det.php?followup=' . $row['id_followup'] . '" class="content_link">' . clean_output($short_description) . '</a>';
+					echo '<a href="fu_det.php?followup=' . $row['id_followup'] . '" class="content_link">' . $short_description . '</a>';
 					echo '</td>';
 			
 					echo "</tr>\n";
