@@ -2,6 +2,7 @@ $INFO = 0;
 $NO_NAVIGATION = 1;
 $CUSTOM_TITLES = 1;
 $CHILDLINE = " ";
+$MAX_SPLIT_DEPTH = 4;
 
 # http://www.mail-archive.com/latex2html@mcs.anl.gov/msg00872.html
 sub custom_title_hook {
