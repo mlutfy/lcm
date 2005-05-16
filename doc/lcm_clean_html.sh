@@ -22,7 +22,12 @@ for i in *_*.html; do
 	grep -v "<h1>" | \
 	grep -v "<strong>Subsections</strong>" | \
 	sed "s/\"\`/\&bdquo;/g" | \
-	sed "s/\"'/\&ldquo;/g" \
-	 > "$DEST/$LANG/$i"
+	sed "s/\"'/\&ldquo;/g" | \
+	# transform sections to h3, instead of h2 (used at top title)
+	sed "s/h2/h3/g" | \
+	# transform target links references to remove file name
+	sed "s/href=\".*\.html#/href=\"#/g" | \
+	# move target links to <h3><a ...></a> text </h3>, avoids visual mess
+	sed "s/<h3>\(<a .*\">\)\(.*\)<\/a><\/h3>/<h3>\1<\/a>\2<\/h3>/" > "$DEST/$LANG/$i"
 done
 
