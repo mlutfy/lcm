@@ -15,6 +15,10 @@ pdf: lcm_manual_bg.latex
 view: 
 	${PDFVIEW} lcm_manual_bg.pdf
 
+html_bg:
+	latex2html -init_file=../latex2html-init -html_version 4.0,unicode,unicode  lcm_manual_bg.latex 
+	sh ../lcm_clean_html.sh bg /var/www/legalcase/inc/help/
+
 clean:
 	rm -f *.log
 	rm -f *.out
