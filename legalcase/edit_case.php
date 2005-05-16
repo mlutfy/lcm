@@ -125,10 +125,10 @@ if (!$existing && isset($_REQUEST['attach_org'])) {
 
 
 // Start page and title
-if ($existing) lcm_page_start(_T('title_case_edit'));
-else lcm_page_start(_T('title_case_new'));
-
-echo "<div style='float: right'>" . lcm_help("case_edit") . "</div>\n";
+if ($existing)
+	lcm_page_start(_T('title_case_edit'), '', '', 'cases_intro#edit');
+else
+	lcm_page_start(_T('title_case_new'), '', '', 'cases_intro#new');
 
 // Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);
