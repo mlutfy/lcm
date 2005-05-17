@@ -308,7 +308,8 @@ function get_fu_description($item, $make_short = true) {
 			$short_description .= "\n" . _Ti('fu_input_conclusion') . _Tkw('conclusion', $tmp['conclusion']);
 
 		if ($tmp['sentence'])
-			$short_description .= "\n" . _Ti('fu_input_sentence') . _Tkw('sentence', $tmp['sentence']);
+			$short_description .= "\n" . _Ti('fu_input_sentence')
+				. _Tkw('sentence', $tmp['sentence'], array('currency' => read_meta('currency')));
 
 		if ($tmp['sentence_val'])
 			$short_description .= ": " . $tmp['sentence_val'];
