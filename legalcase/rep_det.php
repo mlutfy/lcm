@@ -115,7 +115,7 @@ if ($rep_info['line_src_type'] && $rep_info['line_src_name']) {
 	if ($rep_info['line_src_type'] == 'keyword') {
 		$kwg = get_kwg_from_name($rep_info['line_src_name']);
 		echo '<p class="normal_text">' . "Source: " . $rep_info['line_src_type'] // TRAD
-			. " (" . $kwg['type'] . ") -> " . $rep_info['line_src_name']; // TRAD
+			. " (" . $kwg['type'] . ") -> " . _T(remove_number_prefix($kwg['title'])); // TRAD
 	} else {
 		echo "<p class='normal_text'>" . "Source: " . $rep_info['line_src_type'] 
 			. " -> " . _T('rep_info_table_lcm_' . $rep_info['line_src_name']); // TRAD
