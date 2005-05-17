@@ -94,8 +94,7 @@ echo show_all_errors($_SESSION['errors']);
 		<tr>
 			<td colspan="2" align="center" valign="middle" class="heading">
 <?php
-			echo "<div style='float: right'>" . lcm_help('author_edit', 'system') . "</div>\n";
-			echo "<h4>" . _T('authoredit_subtitle_personalinfo') . "</h4>\n";
+			show_page_subtitle(_T('authoredit_subtitle_personalinfo'), 'author_edit');
 ?>
 			</td>
 		</tr>
@@ -127,8 +126,7 @@ echo show_all_errors($_SESSION['errors']);
 
 	echo "<tr>\n";
 	echo '<td colspan="2" align="center" valign="middle" class="heading">';
-	echo "<div style='float: right'>" . lcm_help('contacts') . "</div>\n";
-	echo '<h4>' . _T('client_subtitle_contacts') . '</h4>';
+	show_page_subtitle(_T('client_subtitle_contacts'), 'contacts');
 	echo '</td>';
 	echo "</tr>\n";
 
@@ -142,8 +140,7 @@ echo show_all_errors($_SESSION['errors']);
 		<tr>
 			<td colspan="2" align="center" valign="middle" class="heading">
 <?php
-			echo "<div style='float: right'>" . lcm_help('author_edit', 'system') . "</div>\n";
-			echo "<h4>" . _T('authoredit_subtitle_connectionidentifiers') . "</h4>\n";
+			show_page_subtitle(_T('authoredit_subtitle_connectionidentifiers'), 'author_edit');
 ?>
 			</td>
 		</tr>
