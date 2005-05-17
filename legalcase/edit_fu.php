@@ -352,7 +352,9 @@ $dis = (($admin || $edit) ? '' : 'disabled="disabled"');
 
 		foreach ($kws_sentence as $kw) {
 			$sel = ($kw['name'] == $default ? ' selected="selected"' : '');
-			echo '<option ' . $sel . ' value="' . $kw['name'] . '">' . _T(remove_number_prefix($kw['title'])) . "</option>\n";
+			echo '<option ' . $sel . ' value="' . $kw['name'] . '">'
+				. _T(remove_number_prefix($kw['title']), array('currency' => read_meta('currency')))
+				. "</option>\n";
 		}
 
 		echo "</select>\n";
