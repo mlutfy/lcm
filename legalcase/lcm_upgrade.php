@@ -59,6 +59,13 @@ if ($lcm_db_version <> $current_version) {
 } else {
 	lcm_page_start("No database upgrade needed"); // TRAD
 
+	/* [ML] For testing stuff 
+	include_lcm('inc_db_upgrade');
+	include_lcm('inc_repfields_defaults');
+	$fields = get_default_repfields();
+	create_repfields($fields);
+	*/
+
 	echo '<p class="normal_text"><a class="content_link" href="index.php">' . _T('info_upgrade_database5') . "</a></p>\n";
 
 	lcm_page_end();
