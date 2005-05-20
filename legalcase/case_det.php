@@ -103,7 +103,7 @@ if ($case > 0) {
 				$authors_result = lcm_query($q);
 				$cpt = 0;
 
-				if (lcm_num_rows($authors) > 1)
+				if (lcm_num_rows($authors_result) > 1)
 					echo _Ti('case_input_authors');
 				else
 					echo _Ti('case_input_author');
