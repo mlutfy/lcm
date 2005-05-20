@@ -384,7 +384,8 @@ function apply_conf_changes_general() {
 		if ($email_sysadmin != $old_email) {
 			if (is_valid_email($email_sysadmin)) {
 				write_meta('email_sysadmin', $email_sysadmin);
-				array_push($log, _Ti('siteconf_input_admin_email') . now_and_before(addslashes($email_sysadmin, $old_email)));
+				array_push($log, _Ti('siteconf_input_admin_email')
+					. now_and_before(clean_input($email_sysadmin), $old_email));
 			} else {
 				// FIXME not the best way of showing errors... 
 				array_push($log, "Sysadmin e-mail address <tt>"
