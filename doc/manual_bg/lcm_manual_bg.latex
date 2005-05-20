@@ -159,21 +159,11 @@
 
 \section{Контакти}
 
-% TODO FIXME
-% [bg] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=18
-% [en] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=8
-
-% This is mostly already translated in 
-% [bg] http://www.lcm.ngo-bg.org/ecrire/naviguer.php3?id_rubrique=18
-
-% But in English, I have removed most of the "at the moment", "until"..
-% etc. 
-
 \subsection{Управление на проекта}
 
 Ръководител на проекта е Кристина Хараланова, а координатор и ръководител на
 софтуерната разработка е Матю Лютфи. Най-добрият начин да се свържете с нас е
-като пишете на пощенския списък на управлението на проекта:
+като пишете на пощенския списък за управлението на проекта:
 
 \begin{itemize}
 \item За контакти: legalcase-core@lists.sourceforge.net
@@ -182,7 +172,9 @@
 
 \subsection{Софтуерни разработчици}
 
-To report bugs, to join the software development or to contact the developers:
+Ако искате да изпратите съобщение за грешка, да се присъедините към
+разработката на софтуера или да се свържете с разработчиците, използвайте
+следните адреси:
 
 \begin{itemize}
 \item За контакти: legalcase-devel@lists.sourceforge.net
@@ -193,7 +185,7 @@ To report bugs, to join the software development or to contact the developers:
 \subsection{Изпробване на софтуера} % testers
 
 За тези, които се интересуват от изпробването на ПУЮП, могат да изпращат
-доклади за грешки, впечатления и въпроси на адрес:
+доклади за грешки, впечатления и въпроси на следните адреси:
 
 \begin{itemize}
 \item За контакти: legalcase-testing-en@lists.sourceforge.net
@@ -213,10 +205,7 @@ To report bugs, to join the software development or to contact the developers:
 на пощенския списък на разработчиците, така че няма нужда да се абонирате за
 всеки поотделно.
 
-\subsection{Известия} % Announcements
-
-% To receive announcements regarding new LCM releases, updates, important bugs
-% or security issues, please consider subscribing to the news mailing-list:
+\subsection{Известия} 
 
 За да получавате известия, отнасящи се до новини за програмата за управление
 на юридически практики – актуализиране, поправяне на грешки, подобрения на
@@ -254,16 +243,8 @@ To report bugs, to join the software development or to contact the developers:
 стратегически нужди и работим за улесняване достъпа им до информационните
 технологии.
 
-% In English version of LCM manual is:
-
-% IRBF is a not-for-profit and non-governmental organisation (NGO) who 
-% coordinates the Legal Case Management software development. IRBF aims to 
-% promote the social and human rights initiatives of social NGOs in Bulgaria.
-% It encourages NGOs to strategically use the Internet and works to 
-% facilitate their ICT access.
-
 \begin{itemize}
-\item Website: http://www.irbf.ngo-bg.org
+\item Уеб сайт: www.irbf.ngo-bg.org
 \item За контакти: irbf@ngo-bg.org
 \end{itemize}
 
