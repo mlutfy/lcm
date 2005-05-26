@@ -54,14 +54,12 @@ if (strlen($find_rep_string)>1) {
 }
 
 // Sort reports by nem
-$order_set = false;
 $order_title = 'ASC';
 if (isset($_REQUEST['order_title']))
-	if ($_REQUEST['order_title'] == 'ASC' || $_REQUEST['order_title'] == 'DESC') {
+	if ($_REQUEST['order_title'] == 'ASC' || $_REQUEST['order_title'] == 'DESC')
 		$order_title = $_REQUEST['order_title'];
-		$q .= " ORDER BY title " . $order_title;
-		$order_set = true;
-	}
+
+$q .= " ORDER BY title " . $order_title;
 
 $result = lcm_query($q);
 
