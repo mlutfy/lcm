@@ -349,13 +349,13 @@ if ($edit) {
 	$table = '';
 
 	while ($field = lcm_fetch_array($fields)) {
-		if ($table && $field['table_name'] != $table) {
+		if ($table && $field['table_name'] != $table)
 			echo "</optgroup>\n";
 
-			$table = $field['table_name'];
-			echo "<optgroup label='" . _T('rep_info_table_' . $table) . "'>\n";
-		}
+		if ($field['table_name'] != $table)
+			echo "<optgroup label='" . _T('rep_info_table_' . $field['table_name']) . "'>\n";
 
+		$table = $field['table_name'];
 		echo "\t<option value='" . $field['id_field'] . "'>" . _Th($field['description']) . "</option>\n";
 	}
 
