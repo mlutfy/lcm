@@ -1,8 +1,10 @@
 \documentclass[a4paper,leqno]{book}
 \usepackage{ucs}
 \usepackage[utf8]{inputenc}
+\usepackage[T2A]{fontenc}
 \usepackage{fancyhdr}
 \usepackage{html}
+\usepackage[english]{babel}
 
 % 	This file is part of the Legal Case Management System (LCM).
 % 	(C) 2004-2005 Free Software Foundation, Inc.
@@ -338,7 +340,7 @@ Move the legalcase directory in a space accessible by the Apache Web server:
 $ mv legalcase /var/www/
 \end{verbatim}
 
-Provide the permission to "write" to the Apache Web server for the directories
+Provide the permission to ``write'' to the Apache Web server for the directories
 log, inc/config and inc/data:
 
 \begin{verbatim}
@@ -1797,29 +1799,78 @@ the browser is not correctly configured.
 activated.
 \end{itemize}
 
-\chapter{Archives}
-
-\HTMLset{mypagename}{archives\_intro}
-\section{General}
-
-\HTMLset{mypagename}{archives\_export}
-\section{Export}
-
-\HTMLset{mypagename}{archives\_import}
-\section{Import}
+% \chapter{Archives}
+% 
+% \HTMLset{mypagename}{archives\_intro}
+% \section{General}
+% 
+% \HTMLset{mypagename}{archives\_export}
+% \section{Export}
+% 
+% \HTMLset{mypagename}{archives\_import}
+% \section{Import}
 
 
 \chapter{Keywords}
 
 \HTMLset{mypagename}{keywords\_intro}
-\section{Intro, todo}
+\section{Introduction}
 
-TODO
+Keywords are used to customize some aspects of the system to your environment.
+They are usually related to statistical information and therefore offer a
+limited range of options. There are two types of keywords:
+
+\begin{description}
+\item [System] Used by specific features of the software, such as the types of
+case stages, follow-up types, contacts or meetings.
+
+\item [User] Allow administrators to add new fields for statistical use. They
+are attached to cases, clients or organisations and are a tool to add a new
+field to those elements.
+\end{description}
 
 \HTMLset{mypagename}{keywords\_new\_group}
 \section{New keyword group, todo}
 
-TODO
+Only ``user'' keyword groups can be created, since ``system'' keyword groups
+refer to specific features of the software.
+
+{\bf To create a new user keyword group}, follow these steps:
+
+\begin{enumerate}
+\item Click on the ``Keywords'' administrative menu item, then click on the
+``User keywords'' tab located at the top of the screen.
+\item Add the bottom of the screen, click on the ``Create new keyword group''
+button.
+\item When the ``new keyword group'' form appears, enter the following 
+information:
+
+\begin{description}
+\item [Applies to] refers to what the keyword will be attached to. Possible
+values include: case, case stage, client and organisation. The ``case stage''
+is similar to ``case'', except that its value can be changed depending on the
+case stage.
+\item [Policy] Indicates to the user whether the field is mandatory,
+recommended or optional. Please note that the software does not enforce
+the policy of the fields, since the information may only be available 
+at some time in the future. It is meant to be informative.
+\item [Default choice] When keywords are added to the keyword group, it is
+possible to propose a default value. For example, for a keyword group ``age
+group'', the default keyword should be ``unknown''.
+\item [Code] Short, unique word used internally by the software. This field
+is mandatory.
+\item [Title] Name of the field which will be shown in the details or edit
+forms.
+\item [Description] Provided to the user as a form of contextual help. (Note:
+currently not implemented.)
+\item [One or many] Specify whether the keywords from this group can be 
+selected one or many times for this group. In case of doubt, say ``one''.
+\item [Hidden] Keywords which are in use by the software cannot be deleted,
+but it is possible to hide them so that they are no longer used in the future.
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the information.
+\end{enumerate}
 
 \HTMLset{mypagename}{keywords\_new}
 \section{New keyword, todo}
@@ -1834,16 +1885,197 @@ TODO
 \chapter{Reports}
 
 \HTMLset{mypagename}{reports\_intro}
-\section{Reports intro, todo}
+\section{Introduction}
 
-TODO
+An important aspect of case management is the possibility to extract
+statistical information based on the activities of the organisation. In order
+to generate the reports, a basic structure must first be defined, which can
+later be used at regular intervals to generate the reports.
+
+The ``List of reports'', accessible from the ``Reports'' navigation menu item,
+therefore presents a list of report structures, which can be used to generate
+reports.
+
+\subsection{New report}
+
+{\bf To create a new report}, follow these steps:
+
+\begin{enumerate}
+\item Click on the ``Reports'' administrative menu item, then click on the
+``New report'' button located at the end of the list of reports.
+
+\item In the ``New report'' form, enter the following information:
+
+\begin{description}
+\item [Title] Choose a short but representative title for the report, which
+will help you to find your report in the future. Mandatory field.
+
+\item [Description] More detailed information on the report, if necessary. It
+will be shown at the top of the report.
+
+\item [Notes] Optional text shown at the end of the report. For example, if
+your office require printed reports to be approved by a manager, enter the
+name of the manager in the ``notes'' field so that the manager has a place to
+sign.
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the information.
+\end{enumerate}
+
+Upon successful validation of the report, the screen ``report details'' will
+be shown. From this screen, the report can be personalized to include the
+fields and filters necessary for the report.
+
+\subsection{Edit report}
+
+{\bf To edit the information of an existing report}, follow these steps:
+
+\item Click on the ``Reports'' administrative menu item, then click on the
+report that you wish to edit.
+
+\item Click on the ``Edit report details'' button located in the ``general
+information'' section of the screen.
+
+\item For more information on the fields, refer to the ``New report'' section.
+
+\item Click on the ``Validate'' button in order to save the information.
+\begin{enumerate}
+
+Upon successful validation of the report, the screen ``report details'' will
+be shown. From this screen, the report can be personalized to include the
+fields and filters necessary for the report.
+
+\end{enumerate}
 
 \HTMLset{mypagename}{reports\_edit}
-\section{Reports edit, todo}
+\section{Customizing a report}
 
-TODO
+This section provides more information on how to define the contents of
+a report. The reports generated by the software typically have the following
+structure:
 
+\begin{description}
+\item [Lines] The main reference element of the report. For example, a 
+report which will list the number of new cases for all users will use
+the ``Users'' table for the ``line'' information. On the other hand,
+a report which would list the journal of activities for one specific
+user would use the ``Follow-ups'' table. A report must include at least
+a source element for the lines of the report.
 
+\item [Columns] The column information lists information in relation
+to the ``Line'' information. For example, if the line is using the
+``users'' table and the ``column'' is using the ``follow-ups'' table,
+then it is possible to extract information on the follow-ups for each
+user. More detailed examples are provided in the next sections.
+
+\item [Filters] After selecting the source elements for the lines and
+(optinally) columns for the report, it is possible to filter the 
+results based on certain criteria. For example, to generate a monthly
+report, it will be necessary to add a filter based on the date of the
+case or follow-ups.
+\end{description}
+
+\subsection{Defining the lines and columns of reports}
+
+The report line and column each allow to use one source element, from
+which many fields can be used. The only exception to this are keywords,
+because they only have a title, so specifying the field is not necessary.
+
+{\bf To define the source element of a line or column of a new report},
+follow these steps:
+
+\begin{enumerate}
+\item From the ``Report details'' form, select the source table or
+keyword for the report line (later repeat for the report column, if
+necessary).
+
+\item Click on the ``Validate'' button. It will refresh the screen,
+showing the selected source, as well as a list of fields available
+(if the source is a table).
+
+\item To add a field, select it from the menu located on the
+``Add a field'' line of the form, then click on ``Validate''. The
+fields are shown in the report in the order that they were added.
+\end{enumerate}
+
+To change the line or column source, all of the fields selected for
+the source must first be removed. Fields can be removed by clicking
+on the ``X'' located next to the title of the field. When there are
+no fields selected for a source, a ``X'' is shown next to the name
+of the source in order to change it.
+
+\subsection{Example: Number of cases per user}
+
+{\bf To list the number of cases per user, within a given period},
+follow these steps:
+
+\begin{enumerate}
+\item As the ``line information'' source, select the table ``User'',
+then click on ``Validate''.
+\item Add the field ``name'', then click on ``Validate''. Repeat with
+the ``surname'' field.
+\item As the ``column information'' source, select the table ``Case'',
+then click on ``Validate''.
+\item Add the field ``count'', then click on ``Validate''.
+\end{enumerate}
+
+To count the number of new cases for a given period, it is possible
+to add a filter based on the creation date of the case:
+
+\begin{enumerate}
+\item In the ``report filters'' section, select the ``Case: creation
+date'' item from the menu, then click on ``Validate''.
+\item After the screen is refreshed, a new menu will be shown next to 
+the name of the field (creation date), which by default shows ``none''. 
+Change the value for ``in'', then click on ``Validate''.
+\item Two sets of fields will then be displayed in order to enter the
+date interval for the report. If you would like to use this reports on
+many intervals, for example each month, simply leave the fields empty.
+\end{enumerate}
+
+The report is now ready to be generated, using the ``Generate report''
+button at the top of the screen. If a ``creation date'' filter was
+created and its value was left empty, the software will show a screen
+to enter the date interval.
+
+Please note that in this specific case the list of cases are seperated by
+case stage and a total is shown at the end of each line (the sum of all
+case stages for the user) as well as a total at the end of the report
+(the sum of cases for all users).
+
+\subsection{Example: Time spent of each follow-up type, for each user}
+
+{\bf To list the total amount of time spent on each follow-up type,
+for each user}, follow these steps:
+
+\begin{enumerate}
+\item As the ``line information'' source, select the table ``User'',
+then click on ``Validate''.
+\item Add the field ``name'', then click on ``Validate''. Repeat with
+the ``surname'' field.
+\item As the ``column information'' source, select the table ``Follow-up'',
+then click on ``Validate''.
+\item Add the field ``type'', then click on ``Validate''.
+\end{enumerate}
+
+To limit the results to activities for a given period, use the following
+filter:
+
+\begin{enumerate}
+\item In the ``report filters'' section, select the ``Follow-up: Start''
+item from the menu, then click on ``Validate''.
+\item After the screen is refreshed, a new menu will be shown next to 
+the name of the field (creation date), which by default shows ``none''. 
+Change the value for ``in'', then click on ``Validate''.
+\item Two sets of fields will then be displayed in order to enter the
+date interval for the report. If you would like to use this reports on
+many intervals, for example each month, simply leave the fields empty.
+\end{enumerate}
+
+The report is now ready to be generated, using the ``Generate report''
+button at the top of the screen. If a ``start date'' filter was created 
+and its value was left empty, the software will show a screen to enter 
+the date interval.
 
 %% ----------------------------------------------------------------------
 
