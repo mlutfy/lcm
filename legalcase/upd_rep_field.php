@@ -27,13 +27,13 @@ include_lcm('inc_filters');
 $rep = intval($_REQUEST['rep']);
 
 // After returning to the page referer, jump to a specific place
-// Ex: #line, #column, #filter, etc.
+// Ex: #line, #col, #filter, etc.
 $ref_tag = "";
 
 if (isset($_REQUEST['remove'])) {
-	$remove = $_REQUEST['remove']; // = { 'column', 'line' }
+	$remove = $_REQUEST['remove']; // = { 'col', 'line' }
 
-	if ($remove == 'column') {
+	if ($remove == 'col') {
 		$id_column = intval($_REQUEST['id_column']);
 	
 		if (! $id_column)
@@ -44,7 +44,7 @@ if (isset($_REQUEST['remove'])) {
 					AND id_column = " . $id_column;
 	
 		lcm_query($query);
-		$ref_tag = "#column";
+		$ref_tag = "#col";
 	} else if ($remove == 'line') {
 		$id_line = intval($_REQUEST['id_line']);
 	
@@ -74,13 +74,13 @@ if (isset($_REQUEST['remove'])) {
 }
 
 if (isset($_REQUEST['add'])) {
-	$add = $_REQUEST['add']; // = { 'column', 'line', 'filter' }
+	$add = $_REQUEST['add']; // = { 'col', 'line', 'filter' }
 	$id_field = intval($_REQUEST['id_field']);
 
 	if (! $id_field)
 		die ("add column: missing valid 'id_field'");
 
-	if ($add == 'column') {
+	if ($add == 'col') {
 		$order = intval($_REQUEST['order']);
 		$header = clean_input($_REQUEST['header']);
 		$sort = clean_input($_REQUEST['sort']);
@@ -95,7 +95,7 @@ if (isset($_REQUEST['add'])) {
 					sort = '$sort'";
 	
 		lcm_query($query);
-		$ref_tag = "#column";
+		$ref_tag = "#col";
 	} else if ($add == 'line') {
 		// TODO: Add "position"
 		// $order = intval($_REQUEST['order']);
@@ -183,7 +183,7 @@ if (isset($_REQUEST['select_col_type']) && isset($_REQUEST['select_col_name'])) 
 		lcm_query($query);
 	// }
 
-	$ref_tag = "#column";
+	$ref_tag = "#col";
 }
 
 if (isset($_REQUEST['select_line_type']) && isset($_REQUEST['select_line_name'])) {
@@ -207,7 +207,7 @@ if (isset($_REQUEST['unselect_col'])) {
 			WHERE id_report = " . $rep;
 	
 	lcm_query($query);
-	$ref_tag = "#column";
+	$ref_tag = "#col";
 }
 
 if (isset($_REQUEST['unselect_line'])) {
