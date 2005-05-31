@@ -56,6 +56,7 @@ if (count($_SESSION['errors'])) {
 $fl = "title = '" . clean_input($rep_data['title']) . "', "
 	. "id_author = " . $rep_data['id_author'] . ", "
 	. "description = '" . clean_input($rep_data['description']) . "', "
+	. "notes = '" . clean_input($rep_data['notes']) . "', "
 	. "date_update = NOW()";
 
 // Put public access rights settings in a separate string

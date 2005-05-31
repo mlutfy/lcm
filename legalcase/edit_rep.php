@@ -107,6 +107,12 @@ echo '<textarea name="description" rows="5" cols="40" class="frm_tarea">';
 echo $_SESSION['rep_data']['description'];
 echo "</textarea></p>\n";
 
+// Notes
+echo '<p>' . "<strong>" . _Ti('rep_input_notes') . "</strong><br />\n";
+echo '<textarea name="notes" rows="5" cols="40" class="frm_tarea">';
+echo $_SESSION['rep_data']['notes'];
+echo "</textarea></p>\n";
+
 //	if ($admin || !read_meta('case_read_always') || !read_meta('case_write_always')) {
 //		echo "\t<tr><td>" . _T('public') . "</td>
 //			<td>
