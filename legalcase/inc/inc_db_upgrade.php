@@ -680,7 +680,6 @@ function upgrade_database($old_db_version) {
 	}
 	
 	if ($lcm_db_version_current < 31) {
-		// [ML] If no one complained, uncomment the following:
 		lcm_query("ALTER TABLE lcm_client DROP address");
 		lcm_query("ALTER TABLE lcm_org DROP address");
 
@@ -736,6 +735,11 @@ function upgrade_database($old_db_version) {
 		create_repfields($fields);
 
 		upgrade_db_version (35);
+	}
+	
+	if ($lcm_db_version_current < 36) {
+		lcm_query("ALTER TABLE lcm_report ADD notes text NOT NULL DEFAULT '' AFTER description");
+		upgrade_db_version (36);
 	}
 
 	//

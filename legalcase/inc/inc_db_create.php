@@ -326,6 +326,7 @@ function create_database() {
 		id_report bigint(21) NOT NULL auto_increment,
 		title varchar(255) NOT NULL default '',
 		description text NOT NULL default '',
+		notes text NOT NULL default '',
 		id_author bigint(21) NOT NULL default '0',
 		date_creation datetime NOT NULL default '0000-00-00 00:00:00',
 		date_update datetime NOT NULL default '0000-00-00 00:00:00',
