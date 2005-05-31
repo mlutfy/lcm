@@ -72,16 +72,15 @@ if (empty($_SESSION['errors'])) {
 
 // Start the page with the proper title
 if ($_SESSION['existing']) 
-	lcm_page_start(_T('title_rep_edit') . " " . $_SESSION['rep_data']['title']);
+	lcm_page_start(_T('title_rep_edit') . " " . $_SESSION['rep_data']['title'], '', '', 'reports_intro');
 else 
-	lcm_page_start(_T('title_rep_new'));
+	lcm_page_start(_T('title_rep_new'), '', '', 'reports_intro');
 
 if (! empty($_SESSION['errors']))
 	echo show_all_errors($_SESSION['errors']);
 
 echo "<fieldset class=\"info_box\">\n";
-
-echo "\n<form action='upd_rep.php' method='post'>\n";
+echo "<form action='upd_rep.php' method='post'>\n";
 
 if ($_SESSION['rep_data']['id_report']) {
 	echo "<strong>". _Ti('rep_input_id') . "</strong>&nbsp;" . $_SESSION['rep_data']['id_report'] . "
