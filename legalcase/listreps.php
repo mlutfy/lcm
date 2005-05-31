@@ -92,7 +92,7 @@ for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; 
 	echo "<tr><td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
 
 	if (true) echo '<a href="rep_det.php?rep=' . $row['id_report'] . '" class="content_link">';
-	echo highlight_matches(clean_output($row['title']),$find_rep_string);
+	echo highlight_matches(clean_output(remove_number_prefix($row['title'])),$find_rep_string);
 	if (true) echo '</a>';
 	echo "</td>\n";
 	
