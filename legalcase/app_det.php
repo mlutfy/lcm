@@ -166,9 +166,11 @@ echo '<p class="normal_text">' . "\n";
 				$short_description = substr($fu['description'],0,$title_length) . '...';
 			echo '<br />Resulting followup:' . ' <a href="fu_det.php?followup=' . $fu['id_followup'] . '">' . $short_description; // TRAD
 		} else {
-			// Show create followup from appointment
-			echo '<br /><a href="edit_fu.php?case=' . $row['id_case'] . '&amp;app=' . $row['id_app']
-				. '" class="create_new_lnk">Create new followup from this appointment';	// TRAD
+			if ($ac['w']) {
+				// Show create followup from appointment
+				echo '<br /><a href="edit_fu.php?case=' . $row['id_case'] . '&amp;app=' . $row['id_app']
+					. '" class="create_new_lnk">Create new followup from this appointment';	// TRAD
+			}
 		}
 
 		echo "</a><br />\n";
