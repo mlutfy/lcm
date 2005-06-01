@@ -126,9 +126,9 @@ if (empty($_SESSION['errors'])) {
 }
 
 if ($_SESSION['app_data']['id_app'] > 0)
-	lcm_page_start(_T('title_app_edit'));
+	lcm_page_start(_T('title_app_edit'), '', '', 'tools_agenda');
 else
-	lcm_page_start(_T('title_app_new'));
+	lcm_page_start(_T('title_app_new'), '', '', 'tools_agenda');
 
 if ($_SESSION['app_data']['id_case'] > 0) {
 	// Show a bit of background on the case

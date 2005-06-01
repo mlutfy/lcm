@@ -42,7 +42,7 @@ $result = lcm_query($q);
 if (! ($row = lcm_fetch_array($result)))
 	die("There is no such appointment.");
 
-lcm_page_start(_T('title_app_view') . ' ' . $row['title']);
+lcm_page_start(_T('title_app_view') . ' ' . $row['title'], '', '', 'tools_agenda');
 
 echo '<fieldset class="info_box">' . "\n";
 echo '<p class="normal_text">' . "\n";
