@@ -28,6 +28,11 @@ include_lcm('inc_filters');
 $admin = ($GLOBALS['author_session']['status']=='admin');
 $title_onfocus = '';
 
+$ac = get_ac_app($_GET['app']);
+
+if (! $ac['w'])
+	die("access denied");
+
 if (empty($_SESSION['errors'])) {
 	// Clear form data
 	$_SESSION['app_data'] = array('ref_edit_app' => ( $_GET['ref'] ? clean_input($_GET['ref']) : $GLOBALS['HTTP_REFERER']) );
