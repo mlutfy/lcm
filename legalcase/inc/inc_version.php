@@ -142,10 +142,10 @@ if (@file_exists('inc/my_options.php'))
 	include('inc/my_options.php');
 
 // Current version of LCM
-$lcm_version = 0.45;
+$lcm_version = 0.60;
 
 // Current version of LCM shown on screen
-$lcm_version_shown = "0.4.5";
+$lcm_version_shown = "0.6.0";
 
 // Current version of LCM database
 $lcm_db_version = 36;
