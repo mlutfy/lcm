@@ -24,6 +24,11 @@
 if (defined('_INC_DB_MYSQL')) return;
 define('_INC_DB_MYSQL', '1');
 
+if (! function_exists(mysql_query))
+	die("ERROR: MySQL is not correctly installed. Verify that the php-mysql
+	module is installed and that the php.ini has something similar to
+	'extension=mysql.so'. Refer to the user's manual FAQ for more information.");
+
 //
 // SQL query functions
 //
