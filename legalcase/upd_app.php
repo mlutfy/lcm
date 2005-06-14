@@ -191,6 +191,8 @@ if (count($_SESSION['errors'])) {
 		$q = "DELETE FROM lcm_author_app WHERE id_app=$id_app AND id_author IN (" . join(',',$_SESSION['app_data']['rem_author']) . ")";
 		if ( ($result = lcm_query($q)) && (mysql_affected_rows() > 0) )
 			$_SESSION['errors']['author_removed'] = "Author(s) was/were removed from participants of this appointment.";
+		// Clean author removal list
+		unset($_SESSION['app_data']['rem_author']);
 	}
 
 	// Add/update appointment clients/organisations
@@ -216,6 +218,8 @@ if (count($_SESSION['errors'])) {
 		$q .= ")";
 		if ( ($result = lcm_query($q)) && (mysql_affected_rows() > 0) )
 			$_SESSION['errors']['client_added'] = "An client/organisation was added to the participants of this appointment.";
+		// Clean client removal list
+		unset($_SESSION['app_data']['rem_client']);
 	}
 
 	// Check if author or client/organisation was added
