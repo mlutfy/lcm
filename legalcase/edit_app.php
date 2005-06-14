@@ -119,7 +119,8 @@ if (empty($_SESSION['errors'])) {
 	$q = "SELECT lcm_author.id_author,name_first,name_middle,name_last
 		FROM lcm_author_app,lcm_author
 		WHERE lcm_author_app.id_author=lcm_author.id_author
-			AND id_app=" . $_SESSION['app_data']['id_app'];
+			AND id_app=" . $_SESSION['app_data']['id_app'] . "
+		ORDER BY name_first,name_middle,name_last";
 	$result = lcm_query($q);
 	$_SESSION['authors'] = array();
 	while ($row = lcm_fetch_array($result))
