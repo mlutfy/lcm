@@ -42,7 +42,7 @@ $rep_data['id_author'] = intval($rep_data['id_author']);
 
 // Check report data for validity
 if (!$rep_data['title']) 
-	$_SESSION['errors']['title'] = _T('error_no_rep_name');
+	$_SESSION['errors']['title'] = _Ti('rep_input_title') . _T('warning_field_mandatory');
 
 if (count($_SESSION['errors'])) {
     header("Location: " . $GLOBALS['HTTP_REFERER']);

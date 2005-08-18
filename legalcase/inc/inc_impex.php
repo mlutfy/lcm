@@ -25,7 +25,6 @@
 if (defined('_INC_IMPEX')) return;
 define('_INC_IMPEX', '1');
 
-include('inc/inc_version.php');
 include('inc/inc_db.php');
 
 function export($type, $format, $search = '') {

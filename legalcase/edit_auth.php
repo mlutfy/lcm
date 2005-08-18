@@ -64,7 +64,7 @@ show_context_end();
 	<table border="0" class="tbl_usr_dtl" width="99%">
 	<tr>
 		<th align="center" class="heading"><?php echo _Th('case_input_author'); ?></th>
-		<th align="center" class="heading"><?php echo "Role"; ?></th>
+		<th align="center" class="heading"><?php echo _Th('case_ac_input_rights'); ?></th>
 	</tr>
 
 <?php

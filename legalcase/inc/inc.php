@@ -153,7 +153,7 @@ if ($installed_db_version < $lcm_db_version) {
 		$installed_version = "old version";
 
 	echo "<div class='box_warning'>\n";
-	echo "<p><b>" . _T('title_technical_message') . _T('typo_column') . "</b> "
+	echo '<p class="normal_text"><b>' . _T('title_technical_message') . _T('typo_column') . "</b> "
 		. _T('info_upgrade_database1') . ' '
 		. '<a class="content_link" href="lcm_upgrade.php">' . _T('info_upgrade_database2') . "</a>"
 		. "</p>";

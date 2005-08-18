@@ -77,9 +77,16 @@ function init_default_config() {
 		'client_citizen_number' => 'no',
 		'client_civil_status' => 'no',
 		'client_income' => 'no',
+		'client_hide_all' => 'no',
+		'client_share_read' => 'yes', // depends on hide_all
+		'client_share_write' => 'yes', // depends on read = yes
+		'org_hide_all' => 'no',
+		'org_share_read' => 'yes', // depends on hide_all
+		'org_share_write' => 'yes', // depends on read = yes
 		'case_court_archive' => 'yes',
 		'case_assignment_date' => 'yes',
 		'case_alledged_crime' => 'yes',
+		'case_legal_reason' => 'yes',
 		'case_allow_modif' => 'yes',
 		'fu_sum_billed' => 'no',
 		'fu_allow_modif' => 'yes',

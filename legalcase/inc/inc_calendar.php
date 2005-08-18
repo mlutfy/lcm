@@ -29,7 +29,7 @@
 if (defined("_INC_CALENDAR")) return;
 define("_INC_CALENDAR", "1");
 
-define(DEFAULT_D_SCALE,120); # 1 pixel = 2 minutes
+define('DEFAULT_D_SCALE', 120); # 1 pixel = 2 minutes
 
 // Write cookies
 
@@ -989,7 +989,7 @@ function http_calendrier_agenda_rv ($annee, $mois, $les_rv, $fclic, $perso='',
 						// Week-day
 					}
 
-					if ($les_rv[$j] > 0) {
+					if (isset($les_rv[$j]) && ($les_rv[$j] > 0)) {
 						$css = 'app_day';
 					}
 				}

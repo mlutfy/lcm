@@ -262,7 +262,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 
 			foreach($system_kwg['appointments']['keywords'] as $kw) {
 				$sel = ($kw['name'] == $default_app ? ' selected="selected"' : '');
-				echo "<option value='" . $kw['name'] . "'" . "$sel>" . _T($kw['title']) . "</option>\n";
+				echo "<option value='" . $kw['name'] . "'" . "$sel>" . _T(remove_number_prefix($kw['title'])) . "</option>\n";
 			}
 
 			?>

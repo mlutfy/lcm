@@ -22,7 +22,6 @@
 */
 
 include('inc/inc.php');
-include('inc/inc_acc.php');
 
 // TODO: Replace by $_SESSION['errors']
 if (! ($case > 0)) {

@@ -392,7 +392,7 @@ function show_edit_keywords_form($type_obj, $id_obj, $id_obj_sec = 0) {
 
 			if ($show_kw_value) {
 				echo "<br />\n";
-				echo '<input type="text" name="new_kw_entryval_' . $type_obj . $cpt . '" ' . 'value="" />' . "\n";
+				echo '<input type="text" name="new_kw_entryval_' . $type_obj . $cpt_kw . '" ' . 'value="" />' . "\n";
 			}
 
 			echo "</td>\n";
