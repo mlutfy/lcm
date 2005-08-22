@@ -77,6 +77,11 @@ function lcm_query_db($query, $accept_fail = false) {
 	return $result;
 }
 
+// [ML] This is for PostgreSQL compatibility hacks
+function lcm_query_create_table($query) {
+	return lcm_query($query);
+}
+
 function spip_query_db($query) {
 	lcm_log("use of deprecated function: spip_query_db, use lcm_query_db instead");
 	return lcm_query_db($query);
