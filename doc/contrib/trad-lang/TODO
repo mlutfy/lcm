@@ -1,0 +1,34 @@
+A FAIRE 
+
+* nettoyage du code html pour utiliser des classes css  spip-like ?
+* install plus facile ? (cp lang + interface)
+* routines d'import/export de modules fichiers-spip ou fichier-po
+* reprise du code mysql ; améliorer l'efficacité des recherches, etc.
+* ajouter la possibilité de pouvoir migrer des chaines de modules (Fil)
+* integrer possibilite de faire chercher/remplacer (Bastian)
+
+BUGS 
+
+j'ai termine de traduire a nouveau l'Interface de traduction en italien.
+> Il y a certaines chaines qui, bien que traduites, n'apparaissent traduites. 
+> Par exemple, 'bilan des traductions' et les boutons 'Traduire' et 
+> 'Telecharger'.
+
+
+FAIT
+* moduler la hauteur des boites de traduction en fonction de la taille des chaines.
+* probleme de la fenetre "consulter"
+* remplacement de tout le code pointe actuellement vers les fichiers par un code specifique pointant en base sql.
+  j'ai pu constater que header et footer etaient un peu inutile vu que la couleur mauve etait imposee en dur dans le code
+* faire une doc installation pour Windows
+* creation auto de la structure mysql basee sur inc_connect par le programme
+* creation de la structure mysql dans phpmyadmin pour voir quelle tete elle fait (fait en partie par mail)
+* mettre les traducteurs dans les ts
+* CONFLIT, trouver un autre terme
+* tout passer en utf-8
+* pb. euro
+* classer la liste des dates
+* ne marquer les items modifies que s'ils ont reellement change
+* nom de variables en majuscules (Thierry Gagnon)
+* grossir la taille du recapitulatif
+* suppression de vide.html + lien symbolique

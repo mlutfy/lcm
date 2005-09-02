@@ -1,0 +1,186 @@
+Utilisation de Trad-Lang :
+==========================
+
+Trad-Lang est un script offrant un interface graphique qui
+permet la gestion de fichiers langues qui suivent les 
+conventions utilisées par SPIP. Pour pouvoir l'utiliser, 
+il faut auparavant installer une version de SPIP 1.7 (afin de 
+disposer des librairies "langue" et "authentification" de SPIP).
+
+Le fonctionnement de l'interface n'interfère pas avec le
+fonctionnement de SPIP (la base de donnée de SPIP n'est pas
+modifiée). Les utilisateurs ayant le droit d'utiliser 
+l'interface sont les utilisateurs SPIP.
+
+La version 0.3 de Trad-Lang travaille en base de données. 
+Toutes les chaines traduites et à traduire sont stockées 
+dans la base. Cette base est constituée d'une seule table
+qui est rangée à côté des tables SPIP.
+ 
+
+Installation de Trad-Lang (sous Linux/Unix. Pour Windows, voir ci-après) :
+==========================================================================
+
+
+1 - Installer une version de SPIP 1.7. Il faut avoir fait
+l'installation dans son intégralité (la base doit être initialisée).
+
+
+2 - Aller dans le répertoire racine de SPIP, et détarrer
+l'archive (cela a pour effet de créer un répertoire 
+"trad-lang"). 
+
+$ cd ~/spip
+$ tar xzvf /tmp/trad-lang.tgz
+$ 
+
+
+3 - Copier le fichier "trad_bilan_dist.php" vers 
+"trad_bilan.php" (ce fichier doit être adapté à chaque 
+installation, voir ci-dessous, point 5).
+
+$ cd ~/spip
+$ cd trad-lang
+$ cp trad_bilan_dist.php trad_bilan.php
+$
+
+
+4 - Copier le répertoire "lang" vers le répertoire 
+"ecrire" de SPIP.
+
+$ cd ~/spip/ecrire
+$ cp -rf ../trad-lang/lang .
+$ rm -rf ../trad-lang/lang
+$
+
+
+5 - Si vous voulez utiliser "trad_bilan.php", il faut
+adapter le script à vos besoins. Les variables "$ref"
+et "$replang" (en début de fichier) doivent être intialisées.
+La variable "$ref" doit être intialisée avec  le nom du 
+module de référence, et la variable "$replang" doit être
+initialisée avec le nom du répertoire où sont rangés les
+fichiers de langue.
+
+
+6 - Créer la base de donnée qui sera utilisée par Trad-Lang.
+Trad-Lang n'utilise qu'une seule table indépendante qui sera 
+intégrée dans la base SPIP.
+
+$ php4 cree_table.php
+
+
+7 - Pour bloquer l'accès direct au répertoire
+trad-lang, vous pouvez, sur Apache, créer un fichier
+.htaccess :
+
+$ cd ~/spip/trad-lang
+$ cat > .htaccess
+Options -Indexes
+$ 
+
+EXEMPLE de requete pour appeler trad-lang :
+  "http://monsite-spip/trad-lang/trad_lang.php"
+
+
+NOTE : pour pouvoir utiliser Trad-Lang, il faut auparavant crée
+un module et peupler la base avec les données à traduire (étapes
+décrites ci-dessous).
+
+
+Intégration d'un nouveau module :
+=================================
+
+Un module constitue un espace de chaînes utilisé
+par un composant distinct du logiciel (par exemple, pour
+les traductions de SPIP, il existe - un module "SPIP", 
+interface privée de SPIP - un module "Public", les chaines 
+de l'interface publique de SPIP, etc.)
+
+Trad-Lang est livrée avec un module de référence ("ts") qui
+est le module de test contenant les chaines de l'interface 
+elle même.
+
+Pour intégrer un nouveau module "gogo", il suffit de 
+copier le fichier module_ts.php en le suffixant
+avec le nom du nouveau module, puis éditer le fichier
+copié et initialiser les valeurs comme indiqué ci-dessous :
+
+$ cd ~/spip/trad-lang
+$ cp module_ts.php module_gogo.php
+$ ... éditer le fichier. 
+  - remplacer $nom_module par "Mon module gogo"
+  - remplacer $var_mod par "i18n_gogo_"
+  - remplacer $export_function par "exporter_gogo"
+  - remplacer $lang_prefix par "gogo_"
+  - remplacer "function exporter_ts" par "function exporter_gogo"
+$
+
+NOTE : cette méthode aura pour effet de créer un module
+qui peut travailler avec des fichiers de langues SPIP. On
+peut potentiellement travailler avec d'autres fichiers langues
+que ceux de type SPIP en développant un fonction "exporter"
+adaptée au type de fichier. Une des évolutions prochaines de
+Trad-Lang est la possibilité d'utiliser des fichiers de langues
+de type "po" (format utilisé pour gérer les traductions utilisant
+la librairie "gettext").
+
+
+Peuplement de la base utilisée par Trad-Lang:
+=============================================
+
+Cette étape consiste à entrer les données de traduction dans
+la base. Ces données sont insérées depuis les fichiers de 
+langue SPIP.
+
+Pour pouvoir peupler la base, il faut auparavant avoir créé un
+module définissant l'espace de chaines à traduire (se référer
+à la section précédente pour créer le module). Les fichiers de
+langue à traduire doivent être initialisés dans le répertoire
+langue de SPIP :
+
+$ ls ~/spip/ecrire/lang
+ts_fr.php3 ts_de.php3
+
+Pour peupler la base, il faut utilier le script php fichier-spip.php: 
+
+$ php4 fichier-spip.php
+fichier-spip.php <module> <langue> <langue_origine>
+  - module : le module a importer.
+  - langue : la langue a importer
+  - langue_origine : langue origine pour ce module
+
+$ php4 fichier-spip.php ts fr fr
+...
+$ php4 fichier-spip.php ts fr de
+...
+
+Les données à traduires sont à présent insérées dans la base. À 
+chaque travail sur une traduction, les fichiers de langue SPIP
+sont remis à jour directement avec les valeurs contenues dans
+la base.
+
+
+Installation de Trad-Lang (sous Windows, Mathieu Lutfy) :
+=========================================================
+(version 0.2 de Trad-Lang, non remis à jour)
+
+
+Dans C:\Program Files\EasyPhp1-7\apache\php.ini
+-> allow_call_time_pass_reference = off -> on
+
+Dans C:\Program Files\EasyPhp1-7\www\spip
+-> décompresser Spip 1.7
+
+Dans C:\Program Files\EasyPhp1-7\www\spip\ecrire\lang\
+-> y copier "spip_sh.php3" et "public_sh.php3"
+-> créer les répertoires "bak" et "md5" (et laisser vide)
+
+Dans C:\Program Files\EasyPhp1-7\www\spip\trad-lang\
+-> y décompresser trad-lang-0.2.tgz
+
+En consultant http://localhost/spip/trad-lang/trad_lang.php,
+les modules "Spip" et "public" y seront (pour configurer, voir
+les fichiers module_XXX.php dans le répertoire trad-lang).
+
+
