@@ -136,8 +136,56 @@ function calc_nb_row($item)
 // appremment foire avec les car. espagnols
 function entites_html_local($texte) 
 {
-  // [ML]
-  return $texte;
+	global $lang_cible; // dest language
+
+	// [ML]
+	$texte = preg_replace("/'/", '&rsquo;', $texte);
+
+	// c.f. http://en.wikipedia.org/wiki/Quotation_mark
+	switch($lang_cible) {
+		case "fr":
+		case "ru":
+		case "it":
+		case "el": // greek
+		case "tr":
+			$texte = preg_replace("/\"([^\"]*)\"/", "&laquo;\${1}&raquo;", $texte);
+			break;
+
+		case "bg":
+		case "de":
+		case "sr":
+		case "be": // belarus
+		case "es";
+		case "uk"; // ukrainian
+		case "cs":
+		case "cz":
+			$texte = preg_replace("/\"([^\"]*)\"/", "&bdquo;\${1}&ldquo;", $texte);
+			break;
+
+		case "pl":
+		case "du":
+		case "hu":
+		case "ro":
+			$texte = preg_replace("/\"([^\"]*)\"/", "&bdquo;\${1}&rdquo;", $texte);
+			break;
+
+		case "hr":
+		case "da":
+			$texte = preg_replace("/\"([^\"]*)\"/", "&bdquo;\${1}&rdquo;", $texte);
+			break;
+
+		case "pt_br":
+		case "pt":
+		case "en":
+			$texte = preg_replace("/\"([^\"]*)\"/", "&ldquo;\${1}&rdquo;", $texte);
+			break;
+
+		// default:
+		//  [ML] leave "as is", the language should be added to the list
+		//  using "en" by default would then maker it harder to convert.
+	}
+  
+	return $texte;
 
   // ajout pour le slovaque
   $trans_caron = array(
@@ -776,9 +824,9 @@ function recup_modif($item)
   // [ML]
   $item = str_replace("^", "&nbsp;", $item);
   $item = interdire_scripts($item);
+  $item = supp_ltgt(entites_html_local(stripslashes($item)));
   return $item;
 
-  $item = supp_ltgt(entites_html_local(stripslashes($item)));
   $item = str_replace("^", "&nbsp;", $item);
   $item = str_replace("\x80", "&euro;", $item);
   $item = str_replace("\r", "", $item);
