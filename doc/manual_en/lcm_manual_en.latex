@@ -455,391 +455,376 @@ It also allows you to change your password by e-mail if you have forgotten it.
 
 \chapter{Cases}
 
-Всички данни в програмата за управление на юридически практики са
-организирани в така наречените \emph{случаи}. Случаят представлява
-относително самостоятелен казус постъпил в консултантския център и
-обслужван от неговите специалисти. Случаят може да включи в себе си
-различни дейности, но винаги насочени към една и съща крайна цел --
-разрешаването на случая.
+All data in the Legal Case Management Software is organised in the so called
+\emph{cases}. The case is a comparatively independent casus introduced to the
+conusltancy centre and managed by its experts. The case can include different
+activitis, but they are always addressed towards one aim -- soilving the casus.
 
-Случаят се явява основната логическа единица в програмата. Той може да
-съдържа:
+The case is the main logical unit of the program. It could contain the
+following details:
 
 \begin{itemize}
-\item описание за възникването си
-\item текущо състояние
-\item клиенти (физически или юридически лица), които обслужва
-\item планирани или извършени дейности по случая (напр. срещи и консултации)
-\item отчети
-\item прикрепени документи и
-\item други
+\item description related to its origin
+\item current status
+\item clients (physical and juridical persons) associated to it
+\item planned or done activities related to the case (e.g. appointments and
+consultations)
+\item reportis
+\item attached documents 
+\item etc.
 \end{itemize}
 
-Случаят е \emph{процес}, който търпи развитие. Всички дейности касаещи
-определен случай -- промени в състоянието, допълнителни събития и
-т.н. се отразяват в раздела „Продължения“. По всяко време от този
-раздел може да бъде проследена историята на случая от момента на
-неговото регистриране в ПУЮП.
+The case is a \emph{process}, which undergoes development. All activities
+associated with certain case -- status changes, additional events etc., are
+being recorded in the "Follow-ups" section. The history of the case could be
+tracked from this section from the moment of its registration in the LCM on. 
 
 \HTMLset{mypagename}{cases\_intro}
-\section{Начало. Нов случай. Редактиране на случай.}
+\section{Start. New case. Edit case information.}
 
-\subsection{Начало}
+\subsection{Start}
 
-След влизане в системата посредством Вашето потребителското си име и парола,
-попадате в екрана „Моите случаи“. По подразбиране екранът съдържа
-списък, обобщаващ случаите по които работите в момента. Списъкът
-включва следните колони:
+After entering the system through a username and password, you will get on the
+page called: "My cases". The page contains by default a list, which
+summarised the cases on which you are working at the moment. The list includes
+the following features: 
 
 \begin{itemize}
-\item Уникален идентификационен номер на случая (\#)
-\item Дата на създаване
-\item Наименование на случая
+\item A unique case identification number (\#)
+\item Creation date
+\item Title of the case
 % [ML] (was removed from program) \item Номер на делото в съда
-\item Състояние на случая
+\item Status of the case
 \end{itemize}
 
-Можете да сортирате списъка по дата на създаване във възходящ или
-низходящ ред като щракнете върху заглавието на колоната „Дата на
-създаване“.
+You can sort the list by creation date in ascending or descending order by
+clicking on the title of the the coloumn called: "Creation date". 
 
-За да отворите някой от показаните случаи щракнете върху съответния
-ред в списъка.
+If you want to open some of the shown cases, click on the respective row in
+the list. 
 
-Чрез падащите списъци „Филтър“ и „Период“ можете да определяте каква част от
-случаите желаете да виждате в момента.
+You can also define which part of the cases you wish to see at the moment with
+the help of the dropdown menus by "Filter" and "Period".
 
-{\bf Филтър:}
+{\bf Filter:}
 \begin{itemize}
-\item Моите случаи -- това са случаите в които Вие лично сте ангажиран по
-някакъв начин
-\item Общодостъпни случаи -- това са случаи, видими за всички потребители в
-системата
+\item My cases -- these are the cases in which you are involved
+\item Public cases -- these are cases, which are visible for all the users in
+the system
 \end{itemize}
 
-Ако имате администраторски права в програмата, можете направите справка с
-всички случаи, регистрирани в системата без изключение.
+If you have administrator rights in the program, you can make an inquiry for
+all the existing cases, registered in the system without exception. 
 
-{\bf Период:}
+
+{\bf Period:}
 \begin{itemize}
-\item през последния месец
-\item през последните 3 месеца
-\item през последните 6 месеца
-\item през последната година
-\item през 2005 г.
-\item и т.н.
+\item in the past month
+\item in the past 3 months
+\item in the past 6 months
+\item in the past year
+\item year 2005
+\item etc.
 \end{itemize}
 
-Най-отдолу екранът „Моите случаи“ съдържа списък с последните
-настъпили продължения за показаните случаи. Списъкът включва следните
-колони:
+Further below, the "My cases" page contains a list of the latest follow-up
+activities performed for the shown cases. The list includes the following
+coloumns:  
 
 \begin{description}
-\item[\#] номер на случая, по който е настъпило продължението
-\item[Начало] дата и час на настъпване на продължението
-\item[Дължина] времетраене на продължението (в часове)
-\item[Потребител] инициали на потребителя, който е извършил продължението
-\item[Вид] вид на продължението (Задача, Консултация, и т.н.)
-\item[Описание] кратко описание на събитието
+\item[\#] ID of the case of the performed follow-up
+\item[Start] date and hour of starting the follow-up
+\item[Lenght] timeline of the follow-up (measured in hours)
+\item[User] initials of the user who have fulfilled the follow-up
+\item[Type] type of the follow-up (task, consulting, appointment etc.)
+\item[Description] short description of the activity
 \end{description}
 
-Можете да щракнете върху някое продължение от списъка, за да го
-отворите.
+You can click on some of the follow-ups in the list in order to open it. 
 
-\subsection{Нов случай}
 
-{\bf За да създадете нов случай в системата}, изпълнете следните
-стъпки:
+\subsection{New case}
+
+{\bf In order to create a new user in the system}, follow the steps:
 
 \begin{enumerate}
-\item Щракнете върху „Случаи“ от основното меню и после върху бутона
-„Регистриране на нов случай“.
+\item Click on the button "Cases" from the main meny and then on the "Open a new
+case" one.
 
-\item Отваря се формулярът „Нов случай“, съдържащ следните полета:
+\item The form "New case" opens. It has the following elements:
 
 \begin{description}
-\item[Наименование на случая] Изберете кратко, но описателно име на случая,
-което ще помага на Вас и Вашите колеги бързо и лесно да отличавате този случай
-измежду останалите. Задължително поле.
+\item[Title of the case] Select a short but descriptive title of the case,
+which will help to you and your colleagues to distinguish it easily among the
+others. Mandatory field. 
 
-\item[Дата на задаване] Посочва момента, от който случаят е бил
-разпределен и се е работило по него. Това поле е удобно за случаите в
-които сте водили документация на хартия по случай, който по-късно сте
-решили да въведете в програмата. По подразбиране в това поле е
-попълнена датата към момента на създаване на случая.
+\item[Assignement date] Shows the moment, from which the case has been
+assigned and work on it has been started. This field is useful for the cases
+in which you have worked on the case (e.g. on paper) and later on it has been
+filled in the system. In this field by default is shown the date of creation
+of the case. 
 
 %\item[Номер на делото в съда] незадължително помощно поле за
 %удобство, въведете го само когато случаят касае дело в съда
 
-\item[Юридическо основание] незадължително поле, в което обикновено се
-посочва нормативният документ, член и алинея по които е настъпило
-нарушение
+\item[Legal reason] optional field, in which usually is filled in the
+normative act, article and paragraph number, according to which a breach has been
+done. 
 
-\item[Предполагаемо нарушение] незадължително поле
+\item[Alleged crime] optional field
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Notes] optional field, free text
 
-\item[Състояние на случая] начално състояние, една от двете възможности:
+\item[Status of the case] in the beginning status, there are two
+possibilities:
 \begin{itemize}
-\item чернова -- по случая още не се работи официално
-\item отворен -- по случая е започнала е работа или е разпределен към даден потребител
+\item draft -- the case is not yet opened officially to work on it
+\item open -- work has been started on the case or the case has been assigned
+to certain user of the system
 \end{itemize}
 
-\item[Стадий] незадължително поле, можете да го попълните, ако случаят
-касае дело намиращо се на определен стадий в действащата
-съдебно-правна система:
+\item[Stage] optional field, you can fill it in, if the case has relation to a
+case with certain state in the current legal system of the court: 
 \begin{itemize}
-\item обжалване
-\item въззивно
-\item касационно
-\item първоинстанционно
-\item полицейско пр-во/дознане
-\item предравително производство
-\item второ обжалване
-\item наказателно дело и т.н.
+\item first 
+\item second
+\item third
+\item fourth 
 \end{itemize}
 
-\item[Степен на поверителност и сътрудничество] оттук можете да
-контролирате дали Вашите колеги (другите потребители) могат да
-разглеждат и/или попълват данни за този случай или не. Двете полета за
-отметки са:
+\item[Office collaboration and confidentiality] here you can control whether
+your colleagues (the other users) can review and/or fill in date for the
+certain case or not. Both existing fields are:
 \begin{itemize}
-\item другите потребители могат да се консултират с този случай (могат да
-четат, но не и да попълват и променят данни по случая)
-\item другите потребители могат да сътрудничат по този случай (могат както да
-четат, така и да попълват и променят данни по случая)
+\item Other users can consult this case. (i.e. they can read the case, but not
+to modify the data related to it)
+\item Other users can contribute to this case. (i.e. they can as well read, as
+modify data related to the case)
 \end{itemize}
 \end{description}
 
-{\bf Забележка:} Какви са стойностите по подразбиране на двете полета за отметки и дали
-можете да ги променяте зависи от политиката на програмата, зададена
-от администратора на Вашата организация.
+{\bf NB!} The default values of both fields and the possibility to change them
+depends on the office policy regarding the system, defined by the administrator of your organisation. 
 
-Екранът може да съдържа допълнителни полета и ключови думи в
-зависимост от настройките, зададени от администратора на Вашата
-организация.
+The page can contain additional fields and keywords in relation to the
+settings, made by the administrator of your organisation. 
 
-\item Щракнете върху бутона „Изпращане“, за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 \end{enumerate}
 
-При успешна регистрация се отваря екранът „Информация за случая“,
-показващ новорегистрирания случай, на който е присвоен нов уникален
-номер. От този екран можете да разглеждате общата информация,
-продълженията, дневния ред, отчетите и документите по този случай,
-както и да се върнете за редактиране по случая.
+After successfully registering your case in the system, you will see the page
+called: "Case details", showing the newly registered case, with its newly
+appropriated case ID. This page gives the general information, the follow-ups, the
+agenda, the reports and the attached documents related to this case, as well
+as a possibility to go back for editing it. 
 
-\subsection{Редактиране на случай}
+\subsection{Edit case information}
 
-{\bf За да промените състоянието на даден случай}, следвайте стъпките:
+{\bf In order to change the status of the case}, follow the steps:
 
 \begin{enumerate}
-\item Изберете случай и отворете общата информация за него.
+\item Select a case and open the general information of it.
 
-\item От падащия списък „Състояние на случая“ изберете ново състояние
-измежду стойностите:
+\item Select new status of the case from the dropdown menu called" "Status".
+You have the following possibilities:
 \begin{itemize}
-\item чернова
-\item отворен
-\item приключен
-\item обединен
-\item изтрит (в действителност случаят никога не се изтрива от програмата, а
-само се ``отбелязва'' като невалиден, изтрит. Ако се наложи, администраторът
-може да възстанови случая по-късно.)
+\item draft
+\item open 
+\item closed
+\item merged
+\item suspended (in reality, a case registered in the system is never being
+deleted, but it is "marked" as invalid, suspended. If necessary, the
+administrator of the system can restore the case on a later stage.)
 \end{itemize}
 
-{\bf Забележка:} При задаване на състояние ``приключен'', потребителят вече не
-може да нанася промени по случая. Само администраторът може да отново да смени
-състоянието на случая, така че да бъде възможно допълнителното редактиране по
-случая.
+{\bf NB!} By marking the case as "closed" makes the user unable to modify the
+data in it. Only the administrator is able to change the status of the case
+again, so that editing and additional modifications are done with regards to
+this particular case. 
 
-\item Щракнете върху бутона „Изпращане“, който се появява
-непосредствено до падащия списък след избиране на нова стойност.
+\item Click on the "Validate" button, which appears right after the dropdown
+menu after selecting a new value.
 
-\item Щракването на бутона води до отварянето на нов формуляр „Промяна
-на състоянието на случая“. Формулярът съдържа следните полета:
+\item Clicking the "Validate" button leads to opening of another form called:
+"Case status change". It contains the following fields:
 
 \begin{description}
-\item[Начало] Датата и часът от който се счита, че състоянието на
-случая е променено
-\item[Време за работа по дейността] незадължително поле, указващо колко време
-е работено по промяната на състоянието на случая
-\item[Заключение] заключение от предходното състояние на
-случая. Можете да посочите някоя от следните стойности:
+\item[Start] The date and the hour from which on the status of the case has
+been changed 
+\item[Time spent on activity] optional field, showing the time spent on the
+case status change
+\item[Conclusion] the conclusion, with which the previous status has finished.
+You can select one of the following values:
 \begin{itemize}
-\item без заключение
-\item виновен
-\item невинен
-\item прекратяване
-\item повторно разследване
+\item no conclusion
+\item guilty
+\item not guilty
+\item cessation
+\item re-investigation
 \end{itemize}
 
-\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
-да посочите някоя от следните стойности:
+\item[Sentence] The given sentence on the case (if any). You can select one of
+the following values: 
 \begin{itemize}
-\item без присъда
-\item глоба
-\item затвор
-\item условна
-\item общественополезен труд
+\item no sentense
+\item fine (in money)
+\item prison (in months)
+\item probation (in months)
+\item community work (in days)
 \end{itemize}
-В допълнителното текстово поле можете да посочите числова стойност
-поясняваща количеството. Например брой месеци затвор или размер на
-глобата.
+In the additional text field you can mark a number, specifying the quantity.
+E.g. number of months of prison or quantity of the fine etc. 
 
-\item[Описание] незадължително поле, свободен текст
+\item[Description] optional field, free text
 
-\item[Таксувана сума] сума, определена от консултантския център. Това поле
-може да не се попълва, ако практиката на организацията Ви е такава.
+\item[Sum billed] sum defined by the consulting centre. This field could be
+left free, if the organisation does not charge money for providing legal
+assistance. 
 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form.
 
 \end{enumerate}
 
-{\bf Забележка:} Обърнете внимание, че възможните стойности за полетата „Заключение“ и
-„Присъда“ могат да са различни при Вашата инсталация на програмата,
-тъй като тези стойности се конфигурират от администратора.
+{\bf NB!} Pay attention that the possible values of the "Conclusion" and
+"Sentense" can be different in your installation of the progdam since they are
+configured by the administrator. 
 
-
-{\bf За да промените стадия на даден случай}, следвайте стъпките:
+{\bf In order to change the stage of the case}, follow the steps:
 
 \begin{enumerate}
-\item Изберете случай и отворете общата информация за него.
+\item Select the case and open the general information of it.
 
-\item От падащия списък „Състояние на случая“ изберете нов стадий
-измежду стойностите:
+\item Select a new stage from the dropdown menu "Stage" among the following
+values:
 \begin{itemize}
-\item въззивно
-\item касационно
-\item първоинстанционно
-\item второ обжалване
-\item наказателно дело
-\item обжалване
-\item полицейско по-во/дознание
-\item предварително производство
+\item first 
+\item second
+\item third
+\item fourth
 \end{itemize}
 
-\item Щракнете върху бутона „Изпращане“, който се появява
-непосредствено до падащия списък след избиране на нова стойност.
+\item Click on the "Validate" button, which appears right after the dropdown
+menu after selecting a new value.
 
-\item Щракването на бутона води до отварянето на нов формуляр „Промяна
-на стадия на случая“. Формулярът съдържа следните полета:
+\item  Clicking the "Validate" button leads to opening of another form called:
+"Case stage change". It contains the following fields:
 
 \begin{description}
-\item[Начало] Датата и часът от който се счита, че състоянието на
-случая е променено
-
-\item[Време за работа по дейността] незадължително поле
-\item[Заключение] заключение от предходното състояние на
-случая. Можете да посочите някоя от следните стойности:
+\item[Start] The date and the hour from which on the stage of the case has
+been changed
+\item[Time spent on activity] optional field
+\item[Conclusion] the conclusion, with which the previous stage has finished.
+You can select one of the following values:
 \begin{itemize}
-\item без заключение
-\item виновен
-\item невинен
-\item прекратяване
-\item повторно разследване
+\item no conclusion
+\item guilty
+\item not guilty
+\item cessation
+\item re-investigation
 \end{itemize}
 
-\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
-да посочите някоя от следните стойности:
+\item[Sentence] The given sentence on the case (if any). You can select one of
+the following values: 
 \begin{itemize}
-\item без присъда
-\item глоба
-\item затвор
-\item условна
-\item общественополезен труд
+\item no sentense
+\item fine (in money)
+\item prison (in months)
+\item probation (in months)
+\item community work (in days)
 \end{itemize}
-В допълнителното текстово поле можете да посочите числова стойност
-поясняваща количеството. Например брой месеци затвор или размер на
-глобата.
+In the additional text field you can mark a number, specifying the quantity.
+E.g. number of months of prison or quantity of the fine etc. 
 
-\item[Описание] незадължително поле, свободен текст
+\item[Description] optional field, free text
 
-\item[Таксувана сума] сума, определена от консултантския център
+\item[Sum billed] sum defined by the consulting centre
 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form.
 
 \end{enumerate}
 
-Обърнете внимание, че възможните стойности за полетата „Заключение“ и
-„Присъда“ могат да са различни при Вашата инсталация на програмата.
-Също така формулярът може да съдържа повече полета, в зависимост от
-зададените от администратора конфигурации.
+{\bf NB!} Pay attention that the possible values of the "Conclusion" and
+"Sentense" can be different in your installation of the progdam since they are
+configured by the administrator. 
 
-
-{\bf За да промените общата информация за даден случай}, следвайте
-стъпките:
+{\bf In order to change the general information related to a case}, follow the
+steps:
 
 \begin{enumerate}
-\item Изберете случая от списъка „Моите случаи“ (достъпен чрез
-щракване върху „Случаи“ от основното меню). Отваря се екрана
-„Информация за случая“.
+\item Select the case from the list of "My cases" (accessible through clicking
+on the "Cases" from the main menu). The page "Case details" appears on the
+screen. 
 
-\item Щракнете върху бутона „Редактиране на информация по случая“ за
-да се отвори формулярът за редактиране. Формулярът съдържа следните
-полета:
+\item Click on the button "Edit case information", which will open the form
+for editing. The form contains the following fields:
 
 \begin{description}
-\item[Номер на случая] уникалният идентификационен номер в това поле е
-постоянен и не може да бъде променян
+\item[Case ID] the unique identification number in this field is permanent and
+it cannot be modified
 
-\item[Наименование на случая] можете да промените наименованието ако
-текущото Ви се струва неподходящо, но не бива да го оставяте празно
+\item[Title of the case] You can change the case title if the current one
+seems inapropriate to you but you must not leave this field blank
 
-\item[Номер на делото в съда] незадължително помощно поле за удобство,
-когато случаят касае дело в съда
+\item[Assignement date] Shows the moment, from which the case has been
+assigned and work on it has been started. 
 
-\item[Юридическо основание] незадължително поле, в което обикновено се
-посочва нормативният документ, член и алинея по които е настъпило
-нарушение
+%\item[Номер на делото в съда] незадължително помощно поле за
+%удобство, въведете го само когато случаят касае дело в съда
 
-\item[Предполагаемо престъпление] незадължително поле
+\item[Legal reason] optional field, in which usually is filled in the
+normative act, article and paragraph number, according to which a breach has
+been done. 
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Alleged crime] optional field
 
-\item[Състояние] текущо състояние на случая, имате избор списък със следните възможности:
+\item[Notes] optional field, free text 
+
+\item[Status of the case] the current status of the case, there is a list of
+the following possibilities:
 \begin{itemize}
-\item чернова
-\item отворен
-\item отложен
-\item приключен
-\item обединен
+\item draft
+\item open 
+\item suspended
+\item closed
+\item merged
 \end{itemize}
 
-\item[Стадий] незадължително поле, можете да го попълните ако случаят
-касае дело намиращо се на определен стадий в действащата
-съдебно-правна система:
+\item[Stage] optional field, you can fill it in, if the case has relation to a
+case with certain state in the current legal system of the court: 
 \begin{itemize}
-\item обжалване
-\item въззивно
-\item касационно
-\item първоинстанционно
-\item полицейско пр-во/дознане
-\item предравително производство
-\item второ обжалване
-\item наказателно дело
+\item first 
+\item second
+\item third
+\item fourth 
 \end{itemize}
 
-\item[Степен на поверителност и сътрудничество] оттук можете да
-контролирате дали вашите колеги могат да разглеждат и/или попълват
-данни за този случай. По подразбиране и двете полета са отметнати:
+\item[Office collaboration and confidentiality] here you can control whether
+your colleagues (the other users) can review and/or fill in date for the
+certain case or not. Both existing fields by default are:
 \begin{itemize}
-\item другите потребители могат да се консултират с този случай
-\item другите потребители могат да сътрудничат по този случай
+\item Other users can consult this case.
+\item Other users can contribute to this case.
 \end{itemize}
-
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите промените и
-да се върнете в екрана „Информация за случай“.
+{\bf NB!} The default values of both fields and the possibility to change them
+depends on the office policy regarding the system, defined by the
+administrator of your organisation. 
+
+The page can contain additional fields and keywords in relation to the
+settings, made by the administrator of your organisation. 
+
+\item Click on the "Validate" button in order to save the form and go back to
+the "Case details" page. 
 
 \end{enumerate}
 
 \HTMLset{mypagename}{cases\_users}
-\section{Добавяне на потребители към случай}
+\section{Adding a user to a case}
 
 След като регистрирате нов случай, той автоматично се добавя в списъка на
 Вашите случаи. Вие -- неговият създател -- сте потребителят отговорен и
