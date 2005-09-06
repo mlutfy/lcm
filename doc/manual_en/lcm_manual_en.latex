@@ -824,8 +824,6 @@ the "Case details" page.
 \HTMLset{mypagename}{cases\_users}
 \section{Adding a user to a case}
 
-% TODO: Needs translation from Bulgarian
-
 After registering a new case, it is automatically added to the list of Your
 cases. Since you are its creator, therefore you are the one responsible and
 engaged with work on this case. 
@@ -948,7 +946,7 @@ the eventual results.
 \item Use the fiels on the left side to tick on the client(s) you choose to add
 to your case. 
 
-\item Click on the "" button in order to confirm your choice. 
+\item Click on the "Validate" button in order to confirm your choice. 
 
 \item Go on with choosing and adding more users to the case or use the
 hyperlink on top to go back to your case. 
@@ -963,6 +961,8 @@ system, you can register her/him by clicking on the button "Register a new
 client and attach to this case", 
 .р \pageref{Person. Edit Person.}
 
+% TODO: Needs translation from Bulgarian
+
 You can add more than one physical person to a certain case. 
 
 {\bf In order to add a client - juridical person (organisation) to a case},
@@ -970,302 +970,291 @@ follow the steps:
 
 \begin{enumerate}
 
-\item Choose a case 
+\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+the main manu).
 
-Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
+\item Click on the button "Add an organisation" in order to open the page for
+choosing clients - juridical persons.
 
-\item Щракнете върху бутона „Добавяне на организация“, за да отворите екрана
-за избор на клиенти -- юридически лица.
-
-\item Екранът за избор на организации показва списък с имената на
-организациите регистрирани в системата. Точно под заглавието на екрана е
-изписано името на случая към който добавяте организация, както и останалите
-клиенти и организации свързани със случая.
+\item The page for choosing organisations shows a list of the names of the
+already registered ones in the system. Right below the title of the page, there is
+the title of the case, to which you are adding organisations, as well as the rest
+clients and organisations related to the case.
 
 \begin{itemize}
-\item Ако организациите са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху хипервръзките
-„Следващ“ и „Предишен“ разположени в долната част от списъка, или като
-щраквате директно върху номера на съответната страница.
+\item If the organisations are more than 15, the page is divided into sub-pages. You
+can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на организация“
-\item въведете име или част от име на организация
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find organisation"
+\item introduce name or part of name of certain organisation
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Използвайте полетата за отметки за да изберете организациите, които
-желаете да добавите към Вашия случай.
+\item Use the fiels on the left side to tick on the organisation(s) you choose to
+add to your case. 
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите избора си.
+\item Click on the "Validate" button in order to confirm your choice. 
+
+\item Go on with choosing and adding more users to the case or use the
+hyperlink on top to go back to your case. 
 
 \end{enumerate}
 
-След потвърждението посочените организации се появяват в списъка „Клиенти по
-този случай“ в общата информация за случая.
+After confirming, the chosen organisation appear in the list of "Case
+clients" in the general page "Case details".
 
-Ако клиентът, с който работите по текущия случай е нов, можете да го
-регистрирате като щракнете върху бутона ``Регистриране на нова организация'',
-стр. \pageref{Organization. Edit Organization.}
-
+If the client, with which you are working on the current case is new to the
+system, you can register her/him by clicking on the button "Add new
+organisation", 
+p. \pageref{Organization. Edit Organization.}
 
 \HTMLset{mypagename}{cases\_followups}
-\section{Добавяне на продължения}
+\section{Adding follow-ups}
 
-Освен смяната на състоянието и стадия си, един случай може да търпи и
-други видове развитие -- напр. можете да отбележите, че е извършена
-някаква дейност като изпъление на задача или консултация. За тази цел
-ПУЮП дава възможност да се добавят продължения към даден случай.
+Except changing the status and the stage, a case could pass through other
+types of development -- e.g. you can register activity such as fulfilled task
+or consultancy as a case follow-up within the certain case. 
 
-{\bf За да добавите продължение към случай}, следвайте стъпките:
+{\bf In order to add a follow-up to a case}, follow the steps:
 
 \begin{enumerate}
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
+\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+the main manu).
 
-\item Щракнете върху раздела „Продължения“ за да отворите списъка с
-продължения (извършени дейности) по случая.
+\item Click on the section "Follow-ups" in order to open the list of existing
+follow-ups (done activities) within the current case.
 
-\item Щракнете върху бутона „Ново продължение“.
+\item Click the button "New follow-up".
 
-\item Попълнете формуляра „Ново продължение“, съдържащ следните полета:
+\item Fill in the form "New follow-up", containing the following fields:
 
 \begin{description}
-\item[Начало] Датата и часът от който се счита, че започнало събитието
+\item[Start] The date and hour from which is considered that the activities
+has started
 
-\item[Време за работа по дейността] продължителност на събитието (в
-часове), незадължително поле
+\item[Time spent on activity] duration of the activity (in hours), optional
+field
 
-\item[Вид] тип събитие (напр. задача, консултация и т.н., възможните
-стойности се определят от администратора на програмата)
+\item[Type] type of activity (e.g. task, consulting, appointment etc.; the
+possible valueas are being defined by the administrator of the system)
 
-\item[Описание] незадължително поле, свободен текст
+\item[Description] optional field, free text
 
-\item[Таксувана сума] сума, определена от консултантския център
+\item[Sum billed] amount, defined by the consulting centre
 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
 % \HTMLset{mypagename}{cases\_documents}
-\section{Прикрепяне на документи}
+\section{Attaching documents}
 
-{\bf За да прикрепите нов документ към даден случай}, следвайте стъпките:
+{\bf In order to attach new document to an existing case}, follow the steps:
 
 \begin{enumerate}
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
+\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+the main manu).
 
-\item Щракнете върху раздела „Документи“ за да отворите списъка с прикрепените
-документи към случая. Ако не е прикрепен нито един документ вместо списък ще
-се изведе надпис: Няма прикачени документи.
+\item Click on the section "Documents" in order to open the list of attached
+to the case documents. If there is no documents attached, instead of a list,
+there will be a text shown, saying: There are no documents attached.
 
-\item Щракнете върху бутона „Browse...“ до полето „Име на файла“ и изберете
-желания от Вас файл от появилия се диалог.
+\item Click on the button "Browse" inside the field "File name" and select the
+desired file from the dialogue window. 
 
-\item В полето „Описание“ въведете кратко ориентировъчно описание на
-съдържанието на документа, който се каните да прикрепите
+\item In the field "Description" write down a short description of the
+contents of the document, which you are intending to attach.
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 \end{enumerate}
 
-След прикрепянето на документа той става видим в списъка на прикрепените
-документи към случая и Вашите сътрудници получават достъп до него.
+After attaching the document, it becomes visible in the list of attached to
+the case documents and your collaborators get access to it, too. 
 
 \chapter{Clients -- physical and juridical persons}
 
-Консултантският център извършва своята дейност в услуга на външни на самия
-център физически и юридически лица, наречени клиенти. Към всеки клиент могат
-да се асоциират (добавят) един или повече случаи. ПУЮП разграничава два вида
-клиенти:
+The legal aid centre makes their activities in service of outside physical and
+juridical persons, called clients. Each client could be associated (added) to
+one or more cases. LCM identifies two types of clients: 
 
 \begin{itemize}
-\item физически лица
-\item юридически лица
+\item physical persons
+\item juridical persons
 \end{itemize}
 
 \HTMLset{mypagename}{clients\_intro}
-\section{Физическо лице. Редактиране на физическо лице.}
+\section{Physical person. Edit physical persons information.}
 \label{Person. Edit Person.}
 
-{\bf За да регистрирате ново физическо лице в програмата}, следвайте
-стъпките:
+{\bf In order to register a new physical person in the program}, follow the
+steps:
 
 \begin{enumerate}
-\item Щракнете върху „Клиенти“ от основното меню и после върху бутона
-„Регистриране на нов клиент“.
+\item Click on the menu "Clients" from the main menu and then on the button
+"Register a new client".
 
-\item Отваря се формулярът „Нов клиент“, съдържащ следните полета:
+\item The "New client" form is open. It contains the following fields:
 
 \begin{description}
-\item[Име] собствено име, задължително поле
+\item[Name] the first name, mandatory field
 
-\item[Презиме] бащино име, незадължително поле
+\item[Middle name] the father's name, optional field
 
-\item[Фамилия] фамилно име, задължително поле
+\item[Surname] the family name, mandatory field
 
-\item[Пол] допустима е една от следните стойности:
+\item[Gender] one of the following values is accepted:
 \begin{itemize}
-\item няма информация (по подразбиране)
-\item мъжки
-\item женски
+\item n/a -- no information (by default)
+\item male
+\item female
 \end{itemize}
 
-\item[ЕГН/ЛНЧ] единен граждански номер (за български граждани) или
-личен номер за чужденец, незадължително поле
+\item[Citizen number] the unique ID number, given by the country, optional field
 
-\item[Гражданско състояние] допустима е една от следните стойности:
+\item[Civil status] one of the following values is accepted:
 \begin{itemize}
-\item разведен(а)/разделен(а)
-\item женен(а)/съжителстващ(а)
-\item неженен/неомъжена
-\item няма информация (по подразбиране)
-\item вдовец(ица)
+\item divorsed or separated
+\item married or cohabiting
+\item single
+\item unknown (by default)
+\item widowed
 \end{itemize}
 
-\item[Доход] допустима е една от следните стойности:
+\item[Income] one of the following values is accepted:
 \begin{itemize}
-\item среден
-\item над средния
-\item под средния
-\item няма информация (по подразбиране)
+\item average
+\item above average
+\item under average
+\item unknown (by default)
 \end{itemize}
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Notes] optional field, free text
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
 
-Всички въведени записи от раздела „Контакти“ могат да бъдат изтривани
-чрез отмятане на съответните полета означени с кошче за боклук.
+All the records in the Contacts section could be deleted by ticking on the
+respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
-{\bf Забележка:} Полетата „Презиме, „ЕГН/ЛНЧ“, „Гражданско състояние“ и
-„Доход“ могат да не присъстват в формуляра. Това зависи от политиката на
-консултантския център и зададените настройки от администратора на програмата.
+{\bf NB!} Fields like "Middle name", "Citizen number", "Civil status" and
+"Income" can miss from the form. This depends on the aid centre policy and the
+settings made by the administrator of the software. 
 
-
-{\bf За да редактирате съществуващо физическо лице}, следевайте
-стъпките:
+{\bf In order to edit and existing physical person}, follow the steps:
 
 \begin{enumerate}
-\item Отворете списъка с физически лица (достъпен чрез щракване върху
-„Клиенти“ от главното меню). Екранът за избор на физически лица
-показва списък с имената на лицата регистрирани в системата.
+\item Open the list of physical persons (accessible by clickig on "Clients" from
+the main manu). The page for choosing physical persons shows a list of the
+names of all the persons, registered in the system. 
 
 \begin{itemize}
-\item Ако физическите лица са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху хипервръзките
-„Следващ“ и „Предишен“ разположени в долната част от списъка, или като
-щраквате директно върху номера на съответната страница.
+\item If the clients are more than 15, the page is divided into sub-pages. You
+can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на клиент“
-\item въведете име или част от име на физическо лице
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find client"
+\item introduce name or part of name of certain organisation
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Изберете физическо лице като щракнете върху съотвения ред с
-името му, за да се отвори общата информация за лицето.
+\item Select a physical person by clicking on the respective line with her/his
+name. A general information about this client will appear.
 
-\item Щракнете върху бутона „Редактиране на информация за клиент“.
+\item Click on the button "Edit client information".
 
-\item Попълнете формуляра „Редактиране на клиент“, съдържащ следните
-полета:
+\item Fill in the form "Edit client", containing the following fields:
+
 \begin{description}
-\item[Идентификатор на клиента] уникален идентификационен номер на
-физическото лице в рамките на системата. Този номер се генерира
-автоматично при регистрирането на лицето и не може да бъде променян.
+\item[Client ID] a unique identification number of the physical person. This
+number is generated automoatically at registering the person and it cannot be
+modified or deleted. 
 
-\item[Име] собствено име, задължително поле
+\item[Name] first name, mandatory field
 
-\item[Презиме] бащино име, незадължително поле
+\item[Middle name] the father's name, optional field
 
-\item[Фамилия] фамилно име, задължително поле
+\item[Surname] the family name, mandatory field
 
-\item[Дата на създаване] отбелязва момента, в който физическото лице - клиент
-е било регистрирано за първи път в програмата. Стойността на това поле не може
-да бъде променяна.
+\item [Creation date] marks the moment, in which the physical person - the
+client has been registered for the first time in the system. The value of the
+field cannot be changed. 
 
-\item[Пол] допустима е една от следните стойности:
+\item[Gender] one of the following values is accepted:
 \begin{itemize}
-\item няма информация (по подразбиране)
-\item мъжки
-\item женски
+\item n/a -- no information (by default)
+\item male
+\item female
 \end{itemize}
 
-\item[ЕГН/ЛНЧ] единен граждански номер (за български граждани) или
-личен номер за чужденец, незадължително поле
+\item[Citizen number] the unique ID number, given by the country, optional field
 
-\item[Гражданско състояние] допустима е една от следните стойности:
+\item[Civil status] one of the following values is accepted:
 \begin{itemize}
-\item разведен(а)/разделен(а)
-\item женен(а)/съжителстващ(а)
-\item неженен/неомъжена
-\item няма информация (по подразбиране)
-\item вдовец(ица)
+\item divorsed or separated
+\item married or cohabiting
+\item single
+\item unknown (by default)
+\item widowed
 \end{itemize}
 
-\item[Доход] допустима е една от следните стойности:
+\item[Income] one of the following values is accepted:
 \begin{itemize}
-\item среден
-\item над средния
-\item под средния
-\item няма информация (по подразбиране)
+\item average
+\item above average
+\item under average
+\item unknown (by default)
 \end{itemize}
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Notes] optional field, free text
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
 
-Всички въведени записи от раздела „Контакти“ могат да бъдат изтривани
-чрез отмятане на съответните полета означени с кошче за боклук.
+All the records in the Contacts section could be deleted by ticking on the
+respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите промените по
-формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
-Един клиент може да бъде включен едновременно в два или повече случая,
-например ако е идвал по-рано по друг случай. Асоциирането на случаи и клиенти
-помага на центъра да следи дали клиентите идват повече от веднъж и по кои
-други случаи е работено с тях.
+One client could be added in the same time to two or more cases, e.g. if
+she/he has come before on another case to the legal aid centre. Association of
+the client to a case helps the centre to track clients who have come before on
+another case and on which cases the lawyers in the centre have worked with them. 
 
 \HTMLset{mypagename}{clients\_edit}
-\section{Юридическо лице. Редактиране на юридическо лице.}
+\section{Organisation. Edit organisation.}
 \label{Organization. Edit Organization.}
 
-{\bf За да регистрирате ново юридическо лице в програмата}, следвайте
-стъпките:
+{\bf In order to register a new juridical person (organisation) in the
+system}, follow the steps:
 
 \begin{enumerate}
 \item Щракнете върху „Организации“ от основното меню и после върху
