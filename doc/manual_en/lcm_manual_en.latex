@@ -961,8 +961,6 @@ system, you can register her/him by clicking on the button "Register a new
 client and attach to this case", 
 .р \pageref{Person. Edit Person.}
 
-% TODO: Needs translation from Bulgarian
-
 You can add more than one physical person to a certain case. 
 
 {\bf In order to add a client - juridical person (organisation) to a case},
@@ -1173,7 +1171,7 @@ of the respective page.
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
 \item clicking on the text field "Find client"
-\item introduce name or part of name of certain organisation
+\item introduce name or part of name of certain client
 \item click on the button "Search" and check the list that will appear with
 the eventual results.
 \end{itemize}
@@ -1257,357 +1255,323 @@ another case and on which cases the lawyers in the centre have worked with them.
 system}, follow the steps:
 
 \begin{enumerate}
-\item Щракнете върху „Организации“ от основното меню и после върху
-бутона „Регистриране на нова организация“.
+\item Click on "Organisations" from the main menu and then on the "Register a
+new organisation".
 
-\item Отваря се формулярът „Нова организация“, съдържащ следните
-полета:
+\item The form "New organisation" opens. It contains the following fields:
 
 \begin{description}
-\item[Име] наименование на юридическото лице, задължително поле
+\item[Name] the name of the juridical person, mandatory field
 
-\item[Съдебна регистрация] номер на съдебната регистрация,
-незадължително поле
+\item[Court registration] the number of the court registration, optional field
 
-\item[Данъчен номер] номер на данъчна регистрация, незадължително поле
+\item[Tax number] tax registration number, optional field
 
-\item[БУЛСТАТ] незадължително поле
+\item[Statistical reference number] optional field
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Notes] optional field, free text
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
+
+All the records in the Contacts section could be deleted by ticking on the
+respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
-{\bf За да редактирате съществуващо юридическо лице}, следвайте
-стъпките:
+{\bf In order to edit an existing organisation}, follow the steps:
 
 \begin{enumerate}
-\item Отворете списъка с юридически лица (достъпен чрез щракване върху
-„Организации“ от главното меню). Екранът за избор на юридически лица
-показва списък с имената на юридическите лица регистрирани в
-системата.
+\item Open the list of organisations (accessible through clicking on
+"Organisations" from the main menu). The page for the already existing
+juridical persons, registered in the system, is shown. 
 
 \begin{itemize}
-\item Ако юридическите лица са повече от 15 на брой, екранът се
-разделя на страници. Можете да разлиствате страниците щракайки върху
-хипервръзките „Следващ“ и „Предишен“ разположени в долната част от
-списъка, или като щраквате директно върху номера на съответната
-страница.
+\item If the organisations are more than 15, the page is divided into sub-pages. You
+can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на организация“
-\item въведете име или част от име на юридическо лице
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find organisation"
+\item introduce name or part of name of certain organisation
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Изберете юридическо лице като щракнете върху съотвения ред с
-името му, за да се отвори общата информация за него.
+\item Select a juridical person by clicking on the respective line with her/his
+name. A general information about this organisation will appear.
 
-\item Щракнете върху бутона „Редактиране на информация за организация“.
+\item Click on the button "Edit the organisations information".
 
-\item Попълнете формуляра „Редактиране на организация“, съдържащ следните
-полета:
+\item Fill in the form "Organisation", containing the following fields:
+
 \begin{description}
-\item[Идентификатор на организация] уникален идентификационен номер на
-физическото лице в рамките на системата. Този номер се генерира
-автоматично при регистрирането на лицето и не може да бъде променян.
+\item[Organisation ID] unique identification number of the physical person created within
+the system. This number is automaticlly generated in the moment of its
+registration and it cannot be changed.
 
-\item[Име] наименование на юридическото лице, задължително поле
+\item[Name] the name of the juridical person, mandatory field
 
-\item[Съдебна регистрация] номер на съдебната регистрация,
-незадължително поле
+\item[Court registration] the number of the court registration, optional field
 
-\item[Данъчен номер] незадължително поле
+\item[Tax number] tax registration number, optional field
 
-\item[БУЛСТАТ] незадължително поле
+\item[Statistical reference number] optional field
 
-\item[Бележки] незадължително поле, свободен текст
+\item[Notes] optional field, free text
 
-\item[Дата на създаване] отбелязва момента в който юридическото лице е
-било регистрирано за първи път в програмата. Стойността на това поле
-не може да бъде променяна.
+\item[Creation date] the creation date marks the moment, in which the
+juridical person has been registered for the first time in the system. The
+value of the field cannot be changed.
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
 
-Всички въведени записи от раздела „Контакти“ могат да бъдат изтривани
-чрез отмятане на съответните полета означени с кошче за боклук.
+All the records in the Contacts section could be deleted by ticking on the
+respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите промените по
-формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
 \chapter{Users}
 
-Потребители наричаме хората, работещи с дадена инсталация на
-ПУЮП. Тъкмо потребителят е този, който получава достъп до програмата и
-експлоатира нейните възможности. Щом работите с програмата значи се
-явявате един от нейните потребители. Потребителите в ПУЮП се делят на
-два вида:
+Users are the people who enter in the LCM system with a username an a
+password. A user recieves access to the program and uses its features. If you
+are already logged to LCM, therefore you are one of the users of the program.
+The LCM users are divided in two: 
 
 \begin{itemize}
-\item обикновени потребители 
-\item администратори
+\item regular users 
+\item administrators
 \end{itemize}
 
-\section{Обикновен потребител}
+\section{Regular user}
 
-Обикновеният потребител използва системата всекидневно -- влиза в
-програмта със своето потребителско име и парола, регистрира нови
-случаи, нови физически лица, редактира юридически лица и т.н. Казано
-по друг начин, ПУЮП е предназначена за да бъде от полза най-вече на
-този вид потребители.
+The regular user logs to the system every day to record her/his work: to register new
+cases, new clients or organisations etc or to record a case follow-up. In
+other words, LCM is made to be used mainly by regular users. 
 
-{\bf За да направите справка по кои случаи участва даден потребител},
-следвайте стъпките:
+{\bf In order to see the cases, in which certain user participates}, follow
+the steps:
 
 \begin{enumerate}
-\item Отворете списъка с потребители (достъпен чрез щракване върху
-„Потребители“ от главното меню). Екранът за избор на потребители лица
-показва списък с имената на потребителите регистрирани в системата.
+\item Open the list of users (accessible by clicking on the "Users" from the
+main menu). The page for the already existing users, registered in the system, is shown. 
 
 \begin{itemize}
-\item Ако потребителите са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху
-хипервръзките „Следващ“ и „Предишен“ разположени в долната част от
-списъка, или като щраквате директно върху номера на съответната
-страница.
+\item If the users are more than 15, the page is divided into sub-pages. You
+can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на потребители“
-\item въведете име или част от име на потребител
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find user"
+\item introduce name or part of name of certain organisation
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Изберете потребител като щракнете върху съотвения ред с името
-му, за да се отвори общата информация за потребителя.
+\item Select a user by clicking on the respective line with her/his
+name. A general information about this user will appear.
 
-\item Щракнете върху раздела „Случаи“ от общата информация за да
-отворите списък със случаите, по които работи даденият
-потребител. Списъкът съдържа колони с номер на случая, дата на
-създаване, наименование и състояние. Можете да сортирате списъка по
-дата.
+\item Click on the section "Cases" from the general information, in order to
+open a list of the cases related to this user. The list contains coloums with
+number of the case, creation date, case title and stage. You can sort the list
+by date. 
 
-\item Ако имате достъп до някой от случаите (имате права или случаят е
-общодостъпен) можете да го отворите като щракнете с мишката върху съответния
-ред от списъка.
+\item If you have access to some of the cases (i.e. you have access rights to
+this certain case or the case is publicly accessible) then you can click with
+the mouse on the respective line from the list and open the cases details page. 
 
 \end{enumerate}
 
-{\bf Забележка:} Администраторът може да вижда всички потребители и всичките
-им случаи, дори и онези от тях, които са отбелязани като конфиденциални.
-
+{\bf NB!} The administrator can see all the users and all their cases, even
+the ones that are marked as confidential.
 
 \HTMLset{mypagename}{author\_admin}
-\section{Администратор}
+\section{Administrator}
 
-Освен всекидневните дейности, понякога се налага и друг вид служебна намеса в
-работата на ПУЮП. Този вид дейности се извършват от специални потребители,
-които притежават повече права от обикновено. Тези потребители се наричат
-администратори, а допълнителните им права съответно наричаме администраторски
-права.
+Except the ecveryday work in the LCM system, sometimes an official intervention is
+needed. This type of activity is done by specialised user(s), who posess more
+rights than the regular ones. These users are called administrators, while
+their additional rights are called administrator rights. 
 
-Обикновено в една инсталация на програмата има един администратор, но са
-възможни и повече.  Администраторът се характеризира с това, че има
-\emph{пълен достъп} до случаите. Това едновременно определя неговите големи
-възможности и големи отговорности. Ако имате администраторски права,
-използвайте ги само когато това се налага. Във всекидневната си работа
-влизайте в програмата като обикновен потребител.  В противен случай рискувате
-да направите грешка по невнимание, която да доведе до нежелани последици.
+Usually in a program installation there is one administrator, but it is
+possible that they more, too. The administrator is characterised by the fact
+that she/he has \emph{full access} to the cases. This simultaneously defines
+her/his big rights but also responsisbilties. If you are having administrators
+rights, use them only if this is necessary. Otherwise you are risking to make
+a mistake by negligence, which can lead to unwanted consequences. 
 
-Възможностите и отговорнотите на администратора включват:
+The administrator's righta and responsibilities include:
 
 \begin{itemize}
-\item да се определи политиката на работа на консултантския център
+\item to define the policy of work of the consulting centre
 
-\item да се настроят основите параметри за работа на програмата
+\item to set the main parameters of work of the system 
 
-\item да се регистрират нови потребители, които да работят с ПУЮП
+\item to register new users to work with LCM 
 
-\item да се променят потребителски данни и пароли
+\item to change the users data and passwords
 
-\item да се дефинират ключови думи за различните формуляри,
-съответстващи на дейността на консултантския център
+\item to define keywords for the different forms, correspondent to the
+activities of the consulting centre
 
-\item да се добавят/премахнат незадължителни полета
+\item to add/remove optional fields
 
-\item да се добавят/премахват полета, създадени непосредствено от ключовите
-думи
+\item to add/remove fields, created by using the keywords
 
-\item да се изведат отчети за всички потребители и за всичките им случаи
-заедно или поотделно
+\item to extract reports based on the work of all the users and all their
+cases together or separately
 
-\item да се промени стадия на вече ``приключен'' случай, който повторно да се
-отвари за редактиране и др.
+\item to change the status of an already "closed" case, in order that a user
+can work again on it etc. 
 
 \end{itemize}
 
-{\bf Забележка:} Важно е да се разбере, че администраторът на програмата е
-\emph{роля}, а не отделен човек. Един човек може да се явява едновременно
-администратор и обикновен потребител в програмата. Практиката сочи, че никога
-не бива да влизате в програмата като администратор освен за да свършите дадена
-конкретна административна дейност. След приключването на дейността, излезте и
-се върнете обратно в програмата като обикновен потребител.
-
+{\bf NB!} It is important to know that the administrator of the program is a
+\emph{role}, and not a separate person. A person could be both regular user
+and administratod in the system. It is not good to use your administrator's
+access every time you enter in the system, but only to do a certain
+administrative action. After you finish it, log out and log in again in the
+system as a regular user. 
 
 \HTMLset{mypagename}{author\_new}
-\section{Добавяне на потребител}
+\section{Adding a user}
 
-Добавянето на нови потребители в ПУЮП се счита за административна
-дейност и трябва да имате администраторски права, за да извършите тази
-операция.
+Adding new users to the LCM system is considered administrative activity and
+you should posess administrator right in order to do it. 
 
-{\bf За да създадете потребител}, следвайте стъпките:
+{\bf To create a user}, follow the steps:
 
 \begin{enumerate}
-\item Щракнете върху „Потребители“ от основното меню и после върху бутона
-„Регистриране на нов потребител“.
+\item Click on the "Users" from the main menu and then on the button "Register
+a new user". 
 
-\item Отваря се формулярът „Нов потребител“, съдържащ следните полета:
+\item The form "New user" opens. It contains the following fields: 
 
 \begin{description}
-\item[Име] собствено име, задължително поле
+\item[Name] first name, mandatory field
 
-\item[Презиме] бащино име, незадължително поле
+\item[Middle name] the father's name, optional field
 
-\item[Фамилия] фамилно име, задължително поле
+\item[Surname] the family name, mandatory field
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
 
-\item[Потребителско име] уникално име с което новият потребител ще се
-идентифицира в системата. Ако въведеното от Вас име вече се използва
-от друг потребител, ще бъдете подканени да въведете друго име.
+\item[User name] a unique to the system name, with which the user will be
+identified. If the user name you have entered is already in use by another
+users, you will be invited to choose another name.
 
-\item[Нова парола] парола, чрез която новият потребител ще
-удостоверява самоличността си. Самата парола не се извежда на екрана,
-а вместо всеки символ се извежда символ за звездичка ('*'). Това е
-направено от съображения за сигурност. Паролата трябва да е дълга поне
-6 символа.
+\item[New password] a password, with which the new user will identify himself
+to the system. The password itself is not shown on the screen. Instead, for
+each symbol of it is shown asterisk (*) for secrurity reasons. The password
+should be not less than 6 symbols. 
 
-\item[Потвърждаване на новата парола] тук паролата се въвежда още
-веднъж, за да се потвърди, че при въвеждането „на сляпо“ не е
-допусната грешка. Стойностите на двете полета за въвеждане на парола
-трябва да съвпадат.
+\item[Confirm the new password] re-enter the passowrd one more time in order
+to verify that it is written right. The values in the two fields for entering
+of the password should coincide. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
 \HTMLset{mypagename}{author\_edit}
-\section{Редактиране на потребител}
+\section{Edit a user}
 
-След регистрирането на даден потребител, информацията за него може да
-бъде редактирана -- напр. имена, контакти, парола и т.н. Ако сте
-обикновен потребител, можете да редактирате само информацията за себе
-си. Ако сте в ролята на администратор, можете да редактирате
-информацията за всички останали потребители и/или администратори.
+After registering a user, the information regarding her/him can be changed --
+e.g. names, contact details, password etc. If you are a regular user, you can
+edit only your own user's information. If you are in the role of
+administrator, you can edit the information of all the users (regular users
+and/or administrators) registered in the system. 
 
-{\bf За да редактирате потребител}, следвайте стъпките:
+{\bf In order to edit a user}, follow the steps:
 
 \begin{enumerate}
-\item Отворете списъка с потребители (достъпен чрез щракване върху
-„Потребители“ от главното меню). Екранът за избор на потребители
-показва списък с имената на потребителите, регистрирани в системата.
+\item Open the list of users (accessible by clicking on the "Users" from the
+main menu). The page for the already existing users, registered in the system, is shown. 
 
 \begin{itemize}
-\item Ако потребителите са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху
-хипервръзките „Следващ“ и „Предишен“ разположени в долната част от
-списъка, или като щраквате директно върху номера на съответната
-страница.
+\item If the users are more than 15, the page is divided into sub-pages. You
+can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на потребители“
-\item въведете име или част от име на потребител
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find user"
+\item introduce name or part of name of certain organisation
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Изберете потребител като щракнете върху съотвения ред с името
-му, за да се отвори общата информация за потребителя.
+\item Select a user by clicking on the respective line with her/his
+name. A general information about this user will appear.
 
-\item Щракнете върху бутона „Редактиране на потребител“. В нормалния
-случай виждате този бутон само за Вашата собствена регистрация в
-програмата. Ако имате аминистраторски права, тогава можете да
-редактирате всички регистрации.
+\item Click on the user "Edit user's information". In the normal ase you
+should see this button only for your own registration in the system. If you
+have administrators rights access, you can edit all the registrations.
 
-\item Попълнете формуляра „Редактиране на потребител“, съдържащ следните
-полета:
+\item Fill in the form "Edit user's information", containing the following
+fields: 
 \begin{description}
-\item[Име] собствено име, задължително поле
+\item[Name] first name, mandatory field
 
-\item[Презиме] бащино име, незадължително поле
+\item[Middle name] the father's name, optional field
 
-\item[Фамилия] фамилно име, задължително поле
+\item[Surname] the family name, mandatory field
 
-\item[Домашен адрес] конвенционален пощенски адрес, незадължително
-поле
+\item[Home address] conventional postal address, optional field
 
-\item[Ел. поща] адрес на електронна поща, незадължително поле
+\item[E-mail] e-mail address, optional field
 
-\item[Друг контакт] незадължително поле, дава възможност да се
-попълват допълнителни записи за контакт; например втори пощенски
-адрес, втори електронен адрес и т.н.
+\item[Other contact] optional field, allows to fill in additional contact
+details; e.g. second postal address, second e-mail etc.
 
-\item[Потребителско име] уникално име, идентифициращо Ви в
-програмата. Само администраторът може да променя това поле.
-
-\item[Нова парола] парола, чрез която новият потребител ще
-удостоверява самоличността си. Попълнете това поле само в случай, че
-желаете да смените паролата на потребителя. Самата парола не се
-извежда на екрана, а вместо всеки символ се извежда символ за
-звездичка ('*'). Това е направено от съображения за
-сигурност. Паролата трябва да е дълга поне 6 символа.
-
-\item[Потвърждаване на новата парола] тук паролата се въвежда още
-веднъж за да се потвърди, че при въвеждането „на сляпо“ не е
-допусната грешка. Стойностите на двете полета за въвеждане на парола
-трябва да съвпадат.
-
-Всички въведени записи от раздела „Контакти“ могат да бъдат изтривани
-чрез отмятане на съответните полета означени с кошче за боклук.
+All the records in the Contacts section could be deleted by ticking on the
+respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите промените по
-формуляра.
+\item[User name] a unique to the system name, which only the administrator can
+change. 
+
+\item[New password] a password, with which the new user will identify himself
+to the system. Fill in this field only in case you want to change the user's
+password. The password itself is not shown on the screen. Instead, for
+each symbol of it is shown asterisk (*) for secrurity reasons. The password
+should be not less than 6 symbols. 
+
+\item[Confirm the new password] re-enter the passowrd one more time in order
+to verify that it is written right. The values in the two fields for entering
+of the password should coincide. 
+\end{description}
+
+\item Click on the "Validate" button in order to save the form. 
 
 \end{enumerate}
 
