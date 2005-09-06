@@ -474,7 +474,7 @@ consultations)
 
 The case is a \emph{process}, which undergoes development. All activities
 associated with certain case -- status changes, additional events etc., are
-being recorded in the "Follow-ups" section. The history of the case could be
+being recorded in the ``Follow-ups'' section. The history of the case could be
 tracked from this section from the moment of its registration in the LCM on. 
 
 \HTMLset{mypagename}{cases\_intro}
@@ -483,7 +483,7 @@ tracked from this section from the moment of its registration in the LCM on.
 \subsection{Start}
 
 After entering the system through a username and password, you will get on the
-page called: "My cases". The page contains by default a list, which
+page called: ``My cases''. The page contains by default a list, which
 summarised the cases on which you are working at the moment. The list includes
 the following features: 
 
@@ -496,13 +496,13 @@ the following features:
 \end{itemize}
 
 You can sort the list by creation date in ascending or descending order by
-clicking on the title of the the coloumn called: "Creation date". 
+clicking on the title of the the coloumn called: ``Creation date''. 
 
 If you want to open some of the shown cases, click on the respective row in
 the list. 
 
 You can also define which part of the cases you wish to see at the moment with
-the help of the dropdown menus by "Filter" and "Period".
+the help of the dropdown menus by ``Filter'' and ``Period''.
 
 {\bf Filter:}
 \begin{itemize}
@@ -525,7 +525,7 @@ all the existing cases, registered in the system without exception.
 \item etc.
 \end{itemize}
 
-Further below, the "My cases" page contains a list of the latest follow-up
+Further below, the ``My cases'' page contains a list of the latest follow-up
 activities performed for the shown cases. The list includes the following
 coloumns:  
 
@@ -546,32 +546,36 @@ You can click on some of the follow-ups in the list in order to open it.
 {\bf In order to create a new user in the system}, follow the steps:
 
 \begin{enumerate}
-\item Click on the button "Cases" from the main meny and then on the "Open a new
-case" one.
+\item Click on the button ``Cases'' from the main navigation menu and
+then on the ``Open a new case'' button located in the central part of
+the screen, under the list of cases.
 
-\item The form "New case" opens. It has the following elements:
+\item The form ``New case'' will open, with the following elements:
 
 \begin{description}
-\item[Title of the case] Select a short but descriptive title of the case,
+\item[Title of the case] Enter a short but descriptive title of the case,
 which will help to you and your colleagues to distinguish it easily among the
 others. Mandatory field. 
 
 \item[Assignement date] Shows the moment, from which the case has been
 assigned and work on it has been started. This field is useful for the cases
 in which you have worked on the case (e.g. on paper) and later on it has been
-filled in the system. In this field by default is shown the date of creation
-of the case. 
+filled in the system. By default, the value of this field is the date of
+creation of the case.
 
 %\item[Номер на делото в съда] незадължително помощно поле за
 %удобство, въведете го само когато случаят касае дело в съда
 
 \item[Legal reason] optional field, in which usually is filled in the
 normative act, article and paragraph number, according to which a breach has been
-done. 
+done. This field may be de-activated by the site administrator, according to
+the requirements of your office.
 
-\item[Alleged crime] optional field
+\item[Alleged crime] optional field, similar to the ``legal reason''. It
+may also be de-activated by the site administrator, according to the
+requirements of your office.
 
-\item[Notes] optional field, free text
+\item[Notes] optional field, free text.
 
 \item[Status of the case] in the beginning status, there are two
 possibilities:
@@ -607,11 +611,11 @@ depends on the office policy regarding the system, defined by the administrator 
 The page can contain additional fields and keywords in relation to the
 settings, made by the administrator of your organisation. 
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 \end{enumerate}
 
 After successfully registering your case in the system, you will see the page
-called: "Case details", showing the newly registered case, with its newly
+called: ``Case details'', showing the newly registered case, with its newly
 appropriated case ID. This page gives the general information, the follow-ups, the
 agenda, the reports and the attached documents related to this case, as well
 as a possibility to go back for editing it. 
@@ -623,28 +627,30 @@ as a possibility to go back for editing it.
 \begin{enumerate}
 \item Select a case and open the general information of it.
 
-\item Select new status of the case from the dropdown menu called" "Status".
+\item Select new status of the case from the dropdown menu called ``Status''.
 You have the following possibilities:
 \begin{itemize}
 \item draft
 \item open 
 \item closed
 \item merged
-\item suspended (in reality, a case registered in the system is never being
-deleted, but it is "marked" as invalid, suspended. If necessary, the
-administrator of the system can restore the case on a later stage.)
+\item suspended
+\item deleted (in reality, a case registered in the system is never 
+deleted, but it is ``marked'' as such and only system administrators
+can access it. If necessary, the administrator of the system can
+restore the case on a later stage.)
 \end{itemize}
 
-{\bf NB!} By marking the case as "closed" makes the user unable to modify the
+{\bf NB!} By marking the case as ``closed'' makes the user unable to modify the
 data in it. Only the administrator is able to change the status of the case
 again, so that editing and additional modifications are done with regards to
 this particular case. 
 
-\item Click on the "Validate" button, which appears right after the dropdown
+\item Click on the ``Validate'' button, which appears right after the dropdown
 menu after selecting a new value.
 
-\item Clicking the "Validate" button leads to opening of another form called:
-"Case status change". It contains the following fields:
+\item Clicking the ``Validate'' button leads to opening of another form called:
+``Case status change''. It contains the following fields:
 
 \begin{description}
 \item[Start] The date and the hour from which on the status of the case has
@@ -681,12 +687,12 @@ assistance.
 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form.
+\item Click on the ``Validate'' button in order to save the form.
 
 \end{enumerate}
 
-{\bf NB!} Pay attention that the possible values of the "Conclusion" and
-"Sentense" can be different in your installation of the progdam since they are
+{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
+``Sentense'' can be different in your installation of the progdam since they are
 configured by the administrator. 
 
 {\bf In order to change the stage of the case}, follow the steps:
@@ -694,7 +700,7 @@ configured by the administrator.
 \begin{enumerate}
 \item Select the case and open the general information of it.
 
-\item Select a new stage from the dropdown menu "Stage" among the following
+\item Select a new stage from the dropdown menu ``Stage'' among the following
 values:
 \begin{itemize}
 \item first 
@@ -703,11 +709,11 @@ values:
 \item fourth
 \end{itemize}
 
-\item Click on the "Validate" button, which appears right after the dropdown
+\item Click on the ``Validate'' button, which appears right after the dropdown
 menu after selecting a new value.
 
-\item  Clicking the "Validate" button leads to opening of another form called:
-"Case stage change". It contains the following fields:
+\item  Clicking the ``Validate'' button leads to opening of another form called:
+``Case stage change''. It contains the following fields:
 
 \begin{description}
 \item[Start] The date and the hour from which on the stage of the case has
@@ -741,23 +747,23 @@ E.g. number of months of prison or quantity of the fine etc.
 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form.
+\item Click on the ``Validate'' button in order to save the form.
 
 \end{enumerate}
 
-{\bf NB!} Pay attention that the possible values of the "Conclusion" and
-"Sentense" can be different in your installation of the progdam since they are
+{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
+``Sentense'' can be different in your installation of the progdam since they are
 configured by the administrator. 
 
 {\bf In order to change the general information related to a case}, follow the
 steps:
 
 \begin{enumerate}
-\item Select the case from the list of "My cases" (accessible through clicking
-on the "Cases" from the main menu). The page "Case details" appears on the
+\item Select the case from the list of ``My cases'' (accessible through clicking
+on the ``Cases'' from the main menu). The page ``Case details'' appears on the
 screen. 
 
-\item Click on the button "Edit case information", which will open the form
+\item Click on the button ``Edit case information'', which will open the form
 for editing. The form contains the following fields:
 
 \begin{description}
@@ -816,8 +822,8 @@ administrator of your organisation.
 The page can contain additional fields and keywords in relation to the
 settings, made by the administrator of your organisation. 
 
-\item Click on the "Validate" button in order to save the form and go back to
-the "Case details" page. 
+\item Click on the ``Validate'' button in order to save the form and go back to
+the ``Case details'' page. 
 
 \end{enumerate}
 
@@ -838,25 +844,25 @@ contributors.
 {\bf In order to add a new user to a case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case from the "My cases" page (accessible by clicking on the
-"Cases" from the main menu).
-\item In order to open the page for choice of users, click on the button "Add
-a user to a case" from the page "Case details" | "General" | "General
-information". 
+\item Select a case from the ``My cases'' page (accessible by clicking on the
+``Cases'' from the main menu).
+\item In order to open the page for choice of users, click on the button ``Add
+a user to a case'' from the page ``Case details'' | ``General'' | ``General
+information''. 
 \item The page for chosing users shows a list of names of all the users
 registered in the system. 
 
 \begin{itemize}
 \item If the users are more than 15, the page is divided into pages. You can
-go through the pages by clicking on the hyperlinks "Next" and "Previous",
+go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find user"
+\item clicking on the text field ``Find user''
 \item introduce name or part of name of certain user
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -864,7 +870,7 @@ the eventual results.
 \item Use the fiels on the left side to tick on the user(s) you choose to add
 to your case. 
 
-\item Click on the "Validate" button in order to confirm your choice. 
+\item Click on the ``Validate'' button in order to confirm your choice. 
 
 \item Go on with choosing and adding more users to the case or use the
 hyperlink on top to go back to your case. 
@@ -879,20 +885,20 @@ associated to certain case.
 follow the steps:
 
 \begin{enumerate}
-\item Choose a case from the page "My cases" (accessible by clicking on
-"Cases" from the main menu).
+\item Choose a case from the page ``My cases'' (accessible by clicking on
+``Cases'' from the main menu).
 \item In the case details is shown a list of the users, associated to this case.
 \item Click on the pictogram, illustrating a hand, situated on the left side
 of the name of the user, to which you want to specify access rights. 
-\item Opens a page called "Edite access rights". From the dropdown menu
-"Access right" choose one of the following possibilities: 
+\item Opens a page called ``Edite access rights''. From the dropdown menu
+``Access right'' choose one of the following possibilities: 
 \begin{itemize}
 \item Consult case information
 \item Add information to the case
 \item Case administrator
 \item Un-assign from a case
 \end{itemize}
-\item Click on the button "Validate" in order to confirm your choice. 
+\item Click on the button ``Validate'' in order to confirm your choice. 
 
 \end{enumerate}
 
@@ -917,10 +923,10 @@ case.
 
 \begin{enumerate}
 
-\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
 the main manu).
 
-\item Click on the button "Add a client" in order to open the page for
+\item Click on the button ``Add a client'' in order to open the page for
 choosing clients - physical persons.
 
 \item The page for choosing clients shows a list of the names of the already
@@ -930,15 +936,15 @@ clients and organisations related to the case.
 
 \begin{itemize}
 \item If the clients are more than 15, the page is divided into sub-pages. You can
-go through the pages by clicking on the hyperlinks "Next" and "Previous",
+go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find client"
+\item clicking on the text field ``Find client''
 \item introduce name or part of name of certain client
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -946,19 +952,19 @@ the eventual results.
 \item Use the fiels on the left side to tick on the client(s) you choose to add
 to your case. 
 
-\item Click on the "Validate" button in order to confirm your choice. 
+\item Click on the ``Validate'' button in order to confirm your choice. 
 
 \item Go on with choosing and adding more users to the case or use the
 hyperlink on top to go back to your case. 
 
 \end{enumerate}
 
-After confirming, the chosen clients appear in the list of "Case clients" in
-the general page "Case details".
+After confirming, the chosen clients appear in the list of ``Case clients'' in
+the general page ``Case details''.
 
 If the client, with which you are working on the current case is new to the
-system, you can register her/him by clicking on the button "Register a new
-client and attach to this case", 
+system, you can register her/him by clicking on the button ``Register a new
+client and attach to this case'', 
 .р \pageref{Person. Edit Person.}
 
 You can add more than one physical person to a certain case. 
@@ -968,10 +974,10 @@ follow the steps:
 
 \begin{enumerate}
 
-\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
 the main manu).
 
-\item Click on the button "Add an organisation" in order to open the page for
+\item Click on the button ``Add an organisation'' in order to open the page for
 choosing clients - juridical persons.
 
 \item The page for choosing organisations shows a list of the names of the
@@ -981,15 +987,15 @@ clients and organisations related to the case.
 
 \begin{itemize}
 \item If the organisations are more than 15, the page is divided into sub-pages. You
-can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+can go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find organisation"
+\item clicking on the text field ``Find organisation''
 \item introduce name or part of name of certain organisation
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -997,19 +1003,19 @@ the eventual results.
 \item Use the fiels on the left side to tick on the organisation(s) you choose to
 add to your case. 
 
-\item Click on the "Validate" button in order to confirm your choice. 
+\item Click on the ``Validate'' button in order to confirm your choice. 
 
 \item Go on with choosing and adding more users to the case or use the
 hyperlink on top to go back to your case. 
 
 \end{enumerate}
 
-After confirming, the chosen organisation appear in the list of "Case
-clients" in the general page "Case details".
+After confirming, the chosen organisation appear in the list of ``Case
+clients'' in the general page ``Case details''.
 
 If the client, with which you are working on the current case is new to the
-system, you can register her/him by clicking on the button "Add new
-organisation", 
+system, you can register her/him by clicking on the button ``Add new
+organisation'', 
 p. \pageref{Organization. Edit Organization.}
 
 \HTMLset{mypagename}{cases\_followups}
@@ -1022,15 +1028,15 @@ or consultancy as a case follow-up within the certain case.
 {\bf In order to add a follow-up to a case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
 the main manu).
 
-\item Click on the section "Follow-ups" in order to open the list of existing
+\item Click on the section ``Follow-ups'' in order to open the list of existing
 follow-ups (done activities) within the current case.
 
-\item Click the button "New follow-up".
+\item Click the button ``New follow-up''.
 
-\item Fill in the form "New follow-up", containing the following fields:
+\item Fill in the form ``New follow-up'', containing the following fields:
 
 \begin{description}
 \item[Start] The date and hour from which is considered that the activities
@@ -1048,7 +1054,7 @@ possible valueas are being defined by the administrator of the system)
 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
@@ -1058,20 +1064,20 @@ possible valueas are being defined by the administrator of the system)
 {\bf In order to attach new document to an existing case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
 the main manu).
 
-\item Click on the section "Documents" in order to open the list of attached
+\item Click on the section ``Documents'' in order to open the list of attached
 to the case documents. If there is no documents attached, instead of a list,
 there will be a text shown, saying: There are no documents attached.
 
-\item Click on the button "Browse" inside the field "File name" and select the
+\item Click on the button ``Browse'' inside the field ``File name'' and select the
 desired file from the dialogue window. 
 
-\item In the field "Description" write down a short description of the
+\item In the field ``Description'' write down a short description of the
 contents of the document, which you are intending to attach.
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 \end{enumerate}
 
 After attaching the document, it becomes visible in the list of attached to
@@ -1096,10 +1102,10 @@ one or more cases. LCM identifies two types of clients:
 steps:
 
 \begin{enumerate}
-\item Click on the menu "Clients" from the main menu and then on the button
-"Register a new client".
+\item Click on the menu ``Clients'' from the main menu and then on the button
+``Register a new client''.
 
-\item The "New client" form is open. It contains the following fields:
+\item The ``New client'' form is open. It contains the following fields:
 
 \begin{description}
 \item[Name] the first name, mandatory field
@@ -1147,32 +1153,32 @@ All the records in the Contacts section could be deleted by ticking on the
 respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
-{\bf NB!} Fields like "Middle name", "Citizen number", "Civil status" and
-"Income" can miss from the form. This depends on the aid centre policy and the
+{\bf NB!} Fields such as the ``Middle name'', ``Citizen number'', ``Civil status'' and
+``Income'' can miss from the form. This depends on the aid centre policy and the
 settings made by the administrator of the software. 
 
 {\bf In order to edit and existing physical person}, follow the steps:
 
 \begin{enumerate}
-\item Open the list of physical persons (accessible by clickig on "Clients" from
+\item Open the list of physical persons (accessible by clickig on ``Clients'' from
 the main manu). The page for choosing physical persons shows a list of the
 names of all the persons, registered in the system. 
 
 \begin{itemize}
 \item If the clients are more than 15, the page is divided into sub-pages. You
-can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+can go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find client"
+\item clicking on the text field ``Find client''
 \item introduce name or part of name of certain client
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -1180,9 +1186,9 @@ the eventual results.
 \item Select a physical person by clicking on the respective line with her/his
 name. A general information about this client will appear.
 
-\item Click on the button "Edit client information".
+\item Click on the button ``Edit client information''.
 
-\item Fill in the form "Edit client", containing the following fields:
+\item Fill in the form ``Edit client'', containing the following fields:
 
 \begin{description}
 \item[Client ID] a unique identification number of the physical person. This
@@ -1238,7 +1244,7 @@ All the records in the Contacts section could be deleted by ticking on the
 respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
@@ -1255,10 +1261,10 @@ another case and on which cases the lawyers in the centre have worked with them.
 system}, follow the steps:
 
 \begin{enumerate}
-\item Click on "Organisations" from the main menu and then on the "Register a
-new organisation".
+\item Click on ``Organisations'' from the main menu and then on the ``Register a
+new organisation''.
 
-\item The form "New organisation" opens. It contains the following fields:
+\item The form ``New organisation'' opens. It contains the following fields:
 
 \begin{description}
 \item[Name] the name of the juridical person, mandatory field
@@ -1282,7 +1288,7 @@ All the records in the Contacts section could be deleted by ticking on the
 respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
@@ -1290,20 +1296,20 @@ respective fields, marked with a garbage bin image.
 
 \begin{enumerate}
 \item Open the list of organisations (accessible through clicking on
-"Organisations" from the main menu). The page for the already existing
+``Organisations'' from the main menu). The page for the already existing
 juridical persons, registered in the system, is shown. 
 
 \begin{itemize}
 \item If the organisations are more than 15, the page is divided into sub-pages. You
-can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+can go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find organisation"
+\item clicking on the text field ``Find organisation''
 \item introduce name or part of name of certain organisation
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -1311,9 +1317,9 @@ the eventual results.
 \item Select a juridical person by clicking on the respective line with her/his
 name. A general information about this organisation will appear.
 
-\item Click on the button "Edit the organisations information".
+\item Click on the button ``Edit the organisations information''.
 
-\item Fill in the form "Organisation", containing the following fields:
+\item Fill in the form ``Organisation'', containing the following fields:
 
 \begin{description}
 \item[Organisation ID] unique identification number of the physical person created within
@@ -1345,7 +1351,7 @@ All the records in the Contacts section could be deleted by ticking on the
 respective fields, marked with a garbage bin image. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
@@ -1371,20 +1377,20 @@ other words, LCM is made to be used mainly by regular users.
 the steps:
 
 \begin{enumerate}
-\item Open the list of users (accessible by clicking on the "Users" from the
+\item Open the list of users (accessible by clicking on the ``Users'' from the
 main menu). The page for the already existing users, registered in the system, is shown. 
 
 \begin{itemize}
 \item If the users are more than 15, the page is divided into sub-pages. You
-can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+can go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find user"
+\item clicking on the text field ``Find user''
 \item introduce name or part of name of certain organisation
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -1392,7 +1398,7 @@ the eventual results.
 \item Select a user by clicking on the respective line with her/his
 name. A general information about this user will appear.
 
-\item Click on the section "Cases" from the general information, in order to
+\item Click on the section ``Cases'' from the general information, in order to
 open a list of the cases related to this user. The list contains coloums with
 number of the case, creation date, case title and stage. You can sort the list
 by date. 
@@ -1442,7 +1448,7 @@ activities of the consulting centre
 \item to extract reports based on the work of all the users and all their
 cases together or separately
 
-\item to change the status of an already "closed" case, in order that a user
+\item to change the status of an already ``closed'' case, in order that a user
 can work again on it etc. 
 
 \end{itemize}
@@ -1463,10 +1469,10 @@ you should posess administrator right in order to do it.
 {\bf To create a user}, follow the steps:
 
 \begin{enumerate}
-\item Click on the "Users" from the main menu and then on the button "Register
-a new user". 
+\item Click on the ``Users'' from the main menu and then on the button ``Register
+a new user''. 
 
-\item The form "New user" opens. It contains the following fields: 
+\item The form ``New user'' opens. It contains the following fields: 
 
 \begin{description}
 \item[Name] first name, mandatory field
@@ -1496,7 +1502,7 @@ to verify that it is written right. The values in the two fields for entering
 of the password should coincide. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
@@ -1512,20 +1518,20 @@ and/or administrators) registered in the system.
 {\bf In order to edit a user}, follow the steps:
 
 \begin{enumerate}
-\item Open the list of users (accessible by clicking on the "Users" from the
+\item Open the list of users (accessible by clicking on the ``Users'' from the
 main menu). The page for the already existing users, registered in the system, is shown. 
 
 \begin{itemize}
 \item If the users are more than 15, the page is divided into sub-pages. You
-can go through the pages by clicking on the hyperlinks "Next" and "Previous",
+can go through the pages by clicking on the hyperlinks ``Next'' and ``Previous'',
 situated in the lower part of the list, or by clicking directly on the number
 of the respective page. 
 
 \item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item clicking on the text field "Find user"
+\item clicking on the text field ``Find user''
 \item introduce name or part of name of certain organisation
-\item click on the button "Search" and check the list that will appear with
+\item click on the button ``Search'' and check the list that will appear with
 the eventual results.
 \end{itemize}
 \end{itemize}
@@ -1533,11 +1539,11 @@ the eventual results.
 \item Select a user by clicking on the respective line with her/his
 name. A general information about this user will appear.
 
-\item Click on the user "Edit user's information". In the normal ase you
+\item Click on the user ``Edit user's information''. In the normal ase you
 should see this button only for your own registration in the system. If you
 have administrators rights access, you can edit all the registrations.
 
-\item Fill in the form "Edit user's information", containing the following
+\item Fill in the form ``Edit user's information'', containing the following
 fields: 
 \begin{description}
 \item[Name] first name, mandatory field
@@ -1571,7 +1577,7 @@ to verify that it is written right. The values in the two fields for entering
 of the password should coincide. 
 \end{description}
 
-\item Click on the "Validate" button in order to save the form. 
+\item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
 
