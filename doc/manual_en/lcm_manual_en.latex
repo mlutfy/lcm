@@ -827,8 +827,11 @@ the ``Case details'' page.
 
 \end{enumerate}
 
-\HTMLset{mypagename}{cases\_users}
-\section{Adding a user to a case}
+
+\HTMLset{mypagename}{cases\_participants}
+\section{Case participants}
+
+\subsection{Users}
 
 After registering a new case, it is automatically added to the list of Your
 cases. Since you are its creator, therefore you are the one responsible and
@@ -903,12 +906,11 @@ of the name of the user, to which you want to specify access rights.
 \end{enumerate}
 
 
-\HTMLset{mypagename}{cases\_participants}
-\section{Adding clients and organisations to a case}
+\subsection{Clients and organisations}
 
-Each case, registered in the consulting centre, operates with external to the
-centre persons or organisations -- the so called clients. These are persons
-and/or institutions, who have requested the consulting centre to work on the
+Each case, registered in the consulting centre, operates with persons or
+organisations who are external to the centre -- the so called clients. These are persons
+and/or institutions, who have requested the consulting centre to work on a
 certain case. LCM identifies two types of clients: 
 
 \begin{itemize}
@@ -923,11 +925,11 @@ case.
 
 \begin{enumerate}
 
-\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
-the main manu).
+\item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
+the main navigation menu).
 
 \item Click on the button ``Add a client'' in order to open the page for
-choosing clients - physical persons.
+choosing clients -- physical persons.
 
 \item The page for choosing clients shows a list of the names of the already
 registered clients in the system. Right below the title of the page, there is
@@ -964,8 +966,9 @@ the general page ``Case details''.
 
 If the client, with which you are working on the current case is new to the
 system, you can register her/him by clicking on the button ``Register a new
-client and attach to this case'', 
-.р \pageref{Person. Edit Person.}
+client and attach to this case''.
+% [ML] html-refs make too many problems for on-line help. FIXME
+% .р \pageref{Person. Edit Person.}
 
 You can add more than one physical person to a certain case. 
 
@@ -974,7 +977,7 @@ follow the steps:
 
 \begin{enumerate}
 
-\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
+\item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
 the main manu).
 
 \item Click on the button ``Add an organisation'' in order to open the page for
@@ -1015,8 +1018,9 @@ clients'' in the general page ``Case details''.
 
 If the client, with which you are working on the current case is new to the
 system, you can register her/him by clicking on the button ``Add new
-organisation'', 
-p. \pageref{Organization. Edit Organization.}
+organisation''.
+% [ML] latex refs make too many problems for on-line help, FIXME
+% , p. \pageref{Organization. Edit Organization.}
 
 \HTMLset{mypagename}{cases\_followups}
 \section{Adding follow-ups}
@@ -1028,7 +1032,7 @@ or consultancy as a case follow-up within the certain case.
 {\bf In order to add a follow-up to a case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
+\item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
 the main manu).
 
 \item Click on the section ``Follow-ups'' in order to open the list of existing
@@ -1064,7 +1068,7 @@ possible valueas are being defined by the administrator of the system)
 {\bf In order to attach new document to an existing case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case from the ``My cases'' (accessible by clickig on ``Cases'' from
+\item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
 the main manu).
 
 \item Click on the section ``Documents'' in order to open the list of attached
@@ -1096,7 +1100,8 @@ one or more cases. LCM identifies two types of clients:
 
 \HTMLset{mypagename}{clients\_intro}
 \section{Physical person. Edit physical persons information.}
-\label{Person. Edit Person.}
+% [ML] html-refs make too many problems for on-line help. FIXME
+% \label{Person. Edit Person.}
 
 {\bf In order to register a new physical person in the program}, follow the
 steps:
@@ -1164,7 +1169,7 @@ settings made by the administrator of the software.
 {\bf In order to edit and existing physical person}, follow the steps:
 
 \begin{enumerate}
-\item Open the list of physical persons (accessible by clickig on ``Clients'' from
+\item Open the list of physical persons (accessible by clicking on ``Clients'' from
 the main manu). The page for choosing physical persons shows a list of the
 names of all the persons, registered in the system. 
 
@@ -1255,7 +1260,8 @@ another case and on which cases the lawyers in the centre have worked with them.
 
 \HTMLset{mypagename}{clients\_edit}
 \section{Organisation. Edit organisation.}
-\label{Organization. Edit Organization.}
+% [ML] html-refs make too many problems for on-line help. FIXME
+% \label{Organization. Edit Organization.}
 
 {\bf In order to register a new juridical person (organisation) in the
 system}, follow the steps:
@@ -1357,6 +1363,8 @@ respective fields, marked with a garbage bin image.
 
 \chapter{Users}
 
+Users can be lawyers, advisers or any other member of your staff who works
+with the clients of your organisation.
 Users are the people who enter in the LCM system with a username an a
 password. A user recieves access to the program and uses its features. If you
 are already logged to LCM, therefore you are one of the users of the program.
@@ -1367,14 +1375,15 @@ The LCM users are divided in two:
 \item administrators
 \end{itemize}
 
-\section{Regular user}
+\HTMLset{mypagename}{authors\_intro}
+\section{Regular users}
 
 The regular user logs to the system every day to record her/his work: to register new
 cases, new clients or organisations etc or to record a case follow-up. In
 other words, LCM is made to be used mainly by regular users. 
 
-{\bf In order to see the cases, in which certain user participates}, follow
-the steps:
+{\bf In order to see the cases, in which a certain user participates}, follow
+these steps:
 
 \begin{enumerate}
 \item Open the list of users (accessible by clicking on the ``Users'' from the
@@ -1412,10 +1421,10 @@ the mouse on the respective line from the list and open the cases details page.
 {\bf NB!} The administrator can see all the users and all their cases, even
 the ones that are marked as confidential.
 
-\HTMLset{mypagename}{author\_admin}
+\HTMLset{mypagename}{authors\_admin}
 \section{Administrator}
 
-Except the ecveryday work in the LCM system, sometimes an official intervention is
+Except the everyday work in the LCM system, sometimes an official intervention is
 needed. This type of activity is done by specialised user(s), who posess more
 rights than the regular ones. These users are called administrators, while
 their additional rights are called administrator rights. 
@@ -1460,13 +1469,13 @@ access every time you enter in the system, but only to do a certain
 administrative action. After you finish it, log out and log in again in the
 system as a regular user. 
 
-\HTMLset{mypagename}{author\_new}
+\HTMLset{mypagename}{authors\_edit}
 \section{Adding a user}
 
-Adding new users to the LCM system is considered administrative activity and
-you should posess administrator right in order to do it. 
+Adding new users to the LCM system is an administrative activity and
+you should posess administrator rights in order to do it. 
 
-{\bf To create a user}, follow the steps:
+{\bf To create a new user}, follow the steps:
 
 \begin{enumerate}
 \item Click on the ``Users'' from the main menu and then on the button ``Register
@@ -1506,12 +1515,12 @@ of the password should coincide.
 
 \end{enumerate}
 
-\HTMLset{mypagename}{author\_edit}
-\section{Edit a user}
+% \HTMLset{mypagename}{authors\_edit}
+% \section{Edit a user}
 
 After registering a user, the information regarding her/him can be changed --
 e.g. names, contact details, password etc. If you are a regular user, you can
-edit only your own user's information. If you are in the role of
+edit only your own information. If you are in the role of
 administrator, you can edit the information of all the users (regular users
 and/or administrators) registered in the system. 
 
@@ -1540,8 +1549,8 @@ the eventual results.
 name. A general information about this user will appear.
 
 \item Click on the user ``Edit user's information''. In the normal ase you
-should see this button only for your own registration in the system. If you
-have administrators rights access, you can edit all the registrations.
+should see this button only for yourself. If you have administrators rights 
+access, you can edit the information for any user.
 
 \item Fill in the form ``Edit user's information'', containing the following
 fields: 
@@ -1561,7 +1570,6 @@ details; e.g. second postal address, second e-mail etc.
 
 All the records in the Contacts section could be deleted by ticking on the
 respective fields, marked with a garbage bin image. 
-\end{description}
 
 \item[User name] a unique to the system name, which only the administrator can
 change. 
@@ -1874,6 +1882,7 @@ fields and filters necessary for the report.
 
 {\bf To edit the information of an existing report}, follow these steps:
 
+\begin{enumerate}
 \item Click on the ``Reports'' administrative menu item, then click on the
 report that you wish to edit.
 
@@ -1883,13 +1892,12 @@ information'' section of the screen.
 \item For more information on the fields, refer to the ``New report'' section.
 
 \item Click on the ``Validate'' button in order to save the information.
-\begin{enumerate}
+\end{enumerate}
 
 Upon successful validation of the report, the screen ``report details'' will
 be shown. From this screen, the report can be personalized to include the
 fields and filters necessary for the report.
 
-\end{enumerate}
 
 \HTMLset{mypagename}{reports\_edit}
 \section{Customizing a report}
