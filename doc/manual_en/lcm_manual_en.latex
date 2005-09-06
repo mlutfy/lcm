@@ -451,8 +451,6 @@ It also allows you to change your password by e-mail if you have forgotten it.
 
 \part{User functions}
 
-% TODO: Needs translation from Bulgarian
-
 \chapter{Cases}
 
 All data in the Legal Case Management Software is organised in the so called
@@ -826,150 +824,155 @@ the "Case details" page.
 \HTMLset{mypagename}{cases\_users}
 \section{Adding a user to a case}
 
-След като регистрирате нов случай, той автоматично се добавя в списъка на
-Вашите случаи. Вие -- неговият създател -- сте потребителят отговорен и
-ангажиран с работата по случая.
+% TODO: Needs translation from Bulgarian
 
-Понякога обаче може да се налага съвместна работа на няколко сътрудници по
-един случай. Например, можете да включите Вашият асистент, който е пряко
-свързан със случая. Програмата за управление на юридически практики е
-проектирана така, че да поощрява съвместната работа и сътрудничеството между
-потребителите, и затова позволява да добавите още потребители към даден
-случай, превръщайки ги във Ваши равноправни сътрудници.
+After registering a new case, it is automatically added to the list of Your
+cases. Since you are its creator, therefore you are the one responsible and
+engaged with work on this case. 
 
-{\bf За да добавите нов потребител към случай}, следвайте стъпките:
+However, sometimes it might happen that you should work together with another
+colleague (or colleagues) on the same case. E.g. you might include your
+assistant who is involved with the case. The LCM software is made in the way
+so that it encourages the collaboration and co-operation among the users, and
+therefore it allows you to add more users to a certain case, making them equal
+contributors. 
+
+{\bf In order to add a new user to a case}, follow the steps:
 
 \begin{enumerate}
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
-\item От екрана с „Информация за случая“ | „Обща“ | „Обща информация“ щракнете
-върху бутона „Добавяне на потребител към случая“, за да отворите екрана за
-избор на потребители.
-\item Екранът за избор на потребители показва списък с имената на
-потребителите регистрирани в системата.
+\item Select a case from the "My cases" page (accessible by clicking on the
+"Cases" from the main menu).
+\item In order to open the page for choice of users, click on the button "Add
+a user to a case" from the page "Case details" | "General" | "General
+information". 
+\item The page for chosing users shows a list of names of all the users
+registered in the system. 
 
 \begin{itemize}
-\item Ако потребителите са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху хипервръзките
-„Следващ“ и „Предишен“ разположени в долната част от списъка, или като
-щраквате директно върху номера на съответната страница.
+\item If the users are more than 15, the page is divided into pages. You can
+go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на потребител“
-\item въведете име или част от име на потребител
-\item щракнете върху бутона „Търсене“ за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find user"
+\item introduce name or part of name of certain user
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Използвайте полетата за отметки за да изберете потребителите, които
-желаете да добавите към Вашия случай.
+\item Use the fiels on the left side to tick on the user(s) you choose to add
+to your case. 
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите избора си.
+\item Click on the "Validate" button in order to confirm your choice. 
 
-\item Продължете да избирате и добавяте още потребители към случая или
-използвайте хипервръзката за да се върнете към Вашия случай, разположена
-непосредствено над списъка с потребители.
+\item Go on with choosing and adding more users to the case or use the
+hyperlink on top to go back to your case. 
 
 \end{enumerate}
 
-{\bf Забележка:} Строго погледнато, не можете напълно да премахнете даден
-потребител от случай. Вместо това, можете да укажете права за достъп на всеки
-от потребителите, които са асоциирани със случая.
+{\bf NB!} Once adding user to your case, you cannot totally remove her/him
+from it. Instead, you can specify access rights of each of the users,
+associated to certain case. 
 
-{\bf За да укажете права за достъп на потребител до случай}, следвайте стъпките:
+{\bf In order to specify the access rights of a user on a certain case},
+follow the steps:
 
 \begin{enumerate}
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
-\item В общата информация за случая е изведен списък на потребителите, които са асоциирани с него.
-\item Щракнете върху пиктограмата, изобразаваща изправена ръка, разположена
-вляво от името на потребителя, чиито права желаете да укажете.
-\item Отваря се екран „Редактиране на правата за достъп“. От падащия списък
-„Роля“ изберете една от следните възможности:
+\item Choose a case from the page "My cases" (accessible by clicking on
+"Cases" from the main menu).
+\item In the case details is shown a list of the users, associated to this case.
+\item Click on the pictogram, illustrating a hand, situated on the left side
+of the name of the user, to which you want to specify access rights. 
+\item Opens a page called "Edite access rights". From the dropdown menu
+"Access right" choose one of the following possibilities: 
 \begin{itemize}
-\item Консултиране с информацията за случай
-\item Добавяне на информация към случая
-\item Администратор на случая
-\item Махане от случая
+\item Consult case information
+\item Add information to the case
+\item Case administrator
+\item Un-assign from a case
 \end{itemize}
-\item Щракнете върху бутона „Изпращане“ за да потвърдите избора си.
+\item Click on the button "Validate" in order to confirm your choice. 
 
 \end{enumerate}
 
 
 \HTMLset{mypagename}{cases\_participants}
-\section{Добавяне на клиенти и организации към случай}
+\section{Adding clients and organisations to a case}
 
-Всеки един случай, регистриран в консултантския център, обслужва външни на
-самия център лица или организации -- клиенти. Това са лицата и/или
-институциите, в чиято услуга или по чиито сигнал се работи по случая. ПУЮП
-разграничава два вида клиенти:
+Each case, registered in the consulting centre, operates with external to the
+centre persons or organisations -- the so called clients. These are persons
+and/or institutions, who have requested the consulting centre to work on the
+certain case. LCM identifies two types of clients: 
 
 \begin{itemize}
-\item физически лица (наричани в частност \emph{клиенти})
-\item юридически лица (\emph{организации})
+\item physical persons (called herein \emph{clients})
+\item juridical persons (\emph{organisations})
 \end{itemize}
 
-Операцията по добавянето в действителност асоциира даден клиент или
-организация към Вашия случай.
+The operation related to adding customers to the case associates them to your
+case. 
 
-
-{\bf За да добавите клиент-физическо лице към случай}, следвайте стъпките:
+{\bf In order to add a client - physical person to a case}, follow the steps:
 
 \begin{enumerate}
 
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
-„Случаи“ от главното меню).
+\item Select a case from the "My cases" (accessible by clickig on "Cases" from
+the main manu).
 
-\item Щракнете върху бутона „Добавяне на клиент“, за да отворите екрана за
-избор на клиенти-физически лице.
+\item Click on the button "Add a client" in order to open the page for
+choosing clients - physical persons.
 
-\item Екранът за избор на клиенти показва списък с имената на вече
-регистрираните клиенти в системата. Точно под заглавието на екрана е изписано
-името на случая, към който добавяте клиент, както и останалите клиенти и
-организации свързани със случая.
+\item The page for choosing clients shows a list of the names of the already
+registered clients in the system. Right below the title of the page, there is
+the title of the case, to which you are adding clients, as well as the rest
+clients and organisations related to the case. 
 
 \begin{itemize}
-\item Ако клиентите са повече от 15 на брой, екранът се разделя на
-страници. Можете да разлиствате страниците щракайки върху хипервръзките
-„Следващ“ и „Предишен“ разположени в долната част от списъка, или като
-щраквате директно върху номера на съответната страница.
+\item If the clients are more than 15, the page is divided into sub-pages. You can
+go through the pages by clicking on the hyperlinks "Next" and "Previous",
+situated in the lower part of the list, or by clicking directly on the number
+of the respective page. 
 
-\item Ако страниците са прекалено много, можете да използвате полето за
-търсене:
+\item If the pages are too many, you can use the search field by:
 \begin{itemize}
-\item щракнете върху текстовото поле „Търсене на клиент“
-\item въведете име или част от име на клиента
-\item щракнете върху бутона „Търсене“, за да се появи списък от евентуалните
-съвпадения
+\item clicking on the text field "Find client"
+\item introduce name or part of name of certain client
+\item click on the button "Search" and check the list that will appear with
+the eventual results.
 \end{itemize}
 \end{itemize}
 
-\item Използвайте полетата за отметки за да изберете клиентите, които
-желаете да добавите към Вашия случай.
+\item Use the fiels on the left side to tick on the client(s) you choose to add
+to your case. 
 
-\item Щракнете върху бутона „Изпращане“ за да потвърдите избора си.
+\item Click on the "" button in order to confirm your choice. 
+
+\item Go on with choosing and adding more users to the case or use the
+hyperlink on top to go back to your case. 
 
 \end{enumerate}
 
-След потвърждението посочените клиенти се появяват в списъка „Клиенти по този
-случай“ в общата информация за случая.
+After confirming, the chosen clients appear in the list of "Case clients" in
+the general page "Case details".
 
-Ако клиентът, с който работите по текущия случай е нов, можете да го
-регистрирате като щракнете върху бутона ``Регистриране на нов клиент'',
-стр. \pageref{Person. Edit Person.}
+If the client, with which you are working on the current case is new to the
+system, you can register her/him by clicking on the button "Register a new
+client and attach to this case", 
+.р \pageref{Person. Edit Person.}
 
-Можете да добавите повече от едно физическо лице към даден случай.
+You can add more than one physical person to a certain case. 
 
-{\bf За да добавите клиент-юридическо лице (организация) към случай},
-следвайте стъпките:
+{\bf In order to add a client - juridical person (organisation) to a case},
+follow the steps:
 
 \begin{enumerate}
 
-\item Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
+\item Choose a case 
+
+Изберете случай от екрана „Моите случаи“ (достъпен чрез щракване върху
 „Случаи“ от главното меню).
 
 \item Щракнете върху бутона „Добавяне на организация“, за да отворите екрана
