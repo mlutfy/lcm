@@ -53,6 +53,13 @@
 %%%\setcounter{chapter}{1}
 
 \begin{document}
+
+% [ML] used for anchors such as lcm_help(topic, subtopic), 
+% where subtopic = anchor in page
+\newcommand{\htmlsubsectionid}[1]{
+	\begin{rawhtml}<div><a name=\end{rawhtml}"#1"\begin{rawhtml}></a></div>\end{rawhtml}
+}
+
 \frontmatter
 
 \newlength{\centeroffset}
@@ -480,7 +487,8 @@ tracked from this section from the moment of its registration in the LCM on.
 \HTMLset{mypagename}{cases\_intro}
 \section{Start. New case. Edit case information.}
 
-\subsection{Start}
+\htmlsubsectionid{mycases}
+\subsection{My cases}
 
 After entering the system through a username and password, you will get on the
 page called: ``My cases''. The page contains by default a list, which
@@ -496,26 +504,24 @@ the following features:
 \end{itemize}
 
 You can sort the list by creation date in ascending or descending order by
-clicking on the title of the the coloumn called: ``Creation date''. 
+clicking on the title of the ``Creation date'' column.
 
-If you want to open some of the shown cases, click on the respective row in
-the list. 
+To open one of the cases in the list, click on the title of the respective row.
 
-You can also define which part of the cases you wish to see at the moment with
-the help of the dropdown menus by ``Filter'' and ``Period''.
+You can also define which cases should be displayed in the list of cases
+with the help of the ``Filter'' dropdown menus.
 
-{\bf Filter:}
+{\bf Type of case:}
 \begin{itemize}
-\item My cases -- these are the cases in which you are involved
-\item Public cases -- these are cases, which are visible for all the users in
-the system
+\item My cases -- cases in which you are involved
+\item Public cases -- cases that are visible to all the users in the system (e.g. any user in the system can consult the case information)
 \end{itemize}
 
-If you have administrator rights in the program, you can make an inquiry for
-all the existing cases, registered in the system without exception. 
+If you have administrator rights in the system, you can list all the existing 
+cases registered in the system without exception.
 
 
-{\bf Period:}
+{\bf Creation date of the case:}
 \begin{itemize}
 \item in the past month
 \item in the past 3 months
@@ -530,7 +536,7 @@ activities performed for the shown cases. The list includes the following
 coloumns:  
 
 \begin{description}
-\item[\#] ID of the case of the performed follow-up
+\item[\#] The unique identification number of the case of the performed follow-up
 \item[Start] date and hour of starting the follow-up
 \item[Lenght] timeline of the follow-up (measured in hours)
 \item[User] initials of the user who have fulfilled the follow-up
@@ -541,6 +547,7 @@ coloumns:
 You can click on some of the follow-ups in the list in order to open it. 
 
 
+\htmlsubsectionid{newcase}
 \subsection{New case}
 
 {\bf In order to create a new user in the system}, follow the steps:
@@ -620,6 +627,7 @@ appropriated case ID. This page gives the general information, the follow-ups, t
 agenda, the reports and the attached documents related to this case, as well
 as a possibility to go back for editing it. 
 
+\htmlsubsectionid{editcase}
 \subsection{Edit case information}
 
 {\bf In order to change the status of the case}, follow the steps:
@@ -831,6 +839,7 @@ the ``Case details'' page.
 \HTMLset{mypagename}{cases\_participants}
 \section{Case participants}
 
+\htmlsubsectionid{users}
 \subsection{Users}
 
 After registering a new case, it is automatically added to the list of Your
@@ -906,6 +915,7 @@ of the name of the user, to which you want to specify access rights.
 \end{enumerate}
 
 
+\htmlsubsectionid{clientsorgs}
 \subsection{Clients and organisations}
 
 Each case, registered in the consulting centre, operates with persons or
@@ -1605,6 +1615,7 @@ of the password should coincide.
 \section{General configuration}
 
 
+\htmlsubsectionid{identification}
 \subsection{Site identification}
 
 The site identification is used to personalise the system according to your
@@ -1625,6 +1636,7 @@ Note: The default values ({\em title\_software} and
 translation system, and therefore show the name and description of the
 software according to the language of the visitor.
 
+\htmlsubsectionid{contacts}
 \subsection{Site location and contacts}
 
 The Internet address or network location, and the e-mail of site administrator
@@ -1636,6 +1648,9 @@ Internet address of the system.
 
 \HTMLset{mypagename}{siteconfig\_collab}
 \section{Collaborative work}
+
+\htmlsubsectionid{collab}
+\subsection{Access to information}
 
 Collaborative work features refer to the different policies or habits that an
 organisation can adopt: they are usually a compromise between the privacy of
@@ -1666,6 +1681,7 @@ work settings.
 Note: If the above options are changed, it will not affect the settings of
 existing cases.
 
+\htmlsubsectionid{selfreg}
 \subsection{Self-registration of new users}
 
 Self-registration of new users is aimed at Internet-based organisations  who
@@ -1685,6 +1701,7 @@ to enter the information.
 If fields are hidden, the information previously entered will not be erased
 from the system, it will only be hidden.
 
+\htmlsubsectionid{clients}
 \subsection{Clients and users}
 
 \begin{itemize}
@@ -1712,6 +1729,7 @@ necessary to hide user e-mails, depending on the policy of the organisation.
 In case of doubt, say no.
 \end{itemize}
 
+\htmlsubsectionid{cases}
 \subsection{Cases}
 
 \begin{itemize}
@@ -1727,6 +1745,7 @@ correct it. This option applies to the case information only, not to its
 follow-ups. In case of doubt, say “yes”.
 \end{itemize}
 
+\htmlsubsectionid{followups}
 \subsection{Follow-ups}
 
 \begin{itemize}
