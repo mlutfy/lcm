@@ -455,6 +455,8 @@ It also allows you to change your password by e-mail if you have forgotten it.
 \end{itemize}
 
 %% ----------------------------------------------------------------------
+%% ----------------------------------------------------------------------
+%% ----------------------------------------------------------------------
 
 \part{User functions}
 
@@ -626,146 +628,6 @@ called: ``Case details'', showing the newly registered case, with its newly
 appropriated case ID. This page gives the general information, the follow-ups, the
 agenda, the reports and the attached documents related to this case, as well
 as a possibility to go back for editing it. 
-
-\htmlsubsectionid{casestatus}
-\subsection{New case status}
-
-{\bf In order to change the status of a case}, follow the steps:
-
-\begin{enumerate}
-\item Go to the general information tab of the case.
-
-\item Select new status of the case from the ``Status'' dropdown menu.
-Depending on the current status of the case, you have some of the following possibilities:
-\begin{itemize}
-\item draft
-\item open 
-\item closed
-\item merged
-\item suspended
-\item deleted (in reality, a case registered in the system is never 
-deleted, but it is ``marked'' as such and only system administrators
-can access it. If necessary, the administrator of the system can
-restore the case on a later stage.)
-\end{itemize}
-
-{\bf NB!} By marking the case as ``closed'' makes the user unable to modify the
-data in it. Only the administrator is able to change the status of the case
-again, so that editing and additional modifications are done with regards to
-this particular case. 
-
-\item Click on the ``Validate'' button, which appears right after the dropdown
-menu after selecting a new value.
-
-\item Clicking the ``Validate'' button leads to opening of another form called:
-``Case status change''. The status change will not be processed unless this
-form is completed. The form contains the following fields:
-
-\begin{description}
-\item[Start] The date and the hour from which on the status of the case has
-been changed 
-\item[Time spent on activity] optional field, showing the time spent on the
-case status change
-\item[Conclusion] the conclusion, with which the previous status has finished.
-You can select one of the following values:
-\begin{itemize}
-\item no conclusion (e.g. the case is suspended, closed, deletec, etc.)
-\item guilty
-\item not guilty
-\item cessation
-\item re-investigation
-\end{itemize}
-
-\item[Sentence] The given sentence on the case (if any). You can select one of
-the following values: 
-\begin{itemize}
-\item no sentense
-\item fine (in money)
-\item prison (in months)
-\item probation (in months)
-\item community work (in days)
-\end{itemize}
-In the additional text field you can mark a number, specifying the quantity.
-E.g. number of months of prison or quantity of the fine etc. 
-
-\item[Description] optional field, free text
-
-\item[Sum billed] sum defined by the consulting centre. This field could be
-left free, if the organisation does not charge money for providing legal
-assistance. 
-
-\end{description}
-
-\item Click on the ``Validate'' button in order to save the form.
-
-\end{enumerate}
-
-{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
-``Sentense'' can be different in your installation of the progdam since they are
-configured by the administrator. 
-
-\htmlsubsectionid{casestage}
-\subsection{New case stage}
-
-{\bf In order to change the stage of the case}, follow the steps:
-
-\begin{enumerate}
-\item Select the case and open the general information of it.
-
-\item Select a new stage from the dropdown menu ``Stage'' among the following
-values:
-\begin{itemize}
-\item first 
-\item second
-\item third
-\item fourth
-\end{itemize}
-
-\item Click on the ``Validate'' button, which appears right after the dropdown
-menu after selecting a new value.
-
-\item  Clicking the ``Validate'' button leads to opening of another form called:
-``Case stage change''. It contains the following fields:
-
-\begin{description}
-\item[Start] The date and the hour from which on the stage of the case has
-been changed
-\item[Time spent on activity] optional field
-\item[Conclusion] the conclusion, with which the previous stage has finished.
-You can select one of the following values:
-\begin{itemize}
-\item no conclusion
-\item guilty
-\item not guilty
-\item cessation
-\item re-investigation
-\end{itemize}
-
-\item[Sentence] The given sentence on the case (if any). You can select one of
-the following values: 
-\begin{itemize}
-\item no sentense
-\item fine (in money)
-\item prison (in months)
-\item probation (in months)
-\item community work (in days)
-\end{itemize}
-In the additional text field you can mark a number, specifying the quantity.
-E.g. number of months of prison or quantity of the fine etc. 
-
-\item[Description] optional field, free text
-
-\item[Sum billed] sum defined by the consulting centre
-
-\end{description}
-
-\item Click on the ``Validate'' button in order to save the form.
-
-\end{enumerate}
-
-{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
-``Sentense'' can be different in your installation of the progdam since they are
-configured by the administrator. 
 
 
 \HTMLset{mypagename}{cases\_participants}
@@ -965,19 +827,22 @@ organisation''.
 % , p. \pageref{Organization. Edit Organization.}
 
 \HTMLset{mypagename}{cases\_followups}
-\section{Adding follow-ups}
+\section{New follow-up}
 
-Except changing the status and the stage, a case could pass through other
-types of development -- e.g. you can register activity such as fulfilled task
-or consultancy as a case follow-up within the certain case. 
+%% MODIF 0.6.3
+
+As the case evolves, new activities related to the case should be recorded
+into the system: consultations with the client, research, traveling, etc.
+The activities for each case will help to analyse and report how time is 
+spent for your cases. 
 
 {\bf In order to add a follow-up to a case}, follow the steps:
 
 \begin{enumerate}
 \item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
-the main manu).
+the main menu).
 
-\item Click on the section ``Follow-ups'' in order to open the list of existing
+\item Click on the ``Follow-ups'' tab in order to open the list of existing
 follow-ups (done activities) within the current case.
 
 \item Click the button ``New follow-up''.
@@ -1004,6 +869,155 @@ possible valueas are being defined by the administrator of the system)
 
 \end{enumerate}
 
+{\bf NB!} There is one exception related to this: changing the case stage or
+status should be done as described in the next section, even if they also
+generate a new follow-up to the case.
+
+%% MODIF 0.6.3
+\HTMLset{mypagename}{cases\_statusstage}
+\section{New case stage or status}
+
+\htmlsubsectionid{casestage}
+\subsection{New case stage}
+
+{\bf In order to change the stage of the case}, follow the steps:
+
+\begin{enumerate}
+\item Select the case and open the general information of it.
+
+\item Select a new stage from the dropdown menu ``Stage'' among the following
+values:
+\begin{itemize}
+\item first 
+\item second
+\item third
+\item fourth
+\end{itemize}
+
+\item Click on the ``Validate'' button, which appears right after the dropdown
+menu after selecting a new value.
+
+\item  Clicking the ``Validate'' button leads to opening of another form called:
+``Case stage change''. It contains the following fields:
+
+\begin{description}
+\item[Start] The date and the hour from which on the stage of the case has
+been changed
+\item[Time spent on activity] optional field
+\item[Conclusion] the conclusion, with which the previous stage has finished.
+You can select one of the following values:
+\begin{itemize}
+\item no conclusion
+\item guilty
+\item not guilty
+\item cessation
+\item re-investigation
+\end{itemize}
+
+\item[Sentence] The given sentence on the case (if any). You can select one of
+the following values: 
+\begin{itemize}
+\item no sentense
+\item fine (in money)
+\item prison (in months)
+\item probation (in months)
+\item community work (in days)
+\end{itemize}
+In the additional text field you can mark a number, specifying the quantity.
+E.g. number of months of prison or quantity of the fine etc. 
+
+\item[Description] optional field, free text
+
+\item[Sum billed] sum defined by the consulting centre
+
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the form.
+
+\end{enumerate}
+
+{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
+``Sentense'' can be different in your installation of the progdam since they are
+configured by the administrator. 
+
+\htmlsubsectionid{casestatus}
+\subsection{New case status}
+
+{\bf In order to change the status of a case}, follow the steps:
+
+\begin{enumerate}
+\item Go to the general information tab of the case.
+
+\item Select new status of the case from the ``Status'' dropdown menu.
+Depending on the current status of the case, you have some of the following possibilities:
+\begin{itemize}
+\item draft
+\item open 
+\item closed
+\item merged
+\item suspended
+\item deleted (in reality, a case registered in the system is never 
+deleted, but it is ``marked'' as such and only system administrators
+can access it. If necessary, the administrator of the system can
+restore the case on a later stage.)
+\end{itemize}
+
+{\bf NB!} By marking the case as ``closed'' makes the user unable to modify the
+data in it. Only the administrator is able to change the status of the case
+again, so that editing and additional modifications are done with regards to
+this particular case. 
+
+\item Click on the ``Validate'' button, which appears right after the dropdown
+menu after selecting a new value.
+
+\item Clicking the ``Validate'' button leads to opening of another form called:
+``Case status change''. The status change will not be processed unless this
+form is completed. The form contains the following fields:
+
+\begin{description}
+\item[Start] The date and the hour from which on the status of the case has
+been changed 
+\item[Time spent on activity] optional field, showing the time spent on the
+case status change
+\item[Conclusion] the conclusion, with which the previous status has finished.
+You can select one of the following values:
+\begin{itemize}
+\item no conclusion (e.g. the case is suspended, closed, deletec, etc.)
+\item guilty
+\item not guilty
+\item cessation
+\item re-investigation
+\end{itemize}
+
+\item[Sentence] The given sentence on the case (if any). You can select one of
+the following values: 
+\begin{itemize}
+\item no sentense
+\item fine (in money)
+\item prison (in months)
+\item probation (in months)
+\item community work (in days)
+\end{itemize}
+In the additional text field you can mark a number, specifying the quantity.
+E.g. number of months of prison or quantity of the fine etc. 
+
+\item[Description] optional field, free text
+
+\item[Sum billed] sum defined by the consulting centre. This field could be
+left free, if the organisation does not charge money for providing legal
+assistance. 
+
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the form.
+
+\end{enumerate}
+
+{\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
+``Sentense'' can be different in your installation of the progdam since they are
+configured by the administrator. 
+
+
 % \HTMLset{mypagename}{cases\_documents}
 \section{Attaching documents}
 
@@ -1029,18 +1043,37 @@ contents of the document, which you are intending to attach.
 After attaching the document, it becomes visible in the list of attached to
 the case documents and your collaborators get access to it, too. 
 
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+
 \chapter{Clients -- physical and juridical persons}
 
-The legal aid centre makes their activities in service of outside physical and
-juridical persons, called clients. Each client could be associated (added) to
-one or more cases. LCM identifies two types of clients: 
+\HTMLset{mypagename}{clients\_intro}
+\section{Introduction}
+
+%% MODIF 0.6.3
+
+The follow-up activities for each case usually involve one or many clients.
+LCM manages clients seperately from cases, since a given client may be
+involved in one or many cases. It is therefore necessary to associate the
+clients with their cases in order to quickly find the client's cases, the
+contacts of the client, etc. It is also possible to generate reports for
+statistical information of clients.
+
+LCM identifies two types of clients: 
 
 \begin{itemize}
 \item physical persons
-\item juridical persons
+\item juridical persons (organisations)
 \end{itemize}
 
-\HTMLset{mypagename}{clients\_intro}
+Depending on the policy of your legal aid centre, juridical persons
+may also be associated with cases for which they are related (funding,
+co-defenders, etc.). It is also possible that they system administrator has
+completely de-activated them.
+
+\HTMLset{mypagename}{clients\_newclient}
 \section{Physical person. Edit physical persons information.}
 % [ML] html-refs make too many problems for on-line help. FIXME
 % \label{Person. Edit Person.}
@@ -1200,7 +1233,7 @@ she/he has come before on another case to the legal aid centre. Association of
 the client to a case helps the centre to track clients who have come before on
 another case and on which cases the lawyers in the centre have worked with them. 
 
-\HTMLset{mypagename}{clients\_edit}
+\HTMLset{mypagename}{clients\_neworg}
 \section{Organisation. Edit organisation.}
 % [ML] html-refs make too many problems for on-line help. FIXME
 % \label{Organization. Edit Organization.}
@@ -1302,6 +1335,10 @@ respective fields, marked with a garbage bin image.
 \item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
+
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
 
 \chapter{Users}
 
@@ -1530,6 +1567,10 @@ of the password should coincide.
 \item Click on the ``Validate'' button in order to save the form. 
 
 \end{enumerate}
+
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
 
 \chapter{Tools}
 
