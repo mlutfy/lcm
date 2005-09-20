@@ -550,7 +550,7 @@ You can click on some of the follow-ups in the list in order to open it.
 \htmlsubsectionid{newcase}
 \subsection{New case}
 
-{\bf In order to create a new user in the system}, follow the steps:
+{\bf In order to open a new case in the system}, follow the steps:
 
 \begin{enumerate}
 \item Click on the button ``Cases'' from the main navigation menu and
@@ -627,16 +627,16 @@ appropriated case ID. This page gives the general information, the follow-ups, t
 agenda, the reports and the attached documents related to this case, as well
 as a possibility to go back for editing it. 
 
-\htmlsubsectionid{editcase}
-\subsection{Edit case information}
+\htmlsubsectionid{casestatus}
+\subsection{New case status}
 
-{\bf In order to change the status of the case}, follow the steps:
+{\bf In order to change the status of a case}, follow the steps:
 
 \begin{enumerate}
-\item Select a case and open the general information of it.
+\item Go to the general information tab of the case.
 
-\item Select new status of the case from the dropdown menu called ``Status''.
-You have the following possibilities:
+\item Select new status of the case from the ``Status'' dropdown menu.
+Depending on the current status of the case, you have some of the following possibilities:
 \begin{itemize}
 \item draft
 \item open 
@@ -658,7 +658,8 @@ this particular case.
 menu after selecting a new value.
 
 \item Clicking the ``Validate'' button leads to opening of another form called:
-``Case status change''. It contains the following fields:
+``Case status change''. The status change will not be processed unless this
+form is completed. The form contains the following fields:
 
 \begin{description}
 \item[Start] The date and the hour from which on the status of the case has
@@ -668,7 +669,7 @@ case status change
 \item[Conclusion] the conclusion, with which the previous status has finished.
 You can select one of the following values:
 \begin{itemize}
-\item no conclusion
+\item no conclusion (e.g. the case is suspended, closed, deletec, etc.)
 \item guilty
 \item not guilty
 \item cessation
@@ -702,6 +703,9 @@ assistance.
 {\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
 ``Sentense'' can be different in your installation of the progdam since they are
 configured by the administrator. 
+
+\htmlsubsectionid{casestage}
+\subsection{New case stage}
 
 {\bf In order to change the stage of the case}, follow the steps:
 
@@ -762,78 +766,6 @@ E.g. number of months of prison or quantity of the fine etc.
 {\bf NB!} Pay attention that the possible values of the ``Conclusion'' and
 ``Sentense'' can be different in your installation of the progdam since they are
 configured by the administrator. 
-
-{\bf In order to change the general information related to a case}, follow the
-steps:
-
-\begin{enumerate}
-\item Select the case from the list of ``My cases'' (accessible through clicking
-on the ``Cases'' from the main menu). The page ``Case details'' appears on the
-screen. 
-
-\item Click on the button ``Edit case information'', which will open the form
-for editing. The form contains the following fields:
-
-\begin{description}
-\item[Case ID] the unique identification number in this field is permanent and
-it cannot be modified
-
-\item[Title of the case] You can change the case title if the current one
-seems inapropriate to you but you must not leave this field blank
-
-\item[Assignement date] Shows the moment, from which the case has been
-assigned and work on it has been started. 
-
-%\item[Номер на делото в съда] незадължително помощно поле за
-%удобство, въведете го само когато случаят касае дело в съда
-
-\item[Legal reason] optional field, in which usually is filled in the
-normative act, article and paragraph number, according to which a breach has
-been done. 
-
-\item[Alleged crime] optional field
-
-\item[Notes] optional field, free text 
-
-\item[Status of the case] the current status of the case, there is a list of
-the following possibilities:
-\begin{itemize}
-\item draft
-\item open 
-\item suspended
-\item closed
-\item merged
-\end{itemize}
-
-\item[Stage] optional field, you can fill it in, if the case has relation to a
-case with certain state in the current legal system of the court: 
-\begin{itemize}
-\item first 
-\item second
-\item third
-\item fourth 
-\end{itemize}
-
-\item[Office collaboration and confidentiality] here you can control whether
-your colleagues (the other users) can review and/or fill in date for the
-certain case or not. Both existing fields by default are:
-\begin{itemize}
-\item Other users can consult this case.
-\item Other users can contribute to this case.
-\end{itemize}
-\end{description}
-
-{\bf NB!} The default values of both fields and the possibility to change them
-depends on the office policy regarding the system, defined by the
-administrator of your organisation. 
-
-The page can contain additional fields and keywords in relation to the
-settings, made by the administrator of your organisation. 
-
-\item Click on the ``Validate'' button in order to save the form and go back to
-the ``Case details'' page. 
-
-\end{enumerate}
 
 
 \HTMLset{mypagename}{cases\_participants}
@@ -1770,17 +1702,168 @@ the browser is not correctly configured.
 activated.
 \end{itemize}
 
-% \chapter{Archives}
-% 
-% \HTMLset{mypagename}{archives\_intro}
-% \section{General}
-% 
-% \HTMLset{mypagename}{archives\_export}
-% \section{Export}
-% 
-% \HTMLset{mypagename}{archives\_import}
-% \section{Import}
+\chapter{Archives}
+ 
+\HTMLset{mypagename}{archives\_intro}
+\section{Introduction}
 
+The ``archive'' panel, accessible from the administrative menu, offers a method
+to create backup copies of all the information stored in the system. The
+backups can later be used to either restore the system in the event of a server 
+disruption or to synchronise with another legal case management system.
+
+Make sure that backups are generated regularly, at least twice a month. For
+very busy offices, backups should be generated every day.
+
+In the event of a disruption caused by the server which is hosting the legal
+case management system, all of the information stored in the system may be lost.
+The server may also be victim of vandalism, human errors, etc. Therefore, make
+sure you generate backups regularly!
+
+The interface to generate the backups has been made as simple as possible, so
+that anyone in your organisation can handle this task. For example, it may be
+part of the tasks your secretary does before he/she leaves work.
+
+Backups should be stored on a seperate computer than the system itself. For
+example, if the hard disk of the host computer fails, then both the
+information stored in the system and the backups will be lost. You may also
+want to consider storing the backups off-site, since many computers may be
+disrupted in the event of a fire or theft. Make sure that the backups are
+stored in a safe and secure way, since they contain sensitive information that
+might cause important privacy risks if they are exposed to people outside your
+organisation. For example, a network intruder could copy the backups and
+publish your client information on the Internet.
+
+A simple alternative is to store the backups on a CD (using a CD writer), and
+to store them in a secure location at one of the manager's home or in a bank
+secure deposit box. Make sure that the backups actually work: install a
+seperate LCM in order to see whether the backups can be restored as expected.
+
+Take a moment to plan this policy for your organisation, and regularly check 
+whether it is correctly applied.
+ 
+\HTMLset{mypagename}{archives\_export}
+\section{Export}
+
+\htmlsubsectionid{newbackup}
+\subsection{Generate a new backup archive}
+
+{\bf To generate a new backup archive of the system}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Backup'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Create a new
+backup'' and click on the ``New backup'' button. It may take a few seconds
+in order for the operation to complete. Click only once!
+
+\item A message will then appear over the ``Create a new backup'' box to
+inform that the backup was successfully created. At this point, the backup
+is stored only on the host computer itself. As mentioned in the introduction
+section, this is something which is not sufficient in order to have a good
+backup, since the host computer might fail, and the backup will be lost.
+
+\item Click on the lcm-NNNNNNNN.tar link in order to download the backup
+archive onto your local computer. Note that the ``NNNNNNNN'' refers to the current date.
+Alternatively, you can download the backup archive from the list of previosuly made 
+backups located below the ``Create a new backup'' box.
+\end{enumerate}
+
+Once the backup archive is safely copied onto your local computer, you can
+either store it on a recordable CD, copy it off-site, etc.
+
+\htmlsubsectionid{delbackup}
+\subsection{Delete a previously made backups}
+
+Over time, the previosuly made backups may occupy too much disk space on the
+server. If the server is shared with others, it is also safer to delete the
+backups since anyone can copy the files without needing the password to access
+the database (since the information from the database has been copied into a
+file).
+
+{\bf To delete a backup from the list of previously made backups}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Backup'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Previously made
+backups'', then locate the backup you wish to delete.
+
+\item Click on the checkbox located near the name of the backup to delete. A
+``delete'' button will then appear under the list of previously made
+backups.
+
+\item Confirm the delete operation by clicking on the ``delete'' button.
+\end{enumerate}
+
+\HTMLset{mypagename}{archives\_import}
+\section{Import}
+
+\htmlsubsectionid{newrestore}
+\subsection{Import an archive}
+
+The procedure to restore a backup is seperated into two parts, similar to the
+generation of a backup: the backup must first be uploaded to the server before
+the restore operation is made. 
+
+If it is more convenient, the backup can be uploaded using SSH or FTP,
+depending on your host. For very large backups, this might be mandatory.
+If you chose this option, make sure to upload into the ``inc/data'' directory.
+You can then ignore some of the steps described below.
+
+{\bf To upload an existing backup onto the system}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Restore'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Upload a
+backup''.
+
+\item Click on the ``Browse'' button. It will open a dialog box to help you 
+locate the backup file to upload from your local computer. When you have 
+selected the file, click on ``Ok'' to close the dialog box.
+
+\item Click on the ``Validate'' button to upload the file onto the server.
+\end{enumerate}
+
+{\bf To restore an existing backup}, follow the steps:
+
+\begin{enumerate}
+\item Locate the ``Restore a backup'' box, located under the ``Upload a
+backup'' box.
+
+\item Select the backup to restore from the dropdown menu.
+
+\item Select the operation to make:
+
+\begin{description}
+\item[Restore] Deletes the existing database in the system and will
+restore the system to the exact state of the backup. This is the normal
+operation to do if you have re-installed LCM on a new computer and you wish
+to restore the database from your previous installation. Never risk restoring
+the database ``just for testing'', the restore operation may fail and leave the
+system in an unstable state.
+
+\item[Synchronise] May be used to synchronise a system with a parent one (or a
+centralised system). This is very experimental, and we do not recommend using
+it unless you have tested the operation, and know very well what you are
+doing. Note: LCM does not support the synchronisation of two system, it only
+supports sending information to a centralised server -- information from the
+central server should never be sent to the local host.
+
+\end{description}
+
+\item Click on the ``Validate'' button to proceed with the opration.
+\end{enumerate}
+
+\htmlsubsectionid{delrestore}
+\subsection{Delete the uploaded archive}
+
+Once the system is successfully restored, you can delete the uploaded archive
+from the ``Backup'' tab. For more information, refer to the previous section.
 
 \chapter{Keywords}
 
