@@ -1,7 +1,7 @@
 \documentclass[a4paper,leqno]{book}
 \usepackage{ucs}
-\usepackage[utf8]{inputenc}
-\usepackage[T2A]{fontenc}
+% \usepackage[utf8]{inputenc}
+% \usepackage[T2A]{fontenc}
 \usepackage{fancyhdr}
 \usepackage{html}
 \usepackage[english]{babel}
@@ -57,7 +57,7 @@
 % [ML] used for anchors such as lcm_help(topic, subtopic), 
 % where subtopic = anchor in page
 \newcommand{\htmlsubsectionid}[1]{
-	\begin{rawhtml}<div><a name=\end{rawhtml}"#1"\begin{rawhtml}></a></div>\end{rawhtml}
+	\html{\begin{rawhtml}<div><a name=\end{rawhtml}"#1"\begin{rawhtml}></a></div>\end{rawhtml}}
 }
 
 \frontmatter
@@ -84,7 +84,7 @@ User's manual}
 by Kaloian Doganov\\[1.5ex]
 Christina Haralanova\\[1.5ex]
 Mathieu Lutfy\\[1.5ex]}
-Version: 0.6-pre3
+Version: 0.6-pre4
 \end{minipage}
 \addtolength{\textwidth}{\centeroffset}
 \vspace{\stretch{2}}
@@ -464,8 +464,8 @@ It also allows you to change your password by e-mail if you have forgotten it.
 
 All data in the Legal Case Management Software is organised in the so called
 \emph{cases}. The case is a comparatively independent casus introduced to the
-conusltancy centre and managed by its experts. The case can include different
-activitis, but they are always addressed towards one aim -- soilving the casus.
+consultancy centre and managed by its experts. The case can include different
+activities, but they are always addressed towards one aim -- solving the case.
 
 The case is the main logical unit of the program. It could contain the
 following details:
@@ -482,8 +482,8 @@ consultations)
 \end{itemize}
 
 The case is a \emph{process}, which undergoes development. All activities
-associated with certain case -- status changes, additional events etc., are
-being recorded in the ``Follow-ups'' section. The history of the case could be
+associated with a certain case -- status changes, additional events etc., are
+recorded in the ``Follow-ups'' section. The history of the case could be
 tracked from this section from the moment of its registration in the LCM on. 
 
 \HTMLset{mypagename}{cases\_intro}
