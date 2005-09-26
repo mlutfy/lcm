@@ -489,6 +489,7 @@ tracked from this section from the moment of its registration in the LCM on.
 \HTMLset{mypagename}{cases\_intro}
 \section{Start. New case. Edit case information.}
 
+% MODIF 0.6.3
 \htmlsubsectionid{mycases}
 \subsection{My cases}
 
@@ -830,7 +831,6 @@ organisation''.
 \section{New follow-up}
 
 %% MODIF 0.6.3
-
 As the case evolves, new activities related to the case should be recorded
 into the system: consultations with the client, research, traveling, etc.
 The activities for each case will help to analyse and report how time is 
@@ -869,6 +869,7 @@ possible valueas are being defined by the administrator of the system)
 
 \end{enumerate}
 
+%% MODIF 0.6.3
 {\bf NB!} There is one exception related to this: changing the case stage or
 status should be done as described in the next section, even if they also
 generate a new follow-up to the case.
@@ -1018,30 +1019,31 @@ assistance.
 configured by the administrator. 
 
 
-% \HTMLset{mypagename}{cases\_documents}
-\section{Attaching documents}
-
-{\bf In order to attach new document to an existing case}, follow the steps:
-
-\begin{enumerate}
-\item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
-the main manu).
-
-\item Click on the section ``Documents'' in order to open the list of attached
-to the case documents. If there is no documents attached, instead of a list,
-there will be a text shown, saying: There are no documents attached.
-
-\item Click on the button ``Browse'' inside the field ``File name'' and select the
-desired file from the dialogue window. 
-
-\item In the field ``Description'' write down a short description of the
-contents of the document, which you are intending to attach.
-
-\item Click on the ``Validate'' button in order to save the form. 
-\end{enumerate}
-
-After attaching the document, it becomes visible in the list of attached to
-the case documents and your collaborators get access to it, too. 
+% TODO: This should go into Tools->Documents (if not already there)
+% \HTMLset{mypagename}{tools\_documents}
+% \section{Attaching documents}
+% 
+% {\bf In order to attach new document to an existing case}, follow the steps:
+% 
+% \begin{enumerate}
+% \item Select a case from the ``My cases'' (accessible by clicking on ``Cases'' from
+% the main manu).
+% 
+% \item Click on the section ``Documents'' in order to open the list of attached
+% to the case documents. If there is no documents attached, instead of a list,
+% there will be a text shown, saying: There are no documents attached.
+% 
+% \item Click on the button ``Browse'' inside the field ``File name'' and select the
+% desired file from the dialogue window. 
+% 
+% \item In the field ``Description'' write down a short description of the
+% contents of the document, which you are intending to attach.
+% 
+% \item Click on the ``Validate'' button in order to save the form. 
+% \end{enumerate}
+% 
+% After attaching the document, it becomes visible in the list of attached to
+% the case documents and your collaborators get access to it, too. 
 
 % ----------------------------------------------------------------------------
 % ----------------------------------------------------------------------------
@@ -1053,7 +1055,6 @@ the case documents and your collaborators get access to it, too.
 \section{Introduction}
 
 %% MODIF 0.6.3
-
 The follow-up activities for each case usually involve one or many clients.
 LCM manages clients seperately from cases, since a given client may be
 involved in one or many cases. It is therefore necessary to associate the
@@ -1068,6 +1069,7 @@ LCM identifies two types of clients:
 \item juridical persons (organisations)
 \end{itemize}
 
+% MODIF 0.6.3
 Depending on the policy of your legal aid centre, juridical persons
 may also be associated with cases for which they are related (funding,
 co-defenders, etc.). It is also possible that they system administrator has
@@ -1494,6 +1496,7 @@ of the password should coincide.
 
 \end{enumerate}
 
+% MODIF 0.6.3
 % \HTMLset{mypagename}{authors\_edit}
 % \section{Edit a user}
 
@@ -1574,8 +1577,89 @@ of the password should coincide.
 
 \chapter{Tools}
 
-% TODO
-% [ML] Not ready for translation yet.
+% TODO for translation
+
+% Освен управлението на случаите, физическите и юридическите лица, ПУЮП
+% може да организира времето Ви по дейности и да Ви напомня за
+% предстоящи срещи и други събития. Също така, можете да отбелязвате
+% събития които касаят и други потребители на системата (вашите колеги),
+% така че предстоящите ангажименти автоматично да се появяват в техния
+% календар. Това превръща ПУЮП в олекотена система за съвместна работа.
+% 
+% \HTMLset{mypagename}{tools\_calendar}
+% \section{Календар}
+% 
+% След нормално влизане в системата, вдясно на основния екран (под
+% основното меню) стои „Календар“. Календарът е разграфен на дни според
+% традиционния изглед и винаги показва текущия месец, а текущият ден е
+% осветен в различен цвят, който а го отличава от останалите. Дните, за
+% които имате насрочени ангажименти също са осветени в различен цвят.
+% 
+% Всеки ден представлява хипервръзка, върху която можете да щракнете за
+% да отворите по-подробна информация за ангажиментите си през деня.
+% 
+% % XXX TODO: можем ли тук да добавим малко за навигацията из календара?
+% 
+% \HTMLset{mypagename}{tools\_agenda}
+% \section{Дневен ред}
+% 
+% Ангажиментите, които Ви предстоят, са изброени в списъка „Дневен ред“,
+% разположен точно под календара.
+% 
+% {\bf За да добавите нов ангажимент към дневния си ред}, следвайте
+% стъпките:
+% 
+% \begin{enumerate}
+% 
+% \item Изберете ден от календара, на който ще започне новия ангажимент
+% 
+% \item Щракнете върху бутона „Въвежане на нова дейност“
+% 
+% \item Отваря се формулярът „Нова среща“, съдържащ следните полета:
+% 
+% \begin{description}
+% \item[Начало] дата и час от който се счита, че започва дейността
+% 
+% \item[Продължителност] времетраене на дейността (в часове)
+% 
+% \item[Напомни ми] колко време преди началото да получите напомнящо известие (в часове)
+% 
+% \item[Наименование] няколко думи, обозначаващи дейността. Въведете
+% нещо кратко, но описателно, така че да се ориентирате по-лесно когато
+% хвърляте поглед на календара или дневния ред.
+% 
+% \item[Вид] естество на ангажимента, например:
+% \begin{itemize}
+% \item среща
+% \item телефонен разговор
+% \item заседание на съда
+% \end{itemize}
+% 
+% \item[Описание] свободен текст, по-подробно описание на дейността и бележки
+% 
+% \item[Участващи потребители] списък от потребителите, взимащи участие
+% в дейността. За да добавите нов потребител изберете името му от
+% падащия списък и щракнете върху бутона „Add“. Можете да повтаряте
+% тази операция докато добавите всички потребители, които желаете.
+% 
+% \item[Участващи клиенти] списък от клиентите (физически и юридически
+% лица), взимащи участие в дейността. За да добавите нов клиент изберете
+% името му от падащия списък и щракнете върху бутона „Add“. Можете да
+% повтаряте тази операция докато добавите всички клиенти, които
+% желаете.
+% 
+% \end{description}
+% 
+% \item Щракнете върху бутона „Изпращане“ за да потвърдите
+% формуляра.
+% 
+% \end{enumerate}
+% 
+% Новата предстояща дейност се появява като Ваш ангажимент в списъка
+% „Дневен ред“, разположен точно под календара. Ако дейността включва и
+% други потребители, тя автоматично се появява и в техния дневен ред.
+% 
+% % XXX TODO: трябва ли ни описание на редактиране на дейност?
 
 
 %% ----------------------------------------------------------------------
@@ -1586,7 +1670,6 @@ of the password should coincide.
 
 \HTMLset{mypagename}{siteconfig\_general}
 \section{General configuration}
-
 
 \htmlsubsectionid{identification}
 \subsection{Site identification}
@@ -1622,6 +1705,7 @@ Internet address of the system.
 \HTMLset{mypagename}{siteconfig\_collab}
 \section{Collaborative work}
 
+% MODIF 0.6.3
 \htmlsubsectionid{collab}
 \subsection{Access to information}
 
