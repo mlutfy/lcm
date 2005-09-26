@@ -56,14 +56,13 @@
 
 \begin{document}
 
-% [ML] Should we use the presentation page of the English version?
-% [ML] (taken from 'a short intro to LaTeX' :-)
+% [ML] used for anchors such as lcm_help(topic, subtopic), 
+% where subtopic = anchor in page
+\newcommand{\htmlsubsectionid}[1]{
+	\html{\begin{rawhtml}<div><a name=\end{rawhtml}"#1"\begin{rawhtml}></a></div>\end{rawhtml}}
+}
 
 \frontmatter
-% \title{Програма за управление на юридически практики\\ Ръководство за потребителя}
-% \author{Калоян Доганов\\ Кристина Хараланова\\ Матю Лютфи}
-% \date{версия 0.6-pre2}
-% \maketitle
 
 \newlength{\centeroffset}
 \setlength{\centeroffset}{-0.5\oddsidemargin}
@@ -547,7 +546,9 @@ $
 \HTMLset{mypagename}{cases\_intro}
 \section{Начало. Нов случай. Редактиране на случай.}
 
-\subsection{Начало}
+% MODIF 0.6.3
+\htmlsubsectionid{mycases}
+\subsection{Моите случаи}
 
 След влизане в системата посредством Вашето потребителско име и парола,
 попадате в екрана „Моите случаи“. По подразбиране екранът съдържа
@@ -609,6 +610,7 @@ $
 Можете да щракнете върху някое продължение от списъка, за да го
 отворите.
 
+\htmlsubsectionid{newcase}
 \subsection{Нов случай}
 
 {\bf За да създадете нов случай в системата}, изпълнете следните
@@ -691,218 +693,12 @@ $
 продълженията, дневния ред, отчетите и документите по този случай,
 както и да се върнете за редактиране по случая.
 
-\subsection{Редактиране на случай}
 
-{\bf За да промените състоянието на даден случай}, следвайте стъпките:
+\HTMLset{mypagename}{cases\_participants}
+\section{Участници по случая}
 
-\begin{enumerate}
-\item Изберете случай и отворете общата информация за него.
-
-\item От падащия списък „Състояние на случая“ изберете ново състояние
-измежду стойностите:
-\begin{itemize}
-\item чернова
-\item отворен
-\item приключен
-\item обединен
-\item изтрит (в действителност случаят никога не се изтрива от програмата, а
-само се ``отбелязва'' като невалиден, изтрит. Ако се наложи, администраторът
-може да възстанови случая по-късно.)
-\end{itemize}
-
-{\bf Забележка:} При задаване на състояние ``приключен'', потребителят вече не
-може да нанася промени по случая. Само администраторът може да отново да смени
-състоянието на случая, така че да бъде възможно допълнителното редактиране по
-случая.
-
-\item Щракнете върху бутона „Изпращане“, който се появява
-непосредствено до падащия списък след избиране на нова стойност.
-
-\item Щракването на бутона води до отварянето на нов формуляр „Промяна
-на състоянието на случая“. Формулярът съдържа следните полета:
-
-\begin{description}
-\item[Начало] Датата и часът от който се счита, че състоянието на
-случая е променено
-\item[Време за работа по дейността] незадължително поле, указващо колко време
-е работено по промяната на състоянието на случая
-\item[Заключение] заключение от предходното състояние на
-случая. Можете да посочите някоя от следните стойности:
-\begin{itemize}
-\item без заключение
-\item виновен
-\item невинен
-\item прекратяване
-\item повторно разследване
-\end{itemize}
-
-\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
-да посочите някоя от следните стойности:
-\begin{itemize}
-\item без присъда
-\item глоба
-\item затвор
-\item условна
-\item общественополезен труд
-\end{itemize}
-В допълнителното текстово поле можете да посочите числова стойност
-поясняваща количеството. Например брой месеци затвор или размер на
-глобата.
-
-\item[Описание] незадължително поле, свободен текст
-
-\item[Таксувана сума] сума, определена от консултантския център. Това поле
-може да не се попълва, ако практиката на организацията Ви е такава.
-
-\end{description}
-
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
-
-\end{enumerate}
-
-{\bf Забележка:} Обърнете внимание, че възможните стойности за полетата „Заключение“ и
-„Присъда“ могат да са различни при Вашата инсталация на програмата,
-тъй като тези стойности се конфигурират от администратора.
-
-
-{\bf За да промените стадия на даден случай}, следвайте стъпките:
-
-\begin{enumerate}
-\item Изберете случай и отворете общата информация за него.
-
-\item От падащия списък „Състояние на случая“ изберете нов стадий
-измежду стойностите:
-\begin{itemize}
-\item въззивно
-\item касационно
-\item първоинстанционно
-\item второ обжалване
-\item наказателно дело
-\item обжалване
-\item полицейско по-во/дознание
-\item предварително производство
-\end{itemize}
-
-\item Щракнете върху бутона „Изпращане“, който се появява
-непосредствено до падащия списък след избиране на нова стойност.
-
-\item Щракването на бутона води до отварянето на нов формуляр „Промяна
-на стадия на случая“. Формулярът съдържа следните полета:
-
-\begin{description}
-\item[Начало] Датата и часът от който се счита, че състоянието на
-случая е променено
-
-\item[Време за работа по дейността] незадължително поле
-\item[Заключение] заключение от предходното състояние на
-случая. Можете да посочите някоя от следните стойности:
-\begin{itemize}
-\item без заключение
-\item виновен
-\item невинен
-\item прекратяване
-\item повторно разследване
-\end{itemize}
-
-\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
-да посочите някоя от следните стойности:
-\begin{itemize}
-\item без присъда
-\item глоба
-\item затвор
-\item условна
-\item общественополезен труд
-\end{itemize}
-В допълнителното текстово поле можете да посочите числова стойност
-поясняваща количеството. Например брой месеци затвор или размер на
-глобата.
-
-\item[Описание] незадължително поле, свободен текст
-
-\item[Таксувана сума] сума, определена от консултантския център
-
-\end{description}
-
-\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
-
-\end{enumerate}
-
-Обърнете внимание, че възможните стойности за полетата „Заключение“ и
-„Присъда“ могат да са различни при Вашата инсталация на програмата.
-Също така формулярът може да съдържа повече полета, в зависимост от
-зададените от администратора конфигурации.
-
-
-{\bf За да промените общата информация за даден случай}, следвайте
-стъпките:
-
-\begin{enumerate}
-\item Изберете случая от списъка „Моите случаи“ (достъпен чрез
-щракване върху „Случаи“ от основното меню). Отваря се екрана
-„Информация за случая“.
-
-\item Щракнете върху бутона „Редактиране на информация по случая“ за
-да се отвори формулярът за редактиране. Формулярът съдържа следните
-полета:
-
-\begin{description}
-\item[Номер на случая] уникалният идентификационен номер в това поле е
-постоянен и не може да бъде променян
-
-\item[Наименование на случая] можете да промените наименованието ако
-текущото Ви се струва неподходящо, но не бива да го оставяте празно
-
-\item[Номер на делото в съда] незадължително помощно поле за удобство,
-когато случаят касае дело в съда
-
-\item[Юридическо основание] незадължително поле, в което обикновено се
-посочва нормативният документ, член и алинея по които е настъпило
-нарушение
-
-\item[Предполагаемо престъпление] незадължително поле
-
-\item[Бележки] незадължително поле, свободен текст
-
-\item[Състояние] текущо състояние на случая, имате избор списък със следните възможности:
-\begin{itemize}
-\item чернова
-\item отворен
-\item отложен
-\item приключен
-\item обединен
-\end{itemize}
-
-\item[Стадий] незадължително поле, можете да го попълните ако случаят
-касае дело намиращо се на определен стадий в действащата
-съдебно-правна система:
-\begin{itemize}
-\item обжалване
-\item въззивно
-\item касационно
-\item първоинстанционно
-\item полицейско пр-во/дознане
-\item предравително производство
-\item второ обжалване
-\item наказателно дело
-\end{itemize}
-
-\item[Степен на поверителност и сътрудничество] оттук можете да
-контролирате дали вашите колеги могат да разглеждат и/или попълват
-данни за този случай. По подразбиране и двете полета са отметнати:
-\begin{itemize}
-\item другите потребители могат да се консултират с този случай
-\item другите потребители могат да сътрудничат по този случай
-\end{itemize}
-
-\end{description}
-
-\item Щракнете върху бутона „Изпращане“ за да потвърдите промените и
-да се върнете в екрана „Информация за случай“.
-
-\end{enumerate}
-
-\HTMLset{mypagename}{cases\_users}
-\section{Добавяне на потребители към случай}
+\htmlsubsectionid{users}
+\subsection{Потребителите}
 
 След като регистрирате нов случай, той автоматично се добавя в списъка на
 Вашите случаи. Вие -- неговият създател -- сте потребителят отговорен и
@@ -978,8 +774,8 @@ $
 \end{enumerate}
 
 
-\HTMLset{mypagename}{cases\_participants}
-\section{Добавяне на клиенти и организации към случай}
+\htmlsubsectionid{clientsorgs}
+\subsection{Клиентите и организациите}
 
 Всеки един случай, регистриран в консултантския център, обслужва външни на
 самия център лица или организации -- клиенти. Това са лицата и/или
@@ -1037,8 +833,9 @@ $
 случай“ в общата информация за случая.
 
 Ако клиентът, с който работите по текущия случай е нов, можете да го
-регистрирате като щракнете върху бутона ``Регистриране на нов клиент'',
-стр. \pageref{Person. Edit Person.}
+регистрирате като щракнете върху бутона ``Регистриране на нов клиент''.
+% [ML] html-refs make too many problems for on-line help. FIXME
+% , стр. \pageref{Person. Edit Person.}
 
 Можете да добавите повече от едно физическо лице към даден случай.
 
@@ -1085,17 +882,19 @@ $
 този случай“ в общата информация за случая.
 
 Ако клиентът, с който работите по текущия случай е нов, можете да го
-регистрирате като щракнете върху бутона ``Регистриране на нова организация'',
-стр. \pageref{Organization. Edit Organization.}
+регистрирате като щракнете върху бутона ``Регистриране на нова организация''.
+% [ML] latex refs make too many problems for on-line help, FIXME
+% , стр. \pageref{Organization. Edit Organization.}
 
 
 \HTMLset{mypagename}{cases\_followups}
 \section{Добавяне на продължения}
 
-Освен смяната на състоянието и стадия си, един случай може да търпи и
-други видове развитие -- напр. можете да отбележите, че е извършена
-някаква дейност като изпъление на задача или консултация. За тази цел
-ПУЮП дава възможност да се добавят продължения към даден случай.
+%% MODIF 0.6.3 TODO
+As the case evolves, new activities related to the case should be recorded
+into the system: consultations with the client, research, traveling, etc.
+The activities for each case will help to analyse and report how time is 
+spent for your cases. 
 
 {\bf За да добавите продължение към случай}, следвайте стъпките:
 
@@ -1129,7 +928,161 @@ $
 
 \end{enumerate}
 
-% \HTMLset{mypagename}{cases\_documents}
+%% MODIF 0.6.3 TODO
+{\bf NB!} There is one exception related to this: changing the case stage or
+status should be done as described in the next section, even if they also
+generate a new follow-up to the case.
+
+%% MODIF 0.6.3 TODO
+\HTMLset{mypagename}{cases\_statusstage}
+\section{New case stage or status}
+
+\htmlsubsectionid{casestage}
+\subsection{New case stage}
+
+{\bf За да промените състоянието на даден случай}, следвайте стъпките:
+
+\begin{enumerate}
+\item Изберете случай и отворете общата информация за него.
+
+\item От падащия списък „Състояние на случая“ изберете ново състояние
+измежду стойностите:
+\begin{itemize}
+\item чернова
+\item отворен
+\item приключен
+\item обединен
+\item изтрит (в действителност случаят никога не се изтрива от програмата, а
+само се ``отбелязва'' като невалиден, изтрит. Ако се наложи, администраторът
+може да възстанови случая по-късно.)
+\end{itemize}
+
+{\bf Забележка:} При задаване на състояние ``приключен'', потребителят вече не
+може да нанася промени по случая. Само администраторът може да отново да смени
+състоянието на случая, така че да бъде възможно допълнителното редактиране по
+случая.
+
+\item Щракнете върху бутона „Изпращане“, който се появява
+непосредствено до падащия списък след избиране на нова стойност.
+
+\item Щракването на бутона води до отварянето на нов формуляр „Промяна
+на състоянието на случая“. Формулярът съдържа следните полета:
+
+\begin{description}
+\item[Начало] Датата и часът от който се счита, че състоянието на
+случая е променено
+\item[Време за работа по дейността] незадължително поле, указващо колко време
+е работено по промяната на състоянието на случая
+\item[Заключение] заключение от предходното състояние на
+случая. Можете да посочите някоя от следните стойности:
+\begin{itemize}
+\item без заключение
+\item виновен
+\item невинен
+\item прекратяване
+\item повторно разследване
+\end{itemize}
+
+\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
+да посочите някоя от следните стойности:
+\begin{itemize}
+\item без присъда
+\item глоба
+\item затвор
+\item условна
+\item общественополезен труд
+\end{itemize}
+В допълнителното текстово поле можете да посочите числова стойност
+поясняваща количеството. Например брой месеци затвор или размер на
+глобата.
+
+\item[Описание] незадължително поле, свободен текст
+
+\item[Таксувана сума] сума, определена от консултантския център. Това поле
+може да не се попълва, ако практиката на организацията Ви е такава.
+
+\end{description}
+
+\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+
+\end{enumerate}
+
+{\bf Забележка:} Обърнете внимание, че възможните стойности за полетата „Заключение“ и
+„Присъда“ могат да са различни при Вашата инсталация на програмата,
+тъй като тези стойности се конфигурират от администратора.
+
+% MODIF 0.6.3 TODO
+\htmlsubsectionid{casestatus}
+\subsection{New case status}
+
+{\bf За да промените стадия на даден случай}, следвайте стъпките:
+
+\begin{enumerate}
+\item Изберете случай и отворете общата информация за него.
+
+\item От падащия списък „Състояние на случая“ изберете нов стадий
+измежду стойностите:
+\begin{itemize}
+\item въззивно
+\item касационно
+\item първоинстанционно
+\item второ обжалване
+\item наказателно дело
+\item обжалване
+\item полицейско по-во/дознание
+\item предварително производство
+\end{itemize}
+
+\item Щракнете върху бутона „Изпращане“, който се появява
+непосредствено до падащия списък след избиране на нова стойност.
+
+\item Щракването на бутона води до отварянето на нов формуляр „Промяна
+на стадия на случая“. Формулярът съдържа следните полета:
+
+\begin{description}
+\item[Начало] Датата и часът от който се счита, че състоянието на
+случая е променено
+
+\item[Време за работа по дейността] незадължително поле
+\item[Заключение] заключение от предходното състояние на
+случая. Можете да посочите някоя от следните стойности:
+\begin{itemize}
+\item без заключение
+\item виновен
+\item невинен
+\item прекратяване
+\item повторно разследване
+\end{itemize}
+
+\item[Присъда] Произнесена присъда по случая (ако има такава). Можете
+да посочите някоя от следните стойности:
+\begin{itemize}
+\item без присъда
+\item глоба
+\item затвор
+\item условна
+\item общественополезен труд
+\end{itemize}
+В допълнителното текстово поле можете да посочите числова стойност
+поясняваща количеството. Например брой месеци затвор или размер на
+глобата.
+
+\item[Описание] незадължително поле, свободен текст
+
+\item[Таксувана сума] сума, определена от консултантския център
+
+\end{description}
+
+\item Щракнете върху бутона „Изпращане“ за да потвърдите формуляра.
+
+\end{enumerate}
+
+Обърнете внимание, че възможните стойности за полетата „Заключение“ и
+„Присъда“ могат да са различни при Вашата инсталация на програмата.
+Също така формулярът може да съдържа повече полета, в зависимост от
+зададените от администратора конфигурации.
+
+\HTMLset{mypagename}{tools\_documents}
 \section{Прикрепяне на документи}
 
 {\bf За да прикрепите нов документ към даден случай}, следвайте стъпките:
@@ -1154,21 +1107,45 @@ $
 След прикрепянето на документа той става видим в списъка на прикрепените
 документи към случая и Вашите сътрудници получават достъп до него.
 
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+
 \chapter{Клиенти -- физически и юридически лица}
 
-Консултантският център извършва своята дейност в услуга на външни на самия
-център физически и юридически лица, наречени клиенти. Към всеки клиент могат
-да се асоциират (добавят) един или повече случаи. ПУЮП разграничава два вида
-клиенти:
+\HTMLset{mypagename}{clients\_intro}
+\section{Въведение}
+
+%% MODIF 0.6.3 TODO
+The follow-up activities for each case usually involve one or many clients.
+LCM manages clients seperately from cases, since a given client may be
+involved in one or many cases. It is therefore necessary to associate the
+clients with their cases in order to quickly find the client's cases, the
+contacts of the client, etc. It is also possible to generate reports for
+statistical information of clients.
+
+% [PREVIOUSLY]
+% Консултантският център извършва своята дейност в услуга на външни на самия
+% център физически и юридически лица, наречени клиенти. Към всеки клиент могат
+% да се асоциират (добавят) един или повече случаи.
+
+ПУЮП разграничава два вида клиенти:
 
 \begin{itemize}
 \item физически лица
-\item юридически лица
+\item юридически лица (организаци)
 \end{itemize}
 
-\HTMLset{mypagename}{clients\_intro}
+% MODIF 0.6.3
+Depending on the policy of your legal aid centre, juridical persons
+may also be associated with cases for which they are related (funding,
+co-defenders, etc.). It is also possible that they system administrator has
+completely de-activated them.
+
+\HTMLset{mypagename}{clients\_newclient}
 \section{Физическо лице. Редактиране на физическо лице.}
-\label{Person. Edit Person.}
+% [ML] html-refs make too many problems for on-line help. FIXME
+% \label{Person. Edit Person.}
 
 {\bf За да регистрирате ново физическо лице в програмата}, следвайте
 стъпките:
@@ -1335,9 +1312,10 @@ $
 помага на центъра да следи дали клиентите идват повече от веднъж и по кои
 други случаи е работено с тях.
 
-\HTMLset{mypagename}{clients\_edit}
+\HTMLset{mypagename}{clients\_neworg}
 \section{Юридическо лице. Редактиране на юридическо лице.}
-\label{Organization. Edit Organization.}
+% [ML] html-refs make too many problems for on-line help. FIXME
+% \label{Organization. Edit Organization.}
 
 {\bf За да регистрирате ново юридическо лице в програмата}, следвайте
 стъпките:
@@ -1446,6 +1424,10 @@ $
 
 \end{enumerate}
 
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+% ----------------------------------------------------------------------------
+
 \chapter{Потребители}
 
 Потребители наричаме хората, работещи с дадена инсталация на
@@ -1459,6 +1441,7 @@ $
 \item администратори
 \end{itemize}
 
+\HTMLset{mypagename}{authors\_intro}
 \section{Обикновен потребител}
 
 Обикновеният потребител използва системата всекидневно -- влиза в
@@ -1563,7 +1546,7 @@ $
 се върнете обратно в програмата като обикновен потребител.
 
 
-\HTMLset{mypagename}{author\_new}
+\HTMLset{mypagename}{authors\_edit}
 \section{Добавяне на потребител}
 
 Добавянето на нови потребители в ПУЮП се счита за административна
@@ -1614,8 +1597,8 @@ $
 
 \end{enumerate}
 
-\HTMLset{mypagename}{author\_edit}
-\section{Редактиране на потребител}
+% \HTMLset{mypagename}{author\_edit}
+% \section{Редактиране на потребител}
 
 След регистрирането на даден потребител, информацията за него може да
 бъде редактирана -- напр. имена, контакти, парола и т.н. Ако сте
@@ -1790,6 +1773,7 @@ $
 \HTMLset{mypagename}{siteconfig\_general}
 \section{Общи настройки (обща информация)}
 
+\htmlsubsectionid{identification}
 \subsection{Идентификатор на сайта}
 
 Идентификаторът на сайта се използва, за да може системата да се приспособи според работната среда в офиса, например:
@@ -1806,6 +1790,7 @@ $
 системата за превод и следователно показват името и описанието на програмата
 според езика на посетителя.
 
+\htmlsubsectionid{contacts}
 \subsection{Местоположение на сайта и информация за контакти}
 
 Интернет или мрежовия адрес и електронния адрес на администратора на сайта се
@@ -1819,7 +1804,9 @@ $
 \HTMLset{mypagename}{siteconfig\_collab}
 \section{Съвместна работа}
 
-% TODO: Ready for translation into BG
+% MODIF 0.6.3
+\htmlsubsectionid{collab}
+\subsection{Access to information}
 
 Свойствата, включени в частта "съвместна работа" се отнасят до различни политики
 или навици, усвоени в ежедневната работа на организацията: обикновено това са 
@@ -1851,6 +1838,7 @@ $
 
 Бележка: Ако някоя от горните настройки бъде променена, това няма да се отрази на вече съществуващите случаи. 
 
+\htmlsubsectionid{selfreg}
 \subsection{Самостоятелна регистрация на новите потребители}
 
 Самостоятелната регистрация на новите потребители е предназначена за Интернет-базирани организации. Тя помага новите членове да се регистрират сами. С други думи, системата за управление на случаи е отворена за всички, но е необходимо те да се регистрират, за да получат достъп до нея.
@@ -1868,6 +1856,7 @@ $
 Ако скриете дадени полета, информацията, която е била преди това вписана в
 тях, няма да бъде изтрита от системата, а само няма да бъде показана. 
 
+\htmlsubsectionid{clients}
 \subsection{Клиенти и потребители}
 
 \begin{itemize}
@@ -1896,6 +1885,7 @@ $
 от политиката на организацията. В случай на съмнение, изберете "не". 
 \end{itemize}
 
+\htmlsubsectionid{cases}
 \subsection{Случаи}
 
 \begin{itemize}
@@ -1911,6 +1901,7 @@ $
 коригират след това. Тази опция се прилага само към информацията за случая, а не за неговите продължения. В случай на съмнение, изберете "да". 
 \end{itemize}
 
+\htmlsubsectionid{followups}
 \subsection{Следваща информация}
 
 \begin{itemize}
@@ -1931,50 +1922,435 @@ $
 \item Парична единица: Изполва се само, ако е активирано полето за "таксувана сума".
 \end{itemize}
 
-% \chapter{Архиви}
-% 
-% \HTMLset{mypagename}{archives\_intro}
-% \section{General}
-% 
-% \HTMLset{mypagename}{archives\_export}
-% \section{Export}
-% 
-% \HTMLset{mypagename}{archives\_import}
-% \section{Import}
-% 
-% \chapter{Ключови думи}
-% 
-% \HTMLset{mypagename}{keywords\_intro}
-% \section{Intro, todo}
-% 
-% TODO
-% 
-% \HTMLset{mypagename}{keywords\_new\_group}
-% \section{New keyword group, todo}
-% 
-% TODO
-% 
-% \HTMLset{mypagename}{keywords\_new}
-% \section{New keyword, todo}
-% 
-% TODO
-% 
-% \HTMLset{mypagename}{keywords\_remove}
-% \section{Remove keyword, todo}
-% 
-% TODO
-% 
-% \chapter{Отчети}
-% 
-% \HTMLset{mypagename}{reports\_intro}
-% \section{Reports intro, todo}
-% 
-% TODO
-% 
-% \HTMLset{mypagename}{reports\_edit}
-% \section{Reports edit, todo}
-% 
-% TODO
+\chapter{Архиви}
+
+% MODIF 0.6.3 TODO
+\HTMLset{mypagename}{archives\_intro}
+\section{Introduction}
+
+The ``archive'' panel, accessible from the administrative menu, offers a method
+to create backup copies of all the information stored in the system. The
+backups can later be used to either restore the system in the event of a server 
+disruption or to synchronise with another legal case management system.
+
+Make sure that backups are generated regularly, at least twice a month. For
+very busy offices, backups should be generated every day.
+
+In the event of a disruption caused by the server which is hosting the legal
+case management system, all of the information stored in the system may be lost.
+The server may also be victim of vandalism, human errors, etc. Therefore, make
+sure you generate backups regularly!
+
+The interface to generate the backups has been made as simple as possible, so
+that anyone in your organisation can handle this task. For example, it may be
+part of the tasks your secretary does before he/she leaves work.
+
+Backups should be stored on a seperate computer than the system itself. For
+example, if the hard disk of the host computer fails, then both the
+information stored in the system and the backups will be lost. You may also
+want to consider storing the backups off-site, since many computers may be
+disrupted in the event of a fire or theft. Make sure that the backups are
+stored in a safe and secure way, since they contain sensitive information that
+might cause important privacy risks if they are exposed to people outside your
+organisation. For example, a network intruder could copy the backups and
+publish your client information on the Internet.
+
+A simple alternative is to store the backups on a CD (using a CD writer), and
+to store them in a secure location at one of the manager's home or in a bank
+secure deposit box. Make sure that the backups actually work: install a
+seperate LCM in order to see whether the backups can be restored as expected.
+
+Take a moment to plan this policy for your organisation, and regularly check 
+whether it is correctly applied.
+ 
+\HTMLset{mypagename}{archives\_export}
+\section{Export}
+
+\htmlsubsectionid{newbackup}
+\subsection{Generate a new backup archive}
+
+{\bf To generate a new backup archive of the system}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Backup'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Create a new
+backup'' and click on the ``New backup'' button. It may take a few seconds
+in order for the operation to complete. Click only once!
+
+\item A message will then appear over the ``Create a new backup'' box to
+inform that the backup was successfully created. At this point, the backup
+is stored only on the host computer itself. As mentioned in the introduction
+section, this is something which is not sufficient in order to have a good
+backup, since the host computer might fail, and the backup will be lost.
+
+\item Click on the lcm-NNNNNNNN.tar link in order to download the backup
+archive onto your local computer. Note that the ``NNNNNNNN'' refers to the current date.
+Alternatively, you can download the backup archive from the list of previosuly made 
+backups located below the ``Create a new backup'' box.
+\end{enumerate}
+
+Once the backup archive is safely copied onto your local computer, you can
+either store it on a recordable CD, copy it off-site, etc.
+
+\htmlsubsectionid{delbackup}
+\subsection{Delete a previously made backups}
+
+Over time, the previosuly made backups may occupy too much disk space on the
+server. If the server is shared with others, it is also safer to delete the
+backups since anyone can copy the files without needing the password to access
+the database (since the information from the database has been copied into a
+file).
+
+{\bf To delete a backup from the list of previously made backups}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Backup'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Previously made
+backups'', then locate the backup you wish to delete.
+
+\item Click on the checkbox located near the name of the backup to delete. A
+``delete'' button will then appear under the list of previously made
+backups.
+
+\item Confirm the delete operation by clicking on the ``delete'' button.
+\end{enumerate}
+
+\HTMLset{mypagename}{archives\_import}
+\section{Import}
+
+\htmlsubsectionid{newrestore}
+\subsection{Import an archive}
+
+The procedure to restore a backup is seperated into two parts, similar to the
+generation of a backup: the backup must first be uploaded to the server before
+the restore operation is made. 
+
+If it is more convenient, the backup can be uploaded using SSH or FTP,
+depending on your host. For very large backups, this might be mandatory.
+If you chose this option, make sure to upload into the ``inc/data'' directory.
+You can then ignore some of the steps described below.
+
+{\bf To upload an existing backup onto the system}, follow the steps:
+
+\begin{enumerate}
+\item Click on the button ``Archives'' from the main navigation menu and
+then on the ``Restore'' tab located at the top of the screen.
+
+\item When the ``Backup'' form opens, locate the box titled ``Upload a
+backup''.
+
+\item Click on the ``Browse'' button. It will open a dialog box to help you 
+locate the backup file to upload from your local computer. When you have 
+selected the file, click on ``Ok'' to close the dialog box.
+
+\item Click on the ``Validate'' button to upload the file onto the server.
+\end{enumerate}
+
+{\bf To restore an existing backup}, follow the steps:
+
+\begin{enumerate}
+\item Locate the ``Restore a backup'' box, located under the ``Upload a
+backup'' box.
+
+\item Select the backup to restore from the dropdown menu.
+
+\item Select the operation to make:
+
+\begin{description}
+\item[Restore] Deletes the existing database in the system and will
+restore the system to the exact state of the backup. This is the normal
+operation to do if you have re-installed LCM on a new computer and you wish
+to restore the database from your previous installation. Never risk restoring
+the database ``just for testing'', the restore operation may fail and leave the
+system in an unstable state.
+
+\item[Synchronise] May be used to synchronise a system with a parent one (or a
+centralised system). This is very experimental, and we do not recommend using
+it unless you have tested the operation, and know very well what you are
+doing. Note: LCM does not support the synchronisation of two system, it only
+supports sending information to a centralised server -- information from the
+central server should never be sent to the local host.
+
+\end{description}
+
+\item Click on the ``Validate'' button to proceed with the opration.
+\end{enumerate}
+
+\htmlsubsectionid{delrestore}
+\subsection{Delete the uploaded archive}
+
+Once the system is successfully restored, you can delete the uploaded archive
+from the ``Backup'' tab. For more information, refer to the previous section.
+
+\chapter{Keywords}
+
+\HTMLset{mypagename}{keywords\_intro}
+\section{Introduction}
+
+Keywords are used to customize some aspects of the system to your environment.
+They are usually related to statistical information and therefore offer a
+limited range of options. There are two types of keywords:
+
+\begin{description}
+\item [System] Used by specific features of the software, such as the types of
+case stages, follow-up types, contacts or meetings.
+
+\item [User] Allow administrators to add new fields for statistical use. They
+are attached to cases, clients or organisations and are a tool to add a new
+field to those elements.
+\end{description}
+
+\HTMLset{mypagename}{keywords\_new\_group}
+\section{New keyword group, todo}
+
+Only ``user'' keyword groups can be created, since ``system'' keyword groups
+refer to specific features of the software.
+
+{\bf To create a new user keyword group}, follow these steps:
+
+\begin{enumerate}
+\item Click on the ``Keywords'' administrative menu item, then click on the
+``User keywords'' tab located at the top of the screen.
+\item Add the bottom of the screen, click on the ``Create new keyword group''
+button.
+\item When the ``new keyword group'' form appears, enter the following 
+information:
+
+\begin{description}
+\item [Applies to] refers to what the keyword will be attached to. Possible
+values include: case, case stage, client and organisation. The ``case stage''
+is similar to ``case'', except that its value can be changed depending on the
+case stage.
+\item [Policy] Indicates to the user whether the field is mandatory,
+recommended or optional. Please note that the software does not enforce
+the policy of the fields, since the information may only be available 
+at some time in the future. It is meant to be informative.
+\item [Default choice] When keywords are added to the keyword group, it is
+possible to propose a default value. For example, for a keyword group ``age
+group'', the default keyword should be ``unknown''.
+\item [Code] Short, unique word used internally by the software. This field
+is mandatory.
+\item [Title] Name of the field which will be shown in the details or edit
+forms.
+\item [Description] Provided to the user as a form of contextual help. (Note:
+currently not implemented.)
+\item [One or many] Specify whether the keywords from this group can be 
+selected one or many times for this group. In case of doubt, say ``one''.
+\item [Hidden] Keywords which are in use by the software cannot be deleted,
+but it is possible to hide them so that they are no longer used in the future.
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the information.
+\end{enumerate}
+
+\HTMLset{mypagename}{keywords\_new}
+\section{New keyword, todo}
+
+TODO
+
+\HTMLset{mypagename}{keywords\_remove}
+\section{Remove keyword, todo}
+
+TODO
+
+\chapter{Reports}
+
+\HTMLset{mypagename}{reports\_intro}
+\section{Introduction}
+
+An important aspect of case management is the possibility to extract
+statistical information based on the activities of the organisation. In order
+to generate the reports, a basic structure must first be defined, which can
+later be used at regular intervals to generate the reports.
+
+The ``List of reports'', accessible from the ``Reports'' navigation menu item,
+therefore presents a list of report structures, which can be used to generate
+reports.
+
+\subsection{New report}
+
+{\bf To create a new report}, follow these steps:
+
+\begin{enumerate}
+\item Click on the ``Reports'' administrative menu item, then click on the
+``New report'' button located at the end of the list of reports.
+
+\item In the ``New report'' form, enter the following information:
+
+\begin{description}
+\item [Title] Choose a short but representative title for the report, which
+will help you to find your report in the future. Mandatory field.
+
+\item [Description] More detailed information on the report, if necessary. It
+will be shown at the top of the report.
+
+\item [Notes] Optional text shown at the end of the report. For example, if
+your office require printed reports to be approved by a manager, enter the
+name of the manager in the ``notes'' field so that the manager has a place to
+sign.
+\end{description}
+
+\item Click on the ``Validate'' button in order to save the information.
+\end{enumerate}
+
+Upon successful validation of the report, the screen ``report details'' will
+be shown. From this screen, the report can be personalized to include the
+fields and filters necessary for the report.
+
+\subsection{Edit report}
+
+{\bf To edit the information of an existing report}, follow these steps:
+
+\begin{enumerate}
+\item Click on the ``Reports'' administrative menu item, then click on the
+report that you wish to edit.
+
+\item Click on the ``Edit report details'' button located in the ``general
+information'' section of the screen.
+
+\item For more information on the fields, refer to the ``New report'' section.
+
+\item Click on the ``Validate'' button in order to save the information.
+\end{enumerate}
+
+Upon successful validation of the report, the screen ``report details'' will
+be shown. From this screen, the report can be personalized to include the
+fields and filters necessary for the report.
+
+
+\HTMLset{mypagename}{reports\_edit}
+\section{Customizing a report}
+
+This section provides more information on how to define the contents of
+a report. The reports generated by the software typically have the following
+structure:
+
+\begin{description}
+\item [Lines] The main reference element of the report. For example, a 
+report which will list the number of new cases for all users will use
+the ``Users'' table for the ``line'' information. On the other hand,
+a report which would list the journal of activities for one specific
+user would use the ``Follow-ups'' table. A report must include at least
+a source element for the lines of the report.
+
+\item [Columns] The column information lists information in relation
+to the ``Line'' information. For example, if the line is using the
+``users'' table and the ``column'' is using the ``follow-ups'' table,
+then it is possible to extract information on the follow-ups for each
+user. More detailed examples are provided in the next sections.
+
+\item [Filters] After selecting the source elements for the lines and
+(optinally) columns for the report, it is possible to filter the 
+results based on certain criteria. For example, to generate a monthly
+report, it will be necessary to add a filter based on the date of the
+case or follow-ups.
+\end{description}
+
+\subsection{Defining the lines and columns of reports}
+
+The report line and column each allow to use one source element, from
+which many fields can be used. The only exception to this are keywords,
+because they only have a title, so specifying the field is not necessary.
+
+{\bf To define the source element of a line or column of a new report},
+follow these steps:
+
+\begin{enumerate}
+\item From the ``Report details'' form, select the source table or
+keyword for the report line (later repeat for the report column, if
+necessary).
+
+\item Click on the ``Validate'' button. It will refresh the screen,
+showing the selected source, as well as a list of fields available
+(if the source is a table).
+
+\item To add a field, select it from the menu located on the
+``Add a field'' line of the form, then click on ``Validate''. The
+fields are shown in the report in the order that they were added.
+\end{enumerate}
+
+To change the line or column source, all of the fields selected for
+the source must first be removed. Fields can be removed by clicking
+on the ``X'' located next to the title of the field. When there are
+no fields selected for a source, a ``X'' is shown next to the name
+of the source in order to change it.
+
+\subsection{Example: Number of cases per user}
+
+{\bf To list the number of cases per user, within a given period},
+follow these steps:
+
+\begin{enumerate}
+\item As the ``line information'' source, select the table ``User'',
+then click on ``Validate''.
+\item Add the field ``name'', then click on ``Validate''. Repeat with
+the ``surname'' field.
+\item As the ``column information'' source, select the table ``Case'',
+then click on ``Validate''.
+\item Add the field ``count'', then click on ``Validate''.
+\end{enumerate}
+
+To count the number of new cases for a given period, it is possible
+to add a filter based on the creation date of the case:
+
+\begin{enumerate}
+\item In the ``report filters'' section, select the ``Case: creation
+date'' item from the menu, then click on ``Validate''.
+\item After the screen is refreshed, a new menu will be shown next to 
+the name of the field (creation date), which by default shows ``none''. 
+Change the value for ``in'', then click on ``Validate''.
+\item Two sets of fields will then be displayed in order to enter the
+date interval for the report. If you would like to use this reports on
+many intervals, for example each month, simply leave the fields empty.
+\end{enumerate}
+
+The report is now ready to be generated, using the ``Generate report''
+button at the top of the screen. If a ``creation date'' filter was
+created and its value was left empty, the software will show a screen
+to enter the date interval.
+
+Please note that in this specific case the list of cases are seperated by
+case stage and a total is shown at the end of each line (the sum of all
+case stages for the user) as well as a total at the end of the report
+(the sum of cases for all users).
+
+\subsection{Example: Time spent of each follow-up type, for each user}
+
+{\bf To list the total amount of time spent on each follow-up type,
+for each user}, follow these steps:
+
+\begin{enumerate}
+\item As the ``line information'' source, select the table ``User'',
+then click on ``Validate''.
+\item Add the field ``name'', then click on ``Validate''. Repeat with
+the ``surname'' field.
+\item As the ``column information'' source, select the table ``Follow-up'',
+then click on ``Validate''.
+\item Add the field ``type'', then click on ``Validate''.
+\end{enumerate}
+
+To limit the results to activities for a given period, use the following
+filter:
+
+\begin{enumerate}
+\item In the ``report filters'' section, select the ``Follow-up: Start''
+item from the menu, then click on ``Validate''.
+\item After the screen is refreshed, a new menu will be shown next to 
+the name of the field (creation date), which by default shows ``none''. 
+Change the value for ``in'', then click on ``Validate''.
+\item Two sets of fields will then be displayed in order to enter the
+date interval for the report. If you would like to use this reports on
+many intervals, for example each month, simply leave the fields empty.
+\end{enumerate}
+
+The report is now ready to be generated, using the ``Generate report''
+button at the top of the screen. If a ``start date'' filter was created 
+and its value was left empty, the software will show a screen to enter 
+the date interval.
 
 %% ----------------------------------------------------------------------
 
