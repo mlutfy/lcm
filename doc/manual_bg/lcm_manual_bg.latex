@@ -90,7 +90,7 @@
 \addtolength{\textwidth}{\centeroffset}
 \vspace{\stretch{2}}
 
-%%\abstract{TODO: Document abstract.}
+%%\abstract{FIXME: Document abstract.}
 
 \tableofcontents
 
@@ -933,12 +933,12 @@ spent for your cases.
 status should be done as described in the next section, even if they also
 generate a new follow-up to the case.
 
-%% MODIF 0.6.3 TODO
+%% MODIF 0.6.3
 \HTMLset{mypagename}{cases\_statusstage}
-\section{New case stage or status}
+\section{Смяна на статуса или състоянието на случай}
 
 \htmlsubsectionid{casestage}
-\subsection{New case stage}
+\subsection{Смяна на състоянието на случай}
 
 {\bf За да промените състоянието на даден случай}, следвайте стъпките:
 
@@ -1011,9 +1011,9 @@ generate a new follow-up to the case.
 „Присъда“ могат да са различни при Вашата инсталация на програмата,
 тъй като тези стойности се конфигурират от администратора.
 
-% MODIF 0.6.3 TODO
+% MODIF 0.6.3
 \htmlsubsectionid{casestatus}
-\subsection{New case status}
+\subsection{Смяна на статуса}
 
 {\bf За да промените стадия на даден случай}, следвайте стъпките:
 
@@ -1701,7 +1701,7 @@ completely de-activated them.
 Всеки ден представлява хипервръзка, върху която можете да щракнете за
 да отворите по-подробна информация за ангажиментите си през деня.
 
-% XXX TODO: можем ли тук да добавим малко за навигацията из календара?
+% XXX FIXME: можем ли тук да добавим малко за навигацията из календара?
 
 \HTMLset{mypagename}{tools\_agenda}
 \section{Дневен ред}
@@ -1762,7 +1762,7 @@ completely de-activated them.
 „Дневен ред“, разположен точно под календара. Ако дейността включва и
 други потребители, тя автоматично се появява и в техния дневен ред.
 
-% XXX TODO: трябва ли ни описание на редактиране на дейност?
+% XXX FIXME: трябва ли ни описание на редактиране на дейност?
 
 %% ----------------------------------------------------------------------
 
@@ -1924,10 +1924,10 @@ completely de-activated them.
 
 \chapter{Архиви}
 
-% MODIF 0.6.3 TODO
 \HTMLset{mypagename}{archives\_intro}
-\section{Introduction}
+\section{Въведение}
 
+% MODIF 0.6.3 TODO
 The ``archive'' panel, accessible from the administrative menu, offers a method
 to create backup copies of all the information stored in the system. The
 backups can later be used to either restore the system in the event of a server 
