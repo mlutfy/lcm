@@ -890,11 +890,11 @@ $
 \HTMLset{mypagename}{cases\_followups}
 \section{Добавяне на продължения}
 
-%% MODIF 0.6.3 TODO
-As the case evolves, new activities related to the case should be recorded
-into the system: consultations with the client, research, traveling, etc.
-The activities for each case will help to analyse and report how time is 
-spent for your cases. 
+%% MODIF 0.6.3
+С развитието на случая, трябва да се записват нови дейности в системата:
+консултации с клиента, проучвания, пътувания и др. Дейностите за всеки
+отделен случай ще помогнат да се анализира и отчете времето, отделено по
+него. 
 
 {\bf За да добавите продължение към случай}, следвайте стъпките:
 
@@ -928,10 +928,11 @@ spent for your cases.
 
 \end{enumerate}
 
-%% MODIF 0.6.3 TODO
-{\bf NB!} There is one exception related to this: changing the case stage or
-status should be done as described in the next section, even if they also
-generate a new follow-up to the case.
+%% MODIF 0.6.3
+{\bf Забележка:} Има едно изключение, свързано с продълженията:
+промяната на състоянието или стадия на случая трябва да се направи както
+е описано в следващата рубрика, въпреки че и те генерират "продължения"
+по случая. 
 
 %% MODIF 0.6.3
 \HTMLset{mypagename}{cases\_statusstage}
@@ -1116,18 +1117,13 @@ generate a new follow-up to the case.
 \HTMLset{mypagename}{clients\_intro}
 \section{Въведение}
 
-%% MODIF 0.6.3 TODO
-The follow-up activities for each case usually involve one or many clients.
-LCM manages clients seperately from cases, since a given client may be
-involved in one or many cases. It is therefore necessary to associate the
-clients with their cases in order to quickly find the client's cases, the
-contacts of the client, etc. It is also possible to generate reports for
-statistical information of clients.
-
-% [PREVIOUSLY]
-% Консултантският център извършва своята дейност в услуга на външни на самия
-% център физически и юридически лица, наречени клиенти. Към всеки клиент могат
-% да се асоциират (добавят) един или повече случаи.
+%% MODIF 0.6.3
+Различните продължения по всеки отделен случай са свързани с един или
+повече клиенти. ПУЮП управлява клиентите отделно от случаите, тъй като
+един клиент може да е свързан с повече от един случай. Следователно е
+важно клиентите да се свързват със случаите, за да може бързо и лесно да
+се открие информация за контакт с него/нея. Също така това помага да се
+правят отчети за статистическа информация, свързана с клиентите. 
 
 ПУЮП разграничава два вида клиенти:
 
@@ -1816,7 +1812,7 @@ completely de-activated them.
 Свойствата на съвместната работа (или правата за достъп) са разделение в две 
 възможности за потребителите, които не са изрично назначени към даден случай: тези, 
 които имат права за четене на информацията за случая и тези, които имат достъп да добавят информация. 
-% [КХ. TODO : Имат ли право също така да променят информация, а не само да добавят нова?]
+% [КХ. FIXME : Имат ли право също така да променят информация, а не само да добавят нова?]
 
 За всяко свойство системата препоръчва настройка за потребителя, определени на база 
 типичните практики (правила) в организацията. Това позволява потребителят да избира как
