@@ -87,6 +87,11 @@ if (count($_SESSION['errors'])) {
 		$public_access_rights .= ", pub_write=" . (int)($_SESSION['case_data']['pub_write'] == 'yes');
 	}
 
+	if (isset($_REQUEST['id_case']))
+		$id_case = intval($_REQUEST['id_case']);
+	else
+		$id_case = 0;
+
 	if ($id_case > 0) {
 		// This is modification of existing case
 
@@ -164,7 +169,6 @@ if (count($_SESSION['errors'])) {
 	}
 
 	// Keywords
-	include_lcm('inc_keywords');
 	update_keywords_request('case', $id_case);
 
 	$stage = get_kw_from_name('stage', $_SESSION['case_data']['stage']);

@@ -69,7 +69,7 @@ $q_owner .= " ) ";
 //
 $case_period = $prefs['case_period'];
 if (isset($_REQUEST['case_period'])) {
-	if ($case_period != $_REQUEST['case_owner']) {
+	if ($case_period != $_REQUEST['case_period']) {
 		$case_period = $_REQUEST['case_period'];
 		$prefs['case_period'] = $_REQUEST['case_period'];
 		$prefs_change = true;
@@ -187,10 +187,11 @@ $result = lcm_query($q);
 
 // Check for correct start position of the list
 $number_of_rows = lcm_num_rows($result);
-$list_pos = 0;
 
 if (isset($_REQUEST['list_pos']))
 	$list_pos = $_REQUEST['list_pos'];
+else
+	$list_pos = 0;
 
 if ($list_pos >= $number_of_rows)
 	$list_pos = 0;

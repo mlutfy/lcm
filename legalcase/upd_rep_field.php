@@ -153,7 +153,19 @@ if (isset($_REQUEST['update'])) {
 				array_push($fields, "value = IF(TO_DAYS('$date') > 0, '" . $date . "', '')");
 				break;
 			case 'date_in':
+				$date_start = get_datetime_from_array($_REQUEST, 'date_start', 'start', '0000-00-00 00:00:00');
+				$date_end   = get_datetime_from_array($_REQUEST, 'date_end', 'end', '0000-00-00 00:00:00');
 
+				if (isset_datetime_from_array($_REQUEST, 'date_start', 'year_only')
+					|| isset_datetime_from_array($_REQUEST, 'date_end', 'year_only'))
+				{
+					array_push($fields, "value = CONCAT("
+							. "IF(TO_DAYS('$date_start') > 0, '$date_start', ''),"
+							. "';',"
+							. "IF(TO_DAYS('$date_end') > 0, '$date_end', '')"
+							. ")");
+				}
+				
 				break;
 			default:
 				$value = clean_input($_REQUEST['filter_value']);
@@ -220,6 +232,6 @@ if (isset($_REQUEST['unselect_line'])) {
 	$ref_tag = "#line";
 }
 
-header("Location: " . $GLOBALS['HTTP_REFERER'] . $ref_tag);
+header("Location: " . $_SERVER['HTTP_REFERER'] . $ref_tag);
 
 ?>
