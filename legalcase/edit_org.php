@@ -56,9 +56,9 @@ if (empty($_SESSION['errors'])) {
 }
 
 if ($org) 
-	lcm_page_start(_T('title_org_edit'));
+	lcm_page_start(_T('title_org_edit'), '', '', 'clients_neworg');
 else
-	lcm_page_start(_T('title_org_new'));
+	lcm_page_start(_T('title_org_new'), '', '', 'clients_neworg');
 
 // Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);

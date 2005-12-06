@@ -146,7 +146,7 @@ function get_kwg_from_name($kwg_name) {
 	$result = lcm_query($query);
 
 	if (! lcm_num_rows($result))
-		lcm_panic("Invalid keyword group (ID = " . $id_group . ")");
+		lcm_panic("Invalid keyword group (name = " . $kwg_name . ")");
 
 	return lcm_fetch_array($result);
 }
@@ -219,6 +219,29 @@ function get_keywords_in_group_name($kwg_name, $visible_only = true) {
 	
 	if ($row = lcm_fetch_array($result))
 		return get_keywords_in_group_id($row['id_group'], $visible_only);
+
+	lcm_panic("Keyword group not found: $kwg_name");
+}
+
+function get_suggest_in_group_name($kwg_name) {
+	global $system_kwg;
+
+	$ret = "";
+
+	// Check cache first
+	if ($system_kwg[$kwg_name])
+		if (isset($system_kwg[$kwg_name]['suggest']))
+			return $system_kwg[$kwg_name]['suggest'];
+
+	// Not in cache, then get from DB
+	$query = "SELECT suggest
+				FROM lcm_keyword_group
+				WHERE name = '" . $kwg_name . "'";
+	
+	$result = lcm_query($query);
+	
+	if ($row = lcm_fetch_array($result))
+		return $row['suggest'];
 
 	lcm_panic("Keyword group not found: $kwg_name");
 }

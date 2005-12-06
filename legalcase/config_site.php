@@ -563,13 +563,13 @@ if ($author_session['status'] != 'admin') {
 	exit;
 }
 
-if ($conf_modified_general)
+if ($_REQUEST['conf_modified_general'])
 	$log = apply_conf_changes_general();
-else if ($conf_modified_collab)
+else if ($_REQUEST['conf_modified_collab'])
 	$log = apply_conf_changes_collab();
-else if ($conf_modified_policy)
+else if ($_REQUEST['conf_modified_policy'])
 	$log = apply_conf_changes_policy();
-else if ($conf_modified_regional)
+else if ($_REQUEST['conf_modified_regional'])
 	$log = apply_conf_changes_regional();
 
 // Once ready, show the form (must be done after changes are

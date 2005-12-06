@@ -105,7 +105,6 @@ lcm_page_start(_T('title_client_view') . ' ' . get_person_name($row), '', '', 'c
 				if (read_meta('client_income') == 'yes')
 					echo _Ti('person_input_income') . _Tkw('income', $row['income']) . "<br/>\n";
 
-				include_lcm('inc_keywords');
 				show_all_keywords('client', $row['id_client']);
 
 				echo _Ti('case_input_date_creation') . format_date($row['date_creation']) . "<br/>\n";

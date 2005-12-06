@@ -21,22 +21,24 @@
 	$Id$
 */
 
+include ('inc/inc_version.php');
+
 // Test if LCM is installed
-if (!@file_exists('inc/config/inc_connect.php')) {
+if (! include_config_exists('inc_connect')) {
 	header('Location: install.php');
 	exit;
 }
-
-include ('inc/inc_version.php');
 
 include_lcm('inc_auth');
 include_lcm('inc_acc');
 include_lcm('inc_presentation');
 include_lcm('inc_text');
 include_lcm('inc_filters');
+include_lcm('inc_keywords');
 // include_lcm('inc_calendar'); [ML] not used
 
-if (! @file_exists('inc/data/inc_meta_cache.php'))
+
+if (! include_data_exists('inc_meta_cache'))
 	write_metas();
 
 // [AG] Adding to validate later references to it
@@ -91,7 +93,7 @@ if (isset($_REQUEST['author_ui_modified'])) {
 	if (isset($_REQUEST['sel_language']))
 		$lang = $_REQUEST['sel_language'];
 	else
-		$lang = $GLOBALS['HTTP_COOKIE_VARS']['lcm_lang'];
+		$lang = $_COOKIE['lcm_lang'];
 	
 }
 
@@ -164,10 +166,10 @@ if ($installed_db_version < $lcm_db_version) {
 }
 
 
-//
 // Fetch the administration cookie
-if (isset($HTTP_COOKIE_VARS['lcm_admin']))
-	$cookie_admin = $HTTP_COOKIE_VARS['lcm_admin'];
+// [ML] Where is this used and why? :-)
+if (isset($_COOKIE['lcm_admin']))
+	$cookie_admin = $_COOKIE['lcm_admin'];
 else
 	$cookie_admin = "";
 
