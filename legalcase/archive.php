@@ -28,7 +28,7 @@ include_lcm('inc_impex');
 
 // Restrict page to administrators
 if ($author_session['status'] != 'admin') {
-	lcm_page_start(_T('title_archives'), '', '' /* , 'archives_intro' */);
+	lcm_page_start(_T('title_archives'), '', '', 'archives_intro');
 	echo '<p class="normal_text">' . _T('warning_forbidden_not_admin') . "</p>\n";
 	lcm_page_end();
 	exit;
@@ -44,7 +44,7 @@ if (!empty($_REQUEST['export']) && ($GLOBALS['author_session']['status'] == 'adm
 }
 
 // Show page start
-lcm_page_start(_T('title_archives'), '', '' /* , 'archives_intro' */ );
+lcm_page_start(_T('title_archives'), '', '', 'archives_intro');
 
 // Show tabs
 $tabs = array(	array('name' => _T('archives_tab_all_cases'), 'url' => 'archive.php'),
@@ -61,8 +61,8 @@ $q = "SELECT DISTINCT c.id_case, title, status, public, pub_write, c.date_creati
 
 // Add search criteria if any
 if (strlen($find_case_string) > 1) {
-	$q .= " AND ((lcm_case.title LIKE '%$find_case_string%')
-				OR (lcm_case.status LIKE '%$find_case_string%'))";
+	$q .= " AND ((c.title LIKE '%$find_case_string%')
+				OR (c.status LIKE '%$find_case_string%'))";
 }
 
 $q .= ")";
