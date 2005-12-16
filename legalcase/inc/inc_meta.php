@@ -155,7 +155,11 @@ function read_meta_upd($name) {
 
 	$s .= '?'.'>';
 
-	$file_meta_cache = 'inc/data/inc_meta_cache.php';
+	if (isset($_SERVER['LcmDataDir']))
+		$file_meta_cache = $_SERVER['LcmDataDir'] . '/inc_meta_cache.php';
+	else
+		$file_meta_cache = 'inc/data/inc_meta_cache.php';
+
 	@unlink($file_meta_cache);
 	$file_meta_cache_w = $file_meta_cache.'-'.@getmypid();
 	$f = @fopen($file_meta_cache_w, "wb");
