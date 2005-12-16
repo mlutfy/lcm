@@ -40,6 +40,12 @@ function init_default_config() {
 	$meta_name_middle = 'no';
 	if ($lang == 'bg' || $lang == 'pt_br')
 		$meta_name_middle = 'yes';
+	
+	// Check whether database supports utf8
+	$db_utf8 = 'no';
+
+	if (! preg_match('/^MySQL (4\.0|3\.)/', lcm_sql_server_info()))
+		$db_utf8 = 'yes';
 
 	// c.f. http://www.lcm.ngo-bg.org/article28.html
 	$list_meta = array(
@@ -91,6 +97,7 @@ function init_default_config() {
 		'fu_sum_billed' => 'no',
 		'fu_allow_modif' => 'yes',
 		'hide_emails' => 'no',
+		'db_utf8' => $db_utf8,
 
 		// Default character set, it may not even be a question
 		// in the future, but may have uses.
