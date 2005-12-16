@@ -1,5 +1,26 @@
 <?php
 
+/*
+	This file is part of the Legal Case Management System (LCM).
+	(C) 2004-2005 Free Software Foundation, Inc.
+
+	This program is free software; you can redistribute it and/or modify it
+	under the terms of the GNU General Public License as published by the 
+	Free Software Foundation; either version 2 of the License, or (at your 
+	option) any later version.
+
+	This program is distributed in the hope that it will be useful, but 
+	WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+	or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License
+	for more details.
+
+	You should have received a copy of the GNU General Public License along 
+	with this program; if not, write to the Free Software Foundation, Inc.,
+	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
+
+	$Id$
+*/
+
 if (defined('_INC_REPFIELDS_DEFAULT')) return;
 define('_INC_REPFIELDS_DEFAULT', '1');
 
@@ -32,6 +53,12 @@ function get_default_repfields() {
 			"filter" => "date"),
 		array(
 			"table_name" => "lcm_case",
+			"field_name" => "date_update",
+			"description" => "case_input_date_updated",
+			"enum_type" => "",
+			"filter" => "date"),
+		array(
+			"table_name" => "lcm_case",
 			"field_name" => "legal_reason",
 			"description" => "case_input_legal_reason",
 			"enum_type" => "",
@@ -44,6 +71,7 @@ function get_default_repfields() {
 			"filter" => "text"),
 		array(
 			"table_name" => "lcm_case",
+<<<<<<< inc_repfields_defaults.php
 			"field_name" => "status",
 			"description" => "case_input_status",
 			"enum_type" => "list:draft,open,closed,suspended,merged,deleted:case_status_option_",
@@ -111,8 +139,76 @@ function get_default_repfields() {
 			"filter" => "number"),
 		array(
 			"table_name" => "lcm_stage",
+=======
+			"field_name" => "status",
+			"description" => "case_input_status",
+			"enum_type" => "list:draft,open,closed,suspended,merged,deleted:case_status_option_",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_case",
+			"field_name" => "stage",
+			"description" => "case_input_stage",
+			"enum_type" => "keyword:system_kwg:stage",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_case",
 			"field_name" => "count(*)",
-			"description" => "count", // TRAD
+			"description" => "rep_input_field_count",
+			"enum_type" => "",
+			"filter" => "number"),
+		/* LCM_STAGE */
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "id_case",
+			"description" => "case_input_id",
+			"enum_type" => "",
+			"filter" => "number"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "kw_case_stage",
+			"description" => "case_input_stage",
+			"enum_type" => "keyword:system_kwg:stage",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "date_creation",
+			"description" => "time_input_date_creation",
+			"enum_type" => "",
+			"filter" => "date"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "date_conclusion",
+			"description" => "case_input_date_conclusion",
+			"enum_type" => "",
+			"filter" => "date"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "kw_result",
+			"description" => "case result", // TRAD
+			"enum_type" => "keyword:system_kwg:_crimresults",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "kw_conclusion",
+			"description" => "fu_input_conclusion",
+			"enum_type" => "keyword:system_kwg:conclusion",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "kw_sentence",
+			"description" => "fu_input_sentence",
+			"enum_type" => "keyword:system_kwg:sentence",
+			"filter" => "text"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "sentence_val",
+			"description" => "sentence val", // TRAD
+			"enum_type" => "",
+			"filter" => "number"),
+		array(
+			"table_name" => "lcm_stage",
+			"field_name" => "count(*)",
+			"description" => "rep_input_field_count",
 			"enum_type" => "",
 			"filter" => "number"),
 
