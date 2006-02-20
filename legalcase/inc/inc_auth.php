@@ -33,7 +33,7 @@ include_lcm('inc_db');
 // [ML] Alot of things to adapt... XXX/TODO
 function auth() {
 	global $INSECURE, $HTTP_POST_VARS, $HTTP_GET_VARS, $HTTP_COOKIE_VARS, $REMOTE_USER, $PHP_AUTH_USER, $PHP_AUTH_PW;
-	global $auth_can_disconnect, $ignore_auth_http, $ignore_remote_user;
+	global $auth_can_disconnect;
 
 	global $connect_id_auteur, $connect_nom, $connect_bio, $connect_email;
 	global $connect_nom_site, $connect_url_site, $connect_login, $connect_pass;

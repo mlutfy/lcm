@@ -31,7 +31,7 @@ function export($type, $format, $search = '') {
 	switch ($type) {
 		case 'case' :
 			// List cases in the system + search criterion if any
-			$q = "SELECT id_case,title,id_court_archive,legal_reason,alledged_crime,notes,status,stage
+			$q = "SELECT id_case,title,legal_reason,alledged_crime,notes,status,stage
 					FROM lcm_case";
 
 			if (strlen($search)>1) {
