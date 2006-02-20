@@ -22,7 +22,7 @@
 */
 
 include('inc/inc_version.php');
-include('inc/inc_presentation.php');
+include_lcm('inc_presentation');
 
 $code = $_REQUEST['code'];
 $error_section = false;
@@ -56,7 +56,7 @@ if ($code) {
 	$page_title = _T('title_software');
 }
 
-help_page_start($page_title);
+help_page_start($page_title, $code);
 
 if ($code) {
 	global $lcm_lang;
@@ -72,20 +72,10 @@ if ($code) {
 		if ($error_section)
 			echo "<p>" . $code . ": " . _T('help_warning_no_section') . "</p>\n";
 		else {
-			// [ML] This is a temporary fix until we fix the menu navigation
-			$toc = array(
-				'installation' => array('install_permissions', 'install_database', 'install_personal'),
-				'cases' => array('cases_intro', 'cases_participants', 'cases_followups'),
-				'clients' => array('clients_intro', 'clients_org'),
-				'authors' => array('authors_intro', 'authors_admin'),
-				'tools' => array('tools_agenda', 'tools_documents'),
-				'siteconfig' => array('siteconfig_general', 'siteconfig_collab', 'siteconfig_policy', 'siteconfig_regional'),
-				'archives' => array('archives_intro', 'archives_export', 'archives_import'),
-				'reports' => array('reports_intro', 'reports_edit'), 
-				'keywords' => array('keywords_intro', 'keywords_new_group', 'keywords_new', 'keywords_remove'),
-				'about' => array('about_contrib', 'about_license')); 
+			$toc = get_help_page_toc();
 
 			if (isset($toc[$code])) {
+				// [ML] TODO: Show chapter intro?
 				echo "<ul>";
 
 				foreach ($toc[$code] as $st)
@@ -93,7 +83,6 @@ if ($code) {
 
 				echo "</ul>\n";
 			} else {
-				// [ML] This should be the normal error for this case
 				echo "<p>" . _T('help_warning_no_files') . "</p>\n";
 			}
 		}

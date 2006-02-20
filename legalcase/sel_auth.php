@@ -37,8 +37,8 @@ if (! ($case > 0)) {
 
 $destination = "case_det.php?id_case=" . $case;
 
-if (isset($GLOBALS['HTTP_REFERER']))
-	$destination = $GLOBALS['HTTP_REFERER'];
+if (isset($_SERVER['HTTP_REFERER']))
+	$destination = $_SERVER['HTTP_REFERER'];
 	
 $dest_link = new Link($destination);
 
@@ -63,12 +63,14 @@ while ($row = lcm_fetch_array($result)) {
 $q .= ')';
 
 // Add search criteria if any
-if (strlen($_REQUEST['find_author_string']) > 1) {
+if (isset($_REQUEST['find_author_string']) && strlen($_REQUEST['find_author_string']) > 1) {
 	$find_author_string = $_REQUEST['find_author_string'];
 
 	$q .= " AND ((name_first LIKE '%$find_author_string%')"
 		. " OR (name_middle LIKE '%$find_author_string%')"
 		. " OR (name_last LIKE '%$find_author_string%'))";
+} else {
+	$find_author_string = "";
 }
 
 // Sort authors by status
@@ -107,9 +109,10 @@ if ($list_pos > 0)
 		lcm_panic("Error seeking position $list_pos in the result");
 
 // Check if any author(s) available for selection
-if (lcm_num_rows($result) > 0)
-	lcm_page_start("Add a user to the case");
+if ($find_author_string || lcm_num_rows($result) > 0)
+	lcm_page_start(_T('title_case_add_author'), '', '', 'cases_participants');
 else {
+	// TODO: add $_SESSION['errors']['generic'] message?
 	header('Location: ' . $dest_link->getUrlForHeader());
 	exit;
 }

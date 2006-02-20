@@ -22,7 +22,6 @@
 */
 
 include('inc/inc.php');
-include_lcm('inc_keywords');
 
 //
 // Show all kwg for a given type (system, user, case, followup,
@@ -352,7 +351,7 @@ function update_keyword_group($id_group) {
 		$_SESSION['errors']['title'] = _Ti('keywords_input_title') . _T('warning_field_mandatory');
 
 	if (count($_SESSION['errors'])) {
-		header("Location: " . $GLOBALS['HTTP_REFERER']);
+		header("Location: " . $_SERVER['HTTP_REFERER']);
 		exit;
 	}
 
@@ -442,7 +441,7 @@ function update_keyword($id_keyword) {
 		$_SESSION['errors']['title'] = _Ti('keywords_input_name') . _T('warning_field_mandatory');
 
 	if (count($_SESSION['errors'])) {
-		header("Location: " . $GLOBALS['HTTP_REFERER']);
+		header("Location: " . $_SERVER['HTTP_REFERER']);
 		exit;
 	}
 

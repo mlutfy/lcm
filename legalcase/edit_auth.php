@@ -106,7 +106,7 @@ show_context_end();
 	<input type="hidden" name="case" value="<?php echo $case; ?>" />
 
 <?
-	$link = new Link($GLOBALS['HTTP_REFERER']);
+	$link = new Link($_SERVER['HTTP_REFERER']);
 	echo '<input type="hidden" name="ref_edit_auth" value="' . $link->getUrl() . '"/>' . "\n";
 	echo "</form>\n";
 
