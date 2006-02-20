@@ -71,6 +71,11 @@ $result = lcm_query($q);
 $number_of_rows = lcm_num_rows($result);
 
 // Check for correct start position of the list
+if (isset($_REQUEST['list_pos']))
+	$list_pos = $_REQUEST['list_pos'];
+else
+	$list_pos = 0;
+
 if ($list_pos>=$number_of_rows) $list_pos = 0;
 
 // Position to the page info start

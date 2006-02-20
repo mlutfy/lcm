@@ -114,14 +114,13 @@ echo "</form>\n";
 //
 /*
 // Select cases of which the current user is author
-$q = "SELECT c.id_case, title, id_court_archive, status, public, pub_write, date_creation
+$q = "SELECT c.id_case, title, status, public, pub_write, date_creation
 		FROM lcm_case as c, lcm_case_author as a
 		WHERE (c.id_case = a.id_case ";
 
 if (strlen($find_case_string) > 0) {
 	$q .= " AND ( (c.id_case LIKE '%$find_case_string%')
-				OR (c.title LIKE '%$find_case_string%') 
-				OR (id_court_archive LIKE '%$find_case_string%') )";
+				OR (c.title LIKE '%$find_case_string%') )";
 }
 
 $q .= ")";

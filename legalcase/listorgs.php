@@ -33,7 +33,7 @@ if (!empty($_REQUEST['export']) && ($GLOBALS['author_session']['status'] == 'adm
 	exit;
 }
 
-lcm_page_start(_T('title_org_list'));
+lcm_page_start(_T('title_org_list'), '', '', 'clients_intro');
 lcm_bubble('org_list');
 show_find_box('org', $find_org_string, '', (string)($GLOBALS['author_session']['status'] == 'admin') );
 
@@ -67,10 +67,10 @@ $result = lcm_query($q);
 $number_of_rows = lcm_num_rows($result);
 
 // Check for correct start position of the list
-$list_pos = 0;
-
 if (isset($_REQUEST['list_pos']))
 	$list_pos = $_REQUEST['list_pos'];
+else
+	$list_pos = 0;
 
 if ($list_pos >= $number_of_rows)
 	$list_pos = 0;
