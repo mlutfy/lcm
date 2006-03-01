@@ -62,7 +62,7 @@ function format_date($timestamp = '', $format = 'full') {
 	// format 0000-00-00 HH:MM:DD
 
 	if (! $timestamp)
-		$timestamp = strftime("%Y-%m-%d %H:%M:%S", mktime());
+		$timestamp = strftime("%Y-%m-%d %H:%M:%S", time());
 	
 	if (is_numeric($timestamp))
 		$timestamp = strftime("%Y-%m-%d %H:%M:%S", $timestamp);
