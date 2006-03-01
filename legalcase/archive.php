@@ -93,7 +93,7 @@ if ($list_pos > 0)
 show_listcase_start();
 
 for ($i = 0 ; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))) ; $i++) {
-	show_listcase_item($row, $i, '', $find_case_string);
+	show_listcase_item($row, $i, $find_case_string);
 }
 
 show_listcase_end($list_pos, $number_of_rows);
