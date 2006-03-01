@@ -384,10 +384,6 @@ function show_all_contacts($type_person, $id_of_person) {
 
 	$contacts = get_contacts($type_person, $id_of_person);
 
-	$html = '<div class="prefs_column_menu_head">' . _T('generic_subtitle_contacts') . "</div>\n";
-	$html .= '<table border="0" class="tbl_usr_dtl" width="100%">' . "\n";
-
-	$i = 0;
 	foreach($contacts as $c) {
 		// Check if the contact is an e-mail
 		if (strpos($c['name'],'email') === 0) {
@@ -397,21 +393,24 @@ function show_all_contacts($type_person, $id_of_person) {
 				$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>";
 				$html .= '<a href="mailto:' . $c['value'] . '" class="content_link">' . $c['value'] . '</a></td>';
 				$html .= "</tr>\n";
-				$i++;
 			}
 		} else {
 			$html .= "\t<tr>";
 			$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . _T($c['title']) . ":</td>";
 			$html .= "<td class='tbl_cont_" . ($i % 2 ? "dark" : "light") . "'>" . $c['value'] . "</td>";
 			$html .= "</tr>\n";
-			$i++;
 		}
 	}
 
-	$html .= "</table><br />\n";
+	if ($html) {
+		show_page_subtitle(_T('generic_subtitle_contacts'));
+		echo '<table border="0" class="tbl_usr_dtl" width="100%">' . "\n";
 
-	if ($i > 0)
 		echo $html;
+
+		echo "</table>\n";
+		echo "<br />\n";
+	}
 }
 
 function update_contacts_request($type_person, $id_of_person) {
