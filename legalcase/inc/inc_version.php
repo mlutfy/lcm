@@ -951,6 +951,13 @@ function _request ($name, $default = '') {
 		return $default;
 }
 
+function _session ($name, $default = '') {
+	if (isset($_SESSION['form_data'][$name]))
+		return clean_input($_SESSION['form_data'][$name]);
+	else
+		return $default;
+}
+
 // Main language of the site
 $langue_site = read_meta('default_language');
 if (!$langue_site) include_lcm('inc_lang');
