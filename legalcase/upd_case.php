@@ -61,7 +61,7 @@ if ($_REQUEST['add_client']) {
 $_SESSION['form_data']['title'] = clean_input(_session('title'));
 $_SESSION['form_data']['legal_reason'] = clean_input(_session('legal_reason'));
 $_SESSION['form_data']['alledged_crime'] = clean_input(_session('alledged_crime'));
-$_SESSION['form_data']['notes'] = clean_input(_session('notes'));
+$_SESSION['form_data']['case_notes'] = clean_input(_session('case_notes'));
 $_SESSION['form_data']['status'] = clean_input(_session('status'));
 $_SESSION['form_data']['stage'] = clean_input(_session('stage'));
 
@@ -102,7 +102,7 @@ $fl = "title='"              . $_SESSION['form_data']['title']            . "',
 		date_assignment = '" . $_SESSION['form_data']['date_assignment']  . "',
 		legal_reason='"      . $_SESSION['form_data']['legal_reason']     . "',
 		alledged_crime='"    . $_SESSION['form_data']['alledged_crime']   . "',
-		notes = '"           . $_SESSION['form_data']['notes']            . "',
+		notes = '"           . $_SESSION['form_data']['case_notes']       . "',
 	    status='"            . $_SESSION['form_data']['status']           . "',
 	    stage='"             . $_SESSION['form_data']['stage']            . "'";
 

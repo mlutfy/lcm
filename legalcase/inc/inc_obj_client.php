@@ -56,19 +56,21 @@ class LcmClient extends LcmObject {
 			$nkey = $key;
 
 			if (substr($key, 0, 7) == 'client_')
-				$nkey = substr($key, 8);
+				$nkey = substr($key, 7);
 
 			$this->data[$nkey] = _request($key);
 		}
 
 		// If any, populate with session variables (for error reporting)
-		foreach($_SESSION['form_data'] as $key => $value) {
-			$nkey = $key;
+		if (isset($_SESSION['form_data'])) {
+			foreach($_SESSION['form_data'] as $key => $value) {
+				$nkey = $key;
 
-			if (substr($key, 0, 7) == 'client_')
-				$nkey = substr($key, 8);
+				if (substr($key, 0, 7) == 'client_')
+					$nkey = substr($key, 7);
 
-			$this->data[$nkey] = _session($key);
+				$this->data[$nkey] = _session($key);
+			}
 		}
 	}
 
