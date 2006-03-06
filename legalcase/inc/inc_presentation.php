@@ -1825,4 +1825,18 @@ function get_delete_box($id, $arrname, $text) {
 	return $html;
 }
 
+function isChecked($expr) {
+	if ($expr)
+		return ' checked="checked" ';
+	else
+		return ' ';
+}
+
+function isSelected($expr) {
+	if ($expr)
+		return ' selected="selected" ';
+	else
+		return ' ';
+}
+
 ?>
