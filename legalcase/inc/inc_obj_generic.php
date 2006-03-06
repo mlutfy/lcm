@@ -33,7 +33,7 @@ class LcmObject {
 	}
 
 	function getDataInt($field, $default = 0) {
-		if (isset($this->data[$field]))
+		if (isset($this->data[$field]) && $this->data[$field] > 0)
 			return $this->data[$field];
 
 		if (is_string($default) && $default == '__ASSERT__')
@@ -46,7 +46,7 @@ class LcmObject {
 		if (isset($this->data[$field]))
 			return $this->data[$field];
 
-		if ($default == '__ASSERT__')
+		if (is_string($default) && $default == '__ASSERT__')
 			lcm_panic("Value does not exist.");
 
 		return $default;
