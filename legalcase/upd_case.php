@@ -79,7 +79,14 @@ if (count($errs)) {
 if (_request('add_fu')) {
 	include_lcm('inc_obj_fu');
 
-	// TODO
+	$fu = new LcmFollowup(0, $case->getDataInt('id_case'));
+	$errs = $fu->save();
+
+	if (count($errs)) {
+		$_SESSION['errors'] = array_merge($_SESSION['errors'], $errs);
+		header("Location: ". $_SERVER['HTTP_REFERER']);
+		exit;
+	}
 }
 
 	// [ML] I don't understand why: header("Location: $ref_edit_case");
