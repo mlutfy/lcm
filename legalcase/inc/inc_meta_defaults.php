@@ -86,6 +86,7 @@ function init_default_config() {
 		'client_hide_all' => 'no',
 		'client_share_read' => 'yes', // depends on hide_all
 		'client_share_write' => 'yes', // depends on read = yes
+		'person_name_format' => '1', // First Middle Last (ex: Ivan Petrov Ivanov)
 		'org_hide_all' => 'no',
 		'org_share_read' => 'yes', // depends on hide_all
 		'org_share_write' => 'yes', // depends on read = yes
