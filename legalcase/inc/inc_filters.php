@@ -255,7 +255,19 @@ function get_person_name($item) {
 		return '';
 	}
 
-	return njoin(array($item['name_first'], $item['name_middle'], $item['name_last']));
+	$format = read_meta('person_name_format');
+
+	if (! $format)
+		$format = '1';
+
+	switch ($format) {
+		case '10':
+			return njoin(array($item['name_last'] . ',', $item['name_first'], $item['name_middle']));
+			break;
+		case '1':
+		default:
+			return njoin(array($item['name_first'], $item['name_middle'], $item['name_last']));
+	}
 }
 
 function get_person_initials($item, $with_abbver = true) {
