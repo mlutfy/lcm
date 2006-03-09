@@ -51,7 +51,6 @@ class Auth_db {
 		$result = lcm_query($query);
 
 		if ($row = lcm_fetch_array($result)) {
-			$this->nom = $row['nom'];
 			$this->username = $row['username'];
 			$this->status = $row['status'];
 			$this->md5pass = $current_mdpass;
