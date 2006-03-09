@@ -218,6 +218,19 @@ class LcmClient extends LcmObject {
 			$this->data['id_client'] = lcm_insert_id($result);
 		}
 
+		// Keywords
+		update_keywords_request('client', $this->getDataInt('id_client'));
+
+		if ($_SESSION['errors'])
+			$errors = array_merge($_SESSION['errors'], $errors);
+
+		// Insert/update client contacts
+		include_lcm('inc_contacts');
+		update_contacts_request('client', $this->getDataInt('id_client'));
+
+		if ($_SESSION['errors'])
+			$errors = array_merge($_SESSION['errors'], $errors);
+
 		return $errors;
 	}
 }
