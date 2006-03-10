@@ -394,10 +394,16 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars) {
 	$err = $dt . ": $filename,$linenum " . $errortype[$errno] . " ($errno) $errmsg\n"
 		. lcm_getbacktrace(false); // false = without html
 
+
 	if (in_array($errno, $log_errors))
 		lcm_log($err);
-	else
+	else {
+		// [ML] Annoying errors. We are not limiting LCM to PHP5 syntax for now.
+		if (preg_match('/^var: Deprecated. Please use the public\/private\/protected modifiers/', $errmsg))
+			return;
+
 		lcm_debug("[dbg] " . $err);
+	}
 }
 
 $old_error_handler = set_error_handler("userErrorHandler");
