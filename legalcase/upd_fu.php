@@ -24,6 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_filters');
+include_lcm('inc_obj_fu');
 
 
 // Clear all previous errors
@@ -140,7 +141,7 @@ if (isset($_SESSION['form_data']['add_appointment'])) {
 // Check if any errors found
 //
 if (count($_SESSION['errors'])) {
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+    lcm_header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
 }
 
@@ -148,11 +149,14 @@ if (count($_SESSION['errors'])) {
 //	Followup information update
 ///////////////////////////////////////////////////////////////////////
 
-$fu = new LcmFollowup($id_followup)
+$fu = new LcmFollowup($id_followup);
 $errs = $fu->save();
 
+if (! $id_followup)
+	$id_followup = $fu->getDataInt('id_followup', '__ASSERT__');
+
 if (count($errs)) {
-    header("Location: " . $_SERVER['HTTP_REFERER']);
+    lcm_header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
 }
 
@@ -220,7 +224,7 @@ if (isset($_SESSION['form_data']['add_appointment'])) {
 }
 
 // Send user back to add/edit page's referer or (default) to followup detail page
-header('Location: fu_det.php?followup=' . $id_followup);
+lcm_header('Location: fu_det.php?followup=' . $id_followup);
 
 exit;
 
