@@ -29,6 +29,21 @@ include_lcm('inc_session');
 include_lcm('inc_filters');
 include_lcm('inc_text');
 
+function get_optional_html_login() {
+	$html_file = "custom/html/login.html";
+	$text = "";
+
+	if (is_readable($html_file))
+		if (($f = fopen($html_file, 'r'))) {
+			$text = "<div style='float: right;'>" 
+				. fread($f, filesize($html_file))
+				. "</div>\n";
+			fclose($f);
+		}
+
+	return $text;
+}
+
 function open_login($title='') {
 	$text = "<div>\n";
 
@@ -91,7 +106,7 @@ function show_login($cible, $prive = 'prive', $message_login='') {
 		AND ($author_session['status']=='admin' OR $author_session['status']=='normal'))
 	{
 		if ($url != $GLOBALS['clean_link']->getUrl())
-			@Header("Location: " . $cible->getUrlForHeader());
+			lcm_header("Location: " . $cible->getUrlForHeader());
 
 		// [ML] This is making problems for no reason, we use login only 
 		// for one mecanism (entering the system).

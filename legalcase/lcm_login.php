@@ -32,9 +32,11 @@ if (! include_config_exists('inc_connect')) {
 include_lcm('inc_presentation');
 include_lcm('inc_login');
 
+global $lcm_lang_right;
+
 lcm_html_start(_T('login_title_login'), 'login');
 
-global $lcm_lang_right;
+echo get_optional_html_login();
 
 // Site name: mandatory
 $site_name = _T(read_meta('site_name'));
