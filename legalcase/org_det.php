@@ -118,8 +118,9 @@ if (! $ac['r'])
 					. _T('org_button_edit')
 					. "</a></p>\n";
 
-			if ($GLOBALS['author_session']['status'] == 'admin')
-				echo '<p><a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="exp_lnk">' . _T('export_button_org') . "</a></p>\n";
+			// [ML] Not useful
+			// if ($GLOBALS['author_session']['status'] == 'admin')
+			//	echo '<p><a href="export.php?item=org&amp;id=' . $row['id_org'] . '" class="exp_lnk">' . _T('export_button_org') . "</a></p>\n";
 
 			echo "</fieldset>\n";
 

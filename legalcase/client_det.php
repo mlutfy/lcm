@@ -156,8 +156,9 @@ lcm_page_start(_T('title_client_view') . ' ' . get_person_name($row), '', '', 'c
 					echo '<a href="edit_client.php?client=' .
 					$row['id_client'] . '" class="edit_lnk">' .  _T('client_button_edit') . '</a>' . "\n";
 
-				if ($GLOBALS['author_session']['status'] == 'admin')
-					echo '<a href="export.php?item=client&amp;id=' . $row['id_client'] . '" class="exp_lnk">' . _T('export_button_client') . "</a>\n";
+				// [ML] Not useful
+				// if ($GLOBALS['author_session']['status'] == 'admin')
+				//	echo '<a href="export.php?item=client&amp;id=' . $row['id_client'] . '" class="exp_lnk">' . _T('export_button_client') . "</a>\n";
 
 				echo '<br /><br />';
 				echo "</fieldset>\n";

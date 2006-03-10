@@ -194,8 +194,9 @@ if ($case_allow_modif == 'yes' && $edit) {
 		. '</a>';
 }
 
-if ($GLOBALS['author_session']['status'] == 'admin')
-	echo '<a href="export.php?item=followup&amp;id=' . $fu_data['id_followup'] . '" class="exp_lnk">' . _T('export_button_followup') . "</a>\n";
+// [ML] Not useful
+//if ($GLOBALS['author_session']['status'] == 'admin')
+//	echo '<a href="export.php?item=followup&amp;id=' . $fu_data['id_followup'] . '" class="exp_lnk">' . _T('export_button_followup') . "</a>\n";
 
 echo "<br /><br /></fieldset>";
 
