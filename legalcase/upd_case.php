@@ -26,8 +26,6 @@ include_lcm('inc_acc');
 include_lcm('inc_filters');
 include_lcm('inc_obj_case');
 
-global $author_session;
-
 // Clear all previous errors
 $_SESSION['errors'] = array();
 
@@ -98,32 +96,29 @@ if (_request('add_fu')) {
 	$send_to = '';
 
 	// Proceed accoring to the button type
-	switch ($submit) {
+	switch (_request('submit')) {
 		case 'addnew':
 			$send_to = "edit_case.php?case=0&ref=$ref_edit_case";
-			// header("Location: edit_case.php?case=0&ref=$ref_edit_case");
 			break;
 		case 'adddet':
 			$send_to = "case_det.php?case=" . $case->getDataInt('id_case');
-			// header("Location: case_det.php?case=$id_case");
 			break;
 		default :
 			$send_to = $ref_edit_case;
-			// header("Location: $ref_edit_case");
 	}
 
 	// Send to add_client if any client to attach
-	if ($_SESSION['form_data']['attach_client']) {
+	if (_session('attach_client')) {
 		lcm_header("Location: add_client.php?case=" . $case->getDataInt('id_case')
-			. "&clients[]=" .  $_SESSION['form_data']['attach_client'] 
+			. "&clients[]=" . _session('attach_client') 
 			. "&ref_sel_client=" . rawurlencode($send_to));
 		exit;
 	}
 
 	// Send to add_org if any org to attach
-	if ($_SESSION['form_data']['attach_org']) {
+	if (_session('attach_org')) {
 		lcm_header("Location: add_org.php?case=" . $case->getDataInt('id_case')
-			. "&orgs[]=" .  $_SESSION['form_data']['attach_org'] 
+			. "&orgs[]=" . _session('attach_org')
 			. "&ref_sel_client=" . rawurlencode($send_to));
 		exit;
 	}
