@@ -221,7 +221,7 @@ function show_keyword_group_id($id_group) {
 	}
 	
 	echo '<td colspan="2">';
-	echo '<p>' . _T('keywords_info_quantity', array(quantity => $html_quantity)) . "</p>\n";
+	echo '<p>' . _T('keywords_info_quantity', array('quantity' => $html_quantity)) . "</p>\n";
 	echo "</td>\n";
 	echo "</tr>\n";
 
