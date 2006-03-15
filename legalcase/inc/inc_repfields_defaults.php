@@ -342,16 +342,19 @@ function create_repfields($rep_fields) {
 			}
 		} else {
 			// insert new field
-			$all_fields_tmp = array();
-			$all_fields = "";
+			$field_list = "";
+			$values_list = "";
 
-			foreach ($f as $key => $val)
-				$all_fields_tmp[] = "$key = '$val'";
+			foreach ($f as $key => $val) {
+				$field_list .= "$key,";
+				$values_list .= "'$val',";
+			}
 
-			$all_fields = implode(", ", $all_fields_tmp);
+			$field_list = preg_replace("/,$/", "", $field_list);
+			$values_list = preg_replace("/,$/", "", $values_list);
 
-			$q2 = "INSERT INTO lcm_fields
-						SET " . $all_fields;
+			$q2 = "INSERT INTO lcm_fields ($field_list)
+						VALUES (" . $values_list . ")";
 
 			lcm_query($q2);
 		}
