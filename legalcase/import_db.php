@@ -171,7 +171,7 @@ function import_database($input_filename) {
 					$fh = fopen($file,'r');
 					$q = fread($fh,filesize($file));
 					fclose($fh);
-					$result = lcm_query_create_table($q, true);
+					$result = lcm_query_restore_table($q);
 				}
 			}
 		}
