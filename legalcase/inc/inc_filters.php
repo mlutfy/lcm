@@ -194,17 +194,25 @@ function f_err($fn, $errors) {
 }
 
 function f_err_star($fn, $errors = array()) {
-	if (empty($errors))
-		$errors = $_SESSION['errors'];
+	if (! count($errors))
+		if (isset($_SESSION['errors']))
+			$errors = $_SESSION['errors'];
+
+	if (! count($errors))
+		return '';
 
 	return (isset($errors[$fn]) ? '<span style="color: #ff0000">*</span>' : '');
 }
 
-function show_all_errors($all_errors) {
+function show_all_errors($all_errors = array()) {
 	$ret = "<div align=\"left\"><ul class=\"err_list\">";
 
 	if (! count($all_errors))
-		return "";
+		if (isset($_SESSION['errors']))
+			$all_errors = $_SESSION['errors'];
+
+	if (! count($all_errors))
+		return '';
 
 	foreach ($all_errors as $error)
 		$ret .= "<li>" . $error . "</li>\n";
