@@ -213,7 +213,7 @@ if (isset($_SESSION['form_data']['add_appointment'])) {
 	$result = lcm_query($q);
 
 	// Get new appointment's ID
-	$id_app = lcm_insert_id();
+	$id_app = lcm_insert_id('lcm_app', 'id_app');
 	$_SESSION['form_data']['id_app'] = $id_app;
 
 	// Add relationship with the creator

@@ -375,7 +375,7 @@ function update_keyword_group($id_group) {
 						ac_admin = 'Y'";
 
 		lcm_query($query);
-		$id_group = lcm_insert_id();
+		$id_group = lcm_insert_id('lcm_keyword_group', 'id_group');
 		$kwg_info = get_kwg_from_id($id_group);
 	} else {
 		// Get current kwg information (kwg_type & name cannot be changed)
@@ -458,7 +458,7 @@ function update_keyword($id_keyword) {
 					ac_author = '" . clean_input($kw_ac_author) . "'";
 
 		lcm_query($query);
-		$id_keyword = lcm_insert_id();
+		$id_keyword = lcm_insert_id('lcm_keyword', 'id_keyword');
 		$kw_info = get_kw_from_id($id_keyword); // for redirection later
 	} else {
 		// Get current info about keyword (don't trust the user)

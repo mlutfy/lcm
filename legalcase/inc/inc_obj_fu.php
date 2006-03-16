@@ -264,14 +264,13 @@ class LcmFollowup extends LcmObject {
 
 			// Add the new follow-up
 			$q = "INSERT INTO lcm_followup
-				SET	id_followup=0,
-					id_case=" . $this->getDataInt('id_case') . ",
+				SET	id_case=" . $this->getDataInt('id_case') . ",
 					id_author=" . $GLOBALS['author_session']['id_author'] . ",
 					$fl,
 					case_stage='$case_stage'";
 	
 			lcm_query($q);
-			$this->data['id_followup'] = lcm_insert_id();
+			$this->data['id_followup'] = lcm_insert_id('lcm_followup', 'id_followup');
 	
 			// Set relation to the parent appointment, if any
 			if ($this->getDataInt('id_app')) {

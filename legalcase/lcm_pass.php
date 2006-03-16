@@ -247,7 +247,7 @@ function send_registration_by_email($email, $username, $name_first, $name_last) 
 	lcm_query("INSERT INTO lcm_author (name_first, name_last, username, password, status) "
 			. "VALUES ('".clean_input($name_first)."', '".clean_input($name_last)."', '$username', '$mdpass', 'normal')");
 
-	$id_author = lcm_insert_id();
+	$id_author = lcm_insert_id('lcm_author', 'id_author');
 
 	// Add e-mail to lcm_contact
 	lcm_query("INSERT INTO lcm_contact (type_person, type_contact, id_of_person, value)

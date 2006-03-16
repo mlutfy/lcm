@@ -60,7 +60,7 @@ if (count($_SESSION['errors'])) {
 	} else {
 		$q = "INSERT INTO lcm_org SET id_org=0,date_update=NOW(),$ol";
 		$result = lcm_query($q);
-		$_SESSION['form_data']['id_org'] = lcm_insert_id($result);
+		$_SESSION['form_data']['id_org'] = lcm_insert_id('lcm_org', 'id_org');
 
 		// If there is an error (ex: in contacts), we should send back to 'org_det.php?org=XX'
 		// not to 'org_det.php?org=0'.

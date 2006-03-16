@@ -196,7 +196,7 @@ if ($_SESSION['usr']['id_author'] > 0) {
 
 	$q = "INSERT INTO lcm_author SET date_creation = NOW(), $fl";
 	$result = lcm_query($q);
-	$_SESSION['usr']['id_author'] = lcm_insert_id();
+	$_SESSION['usr']['id_author'] = lcm_insert_id('lcm_author', 'id_author');
 	$_SESSION['usr']['id_author'] = $_SESSION['usr']['id_author'];
 }
 

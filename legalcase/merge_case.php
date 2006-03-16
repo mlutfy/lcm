@@ -48,7 +48,7 @@ if ($destination==0) {
 			date_creation=NOW(),
 			status='open'";
 	$result = lcm_query($q);
-	$destination = lcm_insert_id($result);
+	$destination = lcm_insert_id('lcm_case', 'id_case');
 
 	// Insert new case_author relation
 	$q = "INSERT INTO lcm_case_author SET

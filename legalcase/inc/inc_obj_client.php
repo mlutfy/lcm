@@ -215,7 +215,7 @@ class LcmClient extends LcmObject {
 						$cl";
 	
 			$result = lcm_query($q);
-			$this->data['id_client'] = lcm_insert_id($result);
+			$this->data['id_client'] = lcm_insert_id('lcm_client', 'id_client');
 		}
 
 		// Keywords
