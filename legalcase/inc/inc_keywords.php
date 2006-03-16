@@ -47,7 +47,7 @@ function get_kwg_all($type, $exclude_empty = false) {
 		if ($in_type)
 			$query .= " AND type $in_type ";
 
-		$query .= " GROUP BY id_group HAVING cpt > 0";
+		$query .= " GROUP BY id_group HAVING COUNT(k.id_keyword) > 0";
 	} else {
 		$query = "SELECT *
 					FROM lcm_keyword_group ";
@@ -101,7 +101,9 @@ function get_kwg_applicable_for($type_obj, $id_obj, $id_obj_sec = 0) {
 	}
 
 	// Get list of keyword groups which can be applied to object
-	$query = "SELECT kwg.*, COUNT(k.id_keyword) as cpt
+	// [ML] 2006-03-15 the select and "group by" on so many fields is 
+	// required by PostgreSQL
+	$query = "SELECT kwg.id_group, kwg.name, kwg.title, kwg.policy, kwg.suggest, kwg.quantity, COUNT(k.id_keyword) as cpt
 				FROM lcm_keyword_group as kwg, lcm_keyword as k
 				WHERE kwg.ac_author = 'Y' AND (type = '$type_obj' ";
 	
@@ -113,7 +115,8 @@ function get_kwg_applicable_for($type_obj, $id_obj, $id_obj_sec = 0) {
 	if ($not_in_str)
 		$query .= " AND kwg.id_group NOT IN (" . $not_in_str . ") ";
 
-	$query .= " GROUP BY id_group HAVING cpt > 0";
+	$query .= " GROUP BY kwg.id_group, kwg.name, kwg.title, kwg.policy, kwg.suggest, kwg.quantity
+				HAVING COUNT(k.id_keyword) > 0";
 	
 	$result = lcm_query($query);
 
