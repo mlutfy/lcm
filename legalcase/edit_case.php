@@ -114,7 +114,7 @@ else
 	lcm_page_start(_T('title_case_new'), '', '', 'cases_intro#new');
 
 // Show the errors (if any)
-echo show_all_errors($_SESSION['errors']);
+echo show_all_errors();
 
 if ($attach_client || $attach_org)
 	show_context_start();
