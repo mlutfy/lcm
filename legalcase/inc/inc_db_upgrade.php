@@ -933,6 +933,33 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (42);
 	}
 
+	// LCM 0.7.0
+	if ($lcm_db_version_current < 43) {
+		lcm_query("ALTER TABLE lcm_keyword_client
+					ADD value text NOT NULL DEFAULT ''");
+
+		lcm_query("ALTER TABLE lcm_keyword_org
+					ADD value text NOT NULL DEFAULT ''");
+
+		upgrade_db_version (43);
+	}
+
+	if ($lcm_db_version_current < 44) {
+		// Values which were previously 'yes' become 'yes_optional'
+		// because that's how they were processed in previous versions
+		$upd_metas = array('client_name_middle', 'client_citizen_number', 
+						'client_civil_status', 'client_income', 
+						'case_alledged_crime', 'case_legal_reason');
+
+		foreach ($upd_metas as $m) {
+			lcm_query("UPDATE lcm_meta
+						SET value = 'yes_optional'
+						WHERE value = 'yes' AND name = '$m'");
+		}
+
+		upgrade_db_version (44);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();

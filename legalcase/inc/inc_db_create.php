@@ -310,8 +310,9 @@ function create_database() {
 
 	$fields = array (
 		"id_entry bigint(21) NOT NULL auto_increment",
-		"id_keyword bigint(21) NOT NULL default '0'",
-		"id_client bigint(21) NOT NULL default '0'",
+		"id_keyword bigint(21) NOT NULL DEFAULT 0",
+		"id_client bigint(21) NOT NULL DEFAULT 0",
+		"value text NOT NULL DEFAULT ''",
 		"PRIMARY KEY (id_entry)"
 	);
 
@@ -325,8 +326,9 @@ function create_database() {
 
 	$fields = array (
 		"id_entry bigint(21) NOT NULL auto_increment",
-		"id_keyword bigint(21) NOT NULL default '0'",
-		"id_org bigint(21) NOT NULL default '0'",
+		"id_keyword bigint(21) NOT NULL DEFAULT 0",
+		"id_org bigint(21) NOT NULL DEFAULT 0",
+		"value text NOT NULL DEFAULT ''",
 		"PRIMARY KEY (id_entry)"
 	);
 

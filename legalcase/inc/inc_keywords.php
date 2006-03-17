@@ -143,6 +143,12 @@ function get_kwg_from_id($id_group) {
 }
 
 function get_kwg_from_name($kwg_name) {
+	global $system_kwg;
+
+	// Check cache
+	if (isset($system_kwg[$kwg_name]))
+		return $system_kwg[$kwg_name];
+
 	$query = "SELECT *
 				FROM lcm_keyword_group
 				WHERE name = '" . $kwg_name . "'";
