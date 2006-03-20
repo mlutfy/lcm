@@ -40,8 +40,8 @@ class LcmFollowup extends LcmObject {
 		$this->data = array();
 
 		if ($id_fu > 0) { 
-			$query = "SELECT fu.*, a.name_first, a.name_middle, a.name_last,
-						IF(UNIX_TIMESTAMP(fu.date_end) > 0, UNIX_TIMESTAMP(fu.date_end) - UNIX_TIMESTAMP(fu.date_start), 0) as length
+			$query = "SELECT fu.*, a.name_first, a.name_middle, a.name_last, " .
+						lcm_query_subst_time('fu.date_start', 'fu.date_end') . " as length
 					FROM lcm_followup as fu, lcm_author as a
 					WHERE id_followup = $id_fu
 					  AND fu.id_author = a.id_author";
