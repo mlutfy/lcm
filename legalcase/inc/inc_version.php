@@ -153,6 +153,29 @@ function include_data($file) {
 	lcm_debug("include_data: (ready) $lcmfile", 5);
 }
 
+function include_validator_exists($file) {
+	$lcmfile = 'custom/validation/validate_' . $file . '.php';
+	return @file_exists($lcmfile);
+}
+
+function include_validator($file) {
+	$lcmfile = 'custom/validation/validate_' . $file . '.php';
+
+	// This does not work correctly on PHP5, and who knows for PHP4..
+	if (! isset($GLOBALS['included_files'][$file]))
+		@$GLOBALS['included_files'][$file] = 0;
+	
+	if (@$GLOBALS['included_files'][$file]++)
+		return;
+
+	if (! @file_exists($lcmfile))
+		lcm_panic("File for include_lcm does not exist: $lcmfile");
+
+	lcm_debug("include_validator: (start) $lcmfile", 5);
+	include($lcmfile);
+	lcm_debug("include_validator: (ready) $lcmfile", 5);
+}
+
 
 //  ************************************
 // 	*** Default configuration of LCM ***

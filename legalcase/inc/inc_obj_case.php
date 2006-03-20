@@ -219,6 +219,28 @@ class LcmCase extends LcmObject {
 		if ($_SESSION['errors'])
 			$errors = array_merge($errors, $_SESSION['errors']);
 
+		//
+		// Custom validation functions
+		//
+		$id_case = $this->getDataInt('id_case');
+		$fields = array('title' => 'CaseTitle',
+					'legal_reason' => 'CaseLegalReason',
+					'alledged_crime' => 'CaseAllegedCrime',
+					'status' => 'CaseStatus',
+					'stage' => 'CaseStage');
+
+		foreach ($fields as $f => $func) {
+			if (include_validator_exists($f)) {
+				include_validator($f);
+				$class = "LcmCustomValidate$func";
+				$data = $this->getDataString($f);
+				$v = new $class();
+
+				if ($err = $v->validate($id_case, $data)) 
+					$errors[$f] = _Ti('case_input_' . $f) . $err;
+			}
+		}
+
 		return $errors;
 	}
 
