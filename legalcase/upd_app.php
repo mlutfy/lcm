@@ -167,7 +167,7 @@ if (count($_SESSION['errors'])) {
 
 		$result = lcm_query($q);
 
-		$id_app = lcm_insert_id();
+		$id_app = lcm_insert_id('lcm_app', 'id_app');
 		$_SESSION['app_data']['id_app'] = $id_app;
 
 		// Add relationship with the creator

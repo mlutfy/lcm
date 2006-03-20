@@ -68,8 +68,7 @@ if ($id_client > 0) {
 	lcm_page_start(_T('title_client_new'), '', '', 'clients_newclient');
 }
 
-if (isset($_SESSION['errors']))
-	echo show_all_errors($_SESSION['errors']);
+echo show_all_errors();
 
 echo '<form action="upd_client.php" method="post">' . "\n";
 

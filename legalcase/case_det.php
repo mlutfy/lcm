@@ -177,8 +177,7 @@ if ($case > 0) {
 				}
 
 				// Total time spent on case (redundant with "reports/times")
-				$query = "SELECT sum(IF(UNIX_TIMESTAMP(fu.date_end) > 0, 
-									UNIX_TIMESTAMP(fu.date_end)-UNIX_TIMESTAMP(fu.date_start), 0)) as time 
+				$query = "SELECT " . lcm_query_sum_time('fu.date_start', 'fu.date_end') . "
 							FROM lcm_followup as fu 
 							WHERE fu.id_case = " . $row['id_case'] . "
 							  AND fu.hidden = 'N'";
