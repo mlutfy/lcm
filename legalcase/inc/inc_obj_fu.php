@@ -169,10 +169,8 @@ class LcmFollowup extends LcmObject {
 		//
 		$fl = " date_start = '" . $this->getDataString('date_start') . "',
 				date_end   = '" . $this->getDataString('date_end') . "',
-				type       = '" . $this->getDataString('type') . "'"; 
-		
-		if ($this->getDataString('sumbilled', 0))
-			$fl .= ", sumbilled    = '" . $this->getDataString('sumbilled') . "'";
+				type       = '" . $this->getDataString('type') . "',
+				sumbilled  = " . $this->getDataString('sumbilled', 0);
 
 		if ($this->getDataString('type') == 'stage_change') {
 			// [ML] To be honest, we should "assert" most of the
@@ -264,7 +262,7 @@ class LcmFollowup extends LcmObject {
 
 			// Add the new follow-up
 			$q = "INSERT INTO lcm_followup
-				SET	id_case=" . $this->getDataInt('id_case') . ",
+					SET id_case=" . $this->getDataInt('id_case') . ",
 					id_author=" . $GLOBALS['author_session']['id_author'] . ",
 					$fl,
 					case_stage='$case_stage'";
