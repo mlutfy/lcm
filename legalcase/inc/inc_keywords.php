@@ -47,7 +47,9 @@ function get_kwg_all($type, $exclude_empty = false) {
 		if ($in_type)
 			$query .= " AND type $in_type ";
 
-		$query .= " GROUP BY id_group HAVING COUNT(k.id_keyword) > 0";
+		// pgsql requires that we group on all fields
+		$query .= " GROUP BY kwg.id_group, kwg.name, kwg.title, kwg.description, kwg.type, kwg.policy, kwg.quantity, kwg.suggest, kwg.ac_admin, kwg.ac_author 
+					HAVING COUNT(k.id_keyword) > 0";
 	} else {
 		$query = "SELECT *
 					FROM lcm_keyword_group ";
