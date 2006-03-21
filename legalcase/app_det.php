@@ -23,7 +23,7 @@
 
 include('inc/inc.php');
 
-$app = intval($_GET['app']);
+$app = intval(_request('app'));
 
 $ac = get_ac_app($app);
 
@@ -184,5 +184,8 @@ echo '<p class="normal_text">' . "\n";
 	echo "</fieldset>\n";
 
 	lcm_page_end();
+
+	$_SESSION['form_data'] = array();
+	$_SESSION['errors'] = array();
 
 ?>
