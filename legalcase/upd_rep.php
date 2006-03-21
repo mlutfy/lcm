@@ -84,7 +84,7 @@ if ($rep_data['id_report'] > 0) {
 	
 	lcm_query($q);
 } else {
-	$q = "INSERT INTO lcm_report SET id_report=0,date_creation=NOW(),$fl";
+	$q = "INSERT INTO lcm_report SET date_creation=NOW(),$fl";
 	$result = lcm_query($q);
 	$rep_data['id_report'] = lcm_insert_id('lcm_report', 'id_report');
 

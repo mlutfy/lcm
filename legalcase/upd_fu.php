@@ -202,13 +202,13 @@ if (isset($_SESSION['form_data']['add_appointment'])) {
 		";
 
 	// Add the new appointment
-	$q = "INSERT INTO lcm_app SET id_app=0";
+	$q = "INSERT INTO lcm_app SET ";
 	// Add case ID
-	$q .= ',id_case=' . $_SESSION['form_data']['id_case'];
+	$q .= 'id_case = ' . $_SESSION['form_data']['id_case'] . ',';
 	// Add ID of the creator
-	$q .= ',id_author=' . $GLOBALS['author_session']['id_author'];
+	$q .= 'id_author = ' . $GLOBALS['author_session']['id_author'] . ',';
 	// Add the rest of the fields
-	$q .= ",$fl,date_creation=NOW()";
+	$q .= "$fl, date_creation = NOW()";
 
 	$result = lcm_query($q);
 

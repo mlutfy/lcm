@@ -76,7 +76,7 @@ if (count($errors)) {
 		else $q = "UPDATE lcm_filter SET $fl WHERE id_filter=$id_filter";
 		$result = lcm_query($q);
 	} else {
-		$q = "INSERT INTO lcm_filter SET id_filter=0,date_creation=NOW(),$fl";
+		$q = "INSERT INTO lcm_filter SET date_creation=NOW(),$fl";
 		$result = lcm_query($q);
 		$id_filter = lcm_insert_id('lcm_filter', 'id_filter');
 	}
