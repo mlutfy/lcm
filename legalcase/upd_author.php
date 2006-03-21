@@ -158,7 +158,7 @@ if ($_SESSION['usr']['id_author'] != $author_session['id_author'])
 //
 // Start SQL query
 //
-$fl = 'date_update = NOW()';
+$fl = "date_update = NOW(), username = '', password = ''";
 
 // First name must have at least one character
 if (strlen(lcm_utf8_decode($_SESSION['usr']['name_first'])) < 1) {
