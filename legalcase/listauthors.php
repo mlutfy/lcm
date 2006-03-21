@@ -35,7 +35,7 @@ show_find_box('author', $find_author_string);
 
 $q = "SELECT id_author,name_first,name_middle,name_last,status
 		FROM lcm_author
-		WHERE (1";
+		WHERE (1=1 ";
 
 // Add search criteria if any
 if (strlen($find_author_string)>1) {
