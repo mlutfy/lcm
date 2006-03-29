@@ -267,6 +267,9 @@ function lcm_page_start($title = "", $css_files = "", $meta = '', $help_code = '
 	if (read_meta('org_hide_all') != 'yes')
 		echo show_navmenu_item("listorgs.php", 'main_orgs');
 
+	if (read_meta('expenses_hide_all') != 'yes')
+		echo show_navmenu_item("listexpenses.php", "main_expenses");
+
 	echo show_navmenu_item("listauthors.php", 'main_authors');
 
 	echo "</ul>\n";
