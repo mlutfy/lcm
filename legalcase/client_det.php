@@ -31,8 +31,8 @@ if (! ($client > 0))
 	die("Which client?");
 
 $q="SELECT *
-	FROM lcm_client
-	WHERE lcm_client.id_client = $client";
+	FROM lcm_client as c
+	WHERE c.id_client = $client";
 
 $result = lcm_query($q);
 
