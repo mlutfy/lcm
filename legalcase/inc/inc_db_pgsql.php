@@ -123,7 +123,7 @@ function lcm_query_create_table($table, $fields, $keys = array()) {
 				$tmp .= "DEFAULT " . $regs[1];
 		}
 
-		$tmp = preg_replace("/datetime DEFAULT '0000-00-00 00:00:00' NOT NULL/", "timestamp NOT NULL", $tmp);
+		$tmp = preg_replace("/datetime( DEFAULT '0000-00-00 00:00:00')? NOT NULL/", "timestamp NOT NULL", $tmp);
 
 		$new_fields[] = $tmp;
 	}
@@ -381,10 +381,12 @@ function lcm_num_rows($r) {
 
 function lcm_data_seek($r,$n) {
 	if ($r)
-		return mysql_data_seek($r,$n);
+		return pg_result_seek($r,$n);
 }
 
 function lcm_free_result($r) {
+	lcm_panic("Not implemented");
+
 	if ($r)
 		return mysql_free_result($r);
 }
