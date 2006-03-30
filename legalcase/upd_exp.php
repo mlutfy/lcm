@@ -45,12 +45,22 @@ if ($_SERVER['HTTP_REFERER'])
 //
 // Update data
 //
-if ($id_comment || $edit_comment)
+if ($id_comment || $edit_comment) {
 	$obj = new LcmExpenseComment($id_expense, $id_comment);
-else
-	$obj = new LcmExpense($id_expense);
+	$errs = $obj->save($true);
 
-$errs = $obj->save();
+	if (! count($errs) && _request('new_exp_status')) {
+		$obj = new LcmExpense($id_expense);
+		$errs = $obj->setStatus(_request('new_exp_status'));
+	}
+} else {
+	$obj = new LcmExpense($id_expense);
+	$errs = $obj->save();
+}
+
+
+// TODO 
+// save expense status
 
 if (count($errs)) {
 	$_SESSION['errors'] = array_merge($_SESSION['errors'], $errs);
