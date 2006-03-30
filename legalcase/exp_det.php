@@ -46,10 +46,13 @@ echo '<fieldset class="info_box">';
 
 $obj_expense = new LcmExpenseInfoUI($expense);
 $obj_expense->printGeneral();
-$obj_expense->printComments();
 
 // if ($edit)
 	echo '<p><a href="edit_exp.php?expense=' . $expense . '" class="edit_lnk">' . _T('expense_button_edit') . '</a></p>' . "\n";
+
+$obj_expense->printComments();
+
+// if ($edit)
 	echo '<p><a href="edit_exp.php?edit_comment=1&expense=' . $expense . '" class="edit_lnk">' . _T('expense_button_comment') . '</a></p>' . "\n";
 
 echo "</fieldset>\n";

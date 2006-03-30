@@ -164,7 +164,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 		<tr>
 <?php
 
-	echo "<td>" . f_err_star('start_time') . _T('app_input_date_start') . "</td>\n";
+	echo "<td>" . f_err_star('start_time') . _T('time_input_date_start') . "</td>\n";
 	echo "<td>";
 
 	$name = ($edit ? 'start' : '');
@@ -181,7 +181,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 <?php
 
 	if ($prefs['time_intervals'] == 'absolute') {
-		echo "<td>" . f_err_star('end_time') . _T('app_input_date_end') . "</td>\n";
+		echo "<td>" . f_err_star('end_time') . _T('time_input_date_end') . "</td>\n";
 		echo "<td>";
 
 		$name = (($admin || ($edit && ($_SESSION['form_data']['end_time']=='0000-00-00 00:00:00'))) ? 'end' : '');

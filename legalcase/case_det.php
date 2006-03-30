@@ -252,7 +252,7 @@ if ($case > 0) {
 					$statuses = get_possible_case_statuses($row['status']);
 
 					foreach ($statuses as $s => $futype) {
-						$sel = ($s == $row['status'] ? ' selected="selected"' : '');
+						$sel = isSelected($s == $row['status']);
 						echo '<option value="' . $futype . '"' . $sel . '>' . _T('case_status_option_' . $s) . "</option>\n";
 					}
 
