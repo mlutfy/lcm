@@ -268,7 +268,7 @@ function lcm_page_start($title = "", $css_files = "", $meta = '', $help_code = '
 		echo show_navmenu_item("listorgs.php", 'main_orgs');
 
 	if (read_meta('expenses_hide_all') != 'yes')
-		echo show_navmenu_item("listexpenses.php", "main_expenses");
+		echo show_navmenu_item("listexps.php", "main_expenses");
 
 	echo show_navmenu_item("listauthors.php", 'main_authors');
 
@@ -1568,6 +1568,7 @@ function show_find_box($type, $string, $dest = '', $layout = 'normal') {
 		case 'org':
 		case 'author':
 		case 'rep':
+		case 'exp':
 			$action = 'list' . $type . 's.php';
 			break;
 		default:
