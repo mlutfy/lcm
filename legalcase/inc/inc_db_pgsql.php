@@ -201,6 +201,10 @@ function process_query($query) {
 		$query = "INSERT INTO $table ($str_new_fields) VALUES ($str_new_values)";
 	}
 
+	// Make search queries case-insensitive
+	if (preg_match("/^SELECT (.*) LIKE '(.*)$/", $query, $regs))
+		$query = "SELECT " . $regs[1] . " ILIKE '" . $regs[2];
+
 	// change the names of the tables ($table_prefix)
 	// for example, lcm_case may become foo_case
 	if ($GLOBALS['flag_pcre']) {

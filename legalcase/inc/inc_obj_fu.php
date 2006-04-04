@@ -671,7 +671,7 @@ class LcmFollowupInfoUI extends LcmFollowup {
 			$kw_found = false;
 
 			foreach($futype_kws as $kw) {
-				$sel = ($kw['name'] == $default_fu ? ' selected="selected"' : '');
+				$sel = isSelected($kw['name'] == $default_fu);
 				if ($sel) $kw_found = true;
 				echo '<option value="' . $kw['name'] . '"' . $sel . '>' . _T(remove_number_prefix($kw['title'])) . "</option>\n";
 			}

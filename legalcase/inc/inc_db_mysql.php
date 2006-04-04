@@ -163,8 +163,8 @@ function lcm_query_create_table($table, $fields, $keys = array()) {
 	return lcm_query($query);
 }
 
-lcm_query_create_unique_index($table, $idx_name, $field) {
-	lcm_query("CREATE UNIQUE INDEX $idx_name ON $table ($field)";
+function lcm_query_create_unique_index($table, $idx_name, $field) {
+	lcm_query("CREATE UNIQUE INDEX $idx_name ON $table ($field)");
 }
 
 
@@ -388,7 +388,7 @@ function lcm_query_sum_time($field_start, $field_end) {
 		. "IF(UNIX_TIMESTAMP($field_end) > 0,"
 			. "UNIX_TIMESTAMP($field_end)-UNIX_TIMESTAMP($field_start),"
 			. "0)"
-		. ") as time";
+		. ") ";
 }
 
 function lcm_query_subst_time($field_start, $field_end) {
