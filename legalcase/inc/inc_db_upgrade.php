@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2005 Free Software Foundation, Inc.
+	(C) 2004-2006 Free Software Foundation, Inc.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -994,6 +994,13 @@ function upgrade_database($old_db_version) {
 		lcm_query_create_table("lcm_expense_comment", $fields);
 
 		upgrade_db_version (44);
+	}
+
+	if ($lcm_db_version_current < 45) {
+		lcm_query("ALTER TABLE lcm_report
+					ADD filecustom text NOT NULL DEFAULT ''");
+
+		upgrade_db_version (45);
 	}
 
 	// Update the meta, lcm_fields, keywords, etc.

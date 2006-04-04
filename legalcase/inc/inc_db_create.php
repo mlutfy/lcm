@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2005 Free Software Foundation, Inc.
+	(C) 2004-2006 Free Software Foundation, Inc.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -371,6 +371,7 @@ function create_database() {
 		"line_src_name text NOT NULL DEFAULT ''",
 		"col_src_type text NOT NULL DEFAULT ''",
 		"col_src_name text NOT NULL DEFAULT ''",
+		"filecustom text NOT NULL DEFAULT ''",
 		"PRIMARY KEY  (id_report)"
 	);
 

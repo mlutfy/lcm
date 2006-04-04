@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2005 Free Software Foundation, Inc.
+	(C) 2004-2006 Free Software Foundation, Inc.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -28,6 +28,33 @@ class LcmExportCSV /* extends LcmExportObject */ {
 
 	function LcmExportCSV() {
 		// $this->LcmExportObject();
+	}
+
+	// Note: $helpref is not used for this exporter
+	function printStartDoc($title, $description, $helpref) {
+		$title = trim($title);
+		$description = trim($description);
+	
+		if (! $description)
+			$description = $title;
+	
+		header("Content-Type: text/comma-separated-values");
+		header('Content-Disposition: filename="' . $title . '.csv"');
+		header("Content-Description: " . $description);
+		header("Content-Transfer-Encoding: binary");
+	}
+
+	function printHeaderValueStart() {
+
+	}
+
+	function printHeaderValue($val) {
+		$val = _Th(remove_number_prefix($val));
+		echo '"' . $val . '", ';
+	}
+
+	function printHeaderValueEnd() {
+		$this->printEndLine();
 	}
 
 	function printValue($val, $h, $css) {
