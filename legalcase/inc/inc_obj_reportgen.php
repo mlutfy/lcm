@@ -220,12 +220,18 @@ class LcmReportGenUI extends LcmReportGen {
 	function LcmReportGenUI($my_id_report, $my_export = 'html', $my_debug = false) {
 		$this->ui = $my_export;
 
-		if ($my_export == 'csv') {
-			include_lcm('inc_obj_export_csv');
-			$this->exporter = new LcmExportCSV();
-		} else {
-			include_lcm('inc_obj_export_html');
-			$this->exporter = new LcmExportHtml();
+		switch ($my_export) {
+			case 'csv':
+				  include_lcm('inc_obj_export_csv');
+				  $this->exporter = new LcmExportCSV();
+				  break;
+			case 'ods':
+				  include_lcm('inc_obj_export_ods');
+				  $this->exporter = new LcmExportODS();
+				  break;
+			default:
+				  include_lcm('inc_obj_export_html');
+				  $this->exporter = new LcmExportHtml();
 		}
 
 		$this->LcmReportGen($my_id_report, $my_debug);
@@ -271,6 +277,10 @@ class LcmReportGenUI extends LcmReportGen {
 		$this->exporter->printEndLine();
 		$this->col_count = 0;
 		// $this->line_count++; ? (may be better than incrementing explicitely)
+	}
+
+	function printEndDoc() {
+		$this->exporter->printEndDoc();
 	}
 }
 

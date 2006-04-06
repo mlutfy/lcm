@@ -96,6 +96,10 @@ class LcmExportHtml /* extends LcmExportObject */ {
 	function printEndLine() {
 		echo "</tr>\n";
 	}
+
+	function printEndDoc() {
+		// nothing
+	}
 }
 
 ?>

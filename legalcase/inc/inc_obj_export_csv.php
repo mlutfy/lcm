@@ -105,6 +105,10 @@ class LcmExportCSV /* extends LcmExportObject */ {
 	function printEndLine() {
 		echo "\n";
 	}
+
+	function printEndDoc() {
+		// nothing
+	}
 }
 
 ?>
