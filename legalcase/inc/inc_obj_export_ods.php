@@ -107,20 +107,24 @@ class LcmExportODS /* extends LcmExportObject */ {
 		$description = trim($description);
 
 		// Prepare the ZIP file
+		/*
 		@include("pear/Archive/Zip.php");
 
 		if (! class_exists("Archive_Zip"))
 			lcm_panic("You must have PEAR installed (Archive/Zip.php)");
+		*/
+		include_lcm('inc_pclzip');
 
 		// Zip filename must use random ID, to avoid overwriting existing reports
 		// not catastrophic if that happens, but annoyance nonetheless.
 		$this->zipname = $this->dir . '.ods';
-		$this->zipfile = new Archive_Zip($this->zipname);
+		// $this->zipfile = new Archive_Zip($this->zipname);
+		$this->zipfile = new PclZip($this->zipname);
 
-		$title = preg_replace('/\s+/', '_', $title);
+		$filename = preg_replace('/\s+/', '_', $title);
 
 		header("Content-Type: " . $this->mimetype);
-		header('Content-Disposition: filename="' . $title . '.ods"');
+		header('Content-Disposition: filename="' . $filename . '.ods"');
 		header("Content-Description: " . ($description ? $description : $title));
 		header("Content-Transfer-Encoding: binary");
 
@@ -337,17 +341,21 @@ class LcmExportODS /* extends LcmExportObject */ {
 			$this->dir . '/styles.xml'
 		);
 
+		/*
 		$params = array (
 			'remove_path' => $this->dir
 		);
 
 		$this->zipfile->create($all_files, $params);
+		*/
+		$this->zipfile->create($all_files, '', $this->dir);
+
 		
 		// Send it to the user for download
 		if (! ($f = fopen($this->zipname, 'r'))) 
 			lcm_panic("Failed to open " . $this->zipname . ": " . $GLOBALS['lcm_errormsg']);
 
-		while (($data = fread($fh, filesize($this->zipname))))
+		while (($data = fread($f, filesize($this->zipname))))
 			echo $data;
 
 		fclose($f);
