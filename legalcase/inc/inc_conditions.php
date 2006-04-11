@@ -274,7 +274,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 		array_push($sources, "'" . $row['table_name'] . "'");
 
 	// Fetch all keyword sources
-	if ($rep_info['col_src_type'] == 'keyword') {
+	if ($rep_info['col_src_type'] == 'keyword' && $rep_info['col_src_name']) {
 		$kwg = get_kwg_from_name($rep_info['col_src_name']);
 
 		if ($kwg['type'] == 'system') {
