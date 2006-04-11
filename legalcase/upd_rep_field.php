@@ -256,8 +256,13 @@ if (_request('filecustom')) {
 			if ($do_update)
 				$query .= ", ";
 
-			$query .= " col_src_type = '" . $info['type'] . "',
-						col_src_name = '" . $info['name'] . "'";
+			$query .= " col_src_type = '" . $info['type'] . "'";
+			
+			// Ignore if name not set, or name restricts the choice (ex:  keyword that applies to 'case')
+			if (! $info['name'] || substr($info['name'], 0, 4) == 'FOR:')
+				$query .= ", col_src_name = '' ";
+			else
+				$query .= ", col_src_name = '" . $info['name'] . "' ";
 
 			$do_update = true;
 		}
