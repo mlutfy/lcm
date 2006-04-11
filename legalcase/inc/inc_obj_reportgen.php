@@ -208,7 +208,7 @@ class LcmReportGen extends LcmObject {
 		$this->line_count++;
 	}
 
-	function getLineCount() {
+	function getRowCount() {
 		return $this->line_count;
 	}
 }
@@ -217,7 +217,7 @@ class LcmReportGenUI extends LcmReportGen {
 	var $exporter;
 	var $ui;
 
-	function LcmReportGenUI($my_id_report, $my_export = 'html', $my_debug = false) {
+	function LcmReportGenUI($my_id_report, $my_export = 'html', $my_debug = 0) {
 		$this->ui = $my_export;
 
 		switch ($my_export) {
