@@ -230,10 +230,11 @@ function lcm_connect_db_test($host, $login, $pass, $db = '', $port = 0) {
 
 	// Non-silent connect, should be shown in <!-- --> anyway
 	if ($port > 0) $host = "$host:$port";
-	$link = mysql_connect($host, $login, $pass, $port);
+	$link = mysql_connect($host, $login, $pass, true);
 
 	if ($link) {
-		mysql_close($link);
+//		mysql_close($link);
+		$link = null;
 		return true;
 	} else {
 		return false;
