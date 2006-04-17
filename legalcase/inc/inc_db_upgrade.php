@@ -971,7 +971,8 @@ function upgrade_database($old_db_version) {
 			"date_creation datetime NOT NULL",
 			"date_update datetime NOT NULL",
 			"pub_read tinyint(1) NOT NULL",
-			"pub_write tinyint(1) NOT NULL"
+			"pub_write tinyint(1) NOT NULL",
+			"PRIMARY KEY  (id_expense)"
 		);
 
 		$keys = array (
@@ -988,7 +989,8 @@ function upgrade_database($old_db_version) {
 			"id_author bigint(21) NOT NULL",
 			"date_creation datetime NOT NULL",
 			"date_update datetime NOT NULL",
-			"comment text NOT NULL DEFAULT ''"
+			"comment text NOT NULL DEFAULT ''",
+			"PRIMARY KEY  (id_comment)"
 		);
 
 		lcm_query_create_table("lcm_expense_comment", $fields);
