@@ -83,10 +83,10 @@ if (_request('add')) {
 	$add = $_REQUEST['add']; // = { 'col', 'line', 'filter' }
 	$id_field = intval($_REQUEST['id_field']);
 
-	if (! $id_field)
-		die ("add column: missing valid 'id_field'");
-
-	if ($add == 'col') {
+	if (! $id_field) {
+		// This is normal to happen, but log in case we have weird bugs
+		lcm_log("upd_rep_field: add column: no id_field provided");
+	} elseif ($add == 'col') {
 		$order = intval($_REQUEST['order']);
 		$header = clean_input($_REQUEST['header']);
 		$sort = clean_input($_REQUEST['sort']);
