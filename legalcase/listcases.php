@@ -57,7 +57,7 @@ if ($author_session['status'] == 'admin')
 
 if (($v = _request('case_owner'))) {
 	if ($prefs['case_owner'] != $v) {
-		if (! array_key_exists($v, $types_owner))
+		if (! array_search($v, $types_owner))
 			lcm_panic("Value for case owner not permitted: " . htmlspecialchars($v));
 		
 		$prefs['case_owner'] = _request('case_owner');

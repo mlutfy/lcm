@@ -82,7 +82,7 @@ $q_owner .= " ) ";
 //
 if (($v = _request('case_period'))) {
 	if ($prefs['case_period'] != $v) {
-		if (! array_key_exists($v, $types_period))
+		if (! array_search($v, $types_period))
 			lcm_panic("Value for case period not permitted: " . htmlspecialchars($v));
 
 		$prefs['case_period'] = $v;
