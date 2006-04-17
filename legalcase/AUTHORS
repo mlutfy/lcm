@@ -36,4 +36,5 @@ Documentation:
 	Mathieu Lutfy (mathieu -at- bidon.ca)
 
 Libraries included:
-	Pclzip v2.6-RC1, by Vincent Blavet (vincent -at- phpconcept.net, www.phpconcept.net)
+	Pclzip v2.6-RC1, by Vincent Blavet (vincent -at- phpconcept.net, www.phpconcept.net), GPL
+	liveUpdater.js (derivative), originally by Avai Bryant and modifications by Leslie A. Hensley, public domain
