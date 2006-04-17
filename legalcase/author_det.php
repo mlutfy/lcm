@@ -270,7 +270,12 @@ $result = lcm_query($q);
 								UNIX_TIMESTAMP(date_end)-UNIX_TIMESTAMP(date_start), 0)) as total_time
 					FROM lcm_followup
 					WHERE id_author = $author
-				 	GROUP BY id_author";
+					  AND UNIX_TIMESTAMP(date_start) >= UNIX_TIMESTAMP('" .  $date_start . "') ";
+
+				if ($date_end != "-1")
+					$q .= " AND UNIX_TIMESTAMP(date_end) <= UNIX_TIMESTAMP('" . $date_end . "')";
+				
+				$q .= "	GROUP BY id_author";
 
 				$result = lcm_query($q);
 				$row = lcm_fetch_array($result);
