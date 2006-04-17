@@ -803,7 +803,7 @@ class LcmExpenseListUI {
 
 			// Type
 			echo "<td class='tbl_cont_" . $css . "'>";
-			echo $row['type'];
+			echo _Tkw('_exptypes', $row['type']);
 			echo "</td>\n";
 
 			// Description
