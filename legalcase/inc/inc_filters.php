@@ -226,7 +226,7 @@ function f_err_star($fn, $errors = array()) {
 	if (! count($errors))
 		return '';
 
-	return (isset($errors[$fn]) ? '<span style="color: #ff0000">*</span>' : '');
+	return (isset($errors[$fn]) ? '<a name="' . $fn . '"></a><span style="color: #ff0000">*</span>' : '');
 }
 
 function show_all_errors($all_errors = array()) {
@@ -239,8 +239,8 @@ function show_all_errors($all_errors = array()) {
 	if (! count($all_errors))
 		return '';
 
-	foreach ($all_errors as $error)
-		$ret .= "<li>" . $error . "</li>\n";
+	foreach ($all_errors as $key => $error)
+		$ret .= "<li><a href='#$key'>" . $error . "</a></li>\n";
 	
 	$ret .= "</ul></div>\n";
 	return $ret;
