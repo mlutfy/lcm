@@ -110,6 +110,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 					echo _T('rep_filter_' . $filter['type']);
 				} else {
 					echo "<select name='filter_type'>\n";
+					echo "<option value=''>...</option>\n";
 
 					foreach ($all_filters[$filter['filter']] as $f) {
 						$sel = ($filter['type'] == $f ? ' selected="selected"' : '');
@@ -139,7 +140,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 						$result_author = lcm_query($q);
 
 						echo "<select name='$name'>\n";
-						echo "<option value=''> ... </option>\n"; // TRAD
+						echo "<option value=''>...</option>\n"; // TRAD
 
 						while ($author = lcm_fetch_array($result_author)) {
 							// Check for already submitted value
@@ -318,6 +319,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 
 			echo "<p class='normal_text'>" . _Ti('rep_input_filter_add');
 			echo "<select name='id_field'>\n";
+			echo "<option value=''>...</option>\n";
 
 			while ($row = lcm_fetch_array($result)) {
 				echo "<option value='" . $row['id_field'] . "'>" . _Ti('rep_info_table_' . $row['table_name']) . _Th($row['description']) . "</option>\n";
