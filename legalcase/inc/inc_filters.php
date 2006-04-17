@@ -230,7 +230,9 @@ function f_err_star($fn, $errors = array()) {
 }
 
 function show_all_errors($all_errors = array()) {
-	$ret = "<div align=\"left\"><ul class=\"err_list\">";
+	$ret = '<div align="left" class="err_box">'
+		. '<p class="normal_text">' . _Ti('title_error') . '</p>'
+		. '<ul class="err_list">';
 
 	if (! count($all_errors))
 		if (isset($_SESSION['errors']))
