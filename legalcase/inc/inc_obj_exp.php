@@ -166,6 +166,9 @@ class LcmExpense extends LcmObject {
 		if (!$this->getDataString('description'))
 			$errors['description'] = _Ti('expense_input_description') . _T('warning_field_mandatory');
 
+		if (! preg_match('/^\d*\.?\d*$/', $this->getDataString('cost')))
+			$errors['cost'] = _Ti('expense_input_cost') . 'Format not recognised, please use 9999.99 format'; // TRAD
+
 		//
 		// Custom validation functions
 		//
