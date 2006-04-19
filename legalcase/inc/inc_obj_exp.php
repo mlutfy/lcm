@@ -746,8 +746,7 @@ class LcmExpenseListUI {
 		// Period (date_creation) to show
 		if ($prefs['case_period'] < 1900) // since X days
 			// $q .= " AND TO_DAYS(NOW()) - TO_DAYS(date_creation) < " . $prefs['case_period'];
-			$q .= " AND " . lcm_query_trunc_field('NOW()', 'day') . ' - '
-				. lcm_query_trunc_field('e.date_creation', 'day') . ' < ' . $prefs['case_period'];
+			$q .= " AND " . lcm_query_subst_time('e.date_creation', 'NOW()') . ' < ' . $prefs['case_period'] * 3600 * 24;
 		else // for year X
 			$q .= " AND " . lcm_query_trunc_field('e.date_creation', 'year') . ' = ' . $prefs['case_period'];
 
