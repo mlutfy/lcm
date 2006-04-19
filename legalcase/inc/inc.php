@@ -151,8 +151,6 @@ $installed_db_version = read_meta('lcm_db_version');
 
 if ($installed_db_version < $lcm_db_version) {
 	lcm_page_start(_T('title_upgrade_database'));
-	if (! isset($installed_version))
-		$installed_version = "old version";
 
 	echo "<div class='box_warning'>\n";
 	echo '<p class="normal_text"><b>' . _T('title_technical_message') . _T('typo_column') . "</b> "
@@ -160,6 +158,9 @@ if ($installed_db_version < $lcm_db_version) {
 		. '<a class="content_link" href="lcm_upgrade.php">' . _T('info_upgrade_database2') . "</a>"
 		. "</p>";
 	echo "</div>\n";
+
+	echo "<!-- VERSION installed = $installed_db_version ; should be = $lcm_db_version -->\n";
+	lcm_log("Upgrade required: installed = $installed_db_version, should be = $lcm_db_version");
 
 	lcm_page_end();
 	exit;
