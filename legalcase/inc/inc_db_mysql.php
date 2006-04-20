@@ -98,7 +98,7 @@ function lcm_query_db($query, $accept_fail = false) {
 	}
 
 	if ($my_debug)
-		lcm_log("QUERY: $query\n", "mysql");
+		lcm_debug("QUERY: $query\n", 1, 'sql');
 
 	if (lcm_sql_errno() && (!$accept_fail)) {
 		$s = lcm_sql_error();

@@ -70,7 +70,7 @@ function lcm_query_db($query, $accept_fail = false) {
 	}
 
 	if ($my_debug)
-		lcm_log("QUERY: $query\n", "pgsql");
+		lcm_debug("QUERY: $query\n", 1, 'sql');
 
 	if (! $result) {
 		$err = lcm_sql_error();
