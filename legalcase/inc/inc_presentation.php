@@ -714,6 +714,12 @@ function get_date_inputs($name = 'select', $date = '', $blank = true, $table = f
 	$default_day   = _session($name . '_day',   $split_date[2]);
 	$default_year  = _session($name . '_year',  $split_date[0]);
 
+	if ($default_day == '0' || $default_day == '00')
+		$default_day = '';
+
+	if ($default_year == '0000')
+		$default_year = '';
+
 	// If name is empty, disable fields
 	$dis = (($name) ? '' : 'disabled="disabled"');
 
@@ -724,21 +730,6 @@ function get_date_inputs($name = 'select', $date = '', $blank = true, $table = f
 			. "<td><!-- " . _T('select_date_day') . "<br/ -->\n";
 
 	$ret .= "<input size=\"4\" type=\"text\" $dis value=\"$default_day\" name=\"" . $name . "_day\" id=\"" . $name . "_day\" />\n";
-
-	/*
-	$ret .= "<select $dis name=\"" . $name . "_day\" id=\"" . $name . "_day\">\n";
-
-	// Day of month
-	for ($i = 1; $i <= 31; $i++) {
-		$default = ($i == $default_day ? ' selected="selected"' : '');
-		$ret .= "<option" . $default . " value=\"" . $i . "\">" . $i . "</option>\n";
-	}
-
-	if ($blank) {
-		$default = ($default_day == 0 ? ' selected="selected"' : '');
-		$ret .= "<option" . $default . " value=\"\"></option>\n";
-	}
-	*/
 
 	// Month of year
 	$ret .= "</select>\n";
@@ -764,22 +755,6 @@ function get_date_inputs($name = 'select', $date = '', $blank = true, $table = f
 			. "<td><!-- " . _T('select_date_year') . "<br/ -->\n";
 
 	$ret .= "<input size=\"4\" type=\"text\" $dis value=\"$default_year\" name=\"" . $name . "_year\" id=\"" . $name . "_year\" />\n";
-
-	/* [ML] Was..
-	$ret .= "<select $dis name=\"" . $name . "_year\" id=\"" . $name . "_year\">\n";
-
-	for ($i = 1999; $i <= 2006; $i++) {
-		$default = ($i == $default_year ? ' selected="selected"' : '');
-		$ret .= "<option" . $default . " value=\"" . $i . "\">" . $i . "</option>\n";
-	}
-
-	if ($blank) {
-		$default = ($default_year == 0 ? ' selected="selected"' : '');
-		$ret .= "<option" . $default . " value=\"\"></option>\n";
-	}
-
-	$ret .= "</select>\n";
-	*/
 
 	if ($table)
 		$ret .= "</td>\n"
