@@ -105,6 +105,8 @@ function init_default_config() {
 		'charset' => 'UTF-8'
 	);
 
+	$modifs = false;
+
 	while (list($key, $value) = each($list_meta)) {
 		if (!read_meta($key)) {
 			write_meta($key, $value);
