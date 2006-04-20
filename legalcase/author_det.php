@@ -228,7 +228,7 @@ $result = lcm_query($q);
 					  AND UNIX_TIMESTAMP(date_start) >= UNIX_TIMESTAMP('" .  $date_start . "') ";
 
 				if ($date_end != "-1")
-					$q .= " AND UNIX_TIMESTAMP(date_end) <= UNIX_TIMESTAMP('" . $date_end . "')";
+					$q .= " AND UNIX_TIMESTAMP(date_start) <= UNIX_TIMESTAMP('" . $date_end . "')";
 			
 				// Add ordering
 				if ($fu_order)
