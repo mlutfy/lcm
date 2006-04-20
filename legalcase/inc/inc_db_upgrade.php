@@ -31,10 +31,11 @@ include_lcm('inc_db');
 function upgrade_db_version ($version, $test = true) {
 	if ($test) {
 		write_meta('lcm_db_version', $version);
-		lcm_log("Upgraded database to version: $version");
+		lcm_log("Upgraded database to version: $version", 'upgrade');
 	} else {
+		// DEPRECATED ?
 		include_lcm('inc_lang');
-		echo _T('install_warning_update_impossible', array('db_version' => $version));
+		lcm_panic(_T('install_warning_update_impossible', array('db_version' => $version)));
 		exit;
 	}
 }
@@ -75,11 +76,13 @@ function upgrade_database_conf() {
 function upgrade_database($old_db_version) {
 	$log = "";
 
-	$lcm_db_version_current = $old_db_version;
+	$lcm_db_version_current = intval($old_db_version);
 
 	//
 	// Verify the rights to modify the database
 	//
+
+	lcm_log("upgrade_database: starting, old_db_version = $lcm_db_version_current", 'upgrade');
 
 	include_lcm('inc_db_test');
 	$alter_test_log = lcm_test_alter_table();
@@ -87,11 +90,13 @@ function upgrade_database($old_db_version) {
 	if ($alter_test_log)
 		return $alter_test_log;
 
+	lcm_log("upgrade_database: alter table test was OK.", 'upgrade');
+
 	//
 	// Upgrade the database accordingly to the current version
 	//
 
-	lcm_log("Starting LCM database upgrade; version = $lcm_db_version_current", 'upgrade');
+	lcm_log("Starting LCM database upgrade; version = :$lcm_db_version_current:", 'upgrade');
 
 	if ($lcm_db_version_current < 2) {
 		lcm_query("ALTER TABLE lcm_case ADD public tinyint(1) DEFAULT '0' NOT NULL");

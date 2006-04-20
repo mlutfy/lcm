@@ -38,6 +38,7 @@ $current_version = read_meta('lcm_db_version');
 // Quite unlikely to happen, because it would cause warnings
 // But let's be paranoid, nothing to loose..
 if (! $current_version) {
+	lcm_log("lcm_upgrade: meta is misbehaving, searching in DB");
 	$query = "SELECT value FROM lcm_meta WHERE name = 'lcm_db_version'";
 	$result = lcm_query($query);
 
