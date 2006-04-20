@@ -147,7 +147,7 @@ if (strlen($find_case_string) > 0)
 //
 
 // Start WHERE clause
-$q .= " WHERE 1 ";
+$q .= " WHERE 1=1 ";
 
 // Add search criteria, if any
 if (strlen($find_case_string) > 0) {
