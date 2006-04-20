@@ -178,7 +178,7 @@ function format_money($money, $two_cents = true, $show_currency_sign = false) {
 	// this is very stupid i18n because windows does not have strfmon,
 	// altough we cannot depend on locales on all servers for all languages
 	// so for our small needs, this should be good enough.
-	if (! is_numeric($money))
+	if (! ($money===0.0 || is_numeric($money)) )
 		lcm_panic("parameter is not a valid number: " . $money);
 	
 	$seperator_cents    = _T('currency_format_seperator_cents');

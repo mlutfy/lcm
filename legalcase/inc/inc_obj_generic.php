@@ -42,6 +42,16 @@ class LcmObject {
 		return $default;
 	}
 
+	function getDataFloat($field, $default = 0.00) {
+		if (isset($this->data[$field]) && $this->data[$field] > 0.00)
+			return $this->data[$field];
+
+		if (is_string($default) && $default == '__ASSERT__')
+			lcm_panic("Value does not exist.");
+
+		return $default;
+	}
+
 	function getDataString($field, $default = '') {
 		if (isset($this->data[$field]))
 			return $this->data[$field];

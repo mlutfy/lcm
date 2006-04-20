@@ -185,7 +185,7 @@ class LcmFollowup extends LcmObject {
 		$fl = " date_start = '" . $this->getDataString('date_start') . "',
 				date_end   = '" . $this->getDataString('date_end') . "',
 				type       = '" . $this->getDataString('type') . "',
-				sumbilled  = " . $this->getDataString('sumbilled', 0);
+				sumbilled  = " . $this->getDataFloat('sumbilled', 0.00);
 
 		if ($this->getDataString('type') == 'stage_change') {
 			// [ML] To be honest, we should "assert" most of the
