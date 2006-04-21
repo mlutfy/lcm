@@ -1375,18 +1375,10 @@ function show_listcase_start() {
 	$headers[$cpt]['order'] = 'no_order';
 	$cpt++;
 
-	/* [ML]
-	if ($case_court_archive == 'yes') {
-		$headers[$cpt]['title'] = _Th('case_input_court_archive');
-		$headers[$cpt]['order'] = 'no_order';
-		$cpt++;
-	}
-	*/
-
-	// XXX actually, it would be nice to be able to order..
-	// but this would require us to put numbers in status names
+	// Orders without much logic, but better than nothing
+	// (statuses are not with numeric title (for good ordering))
 	$headers[$cpt]['title'] = _Th('case_input_status');
-	$headers[$cpt]['order'] = 'no_order';
+	$headers[$cpt]['order'] = 'status_order';
 	$cpt++;
 
 	$headers[$cpt]['title'] = '';
