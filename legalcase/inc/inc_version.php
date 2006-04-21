@@ -1022,7 +1022,7 @@ function lcm_log($message, $type = 'lcm') {
 
 	// Keep about 20Kb of data per file, on 4 files (.1, .2, .3)
 	// generates about 80Kb in total per log type.
-	$kb_size = ($GLOBALS['debug'] ? 100 : 20);
+	$kb_size = ($GLOBALS['debug'] ? 200 : 20); // more if we debug!
 	if (is_file($logfile) && @filesize($logfile) > $kb_size * 1024) {
 		$rotate = true;
 		$message .= "[-- rotate --]\n";
