@@ -59,9 +59,6 @@ if ($id_comment || $edit_comment) {
 }
 
 
-// TODO 
-// save expense status
-
 if (count($errs)) {
 	$_SESSION['errors'] = array_merge($_SESSION['errors'], $errs);
 	lcm_header("Location: " . $ref_url);
