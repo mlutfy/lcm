@@ -46,13 +46,11 @@ function upgrade_database_conf() {
 	// This must be done at the end, in case keyword DB structure changed
 	//
 
-	// Do not remove, or variables won't be declared
-	global $system_keyword_groups;
-	$system_keyword_groups = array();
-
 	include_lcm('inc_meta');
 	include_lcm('inc_keywords_default');
-	create_groups($system_keyword_groups);
+
+	$all_default_kwgs = get_default_keywords();
+	create_groups($all_default_kwgs);
 
 	//
 	// Create new meta (if necessary)
