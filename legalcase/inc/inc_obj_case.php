@@ -798,11 +798,13 @@ class LcmCaseListUI {
 	var $search;
 	var $date_start;
 	var $date_end;
+	var $owner;
 
 	function LcmCaseList() {
 		$this->search = '';
 		$this->date_start = '';
 		$this->date_end = '';
+		$this->owner = '';
 
 		$this->list_pos = intval(_request('list_pos', 0));
 		$this->number_of_rows = 0;
@@ -818,6 +820,10 @@ class LcmCaseListUI {
 
 		if ($end && $end != -1)
 			$this->date_end = $end;
+	}
+
+	function setFilterOwner($type) {
+		$this->owner = $type;
 	}
 
 	function start() {
@@ -866,6 +872,8 @@ class LcmCaseListUI {
 
 		if ($author_session['status'] == 'admin' && $prefs['case_owner'] == 'all')
 			$q_owner .= " OR 1=1 ";
+		elseif ($author_session['status'] == 'admin' && $this->owner == 'all')
+			$q_owner .= " OR 1=1 "; // for archive.php
 
 		$q_owner .= " ) ";
 		$q .= " AND " . $q_owner; 
