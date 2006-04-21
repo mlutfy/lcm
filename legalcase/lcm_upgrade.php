@@ -59,10 +59,6 @@ if ($current_version < $lcm_db_version) {
 
 	$log = upgrade_database($current_version);
 
-	// Create new meta information, if necessary
-	include_lcm('inc_meta_defaults');
-	init_default_config();
-
 	// To be honest, in most cases, it will cause a lcm_panic() and this will
 	// not show, altough we could (in the future) catch/interpret errors.
 	if ($log) {
