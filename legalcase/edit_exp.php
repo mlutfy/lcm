@@ -94,11 +94,6 @@ if ($status || $id_comment || _request('edit_comment')) {
 }
 
 echo '<button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
-
-echo '<input type="hidden" name="id_followup" value="' . _session('id_followup', 0) . '">
-	<input type="hidden" name="id_case" value="' . _session('id_case') . '">
-	<input type="hidden" name="ref_edit_fu" value="' . _session('ref_url') . '">' . "\n";
-
 echo "</form>\n";
 
 lcm_page_end();
