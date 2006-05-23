@@ -1013,6 +1013,14 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (45);
 	}
 
+	// This should have been done a long time ago!
+	if ($lcm_db_version_current < 46) {
+		lcm_query("ALTER TABLE lcm_fields
+			CHANGE filter filter ENUM('none','date','number','text','currency') NOT NULL DEFAULT 'none'");
+
+		upgrade_db_version (46);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();
