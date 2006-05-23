@@ -256,7 +256,7 @@ function lcm_list_databases($host, $login, $pass, $port = 0) {
 		if ($result AND (($num = mysql_num_rows($result)) > 0)) {
 			for ($i = 0; $i < $num; $i++) {
 				$name = mysql_dbname($result, $i);
-				if ($name != 'test')
+				if ($name != 'test' && $name != 'information_schema')
 					array_push($databases, $name);
 			}
 		}
