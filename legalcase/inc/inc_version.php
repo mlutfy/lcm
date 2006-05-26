@@ -1136,6 +1136,9 @@ function lcm_getbacktrace($html = true, $level = 0)
 	if ($html)
 		$s = '<pre align="left">';
 
+	if (! function_exists("debug_backtrace"))
+		return "debug_backtrace function not available (PHP = " . PHP_VERSION . ")";
+
 	$traceArr = debug_backtrace();
 	array_shift($traceArr);
 	$tabs = sizeof($traceArr)-1;
