@@ -259,7 +259,14 @@ function show_keyword_id($id_keyword = 0) {
 
 		$kwg = get_kwg_from_id($_REQUEST['id_group']);
 
-		$kw['name'] = '';
+		// Suggest a keyword name: kwgnameNN, where NN = numeric sequence
+		$all_kws = get_keywords_in_group_name($kwg['name'], false);
+		$cpt = sprintf("%02d", count($all_kws) + 1);
+		
+		while (get_kw_from_name($kwg['name'], $kwg['name'] . $cpt))
+			$cpt = sprintf("%02d", ++$cpt);
+
+		$kw['name'] = $kwg['name'] . $cpt;
 		$kw['title'] = '';
 		$kw['description'] = '';
 		$kw['id_group'] = $kwg['id_group'];
