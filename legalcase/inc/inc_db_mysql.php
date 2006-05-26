@@ -196,9 +196,6 @@ function process_query($query) {
 		$query = ereg_replace('([[:space:],])lcm_', '\1'.$db.$GLOBALS['table_prefix'].'_', $query) . $suite;
 	}
 
-	// Change RANDOM() to RAND() for MySQL/PosgreSQL unification
-	$query = str_replace('RANDOM(','RAND(',$query);
-		
 	return $query;
 }
 

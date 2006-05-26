@@ -155,7 +155,7 @@ function install_step_5() {
 				. "NOW(),"
 				. "'temp',"
 				. "'',"
-				. "FLOOR(32000*RANDOM())," // FIXME RAND() on mySQL, RANDOM() on PgSQL?
+				. "FLOOR(32000*RAND()),"
 				. "'admin',"
 				. "NOW()"
 				. ")";
