@@ -343,6 +343,7 @@ function create_database() {
 
 	$fields = array (
 		"id_group bigint(21) NOT NULL auto_increment",
+		"id_parent bigint(21) NOT NULL DEFAULT 0",
 		"name VARCHAR(255) NOT NULL",
 		"title text NOT NULL DEFAULT ''",
 		"description text NOT NULL DEFAULT ''",

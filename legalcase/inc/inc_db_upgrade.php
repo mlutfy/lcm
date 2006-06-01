@@ -1021,6 +1021,13 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (46);
 	}
 
+	if ($lcm_db_version_current < 47) { 
+		lcm_query("ALTER TABLE lcm_keyword_group
+			ADD id_parent bigint(21) NOT NULL DEFAULT 0 AFTER id_group");
+
+		upgrade_db_version (47);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();
