@@ -32,7 +32,7 @@ global $lcm_db_version;
 // of the directories may have changed.
 // c.f. Mateusz Hołysz (1148727224.9101.18.camel@localhost.localdomain)
 if (_request('dirs_ok') != 1) {
-	lcm_header('Location: lcm_test_dirs.php?' . urlencode("url=lcm_upgrade.php?dirs_ok=1"));
+	lcm_header('Location: lcm_test_dirs.php?url=' . urlencode("lcm_upgrade.php?dirs_ok=1"));
 	exit;
 }
 
