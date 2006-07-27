@@ -102,9 +102,11 @@ function show_kwg_info($kwg, $level = 0) {
 		. _T('keywords_button_kw_new') . '</a>';
 
 	// New sub-group
-	echo '<a class="edit_lnk" href="keywords.php?action=edit_group&amp;id_group=0&amp;'
-		. 'id_parent=' . $kwg['id_group'] . '">'
-		. _T('keywords_button_subkwg_new') . '</a>';
+	if ($kwg['type'] != 'system') {
+		echo '<a class="edit_lnk" href="keywords.php?action=edit_group&amp;id_group=0&amp;'
+			. 'id_parent=' . $kwg['id_group'] . '">'
+			. _T('keywords_button_subkwg_new') . '</a>';
+	}
 
 	echo "</p>\n";
 	echo "</fieldset>\n";
