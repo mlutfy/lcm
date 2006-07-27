@@ -1028,6 +1028,13 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version (47);
 	}
 
+	if ($lcm_db_version_current < 48) {
+		lcm_query("ALTER TABLE lcm_client
+			ADD date_birth datetime DEFAULT '0000-00-00 00:00:00' NOT NULL AFTER date_update");
+
+		upgrade_db_version(48);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();

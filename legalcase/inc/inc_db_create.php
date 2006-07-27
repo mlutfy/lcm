@@ -192,6 +192,7 @@ function create_database() {
 		"name_last text NOT NULL",
 		"date_creation datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
 		"date_update datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
+		"date_birth datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
 		"citizen_number text NOT NULL DEFAULT ''",
 		"address text NOT NULL DEFAULT ''",
 		"gender ENUM('female','male', 'unknown') NOT NULL DEFAULT 'unknown'",
