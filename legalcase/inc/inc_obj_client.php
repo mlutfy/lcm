@@ -332,7 +332,8 @@ class LcmClientInfoUI extends LcmClient {
 
 		if (substr($meta_date_birth, 0, 3) == 'yes')
 			echo '<li>'
-				. format_date($this->getDataString('date_birth'))
+				. format_date($this->getDataString('date_birth')) 
+				. " (" . _T('person_info_years_old', array('years' => years_diff($this->getDataString('date_birth')))) . ")"
 				. "</li>\n";
 
 		echo '<li>'
