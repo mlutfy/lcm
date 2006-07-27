@@ -193,7 +193,7 @@ class LcmCase extends LcmObject {
 		if (! $this->getDataString('title')) 
 			$errors['title'] = _Ti('case_input_title') . _T('warning_field_mandatory');
 
-		// * Date assignment must be a vaid date
+		// * Date assignment must be a valid date
 		if (! checkdate_sql($this->getDataString('date_assignment')))
 			$errors['date_assignment'] = _Ti('case_input_date_assigned') . 'Invalid date.'; // TRAD
 
@@ -497,7 +497,7 @@ class LcmCaseInfoUI extends LcmCase {
 			. '</span>'
 			. "</li>\n";
 		
-		if ($case_legal_reason == 'yes')
+		if (substr($case_legal_reason, 0, 3) == 'yes')
 			echo '<li>'
 				. '<span class="label2">'
 				. _Ti('case_input_legal_reason') 
@@ -507,7 +507,7 @@ class LcmCaseInfoUI extends LcmCase {
 				. '</span>'
 				. "</li>\n";
 
-		if ($case_alledged_crime == 'yes')
+		if (substr($case_alledged_crime, 0, 3) == 'yes')
 			echo '<li>'
 				. '<span class="label2">'
 				. _Ti('case_input_alledged_crime')
