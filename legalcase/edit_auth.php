@@ -98,14 +98,11 @@ show_context_end();
 
 			echo "</tr>\n";
 		}
-	?>
 
-	</table>
+	echo "</table>\n";
+	echo '<p><button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button></p>\n";
+	echo '<input type="hidden" name="case" value="' . $case '" />' . "\n";
 
-	<p><button name="submit" type="submit" value="submit" class="simple_form_btn"><?php echo _T('button_validate'); ?></button></p>
-	<input type="hidden" name="case" value="<?php echo $case; ?>" />
-
-<?
 	$link = new Link($_SERVER['HTTP_REFERER']);
 	echo '<input type="hidden" name="ref_edit_auth" value="' . $link->getUrl() . '"/>' . "\n";
 	echo "</form>\n";
