@@ -41,7 +41,12 @@ if (isset($_GET['fu_order']))
 	if ($_GET['fu_order'] == 'ASC' || $_GET['fu_order'] == 'DESC')
 		$fu_order = clean_input($_GET['fu_order']);
 
-if ($case > 0) {
+if (! ($case > 0)) {
+	header("Location: listcases.php");
+	exit;
+}
+
+
 	$q="SELECT *
 		FROM lcm_case
 		WHERE id_case=$case";
@@ -571,7 +576,8 @@ if ($case > 0) {
 		}
 	} else {
 		lcm_page_start(_T('title_error'));
-		echo _T('error_no_such_case');
+		// [ML] Maybe not worth translating, since it should never happen. // TRAD
+		echo "<p>" . _Ti('title_error') . 'The case no. "' . htmlspecialchars($case) . '" does not exist in the database.' . "</p>\n";
 	}
 
 	$_SESSION['errors'] = array();
@@ -580,10 +586,5 @@ if ($case > 0) {
 	$_SESSION['fu_data'] = array();
 
 	lcm_page_end();
-} else {
-	lcm_page_start(_T('title_error'));
-	echo "<p>" . _T('error_no_case_specified') . "</p>\n";
-	lcm_page_end();
-}
 
 ?>
