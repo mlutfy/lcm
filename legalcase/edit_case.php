@@ -252,21 +252,7 @@ if (! $id_case) {
 	echo "</div>\n";
 }
 
-// Different buttons for edit existing and for new case
-if ($id_case) {
-	echo '<p><button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button></p>\n";
-} else {
-	// More buttons for 'extended' mode
-	if ($prefs['mode'] == 'extended') {
-		echo '<p>';
-		echo '<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('add_and_go_to_details') . '</button>';
-		echo '<button name="submit" type="submit" value="addnew" class="simple_form_btn">' . _T('add_and_open_new') . "</button>\n";
-		echo "</p>\n";
-	} else {
-		// Less buttons in simple mode
-		echo '<p><button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('button_validate') . "</button></p>\n";
-	}
-}
+echo '<p><button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button></p>\n";
 
 echo '<input type="hidden" name="admin" value="' . $_SESSION['form_data']['admin'] . "\" />\n";
 echo '<input type="hidden" name="ref_edit_case" value="' . $_SESSION['form_data']['ref_edit_case'] . "\" />\n";
