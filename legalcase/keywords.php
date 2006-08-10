@@ -327,7 +327,7 @@ function show_keyword_group_id($id_group, $id_parent = 0) {
 
 		// [ML] Yes, strange UI, but imho it works great (otherwise confusing, I hate checkboxes)
 		$html_quantity = '<select name="kwg_quantity" id="kwg_quantity">'
-			. '<option value=""></option>'
+			. (! $my_qty ? '<option value=""></option>' : '')
 			. '<option value="one"' . isSelected($my_qty == 'one') . '>' . _T('keywords_option_quantity_one') . '</option>'
 			. '<option value="many"' . isSelected($my_qty == 'many') . '>' . _T('keywords_option_quantity_many') . '</option>'
 			. '</select>';
