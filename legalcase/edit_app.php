@@ -236,7 +236,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 				strtotime($_SESSION['form_data']['start_time']) - strtotime($_SESSION['form_data']['reminder']) : 0);
 		echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
 		echo " " . _T('time_info_before_start');
-		echo f_err_star('reminder',$_SESSION['errors']);
+		echo f_err_star('reminder');
 
 		echo "</td>\n";
 	}
