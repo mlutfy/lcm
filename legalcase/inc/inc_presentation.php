@@ -1875,4 +1875,11 @@ function isSelected($expr) {
 		return '';
 }
 
+function isDisabled($expr) {
+	if ($expr)
+		return ' disabled="disabled" ';
+	else
+		return '';
+}
+
 ?>
