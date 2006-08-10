@@ -240,15 +240,11 @@ function f_err($fn, $errors) {
 	return (isset($errors[$fn]) ? '<span style="color: #ff0000">' . $errors[$fn] . '</span>' : '');
 }
 
-function f_err_star($fn, $errors = array()) {
-	if (! count($errors))
-		if (isset($_SESSION['errors']))
-			$errors = $_SESSION['errors'];
-
-	if (! count($errors))
+function f_err_star($fn) {
+	if (! isset($_SESSION['errors']))
 		return '';
 
-	return (isset($errors[$fn]) ? '<a name="' . $fn . '"></a><span style="color: #ff0000">*</span>' : '');
+	return (isset($_SESSION['errors'][$fn]) ? '<a name="' . $fn . '"></a><span style="color: #ff0000">*</span>' : '');
 }
 
 function show_all_errors($all_errors = array()) {
