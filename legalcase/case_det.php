@@ -237,6 +237,8 @@ if (! ($case > 0)) {
 					echo "<a href=\"edit_fu.php?case=$case\" class=\"create_new_lnk\">" . _T('new_followup') . "</a>&nbsp;\n";
 					echo "</p>\n";
 				}
+
+				echo "</fieldset>\n";
 				
 				break;
 
