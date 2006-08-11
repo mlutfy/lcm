@@ -1061,6 +1061,21 @@ function upgrade_database($old_db_version) {
 		lcm_query("ALTER TABLE lcm_stage
 			CHANGE date_agreement date_agreement datetime DEFAULT NULL");
 
+		lcm_query("ALTER TABLE lcm_case_attachment
+			CHANGE date_removed date_removed datetime DEFAULT NULL");
+
+		lcm_query("ALTER TABLE lcm_client_attachment
+			CHANGE date_removed date_removed datetime DEFAULT NULL");
+
+		lcm_query("ALTER TABLE lcm_org_attachment
+			CHANGE date_removed date_removed datetime DEFAULT NULL");
+
+		lcm_query("ALTER TABLE lcm_followup
+			CHANGE date_end date_end datetime DEFAULT NULL");
+
+		lcm_query("ALTER TABLE lcm_app
+			CHANGE reminder reminder datetime DEFAULT NULL");
+
 		upgrade_db_version(50);
 	}
 
