@@ -319,7 +319,7 @@ class LcmCase extends LcmObject {
 			}
 		} else {
 			// This is new case
-			$q = "INSERT INTO lcm_case SET date_creation=NOW(),$fl,$public_access_rights";
+			$q = "INSERT INTO lcm_case SET date_creation = NOW(), date_update = NOW(), $fl,$public_access_rights";
 			$result = lcm_query($q);
 			$id_case = lcm_insert_id('lcm_case', 'id_case');
 			$id_author = $author_session['id_author'];
