@@ -604,6 +604,45 @@ function isset_datetime_from_array($source, $prefix, $check = 'year_only') {
 	return true;
 }
 
+// This is the opposite of the above function: it makes sure that the date is
+// completely empty (ex: for new followup, "end date" may be empty, but must be
+// completely empty
+function isempty_datetime_from_array($source, $prefix, $check = 'year_only') {
+	if ($prefix)
+		$prefix = $prefix . '_';
+
+	if (is_numeric($source[$prefix . 'year']))
+		return false;
+
+	if ($check == 'year_only')
+		return true;
+
+	if (is_numeric($source[$prefix . 'month'])) 
+		return false;
+	
+	if (is_numeric($source[$prefix . 'day']))
+		return false;
+
+	if ($check == 'date_only') 
+		return true;
+
+	if (is_numeric($source[$prefix . 'hour']))
+		return false;
+
+	if (is_numeric($source[$prefix . 'minutes']))
+		return false;
+
+	if ($check != 'with_seconds')
+		return true;
+	
+	// For fanatics.. :-)
+	if (is_numeric($source[$prefix . 'seconds']))
+		return false;
+
+	return true;
+}
+
+
 function checkdate_sql($date) {
 	$tmp = recup_date($date);
 	return checkdate($tmp[1], $tmp[2], $tmp[0]);
