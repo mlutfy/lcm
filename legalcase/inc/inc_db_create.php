@@ -327,6 +327,22 @@ function create_database() {
 
 	$fields = array (
 		"id_entry bigint(21) NOT NULL auto_increment",
+		"id_keyword bigint(21) NOT NULL default 0",
+		"id_followup bigint(21) NOT NULL default 0",
+		"value text NOT NULL default ''",
+		"PRIMARY KEY (id_entry)"
+	);
+
+	$keys = array (
+			'id_keyword' => 'id_keyword',
+			'id_followup' => 'id_followup'
+	);
+	
+	lcm_query_create_table('lcm_keyword_followup', $fields, $keys);
+
+
+	$fields = array (
+		"id_entry bigint(21) NOT NULL auto_increment",
 		"id_keyword bigint(21) NOT NULL DEFAULT 0",
 		"id_org bigint(21) NOT NULL DEFAULT 0",
 		"value text NOT NULL DEFAULT ''",
