@@ -59,7 +59,7 @@ echo '<fieldset class="info_box">';
 // Show a bit of background on the case
 $case = $fu_data['id_case'];
 show_context_start();
-show_context_case_title($fu_data['id_case'], 'followups');
+show_context_case_title($fu_data['id_case']);
 show_context_case_stage($fu_data['id_case'], $fu_data['id_followup']);
 show_context_case_involving($fu_data['id_case']);
 
