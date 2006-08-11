@@ -777,13 +777,38 @@ class LcmCaseInfoUI extends LcmCase {
 		echo "</table>\n";
 	}
 
-	function printFollowups() {
+	function printFollowups($show_filters = false) {
 		$cpt = 0;
 		$my_list_pos = intval(_request('list_pos', 0));
 
 		show_page_subtitle(_T('case_subtitle_followups'), 'cases_followups');
 
-		echo "<p class=\"normal_text\">\n";
+		// Show filters (if not shown in ajaxed page)
+		if ($show_filters) {
+			// By default, show from "case creation date" to NOW().
+			$link = new Link();
+			$link->delVar('date_start_day');
+			$link->delVar('date_start_month');
+			$link->delVar('date_start_year');
+			$link->delVar('date_end_day');
+			$link->delVar('date_end_month');
+			$link->delVar('date_end_year');
+			echo $link->getForm();
+
+			$date_end = get_datetime_from_array($_REQUEST, 'date_end', 'end', '0000-00-00 00:00:00'); // date('Y-m-d H:i:s'));
+			$date_start = get_datetime_from_array($_REQUEST, 'date_start', 'start', '0000-00-00 00:00:00'); // $row['date_creation']);
+
+			echo _Ti('time_input_date_start');
+			echo get_date_inputs('date_start', $date_start);
+
+			echo _Ti('time_input_date_end');
+			echo get_date_inputs('date_end', $date_end);
+			echo ' <button name="submit" type="submit" value="submit" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
+			echo "</form>\n";
+
+			echo "<div style='margin-bottom: 4px;'>&nbsp;</div>\n"; // FIXME patch for now (leave small space between filter and list)
+		}
+
 		show_listfu_start('general', false);
 
 		for ($cpt = 0, $this->getFollowupStart(); (! $this->getFollowupDone()); $cpt++) {
@@ -792,10 +817,9 @@ class LcmCaseInfoUI extends LcmCase {
 		}
 
 		if (! $cpt)
-			echo "No followups";
+			echo "No followups"; // TRAD
 
 		show_list_end($my_list_pos, $this->getFollowupTotal(), true);
-		echo "</p>\n";
 	}
 }
 
