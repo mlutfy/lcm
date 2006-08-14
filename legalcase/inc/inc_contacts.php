@@ -144,12 +144,17 @@ function update_contact($id_contact, $new_value) {
 			return $err;
 	}
 
-	$query = "UPDATE lcm_contact
-				SET value = '" . clean_input($new_value) . "', 
-					date_update = NOW()
-				WHERE id_contact = " . intval($id_contact);
+	$old_contact = get_contact_by_id($id_contact);
 
-	lcm_query($query);
+	if ($old_contact['value'] != $new_value) {
+		$query = "UPDATE lcm_contact
+			SET value = '" . clean_input($new_value) . "', 
+				date_update = NOW()
+					WHERE id_contact = " . intval($id_contact);
+
+		lcm_query($query);
+	}
+
 	return '';
 }
 
@@ -268,7 +273,7 @@ function show_new_contact($num_new, $type_person, $type_kw = "__add__", $type_na
 	if ($type_kw == "__add__") {
 		echo _Ti('generic_input_contact_other');
 	} else {
-		echo _Ti(_Tkw('contacts', $type_kw));
+		echo _Ti($all_contact_types[$type_kw]['title']);
 	}
 
 	echo '</td>';
