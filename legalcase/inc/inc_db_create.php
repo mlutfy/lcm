@@ -254,6 +254,7 @@ function create_database() {
 		"id_of_person bigint(21) NOT NULL",
 		"value text NOT NULL",
 		"type_contact tinyint(2) DEFAULT 0 NOT NULL", // XXX do we really need a default value?
+		"date_update datetime DEFAULT NULL," // may be null (if installation was upgraded)
 		"PRIMARY KEY (id_contact)"
 	);
 
@@ -345,7 +346,7 @@ function create_database() {
 		"name VARCHAR(255) NOT NULL",
 		"title text NOT NULL",
 		"description text NOT NULL DEFAULT ''",
-		"type ENUM('system', 'case', 'stage', 'followup', 'client', 'org', 'client_org', 'author') NOT NULL",
+		"type ENUM('system', 'contact', 'case', 'stage', 'followup', 'client', 'org', 'client_org', 'author') NOT NULL",
 		"policy ENUM('optional', 'recommended', 'mandatory') NOT NULL DEFAULT 'optional'",
 		"quantity ENUM('one', 'many') NOT NULL DEFAULT 'one'",
 		"suggest text NOT NULL DEFAULT ''",
