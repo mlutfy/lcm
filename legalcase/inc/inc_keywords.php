@@ -33,6 +33,7 @@ $GLOBALS['legal_obj'] = array('case' => 1, 'stage' => 1, 'client' => 1, 'org' =>
 // get_kwg_all: Returns all keyword groups (kwg) of a given
 // type. If type is 'user', then all keyword groups of type
 // case, followup, client, org and author are returned.
+// Type may also be 'contact'.
 // 
 function get_kwg_all($type, $exclude_empty = false, $show_subgroups = false) {
 	$ret = array();
