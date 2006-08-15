@@ -48,7 +48,7 @@ if ($existing) {
 	// Check if user is permitted to edit this author's data
 	if (($author_session['status'] != 'admin') &&
 			($author != $author_session['id_author'])) {
-		die("You don't have the right to edit this author's details");
+		die("You don't have the right to edit this user's details");
 	}
 
 	// Get author data
@@ -58,8 +58,10 @@ if ($existing) {
 		foreach ($row as $key => $value) {
 			$user[$key] = $value;
 		}
-	} else
-		die(_T('error_no_such_user'));
+	} else {
+		lcm_header("Location: listauthors.php");
+		exit;
+	}
 } else {
 	$user['id_author'] = 0;
 	$user['email'] = '';
