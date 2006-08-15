@@ -96,14 +96,6 @@ if (_request('author_ui_modified')) {
 }
 
 if (isset($_REQUEST['author_advanced_settings_modified'])) {
-	// Set normal/advanced UI mode preference
-	if ($_REQUEST['sel_mode'] != $_REQUEST['old_mode']) {
-		if ($_REQUEST['sel_mode'] == 'simple' || $_REQUEST['sel_mode'] == 'extended') {
-			$prefs['mode'] = $_REQUEST['sel_mode'];
-			$prefs_mod = true;
-		}
-	}
-
 	// Set absolute/relative time intervals
 	if ($_REQUEST['sel_time_intervals'] != $_REQUEST['old_time_intervals']) {
 		if ($_REQUEST['sel_time_intervals'] == 'absolute' || $_REQUEST['sel_time_intervals'] == 'relative') {
