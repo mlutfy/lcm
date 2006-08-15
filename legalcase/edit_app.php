@@ -198,7 +198,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 		$name = (($admin || ($edit && ($_SESSION['form_data']['end_time']=='0000-00-00 00:00:00'))) ? 'delta' : '');
 		$interval = ( ($_SESSION['form_data']['end_time']!='0000-00-00 00:00:00') ?
 				strtotime($_SESSION['form_data']['end_time']) - strtotime($_SESSION['form_data']['start_time']) : 0);
-		echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
+		echo get_time_interval_inputs($name, $interval);
 
 		echo "</td>\n";
 	}
@@ -234,7 +234,7 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 		$name = (($admin || ($edit && ($_SESSION['form_data']['end_time']=='0000-00-00 00:00:00'))) ? 'rem_offset' : '');
 		$interval = ( ($_SESSION['form_data']['end_time']!='0000-00-00 00:00:00') ?
 				strtotime($_SESSION['form_data']['start_time']) - strtotime($_SESSION['form_data']['reminder']) : 0);
-		echo get_time_interval_inputs($name, $interval, ($prefs['time_intervals_notation']=='hours_only'), ($prefs['time_intervals_notation']=='floatdays_hours_minutes'));
+		echo get_time_interval_inputs($name, $interval);
 		echo " " . _T('time_info_before_start');
 		echo f_err_star('reminder');
 
