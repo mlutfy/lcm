@@ -223,6 +223,7 @@ function show_existing_contact($c, $num) {
 	
 	echo '<tr><td align="left" valign="top">' 
 		. f_err_star('upd_contact_' . $num)
+		. f_err_star('contact_' . $c['name'])
 		. _Ti($c['title'])
 		. ($c['policy'] != 'optional' ? '<br/>(' . _T('keywords_input_policy_' . $c['policy']) . ')' : '')
 		. "</td>\n";
@@ -270,6 +271,7 @@ function show_new_contact($num_new, $type_person, $ctype = "__add__", $exception
 		echo _Ti('generic_input_contact_other');
 	} else {
 		$c = $all_contact_types[$ctype];
+		echo f_err_star('contact_' . $c['name']);
 		echo _Ti($c['title']);
 		echo ($c['policy'] != 'optional' ? '<br/>(' . _T('keywords_input_policy_' . $c['policy']) . ')' : '');
 	}
@@ -477,6 +479,25 @@ function update_contacts_request($type_person, $id_of_person) {
 			}
 
 			$cpt++;
+		}
+	}
+
+	//
+	// Check if all mandatory contacts were provided
+	//
+	$all_contact_kwg = get_kwg_all('contact');
+	$all_contacts = get_contacts($type_person, $id_of_person);
+	
+	foreach ($all_contact_kwg as $c) {
+		if ($c['policy'] == 'mandatory') {
+			$found = false;
+
+			foreach ($all_contacts as $a)
+				if ($a['name'] == $c['name'])
+					$found = true;
+			
+			if (! $found)
+				$_SESSION['errors']['contact_' . $c['name']] = _Ti($c['title']) . _T('warning_field_mandatory');
 		}
 	}
 }
