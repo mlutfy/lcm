@@ -70,8 +70,13 @@ function get_kwg_all($type, $exclude_empty = false, $show_subgroups = false) {
 
 	$result = lcm_query($query);
 
-	while ($row = lcm_fetch_array($result)) 
-		$ret[$row['name']] = $row;
+	while ($row = lcm_fetch_array($result)) {
+		$ret[$row['title']] = $row;
+		$ret[$row['title']]['title'] = remove_number_prefix($row['title']);
+	}
+
+	ksort($ret);
+	reset($ret);
 	
 	return $ret;
 }

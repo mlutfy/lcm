@@ -74,8 +74,13 @@ function get_contacts($type_person, $id, $type_contact = '', $not = '') {
 	$result = lcm_query($query);
 	$tmp_row = array();
 
-	while($row = lcm_fetch_array($result))
-		$contacts[] = $row;
+	while($row = lcm_fetch_array($result)) {
+		$contacts[$row['title'] . $row['id_contact']] = $row;
+		$contacts[$row['title'] . $row['id_contact']]['title'] = remove_number_prefix($row['title']);
+	}
+
+	ksort($contacts);
+	reset($contacts);
 
 	return $contacts;
 }
