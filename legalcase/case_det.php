@@ -260,7 +260,7 @@ if (! ($case > 0)) {
 				$number_of_rows = lcm_num_rows($result);
 				if ($number_of_rows) {
 					$headers = array( array('title' => _Th('time_input_date_start')),
-							array('title' => ( ($prefs['time_intervals'] == 'absolute') ? _Th('time_input_date_end') : _Th('time_input_duration') ) ),
+							array('title' => ( ($prefs['time_intervals'] == 'absolute') ? _Th('time_input_date_end') : _Th('time_input_length') ) ),
 							array('title' => _Th('app_input_type')),
 							array('title' => _Th('app_input_title')),
 							array('title' => _Th('app_input_reminder')) );
