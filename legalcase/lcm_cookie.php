@@ -61,6 +61,20 @@ if (_request('change_session') == 'yes' || _request('change_session') == 'oui') 
 	}
 }
 
+// If cookie_admin == no, delete the lcm_admin cookie
+// This is the "connect with another identifier" on the login page
+$cookie_admin = _request('cookie_admin');
+
+if ($cookie_admin == 'no') {
+	lcm_setcookie('lcm_admin', $lcm_admin, time() - 3600 * 24);
+	$cible->delVar('var_login');
+	$cible->addVar('var_login', '-1');
+} else if ($cookie_admin AND $lcm_admin != $cookie_admin) {
+	// Remember the username for the next login
+	// This way, the user can login in only one form, not two
+	lcm_setcookie('lcm_admin', $cookie_admin, time() + 3600 * 24 * 14);
+}
+
 // Attempt to logout
 if (_request('logout')) {
 	include_lcm('inc_session');
@@ -173,18 +187,6 @@ if (_request('essai_login') == 'oui') {
 		if ($session_password || $session_password_md5)
 			$cible->addVar('var_erreur', 'pass');
 	}
-}
-
-// If cookie_admin == no, delete the lcm_admin cookie
-// This is the "connect with another identifier" on the login page
-if ($_REQUEST['cookie_admin'] == 'no') {
-	lcm_setcookie('lcm_admin', $lcm_admin, time() - 3600 * 24);
-	$cible->delVar('var_login');
-	$cible->addVar('var_login', '-1');
-} else if ($cookie_admin AND $lcm_admin != $cookie_admin) {
-	// Remember the username for the next login
-	// This way, the user can login in only one form, not two
-	lcm_setcookie('lcm_admin', $cookie_admin, time() + 3600 * 24 * 14);
 }
 
 // Set a session cookie?
