@@ -527,7 +527,9 @@ function get_datetime_from_array($source, $prefix, $type = 'start', $fallback = 
 	} elseif ($soften_errors) {
 		$day = ($type == 'start' ? '01' : '31');
 	} else {
-		$day = $source[$prefix . 'day'];
+		// [ML] This use to return $source[$prefix . 'day'] but that's
+		// nonsense, since it would be unset (tested above)
+		return $fallback;
 	}
 
 	if ($day > 31) $day = 31;
