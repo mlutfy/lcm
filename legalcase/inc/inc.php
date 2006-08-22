@@ -41,6 +41,10 @@ include_lcm('inc_keywords');
 if (! include_data_exists('inc_meta_cache'))
 	write_metas();
 
+// Just precaution, avoids PHP warnings sometimes
+if (! isset($_SESSION['form_data']))
+	$_SESSION['form_data'] = array();
+
 // [AG] Adding to validate later references to it
 global $author_session;
 
