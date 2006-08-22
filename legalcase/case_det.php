@@ -229,7 +229,7 @@ if (! ($case > 0)) {
 				// it is part of the "general" tab
 				echo '<a name="followups"></a>' . "\n";
 
-				$obj_case_ui = new LcmCaseInfoUI($row['id_case']);
+				$obj_case_ui = new LcmCaseInfoUI($case);
 				$obj_case_ui->printFollowups(true);
 
 				if ($add) {
