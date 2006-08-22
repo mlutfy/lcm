@@ -24,6 +24,7 @@
 include('inc/inc.php');
 include_lcm('inc_acc');
 include_lcm('inc_contacts');
+include_lcm('inc_obj_org');
 
 $org = (isset($_REQUEST['org']) ? intval($_REQUEST['org']) : 0);
 
@@ -67,51 +68,9 @@ if (! $ac['r'])
 		//
 		case 'general':
 			echo '<fieldset class="info_box">';
-			show_page_subtitle(_T('generic_subtitle_general'), 'clients_intro');
 
-			// TODO: show org keywords!
-		
-			echo '<ul class="info">';
-
-			echo '<li>'
-				. '<span class="label1">' . _Ti('org_input_id') . '</span>'
-				. '<span class="value1">' . $row['id_org'] . '</span>'
-				. "</li>\n";
-
-			echo '<li>' 
-				. '<span class="label1">' . _Ti('org_input_name') . '</span>'
-				. '<span class="value1">' . $row['name'] . '</span>'
-				. "</li>\n";
-
-			echo '<li>'
-				. '<span class="label2">' . _Ti('org_input_court_reg') . '</span>'
-				. '<span class="value2">' . $row['court_reg'] . '</span>'
-				. "</li>\n";
-
-			echo '<li>'
-				. '<span class="label2">' . _Ti('org_input_tax_number') . '</span>'
-				. '<span class="value2">' . $row['tax_number'] . '</span>'
-				. "</li>\n";
-
-			echo '<li>'
-				. '<span class="label2">' . _Ti('org_input_stat_number') . '</span>'
-				. '<span class="value2">' . $row['stat_number'] . '</span>'
-				. "</li>\n";
-
-			echo '<li>'
-				. '<span class="label2">' . _Ti('time_input_date_creation') . '</span>' 
-				. '<span class="value2">' . format_date($row['date_creation'], 'full') . '</span>'
-				. "</li>\n";
-
-			echo '<li class="large">'
-				. '<span class="label2">' . _Ti('org_input_notes') . '</span>'
-				. '<span class="value2">' . nl2br($row['notes']) . '</span>'
-				. "</li>\n";
-
-			echo "</ul>\n";
-
-			// Show client contacts (if any)
-			show_all_contacts('org', $row['id_org']);
+			$obj_org = new LcmOrgInfoUI($org);
+			$obj_org->printGeneral(true);
 
 			if ($ac['e'])
 				echo '<p><a href="edit_org.php?org=' . $row['id_org'] . '" class="edit_lnk">'
