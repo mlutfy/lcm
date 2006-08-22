@@ -497,7 +497,7 @@ function apply_conf_changes_policy() {
 				'case_assignment_date'  => 'case_input_date_assigned',
 				'case_alledged_crime'   => 'case_input_alledged_crime',
 				'case_legal_reason'		=> 'case_input_legal_reason',
-				'case_new_showorg'		=> 'siteconf_input_case_new_shororg',
+				'case_new_showorg'		=> 'siteconf_input_case_new_showorg',
 				'case_allow_modif'      => 'siteconf_input_case_allow_modif', 
 				'fu_sum_billed'         => 'fu_input_sum_billed',
 				'fu_allow_modif'        => 'siteconf_input_fu_allow_modif');
