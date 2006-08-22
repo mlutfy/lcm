@@ -175,7 +175,6 @@ function create_database() {
 		"date_update datetime NOT NULL",
 		"date_birth datetime DEFAULT NULL", // may be null
 		"citizen_number text NOT NULL DEFAULT ''",
-		"address text NOT NULL DEFAULT ''",
 		"gender ENUM('female','male', 'unknown') NOT NULL",
 		"civil_status varchar(255) DEFAULT 'unknown' NOT NULL",
 		"income varchar(255) DEFAULT 'unknown' NOT NULL",
@@ -214,7 +213,6 @@ function create_database() {
 		"name text NOT NULL",
 		"date_creation datetime DEFAULT NULL",
 		"date_update datetime DEFAULT NULL",
-		"address text NOT NULL",
 		"notes text NOT NULL DEFAULT ''",
 		"court_reg text NOT NULL DEFAULT ''",
 		"tax_number text NOT NULL DEFAULT ''",
