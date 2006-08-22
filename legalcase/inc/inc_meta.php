@@ -129,17 +129,15 @@ function read_meta_upd($name) {
 	include_lcm('inc_keywords');
 	$kwg_all = get_kwg_all('system');
 
-	while (list($key0, $val0) = each($kwg_all)) {
-		$name = $key0;
-
+	foreach ($kwg_all as $key0 => $val0) {
 		// Dump every field of the keyword group
-		while (list($key, $val) = each($val0)) {
+		foreach ($val0 as $key => $val) {
 			// We filter out numeric keys because lcm_fetch_array()
 			// returns the two types of arrays
 			if (! is_numeric($key)) {
 				$key = addslashes($key);
 				$val = ereg_replace("([\\\\'])", "\\\\1", $val);
-				$s .= "\$GLOBALS['system_kwg']['$name']['$key'] = '$val';\n";
+				$s .= "\$GLOBALS['system_kwg']['" . $kwg_all[$key0]['name'] . "']['$key'] = '$val';\n";
 			}
 		}
 	}
