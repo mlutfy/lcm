@@ -111,6 +111,8 @@ class LcmClient extends LcmObject {
 	}
 
 	function getCaseStart() {
+		global $prefs;
+
 		$start_from = _request('list_pos', 0);
 
 		// just in case
@@ -129,7 +131,7 @@ class LcmClient extends LcmObject {
 	function getCaseIterator() {
 		global $prefs;
 
-		if ($this->getCaseDone)
+		if ($this->getCaseDone())
 			lcm_panic("LcmClient::getCaseIterator called but getCaseDone() returned true");
 
 		$ret = array_shift($this->cases);
@@ -426,7 +428,8 @@ class LcmClientInfoUI extends LcmClient {
 			echo "<td>" . $this->getDataInt('id_client')
 				. '<input type="hidden" name="id_client" value="' . $this->getDataInt('id_client') . '" /></td></tr>' . "\n";
 		}
-		
+
+		// Client name
 		echo '<tr><td>' . f_err_star('name_first') . _T('person_input_name_first') . '</td>' . "\n";
 		echo '<td><input name="name_first" value="' . clean_output($this->getDataString('name_first')) . '" class="search_form_txt" /></td></tr>' . "\n";
 		
