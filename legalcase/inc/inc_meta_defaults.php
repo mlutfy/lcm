@@ -95,6 +95,7 @@ function init_default_config() {
 		'case_assignment_date' => 'yes', // = { yes, no } assignment date defaults to case creation date (so no "mandatory" option)
 		'case_alledged_crime' => 'yes_optional', // = { yes_optional, yes_mandatory, no }
 		'case_legal_reason' => 'yes_optional', // = { yes_optional, yes_mandatory, no }
+		'case_new_showorg' => 'no', // = { yes, no } shows 'find/create org' form in 'new case'
 		'case_allow_modif' => 'yes', // = { yes , no }
 		'fu_sum_billed' => 'no', // = { yes , no }
 		'fu_allow_modif' => 'yes', // = { yes , no }
