@@ -53,7 +53,7 @@ show_context_case_involving($case);
 show_context_end();
 
 ?>
-<form action="add_org.php" method="post">
+<form action="add_client.php" method="post">
 
 	<table border="0" class="tbl_usr_dtl">
 		<tr>
