@@ -412,7 +412,6 @@ class LcmClientInfoUI extends LcmClient {
 		echo "</fieldset>\n";
 	}
 
-	// XXX error checking! ($_SESSION['errors'])
 	function printEdit() {
 		// Get site preferences
 		$client_name_middle = read_meta('client_name_middle');
@@ -563,7 +562,6 @@ class LcmClientInfoUI extends LcmClient {
 		//
 		// Contacts (e-mail, phones, etc.)
 		//
-		
 		echo "<tr>\n";
 		echo '<td colspan="2" align="center" valign="middle">';
 		show_page_subtitle(_T('client_subtitle_contacts'));
