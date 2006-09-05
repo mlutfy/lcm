@@ -854,8 +854,10 @@ class LcmFollowupInfoUI extends LcmFollowup {
 
 			if ($_SESSION['fu_app_data']['type'])
 				$default_app = $_SESSION['fu_app_data']['type'];
-			else
-				$default_app = $system_kwg['appointments']['suggest'];
+			else {
+				$app_kwg = get_kwg_from_name('appointments');
+				$default_app = $app_kwg['suggest'];
+			}
 
 			$opts = array();
 			foreach($system_kwg['appointments']['keywords'] as $kw)
@@ -863,7 +865,7 @@ class LcmFollowupInfoUI extends LcmFollowup {
 			asort($opts);
 
 			foreach($opts as $k => $opt) {
-				$sel = ($k == $default_app ? ' selected="selected"' : '');
+				$sel = isSelected($k == $default_app);
 				echo "<option value='$k'$sel>$opt</option>\n";
 			}
 
