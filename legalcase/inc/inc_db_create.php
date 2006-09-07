@@ -252,7 +252,7 @@ function create_database() {
 		"id_of_person bigint(21) NOT NULL",
 		"value text NOT NULL",
 		"type_contact tinyint(2) DEFAULT 0 NOT NULL", // XXX do we really need a default value?
-		"date_update datetime DEFAULT NULL," // may be null (if installation was upgraded)
+		"date_update datetime DEFAULT NULL", // may be null (if installation was upgraded)
 		"PRIMARY KEY (id_contact)"
 	);
 
