@@ -29,7 +29,7 @@ define('_INC_CONTACTS', '1');
 include_lcm('inc_keywords');
 
 function get_contact_type_id($name) {
-	$kwg = get_kwg_from_name($name);
+	$kwg = get_kwg_from_name('+' . $name);
 	return $kwg['id_group'];
 }
 
