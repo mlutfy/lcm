@@ -325,12 +325,18 @@ function upload_backup_file() {
 
 		if (class_exists("Archive_Tar")) {
 			$tar_worked = true;
+
+			$old_dir = getcwd();
+			chdir(DIR_BACKUPS);
+
 			$tar_object = new Archive_Tar($fname_full);
 			$tar_object->setErrorHandling(PEAR_ERROR_PRINT);
 
 			// XXX is this safe to do this here? What if file exists?
 			// FIXME: check extractList() to modify dest path
 			$tar_object->extract();
+
+			chdir($old_dir);
 
 			lcm_debug("untar should be OK");
 		} else {
