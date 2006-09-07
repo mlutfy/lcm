@@ -251,8 +251,11 @@ function lcm_connect_db($host, $port = 0, $login, $pass, $db = 0, $link = 0) {
 	if ($port > 0) $host = "$host:$port";
 	$lcm_mysql_link = @mysql_connect($host, $login, $pass);
 
+	// if ($debug)
+	//	mysql_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
+
 	if ($debug)
-		mysql_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
+		mysql_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
 		
 
 	if ($lcm_mysql_link && $db) {
