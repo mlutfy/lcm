@@ -196,6 +196,8 @@ function print_pass_forgotten_form() {
 }
 
 function send_registration_by_email() {
+	global $lcm_lang_left;
+
 	$_SESSION['form_data'] = array();
 	$_SESSION['errors'] = array();
 
@@ -246,7 +248,7 @@ function send_registration_by_email() {
 			echo "<div class='box_error'>" . _T('pass_registration_denied') . "</div>\n";
 		} else {
 			echo "<br />\n";
-			echo "<div class='box_error'>" . _T('pass_warning_already_registered') . "</div>\n";
+			echo "<div class=\"box_error\" align=\"$lcm_lang_left\">" . _T('pass_warning_already_registered') . "</div>\n";
 			return;
 		}
 	}
