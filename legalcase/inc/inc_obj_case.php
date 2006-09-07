@@ -413,10 +413,10 @@ class LcmCaseInfoUI extends LcmCase {
 			. "</li>\n";
 
 		// Show users assigned to the case
-		$q = "SELECT id_case,lcm_author.id_author,name_first,name_middle,name_last
-				FROM lcm_case_author,lcm_author
+		$q = "SELECT id_case, a.id_author, name_first, name_middle, name_last
+				FROM lcm_case_author as ca, lcm_author as a
 				WHERE (id_case=" . $this->getDataInt('id_case') . "
-				  AND lcm_case_author.id_author=lcm_author.id_author)";
+				  AND ca.id_author = a.id_author)";
 		
 		$authors_result = lcm_query($q);
 		$cpt = 0;

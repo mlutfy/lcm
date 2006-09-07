@@ -162,9 +162,9 @@ if (! ($case > 0)) {
 				//
 				// Show case organization(s)
 				//
-				$q="SELECT lcm_org.id_org,name
-					FROM lcm_case_client_org,lcm_org
-					WHERE id_case=$case AND lcm_case_client_org.id_org=lcm_org.id_org";
+				$q="SELECT o.id_org,name
+					FROM lcm_case_client_org as cco, lcm_org as o
+					WHERE id_case = $case AND cco.id_org = o.id_org";
 		
 				$result = lcm_query($q);
 
