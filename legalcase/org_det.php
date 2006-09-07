@@ -35,7 +35,7 @@ if ($org <= 0) {
 
 $q = "SELECT *
 		FROM lcm_org
-		WHERE lcm_org.id_org=$org";
+		WHERE id_org = $org";
 
 $result = lcm_query($q);
 
