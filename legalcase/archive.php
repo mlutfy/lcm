@@ -59,7 +59,7 @@ show_find_box('case', $find_case_string, '__self__');
 $case_list = new LcmCaseListUI();
 
 $case_list->setSearchTerm($find_case_string);
-$case_list->setData('owner', 'all'); // force filter
+$case_list->setDataString('owner', 'all'); // force filter
 
 $case_list->start();
 $case_list->printList();
