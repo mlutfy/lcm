@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2005 Free Software Foundation, Inc.
+	(C) 2004-2006 Free Software Foundation, Inc.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -273,8 +273,8 @@ function send_registration_by_email() {
 	if ($open_subscription == 'yes')
 		$status = 'normal';
 
-	lcm_query("INSERT INTO lcm_author (name_first, name_last, username, password, status) "
-			. "VALUES ('" . _session('name_first') . "', '" . _session('name_last') . "', '$username', '$mdpass', 'normal')");
+	lcm_query("INSERT INTO lcm_author (name_first, name_last, username, password, status, date_creation, date_update) "
+			. "VALUES ('" . _session('name_first') . "', '" . _session('name_last') . "', '$username', '$mdpass', 'normal', NOW(), NOW())");
 
 	$id_author = lcm_insert_id('lcm_author', 'id_author');
 
