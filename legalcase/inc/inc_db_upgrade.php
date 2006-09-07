@@ -1030,7 +1030,7 @@ function upgrade_database($old_db_version) {
 
 	if ($lcm_db_version_current < 48) {
 		lcm_query("ALTER TABLE lcm_client
-			ADD date_birth datetime DEFAULT NULL AFTER date_update");
+			ADD date_birth datetime NULL AFTER date_update");
 
 		upgrade_db_version(48);
 	}
@@ -1056,25 +1056,24 @@ function upgrade_database($old_db_version) {
 
 	if ($lcm_db_version_current < 50) {
 		lcm_query("ALTER TABLE lcm_stage
-			CHANGE date_conclusion date_conclusion datetime DEFAULT NULL");
-
-		lcm_query("ALTER TABLE lcm_stage
+			CHANGE date_creation date_creation datetime NOT NULL,
+			CHANGE date_conclusion date_conclusion datetime DEFAULT NULL,
 			CHANGE date_agreement date_agreement datetime DEFAULT NULL");
 
 		lcm_query("ALTER TABLE lcm_case_attachment
-			CHANGE date_removed date_removed datetime DEFAULT NULL");
+			CHANGE date_removed date_removed datetime default NULL");
 
 		lcm_query("ALTER TABLE lcm_client_attachment
-			CHANGE date_removed date_removed datetime DEFAULT NULL");
+			CHANGE date_removed date_removed datetime default NULL");
 
 		lcm_query("ALTER TABLE lcm_org_attachment
-			CHANGE date_removed date_removed datetime DEFAULT NULL");
+			CHANGE date_removed date_removed datetime default NULL");
 
 		lcm_query("ALTER TABLE lcm_followup
-			CHANGE date_end date_end datetime DEFAULT NULL");
+			CHANGE date_end date_end datetime default NULL");
 
 		lcm_query("ALTER TABLE lcm_app
-			CHANGE reminder reminder datetime DEFAULT NULL");
+			CHANGE reminder reminder datetime default NULL");
 
 		upgrade_db_version(50);
 	}
