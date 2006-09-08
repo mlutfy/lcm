@@ -54,11 +54,11 @@ if (empty($_SESSION['errors'])) {
 			}
 
 			// Get appointment participants
-			$q = "SELECT lcm_author.id_author,name_first,name_middle,name_last
-				FROM lcm_author_app,lcm_author
-				WHERE lcm_author_app.id_author=lcm_author.id_author
+			$q = "SELECT au.id_author, au.name_first, au.name_middle, au.name_last
+				FROM lcm_author_app as ap, lcm_author au
+				WHERE ap.id_author = au.id_author
 					AND id_app=" . _session('id_app') . "
-				ORDER BY name_first,name_middle,name_last";
+				ORDER BY au.name_first, au.name_middle, au.name_last";
 			$result = lcm_query($q);
 
 			while ($row = lcm_fetch_array($result))
