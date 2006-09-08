@@ -95,6 +95,8 @@ function install_step_5() {
 	include_lcm('inc_meta');
 	include_lcm('inc_access');
 
+	global $lcm_lang_left, $lcm_lang_right;
+
 	// Either leave the form completely empty, or fill in everything
 	if (_request('username') || _request('name_first') || _request('name_last') || _request('email')) {
 		$_SESSION['form_data']['name_first']  = _request('name_first');
@@ -264,7 +266,7 @@ function install_step_5() {
 	echo "</div>\n";
 
 	echo "<form action='index.php' method='post'>\n";
-	echo "<div align='" . $GLOBALS['lcm_lang_right'] . "'>"
+	echo "<div align='" . $lcm_lang_right . "'>"
 		. "<button type='submit' name='Next'>" . _T('button_next')." >></button>&nbsp;"
 		. "</div>\n";
 	echo "</form>\n";
