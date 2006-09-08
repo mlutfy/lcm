@@ -104,6 +104,7 @@ function install_step_5() {
 		$_SESSION['form_data']['password']    = _request('password');
 		$_SESSION['form_data']['password_confirm'] = _request('password_confirm');
 		$_SESSION['form_data']['email']       = _request('email');
+		$_SESSION['form_data']['getnews']     = _request('getnews');
 
 		// Test mandatory fields, sorry for the ugly code
 		$mandatory = array(
@@ -112,7 +113,8 @@ function install_step_5() {
 			'username'   => 'authoredit_input',
 			// 'email'      => 'input', // [ML] too annoying
 			'password'   => 'authorconf_input',
-			'password_confirm' => 'authorconf_input');
+			'password_confirm' => 'authorconf_input'
+			'getnews'	=> 'install_input');
 
 		foreach ($mandatory as $mn => $str) {
 			if (! _request($mn))
@@ -352,7 +354,8 @@ function install_step_4() {
 	// Offer to subscribe to the news/announcements mailing-list
 	if (server_can_send_email()) {
 		echo "<p align=\"$lcm_lang_left\">"
-			. '<input type="checkbox" name="getnews" id="getnews" ' . isChecked(_session('getnews')) . ' />'
+			. f_err_star('getnews')
+			. get_yes_no('getnews', _session('getnews'))
 			. '<label for="getnews">' . _T('install_info_subscribe_to_news_list') . '</label>'
 			. "</p>\n";
 	}
