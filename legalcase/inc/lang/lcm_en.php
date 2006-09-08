@@ -519,6 +519,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'install_info_subscribe_may_fail' => 'A request to subscribe your e-mail to the LCM announcements has been sent. Sometimes, the automated requests may not work. If you do not receive a confirmation by e-mail within the next 24h, please subscribe from our website.',
 'install_info_subscribe_to_news_list' => 'Subscribe the above e-mail to the receive LCM annoucements? If yes, you will receive by e-mail information about of new stable software releases and important security notifications. Such e-mails are sent very rarely (once every 1-2 months) and will never be used for other purposes, such as advertising.',
 'install_input_database_name' => 'Name:',
+'install_input_getnews' => 'Subscription to the announcements newsletter:',
 'install_select_database' => 'Select the database that your host has attributed to you',
 'install_select_language' => 'Select a language then click on the button “next” to start the installation procedure.',
 'install_step_five' => 'Fifth step:',
