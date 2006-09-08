@@ -113,7 +113,7 @@ function install_step_5() {
 			'username'   => 'authoredit_input',
 			// 'email'      => 'input', // [ML] too annoying
 			'password'   => 'authorconf_input',
-			'password_confirm' => 'authorconf_input'
+			'password_confirm' => 'authorconf_input',
 			'getnews'	=> 'install_input');
 
 		foreach ($mandatory as $mn => $str) {
