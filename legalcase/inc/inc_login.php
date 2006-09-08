@@ -267,7 +267,7 @@ function show_login($cible, $prive = 'prive', $message_login='') {
 
 	// button for "forgotten password"
 	include_lcm('inc_mail');
-	if (tester_mail()) {
+	if (server_can_send_email()) {
 		echo '<a href="lcm_pass.php?pass_forgotten=yes" target="lcm_pass" onclick="' ."javascript:window.open(this.href, 'lcm_pass', 'scrollbars=yes, resizable=yes, width=640, height=280'); return false;\" class=\"link_btn\">" ._T('login_password_forgotten').'</a>';
 	}
 
