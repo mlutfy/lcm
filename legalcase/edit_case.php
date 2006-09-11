@@ -66,7 +66,7 @@ if (empty($_SESSION['errors'])) {
 		$_SESSION['form_data']['date_assignment'] = date('Y-m-d H:i:s');
 		$_SESSION['form_data']['public'] = (int) (read_meta('case_default_read') == 'yes');
 		$_SESSION['form_data']['pub_write'] = (int) (read_meta('case_default_write') == 'yes');
-		$_SESSION['form_data']['status'] = 'draft';
+		$_SESSION['form_data']['status'] = 'open';
 
 		$_SESSION['form_data']['admin'] = true;
 
