@@ -701,7 +701,7 @@ class LcmCaseInfoUI extends LcmCase {
 		show_edit_keywords_form('case', $this->getDataInt('id_case'));
 		
 		$id_stage = 0; // new case, stage not yet known
-		if ($this->data['stage']) {
+		if ($this->getDataString('stage')) {
 			$stage = get_kw_from_name('stage', $this->getDataString('stage', '__ASSERT__'));
 			$id_stage = $stage['id_keyword'];
 		}
