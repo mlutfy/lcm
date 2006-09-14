@@ -498,32 +498,7 @@ lcm_page_start(_T('title_author_view') . ' ' . $fullname, '', '', 'authors_intro
 			// Case attachments
 			//
 			case 'attachments' :
-				// Show the errors (if any)
-				//echo show_all_errors($_SESSION['errors']);
-
-				//echo '<fieldset class="info_box">';
-				show_page_subtitle(_T('author_subtitle_attachments'), 'tools_documents');
-
-				echo "<p class=\"normal_text\">\n";
-
-				//echo '<form enctype="multipart/form-data" action="attach_file.php" method="post">' . "\n";
-				//echo '<input type="hidden" name="case" value="' . $case . '" />' . "\n";
-
-				// List of attached files
 				show_author_attachments($author);
-
-				// Attach new file form
-				/*if ($add)
-					show_attachments_upload('case', $case, $_SESSION['user_file']['name'], $_SESSION['user_file']['description']);
-
-				echo '<input type="submit" name="submit" value="' . _T('button_validate') . '" class="search_form_btn" />' . "\n";
-				echo "</form>\n";
-				*/
-				echo "</p>\n";
-				//echo "</fieldset>\n";
-
-				//$_SESSION['errors'] = array();
-				//$_SESSION['user_file'] = array();
 
 				break;
 		}
