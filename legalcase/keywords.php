@@ -698,8 +698,8 @@ lcm_bubble('keyword_list');
 // Tabs
 //
 $groups = array('system' => _T('keywords_tab_system'),
-				'user'   => _T('keywords_tab_user'),
 				'contact' => _T('keywords_tab_contact'),
+				'user'   => _T('keywords_tab_user'),
 				'maint'  => _T('keywords_tab_maintenance'));
 $tab = _request('tab', 'system');
 
