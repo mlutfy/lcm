@@ -426,6 +426,8 @@ function lcm_query($query, $accept_fail = false) {
 			return;
 	}
 
+	$GLOBALS['db_query_count']++;
+
 	return lcm_query_db($query, $accept_fail);
 }
 

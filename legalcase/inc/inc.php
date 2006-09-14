@@ -29,6 +29,9 @@ if (! include_config_exists('inc_connect')) {
 	exit;
 }
 
+// For profiling: count the number of SQL queries
+$GLOBALS['db_query_count'] = 0;
+
 include_lcm('inc_auth');
 include_lcm('inc_acc');
 include_lcm('inc_presentation');

@@ -532,6 +532,9 @@ function lcm_page_end($credits = '') {
 				'license' => lcm_help_string('about_license', _T('info_free_software2'))))
 		. "</div>\n";
 
+	if ($GLOBALS['debug'])
+		echo "<p align='left'>Debug (" . $GLOBALS['debug'] . "): SQL Queries: " . $GLOBALS['db_query_count'] . "</p>\n";
+
 	echo "</body>\n";
 	echo "</html>\n";
 
