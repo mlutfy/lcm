@@ -66,6 +66,8 @@ function get_date_range_fields() {
 }
 
 global $prefs;
+global $author_session;
+
 $author = intval(_request('author'));
 
 if (! ($author > 0)) {
@@ -490,7 +492,8 @@ lcm_page_start(_T('title_author_view') . ' ' . $fullname, '', '', 'authors_intro
 				
 				echo "</p>\n";
 
-				echo '<p><a href="edit_app.php?app=0" class="create_new_lnk">' . _T('app_button_new') . '</a></p>';
+				if ($author_session['id_author'] == $author)
+					echo '<p><a href="edit_app.php?app=0" class="create_new_lnk">' . _T('app_button_new') . '</a></p>';
 
 				break;
 	
