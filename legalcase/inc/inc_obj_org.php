@@ -222,7 +222,10 @@ class LcmOrg extends LcmObject {
 		} else {
 			$q = "INSERT INTO lcm_org SET date_update = NOW(), date_creation = NOW(), $ol";
 			$result = lcm_query($q);
-			$_SESSION['form_data']['id_org'] = lcm_insert_id('lcm_org', 'id_org');
+			$this->setDataInt('id_org', lcm_insert_id('lcm_org', 'id_org'));
+
+			// Just by precaution
+			$_SESSION['form_data']['id_org'] = $this->getDataInt('id_org');
 	
 			// If there is an error (ex: in contacts), we should send back to 'org_det.php?org=XX'
 			// not to 'org_det.php?org=0'.
