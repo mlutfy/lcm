@@ -492,7 +492,7 @@ lcm_page_start(_T('title_author_view') . ' ' . $fullname, '', '', 'authors_intro
 				
 				echo "</p>\n";
 
-				if ($author_session['id_author'] == $author)
+				if ($author_session['id_author'] == $author)
 					echo '<p><a href="edit_app.php?app=0" class="create_new_lnk">' . _T('app_button_new') . '</a></p>';
 
 				break;
