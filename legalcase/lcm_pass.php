@@ -135,7 +135,7 @@ function send_cookie_by_email($my_email) {
 			WHERE c.id_of_person = a.id_author
 			and type_person = 'author' 
 			and value ='$my_email' 
-			and type_contact = " . $kw_email['id_keyword'];
+			and type_contact = " . $kw_email['id_keyword']);
 	
 	$row = lcm_fetch_array($res);
 
