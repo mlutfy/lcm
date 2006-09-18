@@ -127,6 +127,7 @@ function send_cookie_by_email($my_email) {
 	}
 
 	$my_email = clean_input($my_email);
+	$kw_email = get_kw_from_name('contacts', '+email_main');
 
 	// Find the ID + info of the author
 	$res = lcm_query("SELECT id_of_person, username, status, password
@@ -134,7 +135,7 @@ function send_cookie_by_email($my_email) {
 			WHERE c.id_of_person = a.id_author
 			and type_person = 'author' 
 			and value ='$my_email' 
-			and type_contact = " . $system_kwg['contacts']['keywords']['email_main']['id_keyword']);
+			and type_contact = " . $kw_email['id_keyword'];
 	
 	$row = lcm_fetch_array($res);
 
@@ -202,7 +203,7 @@ function send_registration_by_email() {
 	$_SESSION['errors'] = array();
 
 	include_lcm('inc_keywords');
-	$kw_email = get_kw_from_name('contacts', 'email_main');
+	$kw_email = get_kw_from_name('contacts', '+email_main');
 
 	$form_items = array (
 		'name_first' => 'person_input_name_first',
