@@ -102,14 +102,14 @@ function show_kwg_info($kwg, $level = 0) {
 
 	// New keyword
 	if ($kwg['type'] != 'contact') {
-		echo '<a class="edit_lnk" href="keywords.php?action=edit_keyword&amp;id_keyword=0&amp;'
+		echo ' <a class="edit_lnk" href="keywords.php?action=edit_keyword&amp;id_keyword=0&amp;'
 			. 'id_group=' . $kwg['id_group'] . '">'
 			. _T('keywords_button_kw_new') . '</a>';
 	}
 
 	// New sub-group
 	if ($kwg['type'] != 'system' && $kwg['type'] != 'contact') {
-		echo '<a class="edit_lnk" href="keywords.php?action=edit_group&amp;id_group=0&amp;'
+		echo ' <a class="edit_lnk" href="keywords.php?action=edit_group&amp;id_group=0&amp;'
 			. 'id_parent=' . $kwg['id_group'] . '">'
 			. _T('keywords_button_subkwg_new') . '</a>';
 	}
