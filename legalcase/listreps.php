@@ -108,10 +108,10 @@ echo '<p><a href="edit_rep.php?rep=0" class="create_new_lnk">' . _T('rep_button_
 //
 
 $custom_reports = array();
-$handle = opendir("custom/reports");
+$handle = opendir("inc/config/custom/reports");
 
 while (($f = readdir($handle)) != '') {
-	if (is_file("custom/reports/" . $f)) {
+	if (is_file("inc/config/custom/reports/" . $f)) {
 		// matches: custom/reports/alpha-num_name.php
 		if (preg_match("/^([_a-zA-Z0-9]+)\.php/", $f, $regs)) {
 			$custom_reports[] = $regs[1];

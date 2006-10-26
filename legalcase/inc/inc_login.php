@@ -30,7 +30,7 @@ include_lcm('inc_filters');
 include_lcm('inc_text');
 
 function get_optional_html_login() {
-	$html_file = "custom/html/login.html";
+	$html_file = "inc/config/custom/html/login.html";
 	$text = "";
 
 	if (is_readable($html_file))

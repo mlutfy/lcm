@@ -117,12 +117,12 @@ function include_data($file) {
 }
 
 function include_validator_exists($file) {
-	$lcmfile = 'custom/validation/validate_' . $file . '.php';
+	$lcmfile = 'inc/config/custom/validation/validate_' . $file . '.php';
 	return @file_exists($lcmfile);
 }
 
 function include_validator($file) {
-	$lcmfile = 'custom/validation/validate_' . $file . '.php';
+	$lcmfile = 'inc/config/custom/validation/validate_' . $file . '.php';
 
 	// This does not work correctly on PHP5, and who knows for PHP4..
 	if (! isset($GLOBALS['included_files'][$file]))
@@ -140,12 +140,12 @@ function include_validator($file) {
 }
 
 function include_custom_report_exists($file) {
-	$lcmfile = 'custom/reports/' . $file . '.php';
+	$lcmfile = 'inc/config/custom/reports/' . $file . '.php';
 	return @file_exists($lcmfile);
 }
 
 function include_custom_report($file) {
-	$lcmfile = 'custom/reports/' . $file . '.php';
+	$lcmfile = 'inc/config/custom/reports/' . $file . '.php';
 
 	// This does not work correctly on PHP5, and who knows for PHP4..
 	if (! isset($GLOBALS['included_files'][$file]))
