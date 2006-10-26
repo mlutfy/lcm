@@ -96,7 +96,7 @@ function lcm_query_create_table($table, $fields, $keys = array()) {
 		$tmp = $f;
 
 		$tmp = preg_replace('/bigint\(21\) NOT NULL auto_increment/', "serial ", $tmp);
-		$tmp = preg_replace("/DEFAULT '0'/", "DEFAULT 0", $tmp);
+		// [fixed in db_create.php] $tmp = preg_replace("/DEFAULT '0'/", "DEFAULT 0", $tmp);
 
 		$tmp = preg_replace('/tinyint\(\d+\)/', "smallint", $tmp);
 		$tmp = preg_replace('/bigint\(\d+\)/', "bigint", $tmp);
@@ -124,6 +124,7 @@ function lcm_query_create_table($table, $fields, $keys = array()) {
 		}
 
 		$tmp = preg_replace("/datetime( DEFAULT '0000-00-00 00:00:00')? NOT NULL/", "timestamp NOT NULL", $tmp);
+		$tmp = preg_replace("/datetime DEFAULT NULL/", "timestamp DEFAULT NULL", $tmp);
 
 		$new_fields[] = $tmp;
 	}
