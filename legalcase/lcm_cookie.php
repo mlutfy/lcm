@@ -209,7 +209,7 @@ if ($cookie_session) {
 // of a mess because of the session handling stuff.. 
 if (isset($_REQUEST['var_lang_lcm'])) {
 	// ex: bg, fr, en, en_uk, etc. nothing else is accepted
-	if (preg_match("/^[_A-Za-z]+$/", $_REQUEST['var_lang_lcm'])) {
+	if (preg_match("/^[_A-Za-z]+[0-9]*$/", $_REQUEST['var_lang_lcm'])) {
 		include_lcm('inc_lang');
 		include_lcm('inc_session');
 
