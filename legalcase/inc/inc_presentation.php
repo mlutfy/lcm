@@ -467,7 +467,6 @@ function lcm_page_end($credits = '') {
 		show_find_box('org', $find_org_string, '', 'narrow');
 	
 		echo "<br />
-			<!-- the font size experiment -->
 			<div class=\"prefs_column_menu_head\"><div class=\"sm_font_size\">" . _T('menu_fontsize') . "</div>
 			</div>
 			<ul class=\"font_size_buttons\">
