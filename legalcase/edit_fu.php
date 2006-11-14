@@ -142,8 +142,9 @@ $_SESSION['form_data']['ref_edit_fu'] = _request('ref');
 
 				// Get appointment client(s)
 				$q = "SELECT aco.*, c.name_first, c.name_middle, c.name_last, o.name
-					FROM lcm_app_client_org as aco, lcm_client as c
-					LEFT JOIN lcm_org as o ON (id_org) " /* ON (o.id_org = aco.id_org) */ . "
+					FROM lcm_app_client_org as aco
+					NATURAL JOIN lcm_client as c
+					LEFT JOIN lcm_org as o ON (o.id_org = aco.id_org)
 					WHERE (id_app = $app AND aco.id_client = c.id_client)";
 
 				$res_client = lcm_query($q);
