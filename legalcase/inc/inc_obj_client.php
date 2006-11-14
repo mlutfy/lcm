@@ -479,7 +479,7 @@ class LcmClientInfoUI extends LcmClient {
 		if (substr($client_citizen_number, 0, 3) == 'yes') {
 			echo "<tr>\n";
 			echo '<td>' . f_err_star('citizen_number') .  _T('person_input_citizen_number') . '</td>';
-			echo '<td><input name="citizen_number" value="' . clean_output($this->getDataString('citizen_number')) . '" class="search_form_txt"></td>';
+			echo '<td><input name="citizen_number" value="' .  clean_output($this->getDataString('citizen_number')) . '" class="search_form_txt" /></td>';
 			echo "</tr>\n";
 		}
 		
