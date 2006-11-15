@@ -1151,8 +1151,6 @@ function upgrade_database($old_db_version) {
 		lcm_query("UPDATE lcm_contact SET date_update = NULL");
 	} 
 
-	// TODO: remove lcm_author.htpass field
-
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();
