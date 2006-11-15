@@ -68,7 +68,10 @@ function get_kwg_all($type, $exclude_empty = false, $show_subgroups = false) {
 			$query .= " AND id_parent = 0 ";
 	}
 
-	$result = lcm_query($query);
+	// [ML] 2006-11-14 Sometimes fails after upgrade, because id_parent 
+	// doesn't yet exist. For now, adding this.
+	$accept_fail = (isset($GLOBALS['debug']) && $GLOBALS['debug'] ? false : true);
+	$result = lcm_query($query, $accept_fail);
 
 	while ($row = lcm_fetch_array($result)) {
 		$ret[$row['title']] = $row;
