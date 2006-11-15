@@ -153,18 +153,19 @@ function install_step_5() {
 			lcm_query_db($query);
 		} else {
 			$query = "INSERT INTO lcm_author "
-				. "(name_first, name_middle, name_last, username, date_update, "
-				.  "password, alea_actuel, alea_futur, status, date_creation)"
+				. "(name_first, name_middle, name_last, username, prefs, cookie_recall, pgp, "
+				.  "password, alea_actuel, alea_futur, status, date_update, date_creation)"
 				. "VALUES ("
 				. "'" . _session('name_first') . "',"
 				. "'" . _session('name_middle') . "',"
 				. "'" . _session('name_last') . "',"
 				. "'" . _session('username') . "',"
-				. "NOW(),"
+				. "'', '', '', "  // prefs, cookie_recall, pgp
 				. "'temp',"
 				. "'',"
 				. "FLOOR(32000*RAND()),"
 				. "'admin',"
+				. "NOW(),"
 				. "NOW()"
 				. ")";
 
