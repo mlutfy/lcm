@@ -155,13 +155,13 @@ $errs = $fu->save();
 if (count ($errs))
 	$_SESSION['errors'] = array_merge($_SESSION['errors'], $errs);
 
-if (! $id_followup)
-	$id_followup = $fu->getDataInt('id_followup', '__ASSERT__');
-
 if (count($_SESSION['errors'])) {
     lcm_header("Location: " . $_SERVER['HTTP_REFERER']);
     exit;
 }
+
+if (! $id_followup)
+	$id_followup = $fu->getDataInt('id_followup', '__ASSERT__');
 
 //
 // Update stage keywords

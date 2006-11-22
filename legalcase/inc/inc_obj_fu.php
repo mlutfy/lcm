@@ -112,7 +112,7 @@ class LcmFollowup extends LcmObject {
 		if (($unix_date_start < 0) || ! checkdate_sql($this->getDataString('date_start')))
 			$errors['date_start'] = _Ti('time_input_date_start') . 'Invalid start date.'; // TRAD
 
-		if (! is_numeric($this->getDataFloat('sumbilled')))
+		if ($this->getDataFloat('sumbilled') && (! is_numeric($this->getDataFloat('sumbilled'))))
 			$errors['sumbilled'] = _Ti('fu_input_sum_billed') . 'Incorrect format, must be 00000.00'; // TRAD
 
 		// * Check end date

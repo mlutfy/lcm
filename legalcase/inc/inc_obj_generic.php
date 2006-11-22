@@ -43,7 +43,7 @@ class LcmObject {
 	}
 
 	function getDataFloat($field, $default = 0.00) {
-		if (isset($this->data[$field]))
+		if (isset($this->data[$field]) && $this->data[$field])
 			return $this->data[$field];
 
 		if (is_string($default) && $default == '__ASSERT__')
