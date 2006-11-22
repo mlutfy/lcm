@@ -43,8 +43,8 @@ class LcmObject {
 	}
 
 	function getDataFloat($field, $default = 0.00) {
-		if (isset($this->data[$field]) && $this->data[$field])
-			return $this->data[$field];
+		if (isset($this->data[$field]) && trim($this->data[$field]))
+			return trim($this->data[$field]);
 
 		if (is_string($default) && $default == '__ASSERT__')
 			lcm_panic("Value does not exist.");
