@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2005 Free Software Foundation, Inc.
+	(C) 2004-2007 Free Software Foundation, Inc.
 
 	This program is free software; you can redistribute it and/or modify it
 	under the terms of the GNU General Public License as published by the
@@ -95,7 +95,15 @@ if (_session('id_report') > 0) {
 	
 	lcm_query($q);
 } else {
-	$q = "INSERT INTO lcm_report SET date_creation=NOW(),$fl";
+	$q = "INSERT INTO lcm_report
+			SET date_creation=NOW(),
+				line_src_type = '',
+				line_src_name = '',
+				col_src_type = '',
+				col_src_name = '',
+				filecustom = '',
+				$fl";
+
 	$result = lcm_query($q);
 	$_SESSION['form_data']['id_report'] = lcm_insert_id('lcm_report', 'id_report');
 
