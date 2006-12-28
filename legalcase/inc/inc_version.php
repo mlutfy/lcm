@@ -197,7 +197,7 @@ $cookie_path = '';
 
 // Maximum size of uploaded files
 // NOTE: also check your php.ini, very often, it is less than this.
-$max_file_upload_size = 10 * 1024 * 1024; // 3 megs
+$max_file_upload_size = 10 * 1024 * 1024; // 10 megs
 
 // [ML] This is probably not used
 // Should we authorize LCM to compress the pages on the fly when
@@ -1225,6 +1225,9 @@ function lcm_panic($message) {
 
 	foreach ($check_confs as $conf)
 		$error .= $conf . ': ' . lcm_ini_get($conf) . "\n";
+
+	if ($GLOBALS['debug'])
+		$error .= get_var_dump($GLOBALS);
 
 	// Too much paranoia? I am not even sure if we can inject code
 	// either XSS or shellcode .. but should not hurt..
