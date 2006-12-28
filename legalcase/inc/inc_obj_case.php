@@ -256,11 +256,15 @@ class LcmCase extends LcmObject {
 		// Create the case in the database
 		//
 
+		/* [ML] Note: the 'case_notes' field is refered to as only 'notes'
+		 * since the constructor of the class strips 'case_' prefixes
+		 */
+
 		$fl = "title='"              . $this->getDataString('title')            . "',
 				date_assignment = '" . $this->getDataString('date_assignment')  . "',
 				legal_reason='"      . $this->getDataString('legal_reason')     . "',
 				alledged_crime='"    . $this->getDataString('alledged_crime')   . "',
-				notes = '"           . $this->getDataString('case_notes')       . "',
+				notes = '"           . $this->getDataString('notes')            . "',
 			    status='"            . $this->getDataString('status')           . "',
 			    stage='"             . $this->getDataString('stage')            . "'";
 
