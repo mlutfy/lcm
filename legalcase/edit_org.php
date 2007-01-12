@@ -57,10 +57,15 @@ if ($org)
 else
 	lcm_page_start(_T('title_org_new'), '', '', 'clients_neworg');
 
-// Show the errors (if any)
 echo show_all_errors($_SESSION['errors']);
 
 echo '<form action="upd_org.php" method="post">' . "\n";
+
+if (_request('attach_case')) {
+	echo '<input type="hidden" name="attach_case" id="attach_case" value="'
+		. _request('attach_case')
+		. '" />' . "\n";
+}
 
 $obj_org = new LcmOrgInfoUI($org);
 $obj_org->printEdit();
