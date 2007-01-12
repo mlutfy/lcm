@@ -187,10 +187,28 @@ class LcmClient extends LcmObject {
 		if (read_meta('client_income') == 'yes_mandatory' && (!$this->getDataString('income')))
 			$errors['income'] = _Ti('person_input_income') . _T('warning_field_mandatory');
 
+		// * Check gender
 		$genders = array('unknown' => 1, 'female' => 1, 'male' => 1);
 
 		if (! array_key_exists($this->getDataString('gender'), $genders))
 			$errors['gender'] = _Ti('person_input_gender') . 'Incorrect format.'; // TRAD FIXME
+
+		// * Check for date of birth
+		$meta_date_birth = read_meta('client_date_birth');
+		$date_birth = $this->getDataString('date_birth');
+
+		if ($meta_date_birth == 'yes_mandatory' && (! $date_birth || $date_birth == -1)) {
+			$errors['date_birth'] = _Ti('person_input_date_birth') . _T('warning_field_mandatory');
+		} else if ($date_birth) {
+			if (! isset_datetime_from_array($_SESSION['form_data'], 'date_birth', 'date_only')) {
+				$errors['date_birth'] = _Ti('person_input_date_birth') . "Partial date."; // TRAD
+			} else {
+				$unix_date_birth = strtotime($date_birth);
+
+				if ( ($unix_date_birth < 0) || !checkdate_sql($date_birth))
+					$errors['date_birth'] = 'Invalid end date.'; // TRAD
+			}
+		}
 
 		//
 		// Custom validation functions
@@ -259,14 +277,9 @@ class LcmClient extends LcmObject {
 		if ($this->getDataString('date_birth'))
 			$cl .= ", date_birth = '" . $this->getDataString('date_birth') . "'";
 	
-		if (clean_input($this->getDataString('citizen_number')))
-			$cl .= ", citizen_number = '" . clean_input($this->getDataString('citizen_number')) . "'";
-		
-		if (clean_input($this->getDataString('civil_status')))
-			$cl .= ", civil_status = '" . clean_input($this->getDataString('civil_status')) . "'";
-	
-		if (clean_input($this->getDataString('income')))
-			$cl .= ", income = '" . clean_input($this->getDataString('income')) . "'";
+		$cl .= ", citizen_number = '" . clean_input($this->getDataString('citizen_number')) . "'";
+		$cl .= ", civil_status = '" . clean_input($this->getDataString('civil_status')) . "'";
+		$cl .= ", income = '" . clean_input($this->getDataString('income')) . "'";
 	
 		if ($this->getDataInt('id_client') > 0) {
 			$q = "UPDATE lcm_client
