@@ -2,7 +2,7 @@
 
 /*
 	This file is part of the Legal Case Management System (LCM).
-	(C) 2004-2006 Free Software Foundation, Inc.
+	(C) 2004-2007 Free Software Foundation, Inc.
 
 	This file is a derivative of the SPIP 1.8 ecrire/inc_calendrier.php3
 	(http://www.spip.net). Licensed under the GNU GPL (C) 2001-2005 
