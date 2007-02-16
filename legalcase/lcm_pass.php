@@ -100,7 +100,7 @@ function reset_pass($my_p, $my_password = 0) {
 		
 		echo "<form name='form_newpass' id='form_newpass' action='lcm_pass.php' method='post'>\n";
 		echo "<input type='hidden' name='p' value='" . htmlspecialchars($my_p) . "' />\n";
-		echo '<fieldset><p><label for="password">' . _T('pass_enter_new_pass') .  _T('typo_column') . "</label><br/>\n";
+		echo '<fieldset><p><label for="password">' . _T('pass_enter_new_pass') .  "</label><br/>\n";
 		echo "<input type='password' class='fondo' name='password' id='password' size='30' value='' /> ";
 		echo '<input type="submit" class="fondl" name="validate" value="' . _T('button_validate') . "\" />\n";
 		echo "</fieldset>\n";
