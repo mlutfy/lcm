@@ -812,10 +812,9 @@ class LcmExpenseListUI {
 			$this->list_pos = 0;
 
 		// Position to the page info start
-		if ($this->list_pos > 0) {
+		if ($this->list_pos > 0)
 			if (! lcm_data_seek($result, $this->list_pos))
 				lcm_panic("Error seeking position " . $this->list_pos . " in the result");
-		}
 
 		for ($i = 0; (($i<$prefs['page_rows']) && ($row = lcm_fetch_array($result))); $i++) {
 			$css = ($i % 2 ? "dark" : "light");
