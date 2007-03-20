@@ -82,7 +82,7 @@ $status     = _request('new_exp_status');
 
 if ($status || $id_comment || _request('edit_comment')) {
 	$obj_exp = new LcmExpenseInfoUI($id_expense);
-	$obj_exp->printGeneral();
+	$obj_exp->printGeneral(false); // with minimal UI (no edit button)
 
 	show_page_subtitle(_T('expenses_subtitle_comment'), 'expenses_comment');
 
