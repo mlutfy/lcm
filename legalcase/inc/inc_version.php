@@ -1226,8 +1226,16 @@ function lcm_panic($message) {
 	foreach ($check_confs as $conf)
 		$error .= $conf . ': ' . lcm_ini_get($conf) . "\n";
 
-	if ($GLOBALS['debug'])
-		$error .= get_var_dump($GLOBALS);
+	if ($GLOBALS['debug']) {
+		$error .= "cookie_prefix: " . $GLOBALS['cookie_prefix'] . "\n";
+		$error .= "table_prefix: " . $GLOBALS['table_prefix'] . "\n";
+		$error .= "_GET: " . get_var_dump($_GET) . "\n";
+		$error .= "_POST: " . get_var_dump($_POST) . "\n";
+		$error .= "_COOKIE: " . get_var_dump($_COOKIE) . "\n";
+		$error .= "_SERVER: " . get_var_dump($_SERVER) . "\n";
+		$error .= "included_files: " . get_var_dump($GLOBALS['included_files']) . "\n";
+		$error .= "meta: " . get_var_dump($GLOBALS['meta']) . "\n";
+	}
 
 	// Too much paranoia? I am not even sure if we can inject code
 	// either XSS or shellcode .. but should not hurt..
