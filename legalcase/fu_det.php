@@ -79,7 +79,7 @@ if ($app = lcm_fetch_array($res_app)) {
 }
 
 // Show child appointment, if any
-$q = "SELECT lcm_app.* 
+$q = "SELECT app.* 
 		FROM lcm_app_fu as af, lcm_app as app
 		WHERE af.id_followup = $followup 
 		  AND af.id_app = app.id_app 
