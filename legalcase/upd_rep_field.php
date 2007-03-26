@@ -97,8 +97,10 @@ if (_request('add')) {
 				SET id_report = $rep,
 					id_field = $id_field,
 					col_order = $order,
-					header = '$header',
-					sort = '$sort'";
+					header = '$header' ";
+
+		if ($sort)
+			$query .= ", sort = '$sort'";
 	
 		lcm_query($query);
 		$ref_tag = "#col";
