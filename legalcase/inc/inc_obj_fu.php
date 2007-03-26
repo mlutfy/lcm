@@ -106,6 +106,14 @@ class LcmFollowup extends LcmObject {
 		if (! ($this->getDataInt('id_case') > 0))
 			$errors['id_case'] = "Internal error: No id_case found";
 
+		// * Check for fu type
+		if (! $this->getDataString('type'))
+			$errors['type'] = _Ti('fu_input_type') . _T('warning_field_mandatory');
+
+		// * Check if fu type exists
+		if (! get_kw_from_name('followups', $this->getDataString('type')))
+			$errors['type'] = _Ti('fu_input_type') . "Unknown type"; // TRAD
+
 		// * Check start date
 		$unix_date_start = strtotime($this->getDataString('date_start'));
 
