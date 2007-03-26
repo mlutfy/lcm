@@ -199,11 +199,17 @@ function format_money($money, $two_cents = true, $show_currency_sign = false) {
 	else // i.e. "not money" (ex: file size)
 		$str_cents = preg_replace("/0+$/", "", $cents);
 
-	$str_hundreds = $hundreds % 1000;
+	$str_hundreds = sprintf('%03u', ($hundreds % 1000));
 
+	// Test with values: 1000, 100000 etc.
+	// Before 0.7.3, it would print "1,0.00" for 1000$
+	// Reported by BM on 2007-03-24.
 	while ($hundreds > 999) {
 		$hundreds /= 1000;
-		$str_hundreds = ($hundreds % 1000) . $seperator_hundreds . $str_hundreds;
+		if ($hundreds > 1000)
+			$str_hundreds = sprintf('%03u', ($hundreds % 1000)) . $seperator_hundreds . $str_hundreds;
+		else
+			$str_hundreds = ($hundreds % 1000) . $seperator_hundreds . $str_hundreds;
 	}
 
 	$str_final = $str_hundreds;
