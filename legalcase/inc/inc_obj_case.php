@@ -407,7 +407,7 @@ class LcmCaseInfoUI extends LcmCase {
 		// Case ID
 		echo '<li>'
 			. '<span class="label1">' . _Ti('case_input_id') . '</span>'
-			. '<span class="value1">' . $this->getDataInt('id_case') . '</span>'
+			. '<span class="value1">' . show_case_id($this->getDataInt('id_case')) . '</span>'
 			. "</li>\n";
 
 		// Case title
