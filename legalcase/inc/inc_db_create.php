@@ -416,6 +416,7 @@ function create_database() {
 		"reminder datetime DEFAULT NULL", // may be null
 		"date_creation datetime NOT NULL",
 		"date_update datetime NOT NULL",
+		"hidden ENUM('N', 'Y') NOT NULL DEFAULT 'N'",
 		"PRIMARY KEY  (id_app)"
 	);
 

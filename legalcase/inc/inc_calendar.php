@@ -1802,6 +1802,7 @@ function sql_calendrier_interval_rv($avant, $apres) {
 				FROM lcm_app as a, lcm_author_app as ap
 				WHERE (ap.id_author = " . $GLOBALS['author_session']['id_author'] . "
 				AND a.id_app = ap.id_app
+				AND a.hidden != 'Y'
 				AND ((a.end_time >= $avant OR a.start_time >= $avant) AND a.start_time <= $apres))
 	" /*			GROUP BY a.id_app */ . "
 				ORDER BY a.start_time";
@@ -1929,6 +1930,7 @@ function sql_calendrier_agenda ($mois, $annee) {
 					FROM lcm_app as app, lcm_author_app as aut
 					WHERE aut.id_author = " . $GLOBALS['author_session']['id_author'] . "
 					AND app.id_app = aut.id_app
+					AND app.hidden != 'Y'
 					AND app.start_time >= '$annee-$mois-01'
 					AND app.start_time < " . lcm_query_date_add_interval("$annee-$mois-01", '+', 'month', 1));
 

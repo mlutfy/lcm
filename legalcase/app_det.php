@@ -49,6 +49,18 @@ echo '<p class="normal_text">' . "\n";
 	
 	echo _Ti('app_input_title') . $row['title'] . "<br />\n";
 	echo _Ti('app_input_type') . _Tkw('appointments', $row['type']) . "<br />\n";
+
+	if ($row['hidden'] == 'Y') {
+		echo '<p class="normal_text"><strong>' . _T('app_info_is_deleted') . "</strong>";
+
+		if ($ac['a'])
+			echo " " . _T('app_info_is_deleted2');
+
+		echo "</p>\n";
+	}
+
+	show_page_subtitle(_T('generic_subtitle_general'), 'tools_agenda');
+
 	echo _Ti('app_input_description') . nl2br($row['description']) . "<br />\n";
 
 	echo "<br />\n";

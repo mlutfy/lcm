@@ -141,7 +141,8 @@ if (count($_SESSION['errors'])) {
 		description = '" . _session('description') . "',
 		start_time  = '" . _session('start_time') . "',
 		end_time    = '" . _session('end_time') . "',
-		reminder    = '" . _session('reminder') . "'
+		reminder    = '" . _session('reminder') . "',
+		hidden      = '" . (_session('hidden', '') ? 'Y' : 'N') . "'
 		";
 
 	// Insert/update appointment

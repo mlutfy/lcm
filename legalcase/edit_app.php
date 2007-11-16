@@ -130,6 +130,12 @@ if (empty($_SESSION['errors'])) {
 		$_SESSION['authors'][$row['id_author']] = $row;
 }
 
+// [ML] not clean hack, fix "delete" option
+if (! empty($_SESSION['errors'])) {
+	if ($_SESSION['form_data']['hidden'])
+		$_SESSION['form_data']['hidden'] = 'Y';
+}
+
 if (_session('id_app', 0) > 0)
 	lcm_page_start(_T('title_app_edit'), '', '', 'tools_agenda');
 else
@@ -373,6 +379,17 @@ $dis = ($edit ? '' : 'disabled="disabled"');
 		echo "</td></tr>\n";
 
 		echo "</table>\n";
+
+		// Delete appointment
+		if (_session('id_app', 0)) {
+			// $checked = ($this->getDataString('hidden') == 'Y' ? ' checked="checked" ' : '');
+			$checked = ($_SESSION['form_data']['hidden'] == 'Y' ? ' checked="checked" ' : '');
+
+			echo '<p class="normal_text">';
+			echo '<input type="checkbox"' . $checked . ' name="hidden" id="box_delete" />';
+			echo '<label for="box_delete">' . _T('app_info_delete') . '</label>';
+			echo "</p>\n";
+		}
 
 		// Submit buttons
 		echo '<button name="submit" type="submit" value="adddet" class="simple_form_btn">' . _T('button_validate') . "</button>\n";
