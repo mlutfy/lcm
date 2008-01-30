@@ -684,6 +684,8 @@ switch (_request('action')) {
 		create_groups($system_keyword_groups);
 		write_metas(); // regenerate inc/data/inc_meta_cache.php
 
+		$_SESSION['info']['refresh'] = 'Keywords cache refreshed'; // TRAD
+
 		break;
 	case '':
 		// Do Nothing
@@ -695,6 +697,8 @@ switch (_request('action')) {
 
 lcm_page_start(_T('menu_admin_keywords'), '', '', 'keywords_intro');
 lcm_bubble('keyword_list');
+
+echo show_all_errors();
 
 //
 // Tabs
@@ -718,7 +722,8 @@ switch ($tab) {
 		echo '<form method="post" action="' . $_SERVER['REQUEST_URI'] . '">' . "\n";
 		echo '<p>' . _T('keywords_info_maintenance') . "</p>\n";
 
-		echo '<button type="submit" name="action" value="refresh" class="simple_form_btn">'
+		echo '<input type="hidden" name="action" value="refresh" />' . "\n";
+		echo '<button type="submit" name="submit_button" value="refresh" class="simple_form_btn">'
 			. _T('button_validate')
 			. "</button>\n";
 		echo "</form>\n";
