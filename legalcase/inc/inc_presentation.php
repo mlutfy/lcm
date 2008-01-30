@@ -1278,7 +1278,7 @@ function show_listcase_item($item, $cpt, $find_case_string = '', $url = '__DEFAU
 
 	// Case ID
 	echo "<td class='tbl_cont_" . $css . "'>";
-	echo highlight_matches($item['id_case'],$find_case_string);
+	echo highlight_matches(show_case_id($item['id_case']),$find_case_string);
 	echo "</td>\n";
 
 	// Date creation
