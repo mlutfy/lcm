@@ -1173,6 +1173,16 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version(52);
 	}
 
+	if ($lcm_db_version_current < 53) {
+		lcm_query("ALTER TABLE lcm_stage
+						CHANGE sentence_val sentence_val text");
+
+		lcm_query("ALTER TABLE lcm_keyword_case
+						CHANGE value value text");
+
+		upgrade_db_version(53);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();

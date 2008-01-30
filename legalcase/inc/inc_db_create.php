@@ -95,7 +95,7 @@ function create_database() {
 		"kw_result varchar(255) NOT NULL DEFAULT ''",
 		"kw_conclusion varchar(255) NOT NULL DEFAULT ''",
 		"kw_sentence varchar(255) NOT NULL DEFAULT ''",
-		"sentence_val text NOT NULL DEFAULT ''",
+		"sentence_val text",
 		"date_agreement datetime DEFAULT NULL", // may be null
 		"latest tinyint(1) DEFAULT 0 NOT NULL",
 		"PRIMARY KEY (id_entry)"
@@ -278,7 +278,7 @@ function create_database() {
 		"id_keyword bigint(21) NOT NULL",
 		"id_case bigint(21) NOT NULL",
 		"id_stage bigint(21) NOT NULL DEFAULT 0",
-		"value text NOT NULL DEFAULT ''",
+		"value text",
 		"PRIMARY KEY (id_entry)"
 	);
 
