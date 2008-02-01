@@ -465,7 +465,7 @@ class LcmClientInfoUI extends LcmClient {
 			echo "<tr>\n";
 			echo "<td>" . f_err_star('date_birth') . _Ti('person_input_date_birth') . "</td>\n";
 			echo "<td>" 
-				. get_date_inputs('date_birth', $this->getDataString('date_birth'), false)
+				. get_date_inputs('date_birth', $this->getDataString('date_birth'), true)
 				. "</td>\n";
 			echo "</tr>\n";
 		}
