@@ -296,7 +296,7 @@ function format_money_india($money, $two_cents = true, $show_currency_sign = fal
 
 function years_diff($start, $end = '') {
 	if (! $end)
-		$end = date("Y-m-d", mktime()); // Today
+		$end = date("Y-m-d"); // Today
 
 	$s = recup_date($start);
 	$e = recup_date($end);
