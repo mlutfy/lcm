@@ -326,6 +326,9 @@ function f_err_star($fn) {
 function show_all_errors() {
 	$ret = '';
 
+	$all_errors = array();
+	$all_info = array();
+
 	if (isset($_SESSION['errors'])) {
 		$all_errors = $_SESSION['errors'];
 		$_SESSION['errors'] = array();
