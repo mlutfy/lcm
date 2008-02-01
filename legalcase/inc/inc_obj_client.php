@@ -137,7 +137,7 @@ class LcmClient extends LcmObject {
 		$ret = array_shift($this->cases);
 
 		if ($this->getCaseDone())
-			$this->loadCases($start_from + $prefs['page_rows']);
+			$this->loadCases($this->case_start_from + $prefs['page_rows']);
 
 		return $ret;
 	}
@@ -345,11 +345,18 @@ class LcmClientInfoUI extends LcmClient {
 		else
 			$gender = _T('info_not_available');
 
-		if (substr($meta_date_birth, 0, 3) == 'yes')
-			echo '<li>'
-				. format_date($this->getDataString('date_birth')) 
-				. " (" . _T('person_info_years_old', array('years' => years_diff($this->getDataString('date_birth')))) . ")"
-				. "</li>\n";
+		if (substr($meta_date_birth, 0, 3) == 'yes') {
+			echo "<li>" . _Ti('person_input_date_birth');
+
+			if (($birth = $this->getDataString('data_birth'))) {
+				echo format_date($birth)
+					. " (" . _T('person_info_years_old', array('years' => years_diff($this->getDataString('date_birth')))) . ")";
+			} else {
+				echo _T('info_not_available');
+			}
+
+			echo "</li>\n";
+		}
 
 		echo '<li>'
 			. '<span class="label1">' . _Ti('person_input_gender') . '</span>'
