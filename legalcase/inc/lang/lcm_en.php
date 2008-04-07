@@ -214,6 +214,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'case_subtitle_followups' => 'Case follow-ups (completed activities for this case)',
 'case_subtitle_general' => 'General case information',
 'case_subtitle_recent_followups' => 'Recent follow-ups',
+'case_subtitle_stage' => 'Stage history',
 'case_subtitle_times' => 'Total time spent on the case',
 'case_subtitle_times_by_agenda' => 'Time spent on other administrative tasks',
 'case_subtitle_times_by_case' => 'Time spent by case',
