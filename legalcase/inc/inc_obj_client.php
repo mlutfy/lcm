@@ -135,9 +135,14 @@ class LcmClient extends LcmObject {
 			lcm_panic("LcmClient::getCaseIterator called but getCaseDone() returned true");
 
 		$ret = array_shift($this->cases);
+		$this->case_start_from++;
 
-		if ($this->getCaseDone())
+		if ($this->getCaseDone()) {
+			lcm_debug('not done, reloading: ' . count($this->cases));
 			$this->loadCases($this->case_start_from + $prefs['page_rows']);
+		}
+
+		lcm_debug("getCaseIterator " . count($this->cases));
 
 		return $ret;
 	}
@@ -411,6 +416,8 @@ class LcmClientInfoUI extends LcmClient {
 	}
 
 	function printCases($find_case_string = '') {
+		global $prefs;
+
 		$cpt = 0;
 		$my_list_pos = intval(_request('list_pos', 0));
 
@@ -419,7 +426,7 @@ class LcmClientInfoUI extends LcmClient {
 		echo "<p class=\"normal_text\">\n";
 		show_listcase_start();
 
-		for ($cpt = 0, $this->getCaseStart(); (! $this->getCaseDone()); $cpt++) {
+		for ($cpt = 0, $this->getCaseStart(); (! $this->getCaseDone()) && ($cpt < $prefs['page_rows']); $cpt++) {
 			$item = $this->getCaseIterator();
 			show_listcase_item($item, $cpt, $find_case_string, 'javascript:;', 'onclick="getCaseInfo(' . $item['id_case'] . ')"');
 		}
