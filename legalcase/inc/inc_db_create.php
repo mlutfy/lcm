@@ -107,8 +107,7 @@ function create_database() {
 	);
 
 	lcm_query_create_table('lcm_stage', $fields, $keys);
-	lcm_query_create_unique_index('lcm_stage', 'idx_case_stage', 'id_case, kw_case_stage');
-
+	// [ML] 0.7.3 lcm_query_create_unique_index('lcm_stage', 'idx_case_stage', 'id_case, kw_case_stage');
 
 	$fields = array (
 		"id_followup bigint(21) NOT NULL auto_increment",

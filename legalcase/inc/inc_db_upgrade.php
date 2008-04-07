@@ -1284,6 +1284,22 @@ function upgrade_database($old_db_version) {
 		upgrade_db_version(55);
 	}
 
+	if ($lcm_db_version_current < 56) {
+		// should have been done a long time ago
+		lcm_query("ALTER TABLE lcm_case
+					DROP id_court_archive", true);
+
+		upgrade_db_version(56);
+	}
+
+	if ($lcm_db_version_current < 57) {
+		// should have been done a long time ago
+		lcm_query("ALTER TABLE lcm_stage
+					DROP key idx_case_stage");
+
+		upgrade_db_version(57);
+	}
+
 	// Update the meta, lcm_fields, keywords, etc.
 	lcm_log("Updating LCM default configuration (meta/keywords/repfields/..)", 'upgrade');
 	upgrade_database_conf();
