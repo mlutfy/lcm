@@ -60,7 +60,7 @@ function allowed($case, $access) {
 
 			// Walk each character in the required access rights list
 			for($i = 0; $i < strlen($access); $i++) {
-				switch ($access{$i}) {
+				switch ($access[$i]) {
 					case "r":
 						$allow &= ($row['ac_read'] || ($row['ac_read'] != '0' && $row['public']));
 						break;

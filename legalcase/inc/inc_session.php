@@ -50,7 +50,7 @@ function hash_env() {
 // Calculate the name of the session file
 //
 function get_session_file($id_session, $alea) {
-	if (ereg("^([0-9]+_)", $id_session, $regs))
+	if (preg_match("/^([0-9]+_)/", $id_session, $regs))
 		$id_author = $regs[1];
 
 	$session_file = 'session_'.$id_author.md5($id_session.' '.$alea).'.php';
@@ -70,18 +70,20 @@ function fichier_session($id_session, $alea) {
 
 //
 // Add a session for the specified author
+// @todo This seems oddly overkill
 //
 function lcm_add_session($content, $id_session) {
 	$session_file = get_session_file($id_session, read_meta('alea_ephemere'));
 	$vars = array('id_author', 'name_first', 'name_middle', 'name_last', 'username', 'email', 'status', 'lang', 'ip_change', 'hash_env');
 
 	$text = "<"."?php\n";
+	$text .= "\$GLOBALS['author_session'] = [];\n";
 	reset($vars);
 
 	foreach ($vars as $v)
 		$text .= "\$GLOBALS['author_session']['$v'] = '". addslashes($content[$v]) . "';\n";
 
-	$text .= "?".">\n";
+	$text .= "\n";
 
 	if ($f = @fopen($session_file, "wb")) {
 		fputs($f, $text);
@@ -210,7 +212,7 @@ function zap_sessions($id_author, $zap) {
 	$t = time();
 	while(($item = readdir($dir)) != '') {
 		$fullname = "$dirname$item";
-		if (ereg("^session_([0-9]+_)?([a-z0-9]+)\.php$", $item, $regs)) {
+		if (preg_match("/^session_([0-9]+_)?([a-z0-9]+)\.php$/", $item, $regs)) {
 
 			// If it is an old session, we throw away
 			if (($t - filemtime($fullname)) > 48 * 3600)

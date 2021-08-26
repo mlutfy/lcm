@@ -109,7 +109,7 @@ function init_default_config() {
 
 	$modifs = false;
 
-	while (list($key, $value) = each($list_meta)) {
+	foreach ($list_meta as $key => $value) {
 		if (!read_meta($key)) {
 			write_meta($key, $value);
 			$modifs = true;

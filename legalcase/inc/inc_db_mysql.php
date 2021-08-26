@@ -24,7 +24,7 @@
 if (defined('_INC_DB_MYSQL')) return;
 define('_INC_DB_MYSQL', '1');
 
-if (! function_exists("mysql_query"))
+if (! function_exists("mysqli_query"))
 	die("ERROR: MySQL is not correctly installed. Verify that the php-mysql
 	module is installed and that the php.ini has something similar to
 	'extension=mysql.so'. Refer to the user's manual FAQ for more information.");
@@ -34,21 +34,23 @@ if (! function_exists("mysql_query"))
 //
 
 function lcm_sql_server_info() {
-	return "MySQL " . @mysql_get_server_info();
+	return "MySQL"; // @mysqli_get_server_info();
 }
 
 function lcm_mysql_set_utf8() {
-	mysql_query('SET NAMES utf8');
-	mysql_query("SET CHARACTER SET UTF8");
-	mysql_query("SET SESSION CHARACTER_SET_SERVER = UTF8");
+	global $lcm_mysql_link;
+
+	mysqli_query($lcm_mysql_link, 'SET NAMES utf8');
+	mysqli_query($lcm_mysql_link, "SET CHARACTER SET UTF8");
+	mysqli_query($lcm_mysql_link, "SET SESSION CHARACTER_SET_SERVER = UTF8");
 
 	// And yet more overkill, because I am having problems with MySQL 4.1.9
-	mysql_query("SET CHARACTER_SET_RESULTS = UTF8");
-	mysql_query("SET CHARACTER_SET_CONNECTION = UTF8");
-	mysql_query("SET SESSION CHARACTER_SET_DATABASE = UTF8");
-	mysql_query("SET SESSION collation_connection = utf8_general_ci");
-	mysql_query("SET SESSION collation_database = utf8_general_ci");
-	mysql_query("SET SESSION collation_server = utf8_general_ci");
+	mysqli_query($lcm_mysql_link, "SET CHARACTER_SET_RESULTS = UTF8");
+	mysqli_query($lcm_mysql_link, "SET CHARACTER_SET_CONNECTION = UTF8");
+	mysqli_query($lcm_mysql_link, "SET SESSION CHARACTER_SET_DATABASE = UTF8");
+	mysqli_query($lcm_mysql_link, "SET SESSION collation_connection = utf8_general_ci");
+	mysqli_query($lcm_mysql_link, "SET SESSION collation_database = utf8_general_ci");
+	mysqli_query($lcm_mysql_link, "SET SESSION collation_server = utf8_general_ci");
 }
 
 function lcm_query_db($query, $accept_fail = false) {
@@ -64,6 +66,8 @@ function lcm_query_db($query, $accept_fail = false) {
 	   it will not show non-latin utf8 characters correctly. (i.e. for
 	   people who upgraded LCM, but didn't import/export their data to 
 	   fix the tables.)
+	   @todo 2021 Update: this seems completely unnecessary, but there may be users
+	   upgrading from very old versions.
 	*/
 	if (read_meta('db_utf8') == 'yes') {
 		lcm_mysql_set_utf8();
@@ -72,9 +76,7 @@ function lcm_query_db($query, $accept_fail = false) {
 		// Note: checking is is_file('inc/data/inc_meta_cache.php') is not
 		// enough, because the keywords cache may have been generated, but not
 		// the meta.
-		if (! preg_match("/^(4\.0|3\.)/", mysql_get_server_info())) {
-			lcm_mysql_set_utf8();
-		}
+		lcm_mysql_set_utf8();
 	}
 
 	$query = process_query($query);
@@ -82,10 +84,7 @@ function lcm_query_db($query, $accept_fail = false) {
 	if ($my_profile)
 		$m1 = microtime();
 
-	if ($GLOBALS['mysql_recall_link'] AND $lcm_mysql_link)
-		$result = mysql_query($query, $lcm_mysql_link);
-	else 
-		$result = mysql_query($query);
+	$result = mysqli_query($lcm_mysql_link, $query);
 
 	if ($my_debug AND $my_profile) {
 		$m2 = microtime();
@@ -153,7 +152,7 @@ function lcm_query_restore_table($query) {
 }
 
 function lcm_query_create_table($table, $fields, $keys = array()) {
-	$ver = @mysql_get_server_info();
+	// $ver = @mysql_get_server_info();
 	$new_fields = array();
 
 	foreach ($fields as $f) {
@@ -181,10 +180,8 @@ function lcm_query_create_table($table, $fields, $keys = array()) {
 
 	$query .= ")";
 
-	// Activate UTF-8 only if using MySQL >= 4.1
-	// (regexp excludes MySQL <= 4.0, easier for forward compatibility)
-	if (! preg_match("/^(4\.0|3\.)/", $ver)) 
-		$query .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ";
+	// Activate UTF-8 (requires MySQL >= 4.1)
+	$query .= " DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci ";
 
 	// accept query fail because of following scenario:
 	// - user exports database in LCM 0.7.0
@@ -238,7 +235,7 @@ function process_query($query) {
 // Connection to the database
 //
 
-function lcm_connect_db($host, $port = 0, $login, $pass, $db = 0, $link = 0) {
+function lcm_connect_db($host, $port, $login, $pass, $db = 0, $link = 0) {
 	global $lcm_mysql_link, $lcm_mysql_db;	// for multiple connections
 	global $debug;
 
@@ -249,18 +246,18 @@ function lcm_connect_db($host, $port = 0, $login, $pass, $db = 0, $link = 0) {
 		return mysql_select_db($db);
 
 	if ($port > 0) $host = "$host:$port";
-	$lcm_mysql_link = @mysql_connect($host, $login, $pass);
+	$lcm_mysql_link = @mysqli_connect($host, $login, $pass);
 
 	// if ($debug)
 	//	mysql_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
 
 	if ($debug)
-		mysql_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
+		mysqli_query("SET SESSION sql_mode='STRICT_TRANS_TABLES,STRICT_ALL_TABLES,NO_ZERO_IN_DATE,ERROR_FOR_DIVISION_BY_ZERO'");
 		
 
 	if ($lcm_mysql_link && $db) {
 		$lcm_mysql_db = $db;
-		return @mysql_select_db($db);
+		return @mysqli_select_db($lcm_mysql_link, $db);
 	} else {
 		return $lcm_mysql_link;
 	}
@@ -271,8 +268,9 @@ function lcm_connect_db_test($host, $login, $pass, $db = '', $port = 0) {
 	unset($link);
 
 	// Non-silent connect, should be shown in <!-- --> anyway
+	mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 	if ($port > 0) $host = "$host:$port";
-	$link = mysql_connect($host, $login, $pass, true);
+	$link = mysqli_connect($host, $login, $pass);
 
 	if ($link) {
 //		mysql_close($link);
@@ -287,16 +285,17 @@ function lcm_list_databases($host, $login, $pass, $port = 0) {
 	$databases = array();
 
 	if ($port > 0) $host = "$host:$port";
-	$link = @mysql_connect($host, $login, $pass, $port);
+	$link = @mysqli_connect($host, $login, $pass);
 
 	if ($link) {
-		$result = @mysql_list_dbs();
+		$result = mysqli_query($link, 'SHOW DATABASES');
 
-		if ($result AND (($num = mysql_num_rows($result)) > 0)) {
+		if ($result AND (($num = mysqli_num_rows($result)) > 0)) {
 			for ($i = 0; $i < $num; $i++) {
-				$name = mysql_dbname($result, $i);
-				if ($name != 'test' && $name != 'information_schema')
-					array_push($databases, $name);
+				$name = mysqli_fetch_array($result);
+				if ($name['Database'] != 'test' && $name['Database'] != 'information_schema') {
+					$databases[] = $name['Database'];
+				}
 			}
 		}
 
@@ -314,12 +313,12 @@ function lcm_list_databases($host, $login, $pass, $port = 0) {
 
 function lcm_fetch_array($r) {
 	if ($r)
-		return mysql_fetch_array($r);
+		return mysqli_fetch_array($r);
 }
 
 function lcm_fetch_assoc($r) {
 	if ($r)
-		return mysql_fetch_assoc($r);
+		return mysqli_fetch_assoc($r);
 }
 
 function spip_fetch_array($r) {
@@ -348,16 +347,24 @@ function spip_fetch_row($r) {
 }
 
 function lcm_sql_error() {
-	return mysql_error();
+	global $lcm_mysql_link;
+	if ($lcm_mysql_link) {
+		return mysqli_error($lcm_mysql_link);
+	}
+	return null;
 }
 
 function lcm_sql_errno() {
-	return mysql_errno();
+	global $lcm_mysql_link;
+	if ($lcm_mysql_link) {
+		return mysqli_errno($lcm_mysql_link);
+	}
+	return null;
 }
 
 function lcm_num_rows($r) {
 	if ($r)
-		return mysql_num_rows($r);
+		return mysqli_num_rows($r);
 }
 
 function spip_num_rows($r) {
@@ -367,12 +374,12 @@ function spip_num_rows($r) {
 
 function lcm_data_seek($r,$n) {
 	if ($r)
-		return mysql_data_seek($r,$n);
+		return mysqli_data_seek($r,$n);
 }
 
 function lcm_free_result($r) {
 	if ($r)
-		return mysql_free_result($r);
+		return mysqli_free_result($r);
 }
 
 function spip_free_result($r) {
@@ -382,7 +389,7 @@ function spip_free_result($r) {
 
 function lcm_insert_id($name, $field) {
 	// note: name and field are used only by pgsql
-	return mysql_insert_id();
+	return mysqli_insert_id();
 }
 
 function lcm_query_date_add_interval($date, $op, $type, $units) {

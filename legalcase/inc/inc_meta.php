@@ -41,8 +41,8 @@ function read_metas() {
 	if (! isset($db_ok)) return; // no inc_connect.php
 	if (! $db_ok) return; // database connection failed
 
-	$meta = '';
-	$meta_upd = '';
+	$meta = [];
+	$meta_upd = [];
 	$query = 'SELECT name, value, upd FROM lcm_meta';
 	$result = lcm_query($query);
 	while ($row = lcm_fetch_array($result)) {
@@ -109,16 +109,16 @@ function read_meta_upd($name) {
 ';
 	if ($meta) {
 		reset($meta);
-		while (list($key, $val) = each($meta)) {
+		foreach ($meta as $key => $val) {
 			$key = addslashes($key);
-			$val = ereg_replace("([\\\\'])", "\\\\1", $val);
+			$val = preg_replace("/([\\\\'])/", "\\\\1", $val);
 			$s .= "\$GLOBALS['meta']['$key'] = '$val';\n";
 		}
 		$s .= "\n";
 	}
 	if ($meta_upd) {
 		reset($meta_upd);
-		while (list($key, $val) = each($meta_upd)) {
+		foreach ($meta_upd as $key => $val) {
 			$key = addslashes($key);
 			$s .= "\$GLOBALS['meta_upd']['$key'] = '$val';\n";
 		}
@@ -136,7 +136,7 @@ function read_meta_upd($name) {
 			// returns the two types of arrays
 			if (! is_numeric($key)) {
 				$key = addslashes($key);
-				$val = ereg_replace("([\\\\'])", "\\\\1", $val);
+				$val = preg_replace("/([\\\\'])/", "\\\\1", $val);
 				$s .= "\$GLOBALS['system_kwg']['" . $kwg_all[$key0]['name'] . "']['$key'] = '$val';\n";
 			}
 		}
@@ -151,10 +151,10 @@ function read_meta_upd($name) {
 			$kw_name = $kw['name'];
 
 			// Dump every field of the keyword into the kwg
-			while (list($key, $val) = each($kw)) {
+			foreach ($kw as $key => $val) {
 				if (! is_numeric($key)) {
 					$key = addslashes($key);
-					$val = ereg_replace("([\\\\'])", "\\\\1", $val);
+					$val = preg_replace("/([\\\\'])/", "\\\\1", $val);
 					$s .= "\$GLOBALS['system_kwg']['" . $kwg['name'] .  "']['keywords']['$kw_name']['$key'] = '$val';\n";
 				}
 			}
@@ -186,5 +186,3 @@ function read_meta_upd($name) {
 }
 
 read_metas();
-
-?>

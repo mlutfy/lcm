@@ -123,7 +123,7 @@ function auth() {
 		$connect_activer_imessage = "non "; //$row["imessage"];
 
 		// Set the users' preferences
-		$prefs = unserialize( ( get_magic_quotes_runtime() ? stripslashes($row['prefs']) : $row['prefs'] ) );
+		$prefs = unserialize($row['prefs']);
 
 		//
 		// Default values for some possibly unset preferences

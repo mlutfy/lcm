@@ -42,8 +42,9 @@ function include_lcm($file) {
 	if (@$GLOBALS['included_files'][$file]++)
 		return;
 
-	if (! @file_exists($lcmfile))
+	if (! @file_exists($lcmfile)) {
 		lcm_panic("File for include_lcm does not exist: $lcmfile");
+	}
 
 	lcm_debug("include_lcm: (start) $lcmfile", 5);
 	include($lcmfile);
@@ -272,7 +273,9 @@ $hash_recherche_strict = '';
 $php_version = explode('.', phpversion());
 $php_version_maj = intval($php_version[0]);
 $php_version_med = intval($php_version[1]);
-if (ereg('([0-9]+)', $php_version[2], $match)) $php_version_min = intval($match[1]);
+if (preg_match('/([0-9]+)/', $php_version[2], $match)) {
+	$php_version_min = intval($match[1]);
+}
 
 $flag_levenshtein = ($php_version_maj >= 4);
 $flag_uniqid2 = ($php_version_maj > 3 OR $php_version_min >= 13);
@@ -283,7 +286,7 @@ $flag_ini_get = (function_exists("ini_get")
 	&& (@ini_get('max_execution_time') > 0));	// verifier pas desactivee
 $flag_gz = function_exists("gzopen");
 $flag_ob = ($flag_ini_get
-	&& !ereg("ob_", ini_get('disable_functions'))
+	&& !preg_match('/ob_/', ini_get('disable_functions'))
 	&& function_exists("ob_start"));
 $flag_obgz = ($flag_ob && function_exists("ob_gzhandler"));
 $flag_pcre = function_exists("preg_replace");
@@ -312,7 +315,7 @@ $flag_gd = $flag_ImageGif || $flag_ImageJpeg || $flag_ImagePng;
 //
 function lcm_setcookie ($name='', $value='', $expire=0, $path='AUTO', $domain='', $secure='') {
 	lcm_log("setcookie here.. name = $name, value = $value");
-	$name = ereg_replace ('^lcm', $GLOBALS['cookie_prefix'], $name);
+	$name = preg_replace('/^lcm/', $GLOBALS['cookie_prefix'], $name);
 	if ($path == 'AUTO') $path=$GLOBALS['cookie_path'];
 
 	if ($secure)
@@ -331,16 +334,16 @@ function lcm_setcookie ($name='', $value='', $expire=0, $path='AUTO', $domain=''
 // Probably doesn't work anymore because we use $_COOKIE
 if ($cookie_prefix != 'lcm') {
 	reset ($HTTP_COOKIE_VARS);
-	while (list($name,$value) = each($HTTP_COOKIE_VARS)) {
-		if (ereg('^lcm', $name)) {
+	foreach ($HTTP_COOKIE_VARS as $name => $value) {
+		if (preg_match('/^lcm/', $name)) {
 			unset($HTTP_COOKIE_VARS[$name]);
 			unset($$name);
 		}
 	}
 	reset ($HTTP_COOKIE_VARS);
-	while (list($name,$value) = each($HTTP_COOKIE_VARS)) {
-		if (ereg('^'.$cookie_prefix, $name)) {
-			$spipname = ereg_replace ('^'.$cookie_prefix, 'lcm', $name);
+	foreach ($HTTP_COOKIE_VARS as $name => $value) {
+		if (preg_match('/^'.$cookie_prefix . '/', $name)) {
+			$spipname = preg_replace('/^'.$cookie_prefix . '/', 'lcm', $name);
 			$HTTP_COOKIE_VARS[$spipname] = $value;
 			$$spipname = $value;
 		}
@@ -352,13 +355,6 @@ if ($cookie_prefix != 'lcm') {
 // Information about the web hosting
 // [ML] alot was removed
 //
-
-/* [ML] DEPRECATED ?
-$os_server = '';
-
-if (eregi('\(Win', $_SERVER['SERVER_SOFTWARE']))
-	$os_server = 'windows';
-*/
 
 // By default, set maximum access rights
 // [ML] This will require auditing..
@@ -372,7 +368,7 @@ if (eregi('\(Win', $_SERVER['SERVER_SOFTWARE']))
 // For error handling after failed fopen/mkdir/etc
 $lcm_errormsg = '';
 
-function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars) {
+function userErrorHandler(int $errno, string $errmsg, string $filename, int $linenum, array $vars = []): bool {
 	$dt = date("Y-m-d H:i:s (T)");
 
 	$errortype = array (
@@ -400,14 +396,17 @@ function userErrorHandler($errno, $errmsg, $filename, $linenum, $vars) {
 		lcm_log($err);
 	else {
 		// [ML] Annoying errors. We are not limiting LCM to PHP5 syntax for now.
-		if (preg_match('/^var: Deprecated. Please use the public\/private\/protected modifiers/', $errmsg))
-			return;
+		if (preg_match('/^var: Deprecated. Please use the public\/private\/protected modifiers/', $errmsg)) {
+			return true;
+		}
 
 		lcm_debug("[dbg] " . $err, 2);
 	}
 
 	// set our custom errno, because PHP doesn't seem to have one!
 	$GLOBALS['lcm_errormsg'] = $errmsg;
+
+	return true;
 }
 
 $old_error_handler = set_error_handler("userErrorHandler");
@@ -435,37 +434,13 @@ function spip_query($query) {
 	return lcm_query($query);
 }
 
-//
-// PHP configuration information
-//
-
-// cf. list of sapi_name - http://www.php.net/php_sapi_name
-$php_module = (($flag_sapi_name AND eregi("apache", @php_sapi_name())) OR
-	ereg("^Apache.* PHP", $SERVER_SOFTWARE));
-$php_cgi = ($flag_sapi_name AND eregi("cgi", @php_sapi_name()));
-
-function http_status($status) {
-	global $php_cgi, $REDIRECT_STATUS;
-
-	if ($REDIRECT_STATUS && $REDIRECT_STATUS == $status) return;
-	$status_string = array(
-		200 => '200 OK',
-		304 => '304 Not Modified',
-		401 => '401 Unauthorized',
-		403 => '403 Forbidden',
-		404 => '404 Not Found'
-	);
-	if ($php_cgi) Header("Status: $status");
-	else Header("HTTP/1.0 ".$status_string[$status]);
-}
-
 function http_last_modified($lastmodified, $expire = 0) {
 	$gmoddate = gmdate("D, d M Y H:i:s", $lastmodified);
 	if ($GLOBALS['HTTP_IF_MODIFIED_SINCE']) {
 		$if_modified_since = ereg_replace(';.*$', '', $GLOBALS['HTTP_IF_MODIFIED_SINCE']);
 		$if_modified_since = trim(str_replace('GMT', '', $if_modified_since));
 		if ($if_modified_since == $gmoddate) {
-			http_status(304);
+	                http_response_code(304);
 			$headers_only = true;
 		}
 	}
@@ -481,44 +456,8 @@ function tester_upload() {
 	return $GLOBALS['flag_upload'];
 }
 
-
-//
-// Setup of buffered output: if possible, generate a compressed output
-// to save bandwith
-if ($auto_compress && $flag_obgz) {
-	$use_gz = true;
-
-	// if a buffer is already open, stop
-	if (ob_get_contents())
-		$use_gz = false;
-
-	// if the compression is already started, stop
-	else if (@ini_get("zlib.output_compression") || @ini_get("output_handler"))
-		$use_gz = false;
-
-	/* [ML] HTTP_VIA does not always exist?
-	// special proxy bug
-	else if (eregi("NetCache|Hasd_proxy", $HTTP_VIA))
-		$use_gz = false;
-	*/
-
-	// special bug Netscape Win 4.0x
-	else if (eregi("Mozilla/4\.0[^ ].*Win", $_SERVER['HTTP_USER_AGENT']))
-		$use_gz = false;
-
-	// special bug Apache2x
-	else if (eregi("Apache(-[^ ]+)?/2", $_SERVER['SERVER_SOFTWARE']))
-		$use_gz = false;
-	else if ($flag_sapi_name && ereg("^apache2", @php_sapi_name()))
-		$use_gz = false;
-	
-	if ($use_gz) {
-		@ob_start("ob_gzhandler");
-	}
-	@header("Vary: Cookie, Accept-Encoding");
-}
-else @header("Vary: Cookie");
-
+// Tells the browser not to page the HTML page
+@header("Vary: Cookie");
 
 class Link {
 	var $file;
@@ -530,7 +469,7 @@ class Link {
 	//
 	// Constructor: Create a new URL, optionally with parameters.
 	// If no URL is given, the current one is unsed.
-	function Link($url = '', $reentrant = false) {
+	function __construct($url = '', $reentrant = false) {
 		static $link = '';
 		$vars = '';
 
@@ -552,13 +491,13 @@ class Link {
 			$this->t_var_idx = $link->t_var_idx;
 			$this->t_var_cnt = $link->t_var_cnt;
 			if ($url) {
-				$v = split('[\?\&]', $url);
-				list(, $this->file) = each($v);
-				while (list(, $var) = each($v)) {
-					list($name, $value) = split('=', $var, 2);
+				$v = preg_split('/[\?\&]/', $url);
+				$this->file = array_shift($v);
+				foreach ($v as $var) {
+					list($name, $value) = explode('=', $var, 2);
 					$name = urldecode($name);
 					$value = urldecode($value);
-					if (ereg('^(.*)\[\]$', $name, $regs)) {
+					if (preg_match('/^(.*)\[\]$/', $name, $regs)) {
 						$this->arrays[$regs[1]][] = $value;
 					}
 					else {
@@ -585,17 +524,19 @@ class Link {
 				$vars = $_POST;
 		}
 
-		$v = split('[\?\&]', $url);
-		list(, $this->file) = each($v);
+		$v = preg_split('/[\?\&]/', $url);
+		$this->file = array_shift($v);
 
 		// GET variables are read from the original URL
 		// (HTTP_GET_VARS may contain additional variables introduced by rewrite-rules)
 		if (!$vars) {
-			while (list(, $var) = each($v)) {
-				list($name, $value) = split('=', $var, 2);
+			$vars = [];
+
+			foreach ($v as $var) {
+				list($name, $value) = explode('=', $var, 2);
 				$name = urldecode($name);
 				$value = urldecode($value);
-				if (ereg('^(.*)\[\]$', $name, $regs)) {
+				if (preg_match('/^(.*)\[\]$/', $name, $regs)) {
 					$vars[$regs[1]][] = $value;
 				}
 				else {
@@ -606,7 +547,7 @@ class Link {
 
 		if (is_array($vars)) {
 			reset($vars);
-			while (list($name, $value) = each($vars)) {
+			foreach ($vars as $name => $value) {
 				$p = substr($name, 0, 2);
 				if ($p == 's_') {
 					$this->s_vars[$name] = $value;
@@ -700,18 +641,21 @@ class Link {
 
 		if (is_array($this->t_var_idx)) {
 			reset($this->t_var_idx);
-			while (list($name, $i) = each($this->t_var_idx))
+			foreach ($this->t_var_idx as $name => $i) {
 				$vars[$name] = $this->t_vars[--$i];
+			}
 		}
 		if (is_array($this->vars)) {
 			reset($this->vars);
-			while (list($name, $value) = each($this->vars)) 
+			foreach ($this->vars as $name => $value) {
 				$vars[$name] = $value;
+			}
 		}
 		if (is_array($this->s_vars)) {
 			reset($this->s_vars);
-			while (list($name, $value) = each($this->s_vars))
+			foreach ($this->s_vars as $name => $value) {
 				$vars[$name] = $value;
+			}
 		}
 		return $vars;
 	}
@@ -729,15 +673,15 @@ class Link {
 		if (is_array($vars)) {
 			$first = true;
 			reset($vars);
-			while (list($name, $value) = each($vars)) {
+			foreach ($vars as $name => $value) {
 				$query .= (($query) ? $symb_and : '?').$name.'='.urlencode($value);
 			}
 		}
 		if (is_array($this->arrays)) {
 			reset($this->arrays);
-			while (list($name, $table) = each($this->arrays)) {
+			foreach ($this->arrays as $name => $table) {
 				reset($table);
-				while (list(, $value) = each($table)) {
+				foreach ($table as $value) {
 					$query .= (($query) ? $symb_and : '?').$name.'[]='.urlencode($value);
 				}
 			}
@@ -975,10 +919,13 @@ function _request ($name, $default = '') {
 		return $ret;
 	}
 
-	if (is_string($_REQUEST[$name]))
-		if ($v = trim(clean_input($_REQUEST[$name])))
+	if (is_string($_REQUEST[$name])) {
+		// @todo input validation?
+		if ($v = trim($_REQUEST[$name])) {
 			return $v;
+		}
 		return $default;
+	}
 
 	lcm_log("** WARNING: suspicious data received in request:");
 	lcm_log(htmlspecialchars(get_var_dump($_REQUEST[$name])));
@@ -1002,7 +949,7 @@ $lcm_lang = $langue_site;
 function lcm_log($message, $type = 'lcm') {
 	$pid = '(pid '.@getmypid().')';
 	if (!$ip = $_SERVER['REMOTE_ADDR']) $ip = '-';
-	$message = date("M d H:i:s") . " $ip $pid " . ereg_replace("\n*$", "\n", $message);
+	$message = date("M d H:i:s") . " $ip $pid " . preg_replace("/\n*$/", "\n", $message);
 	$rotate = false;
 
 	// Admins can put "SetEnv LcmLogDir /var/log/..." in their apache.conf or vhost

@@ -112,7 +112,7 @@ function add_contact($type_person, $id_person, $type_contact, $value) {
 
 	// Because initially contact types did not start with '+', but then
 	// there would always be small parts of the code missing them..
-	if ($type_contact{0} != '+')
+	if ($type_contact[0] != '+')
 		$type_contact = '+' . $type_contact;
 
 	// This way, we can validate 'phone_home' or 'phone_mobile' using validate_contact_phone.php
@@ -194,7 +194,7 @@ function delete_contact($id_contact) {
 	lcm_query($query);
 }
 
-function is_existing_contact($type_person, $id = 0, $type_contact, $value) {
+function is_existing_contact($type_person, $id, $type_contact, $value) {
 	// XXX FIXME TODO very temporary untill we solved this issue..
 	if ($type_contact == 'email')
 //		$type_contact = 1;
@@ -223,7 +223,7 @@ function is_existing_contact($type_person, $id = 0, $type_contact, $value) {
 		// Thus we can specify more flexible searches
 		switch (gettype($type_contact)) {
 			case "string":
-				if ($type_contact{0} != '+')
+				if ($type_contact[0] != '+')
 					$type_contact = '+' . $type_contact;
 
 				$type_contact = get_contact_type_id($type_contact);
@@ -234,7 +234,7 @@ function is_existing_contact($type_person, $id = 0, $type_contact, $value) {
 				$qs = '';
 				foreach ($type_contact as $tc) {
 					if (gettype($tc) == 'string') {
-						if ($tc{0} != '+') $tc = '+' . $tc;
+						if ($tc[0] != '+') $tc = '+' . $tc;
 						$tc = get_contact_type_id($tc);
 					}
 

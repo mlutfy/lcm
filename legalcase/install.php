@@ -579,8 +579,12 @@ function install_step_2() {
 		return install_step_1();
 
 	echo "\n<!--\n";
-		$link = lcm_connect_db_test($db_address, $db_login, $db_password, $db_choice);
-		$error = (lcm_sql_errno() ? lcm_sql_error() : '');
+		try {
+			$link = lcm_connect_db_test($db_address, $db_login, $db_password, $db_choice);
+		}
+		catch (Exception $e) {
+			$error = $e->getMessage();
+		}
 	echo "\n-->\n";
 
 	if ($error || ! $link) {
@@ -781,7 +785,7 @@ else if (!$step) {
 
 	echo _T('info_free_software', 
 			array(
-				'distributed' => '<a href="http://www.lcm.ngo-bg.org/" class="prefs_normal_lnk">' . _T('info_free_software1') . '</a>',
+				'distributed' => '<a href="https://sourceforge.net/projects/legalcase/" class="prefs_normal_lnk">' . _T('info_free_software1') . '</a>',
 				'license' => lcm_help_string('about_license', _T('info_free_software2'))))
 			. "</p>
 		</td></tr>\n";
@@ -789,7 +793,6 @@ else if (!$step) {
 	echo "</div>\n";
 
 	echo "<p class=\"simple_text\">" . _T('install_select_language') . "</p>\n";
-
 	echo "<div align='center'><p>" . $menu_lang . "</p></div>\n";
 
 	echo "<form action='install.php' method='get'>\n";

@@ -213,7 +213,8 @@ if (isset($_REQUEST['var_lang_lcm'])) {
 		include_lcm('inc_lang');
 		include_lcm('inc_session');
 
-		$new_lang = clean_input($_REQUEST['var_lang_lcm']);
+		// This has been validated by the above preg_match
+		$new_lang = $_REQUEST['var_lang_lcm'];
 		$valid_author = verifier_visiteur();
 
 		if (lcm_set_language($new_lang)) {
@@ -241,20 +242,5 @@ if (isset($_REQUEST['var_lang_lcm'])) {
 }
 
 // Redirection
-// Under Apache, cookies with a redirection work
-// Else, we do a HTTP refresh
-if (ereg("^Apache", $_SERVER['SERVER_SOFTWARE'])) {
-	@header("Location: " . $cible->getUrlForHeader());
-	exit;
-} else {
-	@header("Refresh: 0; url=" . $cible->getUrl());
-	echo "<html><head>";
-	echo "<meta http-equiv='Refresh' content='0; url=".$cible->getUrl()."'>";
-	echo "</head>\n";
-	echo "<body><a href='".$cible->getUrl()."'>"
-		. "Redirecting.." // TRAD
-		. "</a></body></html>";
-	exit;
-}
-
-?>
+@header("Location: " . $cible->getUrlForHeader());
+exit;

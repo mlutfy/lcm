@@ -367,20 +367,13 @@ function show_all_errors() {
 
 // Cleans user input string from 'dangerous' characters
 function clean_input($string) {
-	if (get_magic_quotes_gpc()) {
-		return $string;
-	} else {
-		return addslashes($string);
-	}
+	// @todo This is sketchy - not good enough for SQLi
+	return addslashes($string);
 }
 
 // Cleans text to be send out
 function clean_output($string) {
-	if (get_magic_quotes_gpc()) {
-		return htmlspecialchars(stripslashes($string));
-	} else {
-		return htmlspecialchars($string);
-	}
+	return htmlspecialchars($string);
 }
 
 // Converts &...; to the respective characters
@@ -546,14 +539,14 @@ function lcm_utf8_decode($string) {
 
 // [ML] This is Spip's "supprimer_numero"
 function remove_number_prefix($string) {
-	$string = ereg_replace("^[[:space:]]*[0-9]+[.)".chr(176)."][[:space:]]+", "", $string);
+	$string = preg_replace("/^[[:space:]]*[0-9]+[.)".chr(176)."][[:space:]]+/", "", $string);
 	return $string; 
 }
 
 function recup_date($numdate) {
 	if (! $numdate) return array('', '', '');
 
-	if (ereg('([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,2})', $numdate, $regs)) {
+	if (preg_match('/([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,2})/', $numdate, $regs)) {
 		$day = $regs[1];
 		$month = $regs[2];
 		$year = $regs[3];
@@ -563,11 +556,11 @@ function recup_date($numdate) {
 		} else {
 			$year = 1900 + $year ;
 		}
-	} elseif (ereg('([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})',$numdate, $regs)) {
+	} elseif (preg_match('/([0-9]{4})-([0-9]{1,2})-([0-9]{1,2})/',$numdate, $regs)) {
 		$year = $regs[1];
 		$month = $regs[2];
 		$day = $regs[3];
-	} elseif (ereg('([0-9]{4})-([0-9]{2})', $numdate, $regs)){
+	} elseif (preg_match('/([0-9]{4})-([0-9]{2})/', $numdate, $regs)){
 		$year = $regs[1];
 		$month = $regs[2];
 	}
@@ -584,7 +577,7 @@ function recup_date($numdate) {
 function recup_time($numdate) {
 	if (!$numdate) return '';
 
-	if (ereg('([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})', $numdate, $regs)) {
+	if (preg_match('/([0-9]{1,2}):([0-9]{1,2}):([0-9]{1,2})/', $numdate, $regs)) {
 		$hours = $regs[1];
 		$minutes = $regs[2];
 		$seconds = $regs[3];
@@ -821,7 +814,7 @@ function texte_backend($texte) {
 function supprimer_tags($texte, $rempl = "") {
 	// super gavant : la regexp ci-dessous plante sous php3, genre boucle infinie !
 	// $texte = ereg_replace("<([^>\"']*|\"[^\"]*\"|'[^']*')*>", $rempl, $texte);
-	$texte = ereg_replace("<[^>]*>", $rempl, $texte);
+	$texte = preg_replace("/<[^>]*>/", $rempl, $texte);
 	return $texte;
 }
 
@@ -833,13 +826,13 @@ function echapper_tags($texte, $rempl = "") {
 
 // Convertit un texte HTML en texte brut
 function textebrut($texte) {
-	$texte = ereg_replace("[\n\r]+", " ", $texte);
-	$texte = eregi_replace("<(p|br)([[:space:]][^>]*)?".">", "\n\n", $texte);
-	$texte = ereg_replace("^\n+", "", $texte);
-	$texte = ereg_replace("\n+$", "", $texte);
-	$texte = ereg_replace("\n +", "\n", $texte);
+	$texte = preg_replace("/[\n\r]+/", " ", $texte);
+	$texte = preg_replace("/<(p|br)([[:space:]][^>]*)?".">/i", "\n\n", $texte);
+	$texte = preg_replace("/^\n+/", "", $texte);
+	$texte = preg_replace("/\n+$/", "", $texte);
+	$texte = preg_replace("/\n +/", "\n", $texte);
 	$texte = supprimer_tags($texte);
-	$texte = ereg_replace("(&nbsp;| )+", " ", $texte);
+	$texte = preg_replace("/(&nbsp;| )+/", " ", $texte);
 	// nettoyer l'apostrophe curly qui pose probleme a certains rss-readers, lecteurs de mail...
 	$texte = str_replace("&#8217;","'",$texte);
 	return $texte;
