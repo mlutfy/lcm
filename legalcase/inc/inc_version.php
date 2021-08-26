@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -250,7 +248,7 @@ if (@file_exists('inc/my_options.php')) {
 $lcm_version = 0.730;
 
 // Current version of LCM shown on screen
-$lcm_version_shown = "0.7.3 CVS";
+$lcm_version_shown = "0.8.0";
 
 // Current version of LCM database
 $lcm_db_version = 57;
@@ -388,7 +386,7 @@ function userErrorHandler(int $errno, string $errmsg, string $filename, int $lin
 
 	$log_errors = array(E_USER_ERROR, E_USER_WARNING);
 
-	$err = $dt . ": $filename,$linenum " . $errortype[$errno] . " ($errno) $errmsg\n"
+	$err = $dt . ": $filename,$linenum " . ($errortype[$errno] ?? 'unknown') . " ($errno) $errmsg\n"
 		. lcm_getbacktrace(false); // false = without html
 
 
@@ -468,10 +466,10 @@ class Link {
 
 	//
 	// Constructor: Create a new URL, optionally with parameters.
-	// If no URL is given, the current one is unsed.
+	// If no URL is given, the current one is used.
 	function __construct($url = '', $reentrant = false) {
-		static $link = '';
-		$vars = '';
+		static $link = NULL;
+		$vars = [];
 
 		// If root link not defined, create it
 		if (!$link && !$reentrant) {
@@ -529,9 +527,7 @@ class Link {
 
 		// GET variables are read from the original URL
 		// (HTTP_GET_VARS may contain additional variables introduced by rewrite-rules)
-		if (!$vars) {
-			$vars = [];
-
+		if (empty($vars)) {
 			foreach ($v as $var) {
 				list($name, $value) = explode('=', $var, 2);
 				$name = urldecode($name);
@@ -579,8 +575,8 @@ class Link {
 	//
 	// Erase all the variables
 	function clearVars() {
-		$this->vars = '';
-		$this->arrays = '';
+		$this->vars = [];
+		$this->arrays = [];
 	}
 
 	//
@@ -661,7 +657,7 @@ class Link {
 	}
 
 	//
-	// Fetch the URL assiciated with the link
+	// Fetch the URL associated with the link
 	function getUrl($anchor = '', $and_mode = 'content') {
 		$url = $this->file;
 		if (!$url) $url = './';
@@ -706,8 +702,8 @@ class Link {
 		$vars = $this->getAllVars();
 		if (is_array($vars)) {
 			reset($vars);
-			while (list($name, $value) = each($vars)) {
-				$value = ereg_replace('&amp;(#[0-9]+;)', '&\1', htmlspecialchars($value));
+			foreach ($vars as $name => $value) {
+				$value = preg_replace('/&amp;(#[0-9]+;)/', '&\1', htmlspecialchars($value));
 				$form .= "<input type=\"hidden\" name=\"$name\" value=\"$value\" />\n";
 			}
 		}
@@ -805,9 +801,9 @@ function is_valid_email($address) {
 		while (list(, $address) = each($many_addresses)) {
 			// clean certain formats
 			// "Marie Toto <Marie@toto.com>"
-			$address = eregi_replace("^[^<>\"]*<([^<>\"]+)>$", "\\1", $address);
+			$address = preg_replace("/^[^<>\"]*<([^<>\"]+)>$/i", "\\1", $address);
 			// RFC 822
-			if (!eregi('^[^()<>@,;:\\"/[:space:]]+(@([-_0-9a-z]+\.)*[-_0-9a-z]+)?$', trim($address)))
+			if (!preg_match('/^[^()<>@,;:\\"/[:space:]]+(@([-_0-9a-z]+\.)*[-_0-9a-z]+)?$/i', trim($address)))
 				return false;
 		}
 		return true;
@@ -851,7 +847,7 @@ function _Th($text, $args = '') {
 
 function _Tkw($grp, $val, $args = '') {
 	global $system_kwg;
-	$kwg = array();
+	$kwg = [];
 
 	// If a 'contact' keyword (starts with +), remove the +
 	if (substr($val, 0, 1) == '+')
@@ -934,7 +930,7 @@ function _request ($name, $default = '') {
 
 function _session ($name, $default = '') {
 	if (isset($_SESSION['form_data'][$name]) && $_SESSION['form_data'][$name])
-		return clean_input($_SESSION['form_data'][$name]);
+		return $_SESSION['form_data'][$name];
 	else
 		return $default;
 }
@@ -1030,39 +1026,6 @@ function timeout($lock=false, $action=true, $connect_mysql=true) {
 
 	// Go ahead
 	return true;
-}
-
-//
-// Tests on the name of the browser
-function verif_butineur() {
-	global $HTTP_USER_AGENT, $browser_name, $browser_version, $browser_description, $browser_rev;
-	ereg("^([A-Za-z]+)/([0-9]+\.[0-9]+) (.*)$", $HTTP_USER_AGENT, $match);
-	$browser_name = $match[1];
-	$browser_version = $match[2];
-	$browser_description = $match[3];
-
-	if (eregi("opera", $browser_description)) {
-		eregi("Opera ([^\ ]*)", $browser_description, $match);
-		$browser_name = "Opera";
-		$browser_version = $match[1];
-	}
-	else if (eregi("msie", $browser_description)) {
-		eregi("MSIE ([^;]*)", $browser_description, $match);
-		$browser_name = "MSIE";
-		$browser_version = $match[1];
-	}
-	else if (eregi("mozilla", $browser_name) AND $browser_version >= 5) {
-		// Authentic Mozilla version
-		if (ereg("rv:([0-9]+\.[0-9]+)", $browser_description, $match))
-			$browser_rev = doubleval($match[1]);
-		// Other Geckos => equivalent to 1.4 by default (Galeon, etc.)
-		else if (strpos($browser_description, "Gecko") and !strpos($browser_description, "KHTML"))
-			$browser_rev = 1.4;
-		// Random versions => equivalent to 1.0 by default (Konqueror, etc.)
-		else $browser_rev = 1.0;
-	}
-
-	if (!$browser_name) $browser_name = "Mozilla";
 }
 
 // Based from the comments in:
@@ -1225,5 +1188,3 @@ function lcm_header($h) {
 // In debug mode, log the calling URI
 lcm_debug($_SERVER['REQUEST_METHOD'] . ": " . $_SERVER['REQUEST_URI'], 1);
 lcm_debug($_SERVER['REQUEST_METHOD'] . ": " . $_SERVER['REQUEST_URI'], 1, 'sql');
-
-?>

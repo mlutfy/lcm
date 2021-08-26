@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -29,7 +27,7 @@ class LcmObject {
 	var $data; 
 
 	function LcmObject() {
-		$this->data = array();
+		$this->data = [];
 	}
 
 	function getDataInt($field, $default = 0) {
@@ -76,5 +74,3 @@ class LcmObject {
 		$this->data[$field] = $value;
 	}
 }
-
-?>

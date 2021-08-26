@@ -388,8 +388,9 @@ function spip_free_result($r) {
 }
 
 function lcm_insert_id($name, $field) {
+	global $lcm_mysql_link;
 	// note: name and field are used only by pgsql
-	return mysqli_insert_id();
+	return mysqli_insert_id($lcm_mysql_link);
 }
 
 function lcm_query_date_add_interval($date, $op, $type, $units) {

@@ -35,7 +35,7 @@ class LcmCase extends LcmObject {
 	var $followups;
 	var $fu_start_from;
 
-	function LcmCase($id_case = 0) {
+	function __construct($id_case = 0) {
 		$id_case = intval($id_case);
 		$this->fu_start_from = 0;
 
@@ -61,7 +61,7 @@ class LcmCase extends LcmObject {
 			if (substr($key, 0, 5) == 'case_')
 				$nkey = substr($key, 5);
 
-			$this->data[$nkey] = clean_input(_request($key));
+			$this->data[$nkey] = _request($key);
 		}
 
 		// If any, populate with session variables (for error reporting)
@@ -72,7 +72,7 @@ class LcmCase extends LcmObject {
 				if (substr($key, 0, 5) == 'case_')
 					$nkey = substr($key, 5);
 
-				$this->data[$nkey] = clean_input(_session($key));
+				$this->data[$nkey] = _session($key);
 			}
 		}
 

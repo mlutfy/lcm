@@ -79,7 +79,7 @@ function format_date($timestamp = '', $format = 'full') {
 	// $day_of_w = strftime("%u", mktime(0, 0, 0, $dd[1], $dd[2], $dd[0]));
 	$day_of_w = date("w", mktime(0, 0, 0, $dd[1], $dd[2], $dd[0]));
 
-	if ($format == 'short' && ereg('[0-9]{2}([0-9]{2})', $dd[0], $regs))
+	if ($format == 'short' && preg_match('/[0-9]{2}([0-9]{2})/', $dd[0], $regs))
 		$dd[0] = $regs[1];
 
 	// [ML] Important for backwards compatiblity in code
@@ -366,13 +366,13 @@ function show_all_errors() {
 }
 
 // Cleans user input string from 'dangerous' characters
-function clean_input($string) {
+function clean_input(string $string) {
 	// @todo This is sketchy - not good enough for SQLi
 	return addslashes($string);
 }
 
 // Cleans text to be send out
-function clean_output($string) {
+function clean_output(string $string) {
 	return htmlspecialchars($string);
 }
 
@@ -544,7 +544,7 @@ function remove_number_prefix($string) {
 }
 
 function recup_date($numdate) {
-	if (! $numdate) return array('', '', '');
+	if (!$numdate) return [0,0,0];
 
 	if (preg_match('/([0-9]{1,2})/([0-9]{1,2})/([0-9]{1,2})/', $numdate, $regs)) {
 		$day = $regs[1];
@@ -571,7 +571,7 @@ function recup_date($numdate) {
 	if (substr($day, 0, 1) == '0')
 		$day = substr($day, 1);
 
-	return array($year, $month, $day);
+	return [$year, $month, $day];
 }
 
 function recup_time($numdate) {
@@ -982,8 +982,8 @@ function normaliser_date($date) {
 }
 
 function vider_date($letexte) {
-	if (ereg("^0000-00-00", $letexte)) return;
-	if (ereg("^1970-01-01", $letexte)) return;	// eviter le bug GMT-1
+	if (preg_match("/^0000-00-00/", $letexte)) return;
+	if (preg_match("/^1970-01-01/", $letexte)) return;	// avoid bug GMT-1
 	return $letexte;
 }
 

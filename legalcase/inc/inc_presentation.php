@@ -753,7 +753,7 @@ function get_time_inputs($name = 'select', $time = '', $hours24 = true, $show_se
 
 	$split_time = recup_time($time);
 	$default_hour = $split_time[0];
-	$default_minutes = $split_time[1] - ($split_time[1] % 5); // make it round
+	$default_minutes = intval($split_time[1]) - (intval($split_time[1]) % 5); // make it round
 	$default_seconds = $split_time[2];
 
 	// If name is empty, disable fields
@@ -800,7 +800,7 @@ function get_time_inputs($name = 'select', $time = '', $hours24 = true, $show_se
 	return $ret;
 }
 
-function get_time_interval_inputs($name = 'select', $time) {
+function get_time_interval_inputs($name, $time) {
 	global $prefs;
 
 	$ret = '';
@@ -846,7 +846,7 @@ function get_time_interval_inputs($name = 'select', $time) {
 // They should probably be split into many smaller functions.
 // And since we have many such functions, it would not be bad
 // to put them in their own include file..
-function get_time_interval_inputs_from_array($name = 'select', $source) {
+function get_time_interval_inputs_from_array($name, $source) {
 	global $prefs;
 	$ret = '';
 
@@ -1400,7 +1400,7 @@ function show_listfu_item($item, $cpt, $screen = 'general') {
 	echo "</tr>\n";
 }
 
-function show_find_box($type, $string, $dest = '', $layout = 'normal') {
+function show_find_box($type, $string = '', $dest = '', $layout = 'normal') {
 	static $find_box_counter = 0; // there may be more than one search box for a given type, in same page
 
 	if ($type == 'client' && read_meta('client_hide_all') == 'yes')
@@ -1442,6 +1442,11 @@ function show_find_box($type, $string, $dest = '', $layout = 'normal') {
 	if ($layout == 'narrow')
 		echo "<br />\n";
 	
+	// Avoid a null string
+	if (!$string) {
+		$string = '';
+	}
+
 	echo '<input type="text" id="find_box' . $find_box_counter . '" name="find_' . $type . '_string" size="10" class="search_form_txt" value="' . clean_output($string) . '" />';
 	echo '&nbsp;<input type="submit" name="submit" value="' . _T('button_search') . '" class="search_form_btn" />' . "\n";
 

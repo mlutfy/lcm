@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include('inc/inc.php');
@@ -27,11 +25,12 @@ include_lcm('inc_filters');
 include_lcm('inc_obj_case');
 
 // Clear all previous errors
-$_SESSION['errors'] = array();
+$_SESSION['errors'] = [];
 
 // Get form data from POST fields
-foreach($_POST as $key => $value)
+foreach($_POST as $key => $value) {
     $_SESSION['form_data'][$key] = $value;
+}
 
 //
 // Clean (most of the) input

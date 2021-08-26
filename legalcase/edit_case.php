@@ -33,8 +33,9 @@ include_lcm('inc_obj_fu');
 $id_case = 0;
 
 // Don't clear form data if comming back from upd_case with errors
-if (! isset($_SESSION['form_data']))
-	$_SESSION['form_data'] = array();
+if (!isset($_SESSION['form_data'])) {
+	$_SESSION['form_data'] = [];
+}
 
 if (empty($_SESSION['errors'])) {
 	// Set the returning page, usually, there should not be, therefore
