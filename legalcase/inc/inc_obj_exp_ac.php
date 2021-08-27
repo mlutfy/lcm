@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -32,10 +30,10 @@ class LcmExpenseAccess {
 	var $pub_read;
 	var $pub_write;
 
-	function LcmExpenseAccess($id_expense, $id_case = 0, $obj_exp = null) {
+	function __construct($id_expense, $id_case = 0, $obj_exp = null) {
 		// Basic rights
-		$this->users = array();
-		$this->allow = array('r' => false, 'w' => false, 'e' => false, 'a' => false);
+		$this->users = [];
+		$this->allow = ['r' => false, 'w' => false, 'e' => false, 'a' => false];
 
 		// If attached to case (or trying to attach), check case AC
 		if ($id_case) {
@@ -177,5 +175,3 @@ class LcmExpenseCommentAccess {
 		lcm_panic("Cannot call getAdmin() on a comment");
 	}
 }
-
-?>

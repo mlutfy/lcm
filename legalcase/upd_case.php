@@ -112,5 +112,3 @@ if (_session('attach_client') || _session('attach_org')) {
 }
 
 lcm_header("Location: " . $send_to);
-
-?>

@@ -26,7 +26,7 @@ define('_INC_OBJ_GENERIC', '1');
 class LcmObject {
 	var $data; 
 
-	function LcmObject() {
+	function __construct() {
 		$this->data = [];
 	}
 

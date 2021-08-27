@@ -42,7 +42,7 @@ class LcmReportGen extends LcmObject {
 	var $line_count;
 	var $col_count;
 
-	function LcmReportGen($my_id_report, $my_debug = false) {
+	function __construct($my_id_report, $my_debug = false) {
 		$this->id_report = $my_id_report;
 
 		$this->line_key_field = '';
@@ -273,7 +273,7 @@ class LcmReportGenUI extends LcmReportGen {
 	var $exporter;
 	var $ui;
 
-	function LcmReportGenUI($my_id_report, $my_export = 'html', $my_debug = 0) {
+	function __construct($my_id_report, $my_export = 'html', $my_debug = 0) {
 		$this->ui = $my_export;
 
 		switch ($my_export) {
@@ -290,7 +290,7 @@ class LcmReportGenUI extends LcmReportGen {
 				  $this->exporter = new LcmExportHtml();
 		}
 
-		$this->LcmReportGen($my_id_report, $my_debug);
+		parent::__construct($my_id_report, $my_debug);
 	}
 
 	function printStartDoc($title, $description, $helpref) {
@@ -339,5 +339,3 @@ class LcmReportGenUI extends LcmReportGen {
 		$this->exporter->printEndDoc();
 	}
 }
-
-?>

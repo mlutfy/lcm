@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include('inc/inc.php');
@@ -139,8 +137,8 @@ function change_username($id_author, $old_username, $new_username) {
 }
 
 // Clear all previous errors
-$_SESSION['errors'] = array();
-$_SESSION['form_data'] = array();
+$_SESSION['errors'] = [];
+$_SESSION['form_data'] = [];
 
 // Get form data from POST fields
 foreach($_POST as $key => $value)
@@ -186,8 +184,8 @@ if (_session('id_author') > 0) {
 			WHERE id_author = " . _session('id_author');
 	$result = lcm_query($q);
 } else {
-	if (count($errors)) {
-    	header("Location: edit_author.php?author=0");
+	if (!empty($_SESSION['errors'])) {
+		header("Location: edit_author.php?author=0");
 		exit;
 	}
 
@@ -218,7 +216,7 @@ if (_session('username') != _session('username_old') || (!  _session('username_o
 include_lcm('inc_contacts');
 update_contacts_request('author', _session('id_author'));
 
-if (count($_SESSION['errors'])) {
+if (!empty($_SESSION['errors'])) {
 	lcm_header("Location: edit_author.php?author=" . _session('id_author'));
 	exit;
 }
@@ -232,8 +230,6 @@ if (_session('ref_edit_author'))
 	$dest_link->addVar('ref', _session('ref_edit_author'));
 
 // Delete session (of form data will become ghosts)
-$_SESSION['form_data'] = array();
+$_SESSION['form_data'] = [];
 
 lcm_header('Location: ' . $dest_link->getUrlForHeader());
-
-?>

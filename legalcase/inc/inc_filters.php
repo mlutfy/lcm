@@ -366,13 +366,13 @@ function show_all_errors() {
 }
 
 // Cleans user input string from 'dangerous' characters
-function clean_input(string $string) {
+function clean_input(?string $string) {
 	// @todo This is sketchy - not good enough for SQLi
 	return addslashes($string);
 }
 
 // Cleans text to be send out
-function clean_output(string $string) {
+function clean_output(?string $string) {
 	return htmlspecialchars($string);
 }
 
@@ -444,8 +444,7 @@ function get_person_initials($item, $with_abbver = true) {
 }
 
 function lcm_unserialize($string) {
-	$tmp = unserialize((get_magic_quotes_runtime() ? stripslashes($string) : $string));
-	return $tmp;
+	return unserialize($string);
 }
 
 function get_fu_description($item, $make_short = true) {

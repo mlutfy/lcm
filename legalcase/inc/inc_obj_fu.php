@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -33,7 +31,7 @@ class LcmFollowup extends LcmObject {
 	// but we must support PHP >= 4.0.
 	var $data; 
 
-	function LcmFollowup($id_fu = 0, $id_case = 0) {
+	function __construct($id_fu = 0, $id_case = 0) {
 		$id_fu = intval($id_fu);
 		$id_case = intval($id_case);
 
@@ -418,8 +416,8 @@ class LcmFollowupInfoUI extends LcmFollowup {
 	var $show_conclusion;
 	var $show_sum_billed;
 
-	function LcmFollowupInfoUI($id_fu = 0) {
-		$this->LcmFollowup($id_fu);
+	function __construct($id_fu = 0) {
+		parent::__construct($id_fu);
 
 		// In printEdit(), whether to show "conclusion" fields
 		$this->show_conclusion = false;
@@ -907,5 +905,3 @@ class LcmFollowupInfoUI extends LcmFollowup {
 		}
 	}
 }
-
-?>

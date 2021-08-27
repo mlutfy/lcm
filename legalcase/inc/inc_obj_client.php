@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -35,12 +33,12 @@ class LcmClient extends LcmObject {
 	var $cases;
 	var $case_start_from;
 
-	function LcmClient($id_client = 0) {
+	function __construct($id_client = 0) {
 		$id_client = intval($id_client);
 		$this->cases = null;
 		$this->case_start_from = 0;
 
-		$this->LcmObject();
+		parent::__construct();
 
 		if ($id_client > 0) {
 			$query = "SELECT * FROM lcm_client WHERE id_client = $id_client";
@@ -600,5 +598,3 @@ class LcmClientInfoUI extends LcmClient {
 		echo "</table>\n";
 	}
 }
-
-?>

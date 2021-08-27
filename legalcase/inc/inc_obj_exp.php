@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -34,7 +32,7 @@ class LcmExpense extends LcmObject {
 	var $comments;
 	var $comment_start_from;
 
-	function LcmExpense($id_expense = 0) {
+	function __construct($id_expense = 0) {
 		$id_expense = intval($id_expense);
 		$this->comments = null;
 		$this->comment_start_from = 0;
@@ -898,5 +896,3 @@ class LcmExpenseListUI {
 		show_listcase_end($this->list_pos, $this->number_of_rows);
 	}
 }
-
-?>
