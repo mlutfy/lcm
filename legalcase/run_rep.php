@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include('inc/inc.php');
@@ -342,7 +340,7 @@ function show_filters_info($report) {
 
 		switch($f['type']) {
 			case 'date_in':
-				$values = split(";", $f['value']);
+				$values = explode(';', $f['value']);
 				echo format_date($values[0], 'short') . " - " . format_date($values[1], 'short');
 				break;
 			case 'date_eq':
@@ -546,7 +544,7 @@ while ($row = lcm_fetch_array($result)) {
 		$report->setOption('do_grouping', 'yes'); // $do_grouping = true;
 	
 	if ($row['enum_type']) {
-		$enum = split(":", $row['enum_type']);
+		$enum = explode(':', $row['enum_type']);
 
 		if ($enum[0] == 'keyword') {
 			if ($enum[1] == 'system_kwg') {
@@ -641,7 +639,7 @@ while ($row = lcm_fetch_array($result)) {
 				lcm_panic("Not yet implemented -" . $enum[1] . "-");
 			}
 		} elseif ($enum[0] == 'list') {
-			$items = split(',', $enum[1]);
+			$items = explode(',', $enum[1]);
 
 			foreach($items as $i) {
 				// XXX should add 'where' clauses only (kwg above too..)
@@ -1180,7 +1178,7 @@ for ($cpt_lines = $cpt_col = 0; $result && ($row = lcm_fetch_array($result)); $c
 				else
 					$q_col .= " WHERE $tmp ";
 
-				$foo = split(" ", $tmp);
+				$foo = explode(' ', $tmp);
 				if (preg_match("/.*GROUP BY.*/", $q_col))
 					$q_col = preg_replace("/GROUP BY.*/", "GROUP BY " . $foo[0], $q_col);
 				else
@@ -1210,7 +1208,7 @@ for ($cpt_lines = $cpt_col = 0; $result && ($row = lcm_fetch_array($result)); $c
 
 			// Translate values based on keywords (ex: fu.type)
 			if ($my_headers[$cpt_col]['enum_type']) {
-				$enum = split(":", $my_headers[$cpt_col]['enum_type']);
+				$enum = explode(':', $my_headers[$cpt_col]['enum_type']);
 
 				if ($enum[0] == 'keyword') {
 					if ($enum[1] == 'system_kwg') {
@@ -1312,6 +1310,3 @@ if ($report->getOption('headers_sent') == 'yes') {
 	
 	lcm_page_end();
 }
-
-
-?>

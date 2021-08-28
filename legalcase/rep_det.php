@@ -151,7 +151,7 @@ function show_report_field_edit($type, $rep_info) {
 				$info = ($type == 'line' ? $obj->getReportLine() : $obj->getReportCol());
 
 				if (substr($info['name'], 0, 4) == 'FOR:') {
-					$choices = split(':', $info['name']);
+					$choices = explode(':', $info['name']);
 					$all_kwgs = get_kwg_all($choices[1], true);
 				} else {
 					lcm_panic("Error in custom report specifications.");

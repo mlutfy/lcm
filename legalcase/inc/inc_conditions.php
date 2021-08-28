@@ -169,7 +169,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 				case 'date_in':
 					// date_in has two values, stored ex: 2005-01-01 00:00:00;2006-02-02 00:00:00
 					$name = ($is_runtime ? "filter_val" . $filter['id_filter'] : 'date');
-					$values = split(";", $filter['value']);
+					$values = explode(';', $filter['value']);
 					
 					echo get_date_inputs($name . '_start', $values[0]);
 					echo "<br />\n";
@@ -197,7 +197,7 @@ function show_report_filters($id_report, $is_runtime = false) {
 								echo "</select>\n";
 							}
 						} elseif ($enum[0] == 'list') {
-							$items = split(",", $enum[1]);
+							$items = explode(',', $enum[1]);
 
 							echo '<select name="' . $name . '">' . "\n";
 							echo '<option value="">' . "..." . "</option>\n"; // TRAD
