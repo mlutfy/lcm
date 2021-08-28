@@ -28,16 +28,15 @@ include_lcm('inc_db');
 include_lcm('inc_contacts');
 
 class LcmCase extends LcmObject {
-	// Note: Since PHP5 we should use "private", and generates a warning,
-	// but we must support PHP >= 4.0.
-	var $followups;
-	var $fu_start_from;
+	private $followups;
+	private $fu_start_from;
 
 	function __construct($id_case = 0) {
-		$id_case = intval($id_case);
-		$this->fu_start_from = 0;
-
 		parent::__construct();
+
+		$id_case = intval($id_case);
+		$this->setDataInt('case', $id_case);
+		$this->fu_start_from = 0;
 
 		if ($id_case > 0) {
 			$query = "SELECT * FROM lcm_case WHERE id_case = $id_case";
@@ -128,7 +127,7 @@ class LcmCase extends LcmObject {
 		if (! ($this->fu_start_from >= 0)) $this->fu_start_from = 0;
 		if (! $prefs['page_rows']) $prefs['page_rows'] = 10; 
 
-		$this->followups = array();
+		$this->followups = [];
 		$this->loadFollowups($this->fu_start_from);
 	}
 
@@ -185,7 +184,7 @@ class LcmCase extends LcmObject {
 	}
 
 	function validate() {
-		$errors = array();
+		$errors = [];
 
 		// * Title must be non-empty
 		if (! $this->getDataString('title')) 
@@ -221,11 +220,11 @@ class LcmCase extends LcmObject {
 		// Custom validation functions
 		//
 		$id_case = $this->getDataInt('id_case');
-		$fields = array('title' => 'CaseTitle',
+		$fields = ['title' => 'CaseTitle',
 					'legal_reason' => 'CaseLegalReason',
 					'alledged_crime' => 'CaseAllegedCrime',
 					'status' => 'CaseStatus',
-					'stage' => 'CaseStage');
+					'stage' => 'CaseStage'];
 
 		foreach ($fields as $f => $func) {
 			if (include_validator_exists($f)) {
@@ -979,8 +978,8 @@ class LcmCaseListUI extends LcmObject {
 		// Sort results
 		//
 
-		$sort_clauses = array();
-		$sort_allow = array('ASC' => 1, 'DESC' => 1);
+		$sort_clauses = [];
+		$sort_allow = ['ASC' => 1, 'DESC' => 1];
 
 		// Sort cases by creation date
 		if ($sort_allow[_request('status_order')])
