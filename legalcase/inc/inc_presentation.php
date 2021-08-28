@@ -529,7 +529,7 @@ function lcm_page_end($credits = '') {
 	echo "<div id=\"footer\">". _T('title_software') ." (". $lcm_version_shown .")<br/> ";
 	echo _T('info_free_software', 
 			array(
-				'distributed' => '<a href="http://www.lcm.ngo-bg.org/" class="prefs_normal_lnk">' . _T('info_free_software1') . '</a>',
+				'distributed' => '<a href="https://github.com/mlutfy/lcm/" class="prefs_normal_lnk">' . _T('info_free_software1') . '</a>',
 				'license' => lcm_help_string('about_license', _T('info_free_software2'))))
 		. "</div>\n";
 

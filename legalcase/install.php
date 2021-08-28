@@ -261,7 +261,7 @@ function install_step_5() {
 	if (_request('getnews') == 'yes')
 		echo '<p align="' . $lcm_lang_left . '">' . _T('install_info_subscribe_may_fail') . "</p>\n";
 
-	echo '<p align="' . $lcm_lang_left . '">' . _T('install_info_more_about_software', array("url" => '<a class="content_link" href="http://www.lcm.ngo-bg.org">www.lcm.ngo-bg.org</a>')) . "</p>\n";
+	echo '<p align="' . $lcm_lang_left . '">' . _T('install_info_more_about_software', array("url" => '<a class="content_link" href="https://github.com/mlutfy/lcm/">github.com/mlutfy/lcm</a>')) . "</p>\n";
 	echo "</div>\n";
 
 	echo "<form action='index.php' method='post'>\n";
