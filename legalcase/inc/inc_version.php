@@ -897,8 +897,9 @@ function _Tkw($grp, $val, $args = '') {
 
 include_lcm('inc_filters');
 function _request ($name, $default = '') {
-	if (! isset($_REQUEST[$name]))
+	if (! isset($_REQUEST[$name])) {
 		return $default;
+	}
 
 	if (is_array($_REQUEST[$name])) {
 		// TODO: recursively clean all array items ?
@@ -910,7 +911,6 @@ function _request ($name, $default = '') {
 
 		return $ret;
 	}
-
 	if (is_string($_REQUEST[$name])) {
 		if ($v = trim($_REQUEST[$name])) {
 			return clean_input($v);

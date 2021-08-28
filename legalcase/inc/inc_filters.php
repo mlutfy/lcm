@@ -376,7 +376,7 @@ function clean_input($input) {
 		return $clean;
 	}
 
-	return addslashes($string);
+	return addslashes($input);
 }
 
 // Cleans text to be send out

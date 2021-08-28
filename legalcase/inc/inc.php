@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include ('inc/inc_version.php');
@@ -163,13 +161,9 @@ if ($installed_db_version < $lcm_db_version) {
 	exit;
 }
 
-
 // Fetch the administration cookie
 // [ML] Where is this used and why? :-)
 if (isset($_COOKIE['lcm_admin']))
 	$cookie_admin = $_COOKIE['lcm_admin'];
 else
 	$cookie_admin = "";
-
-
-?>
