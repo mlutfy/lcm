@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along 
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 // Execute this file only once
@@ -366,8 +364,18 @@ function show_all_errors() {
 }
 
 // Cleans user input string from 'dangerous' characters
-function clean_input(?string $string) {
-	// @todo This is sketchy - not good enough for SQLi
+// @todo This is sketchy - not good enough for SQLi
+function clean_input($input) {
+	if (is_array($input)) {
+		$clean = [];
+
+		foreach ($input as $key => $val) {
+			$clean[$key] = clean_input($val);
+		}
+
+		return $clean;
+	}
+
 	return addslashes($string);
 }
 
