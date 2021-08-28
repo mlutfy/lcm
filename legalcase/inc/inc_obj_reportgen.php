@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include_lcm('inc_obj_generic');
@@ -48,16 +46,16 @@ class LcmReportGen extends LcmObject {
 		$this->line_key_field = '';
 
 		$this->query = '';
-		$this->where = array();
-		$this->lines = array();
-		$this->columns = array();
-		$this->headers = array();
-		$this->totals = array();
-		$this->specials = array();
+		$this->where = [];
+		$this->lines = [];
+		$this->columns = [];
+		$this->headers = [];
+		$this->totals = [];
+		$this->specials = [];
 		$this->special_count = 0;
 		
-		$this->options = array();
-		$this->journal = array();
+		$this->options = [];
+		$this->journal = [];
 		$this->debug = $my_debug;
 
 		$this->line_count = 0;
@@ -194,13 +192,13 @@ class LcmReportGen extends LcmObject {
 	}
 
 	function addHeader($description, $filter = '', $enum_type = '', $filter_special = '', $field_name = '') {
-		$h = array(
+		$h = [
 				'description' => $description,
 				'filter' => $filter, 
 				'enum_type' => $enum_type,
 				'filter_special' => $filter_special,
 				'field_name' => $field_name
-			);
+			];
 
 		array_push($this->headers, $h);
 
@@ -314,7 +312,7 @@ class LcmReportGenUI extends LcmReportGen {
 		$this->exporter->printHeaderValueEnd();
 	}
 
-	function printValue($val, $h = array(), $css = '') {
+	function printValue($val, $h = [], $css = '') {
 		// TODO: Some preprocessing on the headers should be done 
 		// here instead of in $exporter->printValue()
 

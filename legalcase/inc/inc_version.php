@@ -912,9 +912,8 @@ function _request ($name, $default = '') {
 	}
 
 	if (is_string($_REQUEST[$name])) {
-		// @todo input validation?
 		if ($v = trim($_REQUEST[$name])) {
-			return $v;
+			return clean_input($v);
 		}
 		return $default;
 	}
