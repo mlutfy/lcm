@@ -392,7 +392,7 @@ class LcmCase extends LcmObject {
 
 class LcmCaseInfoUI extends LcmCase {
 	function LcmCaseInfoUI($id_case = 0) {
-		$this->LcmCase($id_case);
+		parent::__construct($id_case);
 	}
 
 	function printGeneral($show_subtitle = true, $allow_edit = true) {
@@ -878,7 +878,7 @@ class LcmCaseListUI extends LcmObject {
 	var $date_end;
 
 	function LcmCaseListUI() {
-		$this->LcmObject();
+		parent::__construct();
 
 		$this->search = '';
 		$this->date_start = '';

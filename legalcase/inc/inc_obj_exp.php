@@ -37,7 +37,7 @@ class LcmExpense extends LcmObject {
 		$this->comments = null;
 		$this->comment_start_from = 0;
 
-		$this->LcmObject();
+		parent::__construct();
 
 		if ($id_expense > 0) {
 			$query = "SELECT e.*, a.name_first, a.name_middle, a.name_last, c.title as case_title
@@ -293,7 +293,7 @@ class LcmExpense extends LcmObject {
 
 class LcmExpenseInfoUI extends LcmExpense {
 	function LcmExpenseInfoUI($id_expense = 0) {
-		$this->LcmExpense($id_expense);
+		parent::__construct($id_expense);
 	}
 
 	function printGeneral($full_ui = true) {
@@ -507,7 +507,7 @@ class LcmExpenseComment extends LcmObject {
 		$id_expense = intval($id_expense);
 		$id_comment = intval($id_comment);
 
-		$this->LcmObject();
+		parent::__construct();
 
 		if ($id_comment > 0) {
 			$query = "SELECT ec.*, ec.id_expense, a.name_first, a.name_middle, a.name_last
@@ -608,7 +608,7 @@ class LcmExpenseComment extends LcmObject {
 
 class LcmExpenseCommentInfoUI extends LcmExpenseComment {
 	function LcmExpenseCommentInfoUI($id_expense, $id_comment = 0) {
-		$this->LcmExpenseComment($id_expense, $id_comment);
+		parent::__construct($id_expense, $id_comment);
 	}
 
 	function getPerson() {

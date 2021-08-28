@@ -249,7 +249,7 @@ class LcmOrg extends LcmObject {
 
 class LcmOrgInfoUI extends LcmOrg {
 	function LcmOrgInfoUI($id_org = 0) {
-		$this->LcmOrg($id_org);
+		parent::__construct($id_org);
 	}
 
 	function printGeneral($show_subtitle = true) {

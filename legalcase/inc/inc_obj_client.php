@@ -320,7 +320,7 @@ class LcmClient extends LcmObject {
 
 class LcmClientInfoUI extends LcmClient {
 	function LcmClientInfoUI($id_client = 0) {
-		$this->LcmClient($id_client);
+		parent::__construct($id_client);
 	}
 
 	function printGeneral($show_subtitle = true) {
