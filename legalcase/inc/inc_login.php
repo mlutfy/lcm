@@ -188,7 +188,7 @@ function show_login($cible, $prive = 'prive', $message_login='') {
 		$flag_challenge_md5 = true;
 
 		if ($flag_challenge_md5)
-			echo '<script type="text/javascript" src="inc/md5.js"></script>';
+			echo '<script type="text/javascript" src="js/md5.js"></script>';
 
 		echo "\n";
 		echo '<form name="form_login" action="lcm_cookie.php" method="post"';

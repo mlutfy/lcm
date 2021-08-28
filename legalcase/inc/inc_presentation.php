@@ -198,7 +198,7 @@ function lcm_html_start($title = "AUTO", $css_files = "", $meta = '') {
 	echo '<link rel="alternate stylesheet" type="text/css" href="styles/lcm_opt_largefonts.css" title="large_font" />' . "\n";
 	
 	echo "<link rel=\"shortcut icon\" type=\"image/ico\" href=\"images/lcm/favicon.ico\" />\n";
-	echo "<script type=\"text/javascript\" language=\"JavaScript\" src=\"inc/liveUpdater.js\"></script>\n";
+	echo "<script type=\"text/javascript\" language=\"JavaScript\" src=\"js/liveUpdater.js\"></script>\n";
 	echo "</head>\n";
 
 	// right-to-left (Arabic, Hebrew, Farsi, etc. -- even if not supported at the moment)
