@@ -89,7 +89,6 @@ function export($type, $format, $search = '') {
 		header("Content-Disposition: filename=$type.$format");
 		header("Content-Description: " . "Export of {$type}s");
 		header("Content-Transfer-Encoding: binary");
-//		echo ( get_magic_quotes_runtime() ? stripslashes($row['content']) : $row['content'] );
 
 		// Document start
 		switch ($format) {
@@ -114,8 +113,6 @@ function export($type, $format, $search = '') {
 			// Prepare row fields
 			$fields = array();
 			foreach($row as $key => $value) {
-				// Remove escaping if any
-				$value = ( get_magic_quotes_runtime() ? stripslashes($value) : $value );
 				switch ($format) {
 					case 'csv' :
 						if (is_string($value)) {

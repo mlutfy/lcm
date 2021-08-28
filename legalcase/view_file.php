@@ -83,6 +83,4 @@ header("Content-Type: " . ($row['type'] ? $row['type'] : "application/octet-stre
 header("Content-Disposition: filename=" . $row['filename']);
 header("Content-Description: " . $row['description']);
 header("Content-Transfer-Encoding: binary");
-echo ( get_magic_quotes_runtime() ? stripslashes($row['content']) : $row['content'] );
-
-?>
+echo $row['content'];
