@@ -182,17 +182,8 @@ function create_uniq_id() {
 
 	$s = mt_rand();
 	if (!$s) $s = rand();
-	if ($GLOBALS['flag_uniqid2'])
-		return uniqid($s, 1);
-	else
-		return uniqid($s);
+	return uniqid($s, true);
 }
-
-function creer_uniqid() {
-	lcm_log("Call to deprecated function creer_uniqid(), use create_uniq_id() instead");
-	return create_uniq_id();
-}
-
 
 //
 // This function deletes all the sessions belonging to the author.

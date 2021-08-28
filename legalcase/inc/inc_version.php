@@ -275,8 +275,6 @@ if (preg_match('/([0-9]+)/', $php_version[2], $match)) {
 	$php_version_min = intval($match[1]);
 }
 
-$flag_levenshtein = ($php_version_maj >= 4);
-$flag_uniqid2 = ($php_version_maj > 3 OR $php_version_min >= 13);
 $flag_get_cfg_var = (@get_cfg_var('error_reporting') != "");
 $flag_strtr2 = ($php_version_maj > 3);
 
@@ -288,7 +286,6 @@ $flag_ob = ($flag_ini_get
 	&& function_exists("ob_start"));
 $flag_obgz = ($flag_ob && function_exists("ob_gzhandler"));
 $flag_pcre = function_exists("preg_replace");
-$flag_crypt = function_exists("crypt");
 $flag_wordwrap = function_exists("wordwrap");
 $flag_apc = function_exists("apc_rm");
 $flag_sapi_name = function_exists("php_sapi_name");
@@ -300,7 +297,6 @@ $flag_ImageCopyResampled = function_exists("ImageCopyResampled");
 $flag_ImageGif = function_exists("ImageGif");
 $flag_ImageJpeg = function_exists("ImageJpeg");
 $flag_ImagePng = function_exists("ImagePng");
-$flag_imagick = function_exists("imagick_readimage");	// http://pear.sourceforge.net/en/packages.imagick.php
 $flag_multibyte = function_exists("mb_encode_mimeheader");
 $flag_iconv = function_exists("iconv");
 $flag_strtotime = function_exists("strtotime");

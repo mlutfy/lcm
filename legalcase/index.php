@@ -20,5 +20,3 @@
 */
 
 include ("listcases.php");
-
-?>
