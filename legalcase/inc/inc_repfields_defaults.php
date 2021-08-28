@@ -360,4 +360,3 @@ function create_repfields($rep_fields) {
 		}
 	}
 }
-

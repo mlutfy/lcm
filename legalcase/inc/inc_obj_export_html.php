@@ -99,5 +99,3 @@ class LcmExportHtml /* extends LcmExportObject */ {
 		// nothing
 	}
 }
-
-?>

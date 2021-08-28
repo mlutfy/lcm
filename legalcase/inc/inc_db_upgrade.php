@@ -1307,5 +1307,3 @@ function upgrade_database($old_db_version) {
 	lcm_log("LCM database upgrade complete", 'upgrade');
 	return $log;
 }
-
-?>

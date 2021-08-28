@@ -41,7 +41,7 @@ function create_database() {
 
 	lcm_log("creating the SQL tables", 'install');
 
-	$fields = array (
+	lcm_query_create_table('lcm_case', [
 		"id_case bigint(21) NOT NULL auto_increment",
 		"id_stage bigint(21) NOT NULL",
 		"title text NOT NULL",
@@ -56,9 +56,7 @@ function create_database() {
 		"public tinyint(1) DEFAULT 0 NOT NULL",
 		"pub_write tinyint(1) DEFAULT 0 NOT NULL",
 		"PRIMARY KEY (id_case)"
-	);
-
-	lcm_query_create_table('lcm_case', $fields);
+	]);
 
 
 	$fields = array (
@@ -141,7 +139,7 @@ function create_database() {
 		"name_last text",
 		"date_creation datetime NOT NULL",
 		"date_update datetime NOT NULL",
-		"username VARCHAR(255) NOT NULL", /* [ML] 0.7.0 removed 'BINARY', I see no use for it */
+		"username VARCHAR(255) NOT NULL",
 		"password tinytext NOT NULL",
 		"lang VARCHAR(10) DEFAULT 'en' NOT NULL",
 		"prefs text",
@@ -357,8 +355,7 @@ function create_database() {
 	lcm_query_create_table('lcm_keyword_group', $fields);
 	lcm_query_create_unique_index('lcm_keyword_group', 'idx_kwg_name', 'name');
 
-
-	$fields = array (
+	lcm_query_create_table('lcm_report', [
 		"id_report bigint(21) NOT NULL auto_increment",
 		"title varchar(255) NOT NULL",
 		"description text",
@@ -372,13 +369,10 @@ function create_database() {
 		"col_src_name text",
 		"filecustom text",
 		"PRIMARY KEY  (id_report)"
-	);
-
-	lcm_query_create_table('lcm_report', $fields);
-
+	]);
 
 	// XXX maybe double-check whether default values are necessary
-	$fields = array (
+	lcm_query_create_table('lcm_fields', [
 		"id_field bigint(21) NOT NULL auto_increment",
 		"table_name varchar(255) NOT NULL DEFAULT ''",
 		"field_name varchar(255) NOT NULL DEFAULT ''",
@@ -386,13 +380,10 @@ function create_database() {
 		"filter ENUM('none','date','number','text','currency') NOT NULL DEFAULT 'none'",
 		"enum_type text",
 		"PRIMARY KEY  (id_field)"
-	);
-
-	lcm_query_create_table('lcm_fields', $fields);
-
+	]);
 
 	// XXX we can drop this table
-	$fields = array (
+	lcm_query_create_table('lcm_filter', [
 		"id_filter bigint(21) NOT NULL auto_increment",
 		"title varchar(255) NOT NULL",
 		"type ENUM('AND','OR') NOT NULL DEFAULT 'AND'",
@@ -400,9 +391,7 @@ function create_database() {
 		"date_creation datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
 		"date_update datetime DEFAULT '0000-00-00 00:00:00' NOT NULL",
 		"PRIMARY KEY  (id_filter)"
-	);
-
-	lcm_query_create_table('lcm_filter', $fields);
+	]);
 
 
 	$fields = array (
@@ -429,7 +418,6 @@ function create_database() {
 
 	lcm_query_create_table('lcm_app', $fields, $keys);
 
-
 	$fields = array (
 		"id_expense bigint(21) NOT NULL auto_increment",
 		"id_case bigint(21) NOT NULL DEFAULT 0",
@@ -454,8 +442,7 @@ function create_database() {
 
 	lcm_query_create_table("lcm_expense", $fields, $keys);
 
-
-	$fields = array (
+	lcm_query_create_table("lcm_expense_comment", [
 		"id_comment bigint(21) NOT NULL auto_increment",
 		"id_expense bigint(21) NOT NULL",
 		"id_author bigint(21) NOT NULL",
@@ -463,9 +450,7 @@ function create_database() {
 		"date_update datetime NOT NULL",
 		"comment text",
 		"PRIMARY KEY  (id_comment)"
-	);
-
-	lcm_query_create_table("lcm_expense_comment", $fields);
+	]);
 
 	//
 	// Relations
@@ -657,5 +642,3 @@ function create_database() {
 	lcm_log("LCM database initialisation complete", 'install');
 	return $log;
 }
-
-?>

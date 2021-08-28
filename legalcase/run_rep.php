@@ -468,8 +468,7 @@ if ($author_session['status'] != 'admin') {
 	exit;
 }
 
-
-$_SESSION['errors'] = array();
+$_SESSION['errors'] = [];
 $rep = intval(_request('rep', 0));
 
 if (! $rep) {
@@ -504,7 +503,7 @@ if ($rep_info['filecustom']) {
 }
 
 $report->printStartDoc($rep_info['title'], $rep_info['description'], 'report_intro');
-	
+
 if ($rep_info['line_src_type'] == 'table')
 	$my_line_table = "lcm_" . $rep_info['line_src_name'];
 else

@@ -102,7 +102,7 @@ class LcmReportGen extends LcmObject {
 	}
 
 	function addLine($string) {
-		array_push($this->lines, $string);
+		$this->lines[] = $string;
 
 		if ($this->debug)
 			$this->journal[] = lcm_getbacktrace();
@@ -133,8 +133,9 @@ class LcmReportGen extends LcmObject {
 				// $do_grouping = true;
 		}
 		
-		if (count($this->getLines()))
+		if (!empty($this->getLines())) {
 			return;
+		}
 
 		//
 		// No fields were specified: show them all (avoids errors)

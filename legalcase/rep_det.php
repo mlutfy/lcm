@@ -313,6 +313,4 @@ echo "</fieldset>\n";
 lcm_page_end();
 
 // Clear errors
-$_SESSION['errors'] = array();
-
-?>
+$_SESSION['errors'] = [];

@@ -17,8 +17,6 @@
 	You should have received a copy of the GNU General Public License along
 	with this program; if not, write to the Free Software Foundation, Inc.,
 	59 Temple Place, Suite 330, Boston, MA  02111-1307, USA
-
-	$Id$
 */
 
 include('inc/inc.php');
@@ -278,5 +276,3 @@ if (_request('filecustom')) {
 }
 
 lcm_header("Location: rep_det.php?rep=" . $rep . $ref_tag);
-
-?>
