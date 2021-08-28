@@ -338,7 +338,7 @@ function spip_fetch_object($r) {
 
 function lcm_fetch_row($r) {
 	if ($r)
-		return mysql_fetch_row($r);
+		return mysqli_fetch_row($r);
 }
 
 function spip_fetch_row($r) {
