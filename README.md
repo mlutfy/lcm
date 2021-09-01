@@ -7,6 +7,13 @@ also: software overview). LCM is distributed as free software under the terms
 of the GNU General Public License (GPL), either version 2 of the License, or
 (at your option) any later version. See the LICENSE.md file for more information.
 
+LCM is minimally maintained. The project was created in 2004 and active development
+stopped around 2008 (see History below). However, since there are quite a few
+organisations still using it, we are happy to provide minimal bugfix support for
+newer PHP versions. New features are very unlikely, however.
+
+PHP8 support was added thanks to Sestino Barone (SestinoBarone.com).
+
 ## Requirements
 
 * PHP: The latest release is tested on PHP 8.0 and should work with PHP 7.0 and later.
@@ -63,6 +70,8 @@ The project was initially made possible with the financial support of the Inform
 Program of the Open Society Institute (OSI, www.soros.org), and with the
 collaboration of the Law Program of the Bulgarian Open Society Institute
 (OSI-bg, www.osi.bg).
+
+In 2021, PHP8 support was added thanks to Sestino Barone (SestinoBarone.com).
 
 The main contributors to the project are:
 
