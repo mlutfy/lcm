@@ -238,7 +238,7 @@ if (@file_exists('inc/my_options.php')) {
 }
 
 // Current version of LCM
-$lcm_version = 0.730;
+$lcm_version = 0.800;
 
 // Current version of LCM shown on screen
 $lcm_version_shown = "0.8.0";
