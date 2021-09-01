@@ -534,7 +534,6 @@ function install_step_3() {
 		install_html_end();
 	} else {
 		// Everything OK
-
 		$conn = '<' . '?php' . "\n";
 		$conn .= "if (defined('_CONFIG_INC_CONNECT')) return;\n";
 		$conn .= "define('_CONFIG_INC_CONNECT', '1');\n";
@@ -542,7 +541,6 @@ function install_step_3() {
 		$conn .= "include_lcm('inc_db');\n";
 		$conn .= "@lcm_connect_db('$db_address','','$db_login','$db_password','$sel_db');\n";
 		$conn .= "\$GLOBALS['db_ok'] = !!@lcm_num_rows(@lcm_query_db('SELECT COUNT(*) FROM lcm_meta'));\n";
-		$conn .= '?'.'>';
 
 		$lcm_config_prefix = (isset($_SERVER['LcmConfigDir']) ?  $_SERVER['LcmConfigDir'] : 'inc/config');
 		$myFile = fopen($lcm_config_prefix . '/inc_connect_install.php', 'wb');
