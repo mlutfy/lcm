@@ -172,16 +172,9 @@ function include_custom_report($file) {
 // c.f. http://www.php.net/manual/en/ref.datetime.php#ini.date.timezone
 if (function_exists("date_default_timezone_get")) {
 	if (! ($tz = date_default_timezone_get())) {
-		lcm_log("PHP variable date.timezone not set. Falling back on UCT");
+		lcm_log("PHP variable date.timezone not set. Falling back on UTC");
 		lcm_log("For more info, see http://www.php.net/manual/en/ref.datetime.php#ini.date.timezone");
-
-		date_default_timezone_set("UCT");
-	} else {
-		if (! date_default_timezone_set($tz)) {
-			lcm_log("Problem setting tz = $tz, falling back on UCT");
-			lcm_log("For more info, see http://www.php.net/manual/en/ref.datetime.php#ini.date.timezone");
-			date_default_timezone_set("UCT");
-		}
+		date_default_timezone_set('UTC');
 	}
 }
 

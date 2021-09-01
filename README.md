@@ -40,6 +40,18 @@ log, inc/config and inc/data:
 Access to this directory from your Web browser: <http://localhost/legalcase/> 
 and follow the instructions from the installation assistant.
 
+LCM relies on the timezone set by PHP:  
+https://www.php.net/manual/en/datetime.configuration.php#ini.date.timezone
+
+If you cannot change the setting, we recommend adding this at the end of the `inc/config/inc_connect.php` file:
+
+```
+date_default_timezone_set('America/New_York');
+```
+
+You can find a full list of supported timezones here:  
+https://www.php.net/manual/en/timezones.php
+
 ## History
 
 The Legal Case Management project was initiated by the Internet Rights Bulgaria
